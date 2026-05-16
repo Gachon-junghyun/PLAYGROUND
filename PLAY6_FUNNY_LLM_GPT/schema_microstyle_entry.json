@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Korean Microstyle Entry",
+  "type": "object",
+  "required": [
+    "entry_id",
+    "entry_type",
+    "utterance",
+    "context",
+    "social_function",
+    "style_devices",
+    "usable_when",
+    "avoid_when",
+    "rewrite_templates",
+    "source"
+  ],
+  "properties": {
+    "entry_id": { "type": "string" },
+    "entry_type": {
+      "type": "string",
+      "enum": ["micro_reaction", "humor_device", "social_judgment", "conversation_move", "principle"]
+    },
+    "utterance": { "type": "string" },
+    "context": { "type": "string" },
+    "social_function": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["위로", "동의", "받아치기", "정정", "수습", "대화유지", "긴장완화"]
+      }
+    },
+    "style_devices": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["묘사", "반전", "회수", "완곡화", "과장", "능청", "질문", "수습"]
+      }
+    },
+    "usable_when": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "avoid_when": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "rewrite_templates": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "quality_notes": { "type": "string" },
+    "source": {
+      "type": "object",
+      "required": ["candidate_id", "source_path", "line_number"],
+      "properties": {
+        "candidate_id": { "type": "string" },
+        "source_path": { "type": "string" },
+        "line_number": { "type": "integer" },
+        "score": { "type": "integer" }
+      }
+    }
+  }
+}

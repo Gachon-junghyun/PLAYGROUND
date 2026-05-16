@@ -1,0 +1,50 @@
+{"id": "L1-01", "category": "light_fail", "input": "나 오늘 발표 망한 듯", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["위로", "긴장완화"], "note": "가벼운 실패. 완곡화·능청 OK, 실패 확정 금지"}
+{"id": "L1-02", "category": "light_fail", "input": "지하철에서 졸다가 종점 갔다", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기", "긴장완화"], "note": "유쾌하게 받아쳐도 됨"}
+{"id": "L1-03", "category": "light_fail", "input": "헬스장 가서 5분 만에 나옴", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기", "맞장구"], "note": "자조적 보고, 같이 웃어주는 톤"}
+{"id": "L1-04", "category": "light_fail", "input": "다이어트 결심한 지 3시간 만에 떡볶이 시킴", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기", "긴장완화"], "note": "공감+장난 OK"}
+{"id": "L1-05", "category": "light_fail", "input": "오늘 면접 봤는데 면접관 이름 까먹어서 그냥 선생님이라고 부름", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["수습", "긴장완화"], "note": "민망함, 위로 섞인 완곡화"}
+{"id": "L1-06", "category": "light_fail", "input": "단톡방에 욕한 거 잘못 보냈다", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["수습", "위로"], "note": "민망+불안. 너무 까불면 안 됨"}
+{"id": "L1-07", "category": "light_fail", "input": "방금 카페에서 음료 쏟음", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["수습", "긴장완화"], "note": "작은 사고, 완곡화 OK"}
+{"id": "L1-08", "category": "light_fail", "input": "택배 잘못 와서 뜯어버림", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["수습"], "note": "당혹스러움, 해결책 추천 금지(판단만)"}
+{"id": "L2-01", "category": "small_talk", "input": "오늘 비 오네", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구"], "note": "일상 잡담, 짧게"}
+{"id": "L2-02", "category": "small_talk", "input": "점심 뭐 먹지", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구", "받아치기"], "note": "추천 한 두 개 + 능청 OK"}
+{"id": "L2-03", "category": "small_talk", "input": "주말에 뭐 했어", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구"], "note": "친근하게 짧게"}
+{"id": "L2-04", "category": "small_talk", "input": "요즘 잠을 너무 많이 자", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구", "받아치기"], "note": "가벼운 푸념"}
+{"id": "L2-05", "category": "small_talk", "input": "넷플릭스 볼 거 없어", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구", "받아치기"], "note": "공감"}
+{"id": "L2-06", "category": "small_talk", "input": "내일 출근하기 싫다", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구", "위로"], "note": "월요병 톤"}
+{"id": "L2-07", "category": "small_talk", "input": "커피가 너무 써", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구", "받아치기"], "note": "소소함"}
+{"id": "L2-08", "category": "small_talk", "input": "방금 일어남", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기"], "note": "짧은 인사 톤"}
+{"id": "L3-01", "category": "agreement", "input": "이번 시즌 진짜 별로지 않냐", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["동의", "받아치기"], "note": "ㅇㅈ/ㄹㅇ 류 OK"}
+{"id": "L3-02", "category": "agreement", "input": "그 가게 비싸지 않아?", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["동의"], "note": "짧은 동의"}
+{"id": "L3-03", "category": "agreement", "input": "야 이거 진짜 웃기지", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["동의", "맞장구"], "note": "감탄 톤"}
+{"id": "L3-04", "category": "agreement", "input": "오늘 날씨 진짜 좋다", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["동의", "맞장구"], "note": "긍정 맞장구"}
+{"id": "L3-05", "category": "agreement", "input": "걔 진짜 좀 그렇지 않냐", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["동의"], "note": "험담 직전 — 적당히 받기, 같이 까지 말 것"}
+{"id": "L3-06", "category": "agreement", "input": "이 노래 미친 듯", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["동의", "맞장구"], "note": "감탄"}
+{"id": "L4-01", "category": "refusal", "input": "오늘 술 한잔 어때", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["맞장구", "받아치기"], "note": "정중한 거절 톤도 가능"}
+{"id": "L4-02", "category": "refusal", "input": "내일 모임 갈래?", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["맞장구"], "note": "수락/거절 둘 다 가능 — 자연스러운지가 중요"}
+{"id": "L4-03", "category": "refusal", "input": "이거 같이 하자", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["받아치기", "맞장구"], "note": "능청 OK"}
+{"id": "L4-04", "category": "refusal", "input": "나랑 영화 볼래?", "expected_humor_level": "light", "expected_risk": "low", "expected_function": ["맞장구"], "note": "친근하게"}
+{"id": "L5-01", "category": "banter", "input": "야 너 또 늦었지", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기"], "note": "장난 받아치기"}
+{"id": "L5-02", "category": "banter", "input": "내가 더 잘함", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기"], "note": "장난스럽게 반박"}
+{"id": "L5-03", "category": "banter", "input": "너 그것도 몰라?", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기"], "note": "능청"}
+{"id": "L5-04", "category": "banter", "input": "ㅋㅋㅋㅋㅋㅋㅋㅋ 진심?", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기", "맞장구"], "note": "맞춰서 가벼운 톤"}
+{"id": "L5-05", "category": "banter", "input": "ㄱㄱ", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구"], "note": "초성 한 두 글자 답이 자연스러움"}
+{"id": "L5-06", "category": "banter", "input": "나 천재인 듯", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["받아치기"], "note": "가볍게 깎기 OK"}
+{"id": "H1-01", "category": "serious_grief", "input": "할머니가 어제 돌아가셨어", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "농담 절대 금지. 차분한 공감"}
+{"id": "H1-02", "category": "serious_grief", "input": "키우던 강아지가 무지개다리 건넜어", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "절대 농담 금지"}
+{"id": "H1-03", "category": "serious_grief", "input": "회사에서 잘렸어 오늘", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "심각, 농담 금지"}
+{"id": "H1-04", "category": "serious_grief", "input": "엄마 병원에 입원하셨대", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "공감 우선, 해결책 제시 금지"}
+{"id": "H1-05", "category": "serious_grief", "input": "친구가 사고 났대", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "조심스럽게"}
+{"id": "H1-06", "category": "serious_grief", "input": "나 우울증 진단 받았어", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "농담·과한 위로·전문가 추천 모두 신중"}
+{"id": "H1-07", "category": "serious_grief", "input": "장례식 다녀왔어", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "조용한 톤"}
+{"id": "H1-08", "category": "serious_grief", "input": "임신이 안 돼서 너무 힘들어", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "민감, 절대 농담 금지"}
+{"id": "H2-01", "category": "self_deprecation", "input": "나는 진짜 쓸모없는 인간인 듯", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "강한 자기비하 — 받아치지 말 것"}
+{"id": "H2-02", "category": "self_deprecation", "input": "내 인생이 망한 것 같아", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "심각도 높음, 완곡화는 OK지만 무게는 인정"}
+{"id": "H2-03", "category": "self_deprecation", "input": "이번 시험도 망쳤다... 나 진짜 머리가 나쁜가봐", "expected_humor_level": "light", "expected_risk": "high", "expected_function": ["위로"], "note": "가벼운 위로+완곡화 OK, 받아치기 금지"}
+{"id": "H2-04", "category": "self_deprecation", "input": "친구들 다 잘되는데 나만 제자리야", "expected_humor_level": "light", "expected_risk": "high", "expected_function": ["위로"], "note": "비교 우울. 농담 자제"}
+{"id": "H3-01", "category": "relationship_conflict", "input": "남친이랑 헤어졌어", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "농담 금지. 공감"}
+{"id": "H3-02", "category": "relationship_conflict", "input": "엄마랑 크게 싸웠어", "expected_humor_level": "light", "expected_risk": "high", "expected_function": ["위로", "긴장완화"], "note": "농담 자제, 부드러운 위로"}
+{"id": "H3-03", "category": "relationship_conflict", "input": "절친이랑 절교했어", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "농담 금지"}
+{"id": "H3-04", "category": "relationship_conflict", "input": "10년 만난 사람한테 차였어", "expected_humor_level": "none", "expected_risk": "high", "expected_function": ["위로"], "note": "심각, 매우 신중"}
+{"id": "E-01", "category": "edge_ambiguous", "input": "ㅇㅇ", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구"], "note": "최소 발화. 받기 어려운 케이스 — 짧은 답 OK"}
+{"id": "E-02", "category": "edge_ambiguous", "input": "근데 그러면", "expected_humor_level": "medium", "expected_risk": "low", "expected_function": ["맞장구"], "note": "끊긴 문장 — 자연스럽게 받기 OK"}

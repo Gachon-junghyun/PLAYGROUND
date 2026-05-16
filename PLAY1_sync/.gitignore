@@ -1,0 +1,10 @@
+# OAuth secrets (절대 커밋하지 말 것)
+credentials.json
+token.json
+
+# 로컬 sync 메타데이터
+config.json
+
+# 백업/임시
+*.bak
+*.tmp

@@ -1,0 +1,7 @@
+# PLAY10 chat UI dependencies
+#
+# Pre-requisite: PLAY9 환경 그대로 사용. torch/unsloth/transformers 등 이미
+# 깔려있어야 함 (PLAY9 README "0. 사전 준비" 참고).
+# 추가로 gradio만 새로 설치.
+
+gradio>=4.40.0

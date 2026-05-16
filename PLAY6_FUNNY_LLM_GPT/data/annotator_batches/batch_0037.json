@@ -1,0 +1,1587 @@
+{
+  "batch_id": "batch_0037",
+  "system_prompt": "# Microstyle Annotator Prompt\n\n너는 한국어 대화의 \"말맛\"을 데이터베이스로 정리하는 annotator다.\n\n목표는 원문 문장을 그대로 외우는 데이터셋이 아니다. 전사 chunk에서 다음을 뽑아야 한다.\n\n- 어떤 상황에서 작동하는 말인지\n- 사회적 기능이 무엇인지\n- 재미나 센스를 만드는 장치가 무엇인지\n- 언제 쓰면 안 되는지\n- 같은 기능을 하는 새 문장 템플릿은 무엇인지\n\n## 출력 형식\n\nJSON 하나만 출력한다.\n\n```json\n{\n  \"entry_type\": \"micro_reaction\",\n  \"utterance\": \"핵심 발화 또는 요약\",\n  \"context\": \"이 발화가 작동하는 상황\",\n  \"social_function\": [\"대화유지\"],\n  \"style_devices\": [\"질문\", \"능청\"],\n  \"usable_when\": [\"가벼운 농담을 받아칠 때\"],\n  \"avoid_when\": [\"상대가 진지하게 사과하는 상황\"],\n  \"rewrite_templates\": [\n    \"아 이거 지금 살짝 이상한데?\",\n    \"잠깐만, 이 흐름 뭐지?\"\n  ],\n  \"quality_notes\": \"원문이 자동 전사라 어색한 부분은 의미 중심으로 보정했다.\"\n}\n```\n\n## 라벨 가이드\n\n- `entry_type`: `micro_reaction`, `humor_device`, `social_judgment`, `conversation_move`, `principle` 중 하나.\n- `social_function`: `위로`, `동의`, `받아치기`, `정정`, `수습`, `대화유지`, `긴장완화` 중 필요한 것만.\n- `style_devices`: `묘사`, `반전`, `회수`, `완곡화`, `과장`, `능청`, `질문`, `수습` 중 필요한 것만.\n- `rewrite_templates`: 원문을 베끼지 말고, 같은 기능의 새 한국어 구어체 문장으로 만든다.\n\n## 주의\n\n- 심각한 실패, 상실, 사과, 건강, 돈 문제에서는 유머를 줄인다.\n- 저작권 문제가 생기지 않게 원문 긴 문장을 그대로 복사하지 않는다.\n- 자동 전사 오류가 있으면 자연스러운 한국어로 의미만 복구한다.\n",
+  "tasks": [
+    {
+      "task_id": "task_f9d061bffc5f",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_f9d061bffc5f",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 149
+      },
+      "input": {
+        "context_before": [
+          "네, 어쩌다 보니",
+          "하긴 뭐",
+          "저도 지금 4학년인데"
+        ],
+        "utterance": "이게 뭐 하고 있는 건지",
+        "context_after": [
+          "모르겠네요",
+          "가치관이 서로 다른",
+          "두 사람을"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_98de3f9f4e24",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_98de3f9f4e24",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 150
+      },
+      "input": {
+        "context_before": [
+          "하긴 뭐",
+          "저도 지금 4학년인데",
+          "이게 뭐 하고 있는 건지"
+        ],
+        "utterance": "모르겠네요",
+        "context_after": [
+          "가치관이 서로 다른",
+          "두 사람을",
+          "하나로 연결시켜주는"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_d430af2a78b4",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_d430af2a78b4",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 167
+      },
+      "input": {
+        "context_before": [
+          "네, 진짜 너무 잘 봤어요",
+          "근데 생각해보니까",
+          "저한테 이런 시간이"
+        ],
+        "utterance": "좀 필요했던 거 같아요",
+        "context_after": [
+          "뭐랄까",
+          "현실에서 좀 벗어나는 시간?",
+          "그쵸"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "high"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_470463f10c33",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_470463f10c33",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 168
+      },
+      "input": {
+        "context_before": [
+          "근데 생각해보니까",
+          "저한테 이런 시간이",
+          "좀 필요했던 거 같아요"
+        ],
+        "utterance": "뭐랄까",
+        "context_after": [
+          "현실에서 좀 벗어나는 시간?",
+          "그쵸",
+          "그런 시간이"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_5ea4858d72d2",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_5ea4858d72d2",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 199
+      },
+      "input": {
+        "context_before": [
+          "경청하면",
+          "저도 예전에는",
+          "영화관 진짜 자주 갔었는데"
+        ],
+        "utterance": "요즘은 너무 치열하게 살아서",
+        "context_after": [
+          "이렇게 숨 쉴 여유조차 없었거든요",
+          "아, 너무 치열하게 지내셨구나",
+          "경청은 한결 편해집니다"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "high"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_3e91b7f626a7",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_3e91b7f626a7",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 226
+      },
+      "input": {
+        "context_before": [
+          "관심을 두고서",
+          "네, 그래서 더 열심히 했던 것 같아요",
+          "일단 열심히 하면"
+        ],
+        "utterance": "뭐라도 될 것 같으니까",
+        "context_after": [
+          "근데 말씀하시는 거 들어보니까",
+          "느낌이 딱 와요",
+          "희진 씨는 분명 잘 되실 거예요"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_825e6c570218",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_825e6c570218",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 228
+      },
+      "input": {
+        "context_before": [
+          "일단 열심히 하면",
+          "뭐라도 될 것 같으니까",
+          "근데 말씀하시는 거 들어보니까"
+        ],
+        "utterance": "느낌이 딱 와요",
+        "context_after": [
+          "희진 씨는 분명 잘 되실 거예요",
+          "상대방이 그토록 듣고 싶었던",
+          "그 말을 해줄 수 있다면"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_1abdfc6f3384",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_1abdfc6f3384",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 246
+      },
+      "input": {
+        "context_before": [
+          "30관의 풍리를 찾았다",
+          "5월 1일 아침에",
+          "이 일을 깨닫기 시작했다"
+        ],
+        "utterance": "아메의 마음속에서",
+        "context_after": [
+          "이 풍리만이 좋아",
+          "무슨 의미가 있니?",
+          "1년 동안"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_f4e18bb913b4",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_f4e18bb913b4",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 247
+      },
+      "input": {
+        "context_before": [
+          "5월 1일 아침에",
+          "이 일을 깨닫기 시작했다",
+          "아메의 마음속에서"
+        ],
+        "utterance": "이 풍리만이 좋아",
+        "context_after": [
+          "무슨 의미가 있니?",
+          "1년 동안",
+          "2명이 아메의 사람이라고 들었다고 생각했다"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_d48782e440b7",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_d48782e440b7",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [2FobsREC-hs].txt",
+        "line_number": 255
+      },
+      "input": {
+        "context_before": [
+          "기억은 영원할 수 있거든요",
+          "5분 안에 레벨업",
+          "비치키를 구독하시고"
+        ],
+        "utterance": "레벨 버프를 받아가세요",
+        "context_after": [],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_5366d25d0c84",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_5366d25d0c84",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [6H9-5YeX_w8].txt",
+        "line_number": 48
+      },
+      "input": {
+        "context_before": [
+          "결국 익숙한 것들만 찾게 되더라고요",
+          "원래 제가 평소에도 겁이 좀 많은 편이라서요",
+          "단순히 관심사가 비슷한 사람을 넘어서"
+        ],
+        "utterance": "그래도 다음엔 왕대씨랑 새로운 와인도 한번 도전해봐야겠어요",
+        "context_after": [
+          "아니 저는 겁이 많아서 새로운 걸 시도해보고 싶어도 못하는데",
+          "왕대씨는 그러지 않는 것 같아서요",
+          "전보다 서로에 관해서 더 많이 알게 되고"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "능청"
+          ],
+          "reply_functions": [
+            "정정"
+          ],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "principle"
+      }
+    },
+    {
+      "task_id": "task_6fc68fe54c32",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_6fc68fe54c32",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [6H9-5YeX_w8].txt",
+        "line_number": 57
+      },
+      "input": {
+        "context_before": [
+          "네?",
+          "늘 마시던 와인도 얼마든지 새롭게 태어날 수 있어요",
+          "누가 만지느냐에 따라서"
+        ],
+        "utterance": "칠해산 와인이군요",
+        "context_after": [
+          "저런 높이에서 디캔팅을",
+          "덩치를 말칸 태버리다",
+          "두 번째"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_ccfdd3a01114",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_ccfdd3a01114",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [6H9-5YeX_w8].txt",
+        "line_number": 67
+      },
+      "input": {
+        "context_before": [
+          "깊어가지고",
+          "자체 검열을",
+          "타고납니다"
+        ],
+        "utterance": "그런데 만약",
+        "context_after": [
+          "자체 검열을 하지 않고",
+          "그냥 냅다다 물어본다면",
+          "소개팅 약에서 웨이트한테 소개팅 상대 뺏긴 사람은 여밖에 없을 듯?"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "과장",
+            "질문"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "high"
+        },
+        "heuristic_type": "principle"
+      }
+    },
+    {
+      "task_id": "task_d4030663dce4",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_d4030663dce4",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [TCj_GMS1_p4].txt",
+        "line_number": 9
+      },
+      "input": {
+        "context_before": [
+          "두 가지를 알려드릴게요",
+          "첫 번째, 묘사, 화법",
+          "내가 직접 겪었을 땐 분명 임팩트 있는 에피소드였는데"
+        ],
+        "utterance": "그걸 다른 사람한테 썰 풀면",
+        "context_after": [
+          "그냥 노잼 스토리가 되지 않나요?",
+          "그래서 그럴 때마다",
+          "아, 이건 진짜 너가 그 자리에 있었으면 대박인 건데"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "과장",
+            "묘사"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "high"
+        },
+        "heuristic_type": "humor_device"
+      }
+    },
+    {
+      "task_id": "task_0d00b71e0c9f",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_0d00b71e0c9f",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [TCj_GMS1_p4].txt",
+        "line_number": 45
+      },
+      "input": {
+        "context_before": [
+          "그래도 뭔가 겁나 이상하잖아",
+          "듣는 사람 입장에선",
+          "머릿속으로 그림이 그려지지 않거든요"
+        ],
+        "utterance": "그러니 몰입도가 떨어져",
+        "context_after": [
+          "지루해질 수밖에 없는 거죠",
+          "하지만 이완 반대로",
+          "갑자기 텐트 밖에서 사람 목소리가 들리더라고"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "과장",
+            "반전"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "principle"
+      }
+    },
+    {
+      "task_id": "task_d117ec76487e",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_d117ec76487e",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [TCj_GMS1_p4].txt",
+        "line_number": 75
+      },
+      "input": {
+        "context_before": [
+          "이야기 속 등장하는 인물들의 말을",
+          "직접 묘사해주는 것만으로도",
+          "장면이 눈앞에 실제로 일어나는 것처럼 전개되어"
+        ],
+        "utterance": "몰입도가 비교도 안 되게 높아지거든요",
+        "context_after": [
+          "와시 코코 산에 두고 왔구나",
+          "개졌댔다 생각하고 있었는데",
+          "엄마가 또 이렇게 말하시더라고"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "과장",
+            "묘사"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "high"
+        },
+        "heuristic_type": "principle"
+      }
+    },
+    {
+      "task_id": "task_d70fae05b6a5",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_d70fae05b6a5",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [TCj_GMS1_p4].txt",
+        "line_number": 103
+      },
+      "input": {
+        "context_before": [
+          "듣는 순간 머릿속으로 그림이 그려질 정도로",
+          "생동감 있게 말하는 사람과 그러지 못하는 사람의 차이는",
+          "유기견? 불쌍하다 그래서 어떻게 했어?"
+        ],
+        "utterance": "뭘 어떡하긴 바로 집으로 존나 튀었지",
+        "context_after": [
+          "말의 디테일입니다",
+          "근데 언어학의 아버지 페르디낭 드 소시르는",
+          "시니피앙과 시니피에라는 언어학 개념을 정의했는데요"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "과장",
+            "질문"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "high"
+        },
+        "heuristic_type": "principle"
+      }
+    },
+    {
+      "task_id": "task_05afdb0206f5",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_05afdb0206f5",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [TCj_GMS1_p4].txt",
+        "line_number": 104
+      },
+      "input": {
+        "context_before": [
+          "생동감 있게 말하는 사람과 그러지 못하는 사람의 차이는",
+          "유기견? 불쌍하다 그래서 어떻게 했어?",
+          "뭘 어떡하긴 바로 집으로 존나 튀었지"
+        ],
+        "utterance": "말의 디테일입니다",
+        "context_after": [
+          "근데 언어학의 아버지 페르디낭 드 소시르는",
+          "시니피앙과 시니피에라는 언어학 개념을 정의했는데요",
+          "시니피앙은 문자 그 자체를 의미합니다"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "과장",
+            "질문"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "high"
+        },
+        "heuristic_type": "principle"
+      }
+    },
+    {
+      "task_id": "task_1caba69ec08e",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_1caba69ec08e",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [TCj_GMS1_p4].txt",
+        "line_number": 105
+      },
+      "input": {
+        "context_before": [
+          "유기견? 불쌍하다 그래서 어떻게 했어?",
+          "뭘 어떡하긴 바로 집으로 존나 튀었지",
+          "말의 디테일입니다"
+        ],
+        "utterance": "근데 언어학의 아버지 페르디낭 드 소시르는",
+        "context_after": [
+          "시니피앙과 시니피에라는 언어학 개념을 정의했는데요",
+          "시니피앙은 문자 그 자체를 의미합니다",
+          "그리고 그 문자를 보고 상상하는 이미지가 바로 시니피에죠"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "과장",
+            "질문"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "high"
+        },
+        "heuristic_type": "principle"
+      }
+    },
+    {
+      "task_id": "task_47d1cdd4ce2f",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_47d1cdd4ce2f",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [jbLlnf_fCrk].txt",
+        "line_number": 2
+      },
+      "input": {
+        "context_before": [
+          "딱히 특별한 게 없어 보여도"
+        ],
+        "utterance": "늘 언제 어디서나 인기 많은 사람의 특징이 뭔지 아시나요?",
+        "context_after": [
+          "이번 5분 레벨업에서는",
+          "두 건의 참고서를 바탕으로",
+          "부담스럽지 않게 은근히 센스 있는 사람의 특징"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "완곡화"
+          ],
+          "reply_functions": [],
+          "risk": "high",
+          "energy": "medium"
+        },
+        "heuristic_type": "social_judgment"
+      }
+    },
+    {
+      "task_id": "task_5acc8c46ec08",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_5acc8c46ec08",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [jbLlnf_fCrk].txt",
+        "line_number": 29
+      },
+      "input": {
+        "context_before": [
+          "외모만큼 확실한 건 없습니다",
+          "하지만",
+          "저 저기요"
+        ],
+        "utterance": "네",
+        "context_after": [
+          "필요한 거 있으세요?",
+          "저희 혹시 물티슈 좀 주실 수 있을까요?",
+          "물티슈요?"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "micro_reaction"
+      }
+    },
+    {
+      "task_id": "task_ee74b5250190",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_ee74b5250190",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [jbLlnf_fCrk].txt",
+        "line_number": 34
+      },
+      "input": {
+        "context_before": [
+          "저희 혹시 물티슈 좀 주실 수 있을까요?",
+          "물티슈요?",
+          "저희 물티슈는 따로 없는데"
+        ],
+        "utterance": "저 혹시 물티슈가 필요하신 이유가 뭔지 여쭤봐도 될까요?",
+        "context_after": [
+          "아 저 그게",
+          "양념이 좀 튀어서요",
+          "아 그러면"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "질문"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "conversation_move"
+      }
+    },
+    {
+      "task_id": "task_4f1feef07a17",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_4f1feef07a17",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [jbLlnf_fCrk].txt",
+        "line_number": 73
+      },
+      "input": {
+        "context_before": [
+          "두 번째",
+          "피크앤드 법칙",
+          "인간관계에서 유독 매력적인 사람들이"
+        ],
+        "utterance": "정말 잘 맞추는 것이 뭔지 아시나요?",
+        "context_after": [
+          "바로 타이밍인데요",
+          "그리고 특히",
+          "타이밍 중에서도"
+        ],
+        "heuristic_tags": {
+          "style_devices": [],
+          "reply_functions": [
+            "동의"
+          ],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "conversation_move"
+      }
+    },
+    {
+      "task_id": "task_ac9e5bc2bea7",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_ac9e5bc2bea7",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [jbLlnf_fCrk].txt",
+        "line_number": 128
+      },
+      "input": {
+        "context_before": [
+          "꼭 필요합니다",
+          "꼭 좋은 것만은 아닙니다",
+          "왜냐하면"
+        ],
+        "utterance": "피크앤드 법칙",
+        "context_after": [
+          "사람은 어떤 경험을 기억할 때",
+          "끝부분의 인상",
+          "다시 말해"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "질문",
+            "회수"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "principle"
+      }
+    },
+    {
+      "task_id": "task_ebde319f75e5",
+      "instruction": "아래 전사 후보를 한국어 마이크로스타일 DB 항목으로 정리하라. 원문을 그대로 외우는 데이터가 아니라, 상황/기능/말투 장치/피해야 할 맥락/재사용 템플릿을 뽑아라.",
+      "schema": {
+        "entry_type": "micro_reaction | humor_device | social_judgment | conversation_move | principle",
+        "utterance": "핵심 발화 또는 요약",
+        "context": "이 발화가 작동하는 상황",
+        "social_function": [
+          "위로",
+          "동의",
+          "받아치기",
+          "정정",
+          "수습",
+          "대화유지",
+          "긴장완화"
+        ],
+        "style_devices": [
+          "묘사",
+          "반전",
+          "회수",
+          "완곡화",
+          "과장",
+          "능청",
+          "질문",
+          "수습"
+        ],
+        "usable_when": [
+          "사용 가능한 맥락"
+        ],
+        "avoid_when": [
+          "피해야 할 맥락"
+        ],
+        "rewrite_templates": [
+          "비슷한 기능의 새 문장 2~5개"
+        ]
+      },
+      "source": {
+        "candidate_id": "cand_ebde319f75e5",
+        "source_path": "youtube_whisper\\transcripts\\backup\\2 [jbLlnf_fCrk].txt",
+        "line_number": 129
+      },
+      "input": {
+        "context_before": [
+          "꼭 좋은 것만은 아닙니다",
+          "왜냐하면",
+          "피크앤드 법칙"
+        ],
+        "utterance": "사람은 어떤 경험을 기억할 때",
+        "context_after": [
+          "끝부분의 인상",
+          "다시 말해",
+          "헤어지기 직전의 분위기를"
+        ],
+        "heuristic_tags": {
+          "style_devices": [
+            "질문",
+            "회수"
+          ],
+          "reply_functions": [],
+          "risk": "low",
+          "energy": "medium"
+        },
+        "heuristic_type": "principle"
+      }
+    }
+  ]
+}

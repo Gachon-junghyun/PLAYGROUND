@@ -1,0 +1,180 @@
+"""(후속 B 종합) 4개 임베딩(기존 셀 원-핫 + B-1/B-2/B-3) 비교.
+
+각 임베딩의 K=20 클러스터링 결과에서:
+  - 차원
+  - 베이스라인 up_rate (모든 임베딩에서 동일 = 0.5224, N=13971)
+  - max-min spread (pp)
+  - 최강 클러스터 (up_rate, n)
+  - BH α=0.05 유의 클러스터 수 (t-test, proportion 둘 다)
+
+결과: output/embedding_compare.csv
+
+또한 부트스트랩 비교 표 생성:
+  output/bootstrap/summary_compare.csv — cluster_id × {기존 BH p-t/p-prop, per_ticker, block_L3/6/12 empirical p}
+"""
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+
+import pandas as pd
+
+HERE = Path(__file__).resolve().parent
+CACHE = HERE / "cache"
+OUT = HERE / "output"
+
+
+EMBEDDINGS = [
+    {
+        "name": "cell_onehot (기존)",
+        "dim_note": "PCA 64 (원본 3080)",
+        "summary": OUT / "cluster_summary.csv",
+        "sig": OUT / "significance_K20.csv",
+    },
+    {
+        "name": "norm_series + PCA (B-1)",
+        "dim_note": "PCA 8 (원본 20)",
+        "summary": OUT / "emb_norm_series" / "cluster_summary.csv",
+        "sig": OUT / "emb_norm_series" / "significance.csv",
+    },
+    {
+        "name": "shape_features (B-2)",
+        "dim_note": "10",
+        "summary": OUT / "emb_shape_features" / "cluster_summary.csv",
+        "sig": OUT / "emb_shape_features" / "significance.csv",
+    },
+    {
+        "name": "dtw_prototype (B-3)",
+        "dim_note": "PCA 16 (원본 200)",
+        "summary": OUT / "emb_dtw_prototype" / "cluster_summary.csv",
+        "sig": OUT / "emb_dtw_prototype" / "significance.csv",
+    },
+]
+
+
+def embedding_compare() -> pd.DataFrame:
+    rows = []
+    for spec in EMBEDDINGS:
+        if not spec["summary"].exists():
+            print(f"[skip] {spec['name']}: summary 없음", flush=True)
+            continue
+        s = pd.read_csv(spec["summary"])
+        n_total = int(s["n_samples"].sum())
+        base_up = round(float(s["up_count"].sum()) / n_total, 4)
+        max_up = float(s["up_rate"].max())
+        min_up = float(s["up_rate"].min())
+        top_row = s.loc[s["up_rate"].idxmax()]
+        weak_row = s.loc[s["up_rate"].idxmin()]
+
+        if spec["sig"].exists():
+            sig = pd.read_csv(spec["sig"])
+            for c in ("p_t_bh", "p_p_bh"):
+                sig[c] = pd.to_numeric(sig[c], errors="coerce")
+            n_sig_t = int((sig["p_t_bh"] < 0.05).sum())
+            n_sig_p = int((sig["p_p_bh"] < 0.05).sum())
+        else:
+            n_sig_t = n_sig_p = -1
+
+        rows.append({
+            "embedding": spec["name"],
+            "dim": spec["dim_note"],
+            "N": n_total,
+            "baseline_up_rate": base_up,
+            "max_up_rate": round(max_up, 4),
+            "min_up_rate": round(min_up, 4),
+            "spread_pp": round((max_up - min_up) * 100, 2),
+            "top_cluster_id": int(top_row["cluster_id"]),
+            "top_n": int(top_row["n_samples"]),
+            "top_up_rate": round(float(top_row["up_rate"]), 4),
+            "weak_cluster_id": int(weak_row["cluster_id"]),
+            "weak_n": int(weak_row["n_samples"]),
+            "weak_up_rate": round(float(weak_row["up_rate"]), 4),
+            "n_sig_t_bh": n_sig_t,
+            "n_sig_p_bh": n_sig_p,
+        })
+    return pd.DataFrame(rows)
+
+
+def bootstrap_compare() -> pd.DataFrame:
+    bs_dir = OUT / "bootstrap"
+    sig_path = OUT / "significance_K20.csv"
+    sig = pd.read_csv(sig_path)
+    sig["p_t_bh"] = pd.to_numeric(sig["p_t_bh"], errors="coerce")
+    sig["p_p_bh"] = pd.to_numeric(sig["p_p_bh"], errors="coerce")
+    sig_small = sig[["cluster_id", "n", "up_rate", "p_t_bh", "p_p_bh"]].copy()
+    sig_small.rename(columns={
+        "n": "n_baseline",
+        "up_rate": "up_rate_baseline",
+    }, inplace=True)
+
+    bs_files = {
+        "per_ticker": "per_ticker_K20.csv",
+        "block_L3": "block_L3_K20.csv",
+        "block_L6": "block_L6_K20.csv",
+        "block_L12": "block_L12_K20.csv",
+    }
+    out = sig_small.copy()
+    for tag, fname in bs_files.items():
+        path = bs_dir / fname
+        if not path.exists():
+            print(f"[skip] {path}", flush=True)
+            continue
+        bs = pd.read_csv(path)[["cluster_id", "empirical_p_up_rate", "empirical_p_mean_ret"]]
+        bs.rename(columns={
+            "empirical_p_up_rate": f"emp_p_up_{tag}",
+            "empirical_p_mean_ret": f"emp_p_mr_{tag}",
+        }, inplace=True)
+        out = out.merge(bs, on="cluster_id", how="left")
+
+    p_cols_up = [c for c in out.columns if c.startswith("emp_p_up_")]
+    p_cols_mr = [c for c in out.columns if c.startswith("emp_p_mr_")]
+    block_up = [c for c in p_cols_up if "block_" in c]
+    block_mr = [c for c in p_cols_mr if "block_" in c]
+
+    # 5검정 = BH + per_ticker + block3 + block6 + block12
+    out["all_sig_up_a05"] = (
+        (out["p_p_bh"] < 0.05) &
+        (out[p_cols_up] < 0.05).all(axis=1)
+    )
+    out["all_sig_mr_a05"] = (
+        (out["p_t_bh"] < 0.05) &
+        (out[p_cols_mr] < 0.05).all(axis=1)
+    )
+    # 4검정 = BH + 3개 block (per_ticker는 종목당 1샘플로 구조적 underpower)
+    out["four_sig_up_a05"] = (
+        (out["p_p_bh"] < 0.05) &
+        (out[block_up] < 0.05).all(axis=1)
+    )
+    out["four_sig_mr_a05"] = (
+        (out["p_t_bh"] < 0.05) &
+        (out[block_mr] < 0.05).all(axis=1)
+    )
+    return out.sort_values("up_rate_baseline", ascending=False)
+
+
+def main() -> int:
+    emb = embedding_compare()
+    emb_path = OUT / "embedding_compare.csv"
+    emb.to_csv(emb_path, index=False, encoding="utf-8-sig")
+    print(f"[save] {emb_path}", flush=True)
+    print(emb.to_string(index=False), flush=True)
+
+    bs = bootstrap_compare()
+    bs_path = OUT / "bootstrap" / "summary_compare.csv"
+    bs.to_csv(bs_path, index=False, encoding="utf-8-sig")
+    print(f"[save] {bs_path}", flush=True)
+    n_all_up = int(bs["all_sig_up_a05"].sum())
+    n_all_mr = int(bs["all_sig_mr_a05"].sum())
+    n_four_up = int(bs["four_sig_up_a05"].sum())
+    n_four_mr = int(bs["four_sig_mr_a05"].sum())
+    K = len(bs)
+    print(f"[result] 5검정 (BH+per_ticker+block3/6/12) 일관 유의: up={n_all_up}/{K}, mr={n_all_mr}/{K}",
+          flush=True)
+    print(f"[result] 4검정 (BH+block3/6/12, per_ticker 제외) 일관 유의: up={n_four_up}/{K}, mr={n_four_mr}/{K}",
+          flush=True)
+    print("DONE", flush=True)
+    return 0
+
+
+if __name__ == "__main__":
+ 

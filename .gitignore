@@ -1,0 +1,115 @@
+# ===== Secrets / credentials =====
+# OAuth tokens, API keys, service-account JSON — must never enter the repo
+.env
+.env.*
+!.env.example
+**/credentials*.json
+**/token*.json
+**/*service-account*.json
+**/secrets/
+*.pem
+*.key
+# PLAY1 google-drive OAuth
+PLAY1_sync/credentials.json
+PLAY1_sync/token.json
+
+# ===== Python =====
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# venvs (each PLAY may have its own — never commit any)
+.venv/
+venv/
+env/
+**/.venv/
+**/venv/
+
+# ===== Unsloth / HF caches =====
+unsloth_compiled_cache/
+**/unsloth_compiled_cache/
+.cache/
+.hf_cache/
+
+# ===== Model weights & checkpoints =====
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.gguf
+*.onnx
+*.h5
+*.tflite
+# explicit PLAY checkpoint dirs (large)
+PLAY9_microstyle_lora/ckpt/
+PLAY10_chat_playground/adapter/
+
+# ===== Numerical / dataset caches =====
+*.npy
+*.npz
+*.parquet
+*.feather
+*.arrow
+PLAY2_chart_embedding/cache/
+PLAY2_chart_embedding/output/
+PLAY3_market_timing/cache/
+PLAY3_market_timing/output/
+
+# ===== Databases =====
+*.db
+*.db.new
+*.sqlite
+*.sqlite3
+*.sqlite3-journal
+
+# ===== Audio / video =====
+*.mp4
+*.mp3
+*.wav
+*.m4a
+*.flac
+*.ogg
+*.opus
+PLAY5_FUNNY_LLM/youtube_whisper/downloads/
+PLAY6_FUNNY_LLM_GPT/youtube_whisper/downloads/
+PLAY7_microstyle_prompt/youtube_whisper/downloads/
+PLAY11_melotts/out/
+
+# ===== Logs / run artifacts =====
+*.log
+*.log.*
+run_*.log
+*.err.log
+
+# ===== OS / editor =====
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# ===== Claude Code / agent-local state =====
+.claude/
+.codex/
+.cursor/
+
+# ===== PLAY-specific large data =====
+PLAY4_news_retrieval/data/
+PLAY5_FUNNY_LLM/youtube_whisper/transcripts/
+PLAY6_FUNNY_LLM_GPT/data/microstyle.db
+PLAY8_microstyle_dataset/raw_transcripts/
+PLAY12_concept_corpus/data/
+
+# unidic dict bundle (PLAY11) — downloaded by setup_env.py
+PLAY11_melotts/_shims/
