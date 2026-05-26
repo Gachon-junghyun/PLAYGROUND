@@ -1,6 +1,8 @@
 """Parse a structured lecture script and synthesize per-slide WAVs.
 
-Input format (per slide):
+Two input formats are auto-detected:
+
+Format A — tagged blocks (e.g. 코스닥3000_강의스크립트.txt):
     ─── separator ───
       슬라이드 N.  <title>
     ─── separator ───
@@ -9,10 +11,24 @@ Input format (per slide):
     <text to synthesize, possibly multi-paragraph>
     [핵심] ...
 
-Only [발화] blocks are synthesized. One WAV per slide -> out/slides/slide_NN.wav.
+  Only [발화] blocks are synthesized.
+
+Format B — bracketed headers, plain body (e.g. GIC 강의 스크립트):
+    [슬라이드 N. <title>]
+
+    <plain paragraph body, fully synthesized>
+
+    ================  (separator: '=' or '═' or '─')
+
+  Everything between two slide headers (excluding the header line and
+  separators) is the speech text. Optional `--out-dir` chooses output
+  location; default is out/slides relative to this script.
+
+One WAV per slide -> <out_dir>/slide_NN.wav.
 
 Run:
     .venv/Scripts/python.exe -u tts_lecture.py 코스닥3000_강의스크립트.txt
+    .venv/Scripts/python.exe -u tts_lecture.py path/to/gic_script.txt --out-dir out/gic
 """
 
 from __future__ import annotations
@@ -28,11 +44,12 @@ except AttributeError:
     pass
 
 ROOT = Path(__file__).parent
-OUT_DIR = ROOT / "out" / "slides"
+DEFAULT_OUT_DIR = ROOT / "out" / "slides"
 
 SLIDE_RE = re.compile(r"^\s*슬라이드\s+(\d+)\.\s*(.*)$")
+BRACKET_SLIDE_RE = re.compile(r"^\s*\[\s*슬라이드\s+(\d+)\.\s*(.+?)\s*\]\s*$")
 TAG_RE = re.compile(r"^\[(화면|발화|핵심)\]")
-DECOR_RE = re.compile(r"^[═─]{5,}\s*$")
+DECOR_RE = re.compile(r"^[═─=]{5,}\s*$")
 
 
 def normalize_for_kr_tts(text: str) -> str:
@@ -44,8 +61,40 @@ def normalize_for_kr_tts(text: str) -> str:
     return text
 
 
-def parse_slides(text: str) -> list[tuple[int, str, str]]:
-    """Return [(slide_num, title, speech_text), ...]."""
+def parse_slides_bracket(text: str) -> list[tuple[int, str, str]]:
+    """Format B: [슬라이드 N. 제목] header, full body is speech."""
+    lines = text.splitlines()
+    slides: list[tuple[int, str, str]] = []
+
+    cur_num: int | None = None
+    cur_title: str = ""
+    cur_body: list[str] = []
+
+    def flush():
+        if cur_num is not None:
+            body = "\n".join(cur_body).strip()
+            if body:
+                slides.append((cur_num, cur_title, body))
+
+    for line in lines:
+        m = BRACKET_SLIDE_RE.match(line)
+        if m:
+            flush()
+            cur_num = int(m.group(1))
+            cur_title = m.group(2).strip()
+            cur_body = []
+            continue
+        if DECOR_RE.match(line):
+            continue
+        if cur_num is not None:
+            cur_body.append(line)
+
+    flush()
+    return slides
+
+
+def parse_slides_tagged(text: str) -> list[tuple[int, str, str]]:
+    """Format A: bare 슬라이드 N. header, only [발화] block is speech."""
     lines = text.splitlines()
     slides: list[tuple[int, str, str]] = []
 
@@ -81,8 +130,6 @@ def parse_slides(text: str) -> list[tuple[int, str, str]]:
             if tag == "발화":
                 in_speech = True
                 in_other_tag = False
-                # Speech text starts on the NEXT line (the [발화] line itself
-                # may be followed by inline text; capture it if so).
                 after_tag = line[tag_m.end():].strip()
                 if after_tag:
                     cur_speech.append(after_tag)
@@ -93,7 +140,6 @@ def parse_slides(text: str) -> list[tuple[int, str, str]]:
             continue
 
         if DECOR_RE.match(line):
-            # Decorative separator ends any speech capture.
             in_speech = False
             in_other_tag = False
             i += 1
@@ -107,9 +153,19 @@ def parse_slides(text: str) -> list[tuple[int, str, str]]:
     return slides
 
 
+def parse_slides(text: str) -> list[tuple[int, str, str]]:
+    """Auto-detect format and dispatch. Bracket-header wins if present."""
+    if any(BRACKET_SLIDE_RE.match(ln) for ln in text.splitlines()):
+        return parse_slides_bracket(text)
+    return parse_slides_tagged(text)
+
+
 def main() -> int:
     if len(sys.argv) < 2:
-        print("usage: tts_lecture.py <script.txt> [--only N,N,N]", file=sys.stderr)
+        print(
+            "usage: tts_lecture.py <script.txt> [--only N,N,N] [--out-dir DIR]",
+            file=sys.stderr,
+        )
         return 2
 
     src = Path(sys.argv[1])
@@ -117,14 +173,22 @@ def main() -> int:
     if "--only" in sys.argv:
         idx = sys.argv.index("--only")
         only_set = {int(x) for x in sys.argv[idx + 1].split(",")}
+
+    out_dir = DEFAULT_OUT_DIR
+    if "--out-dir" in sys.argv:
+        idx = sys.argv.index("--out-dir")
+        out_dir = Path(sys.argv[idx + 1])
+        if not out_dir.is_absolute():
+            out_dir = ROOT / out_dir
+
     text = src.read_text(encoding="utf-8")
     slides = parse_slides(text)
     print(f"[parsed] {len(slides)} slides with speech", flush=True)
 
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
 
     # Save parsed speech to a sidecar file for review.
-    sidecar = OUT_DIR / "_parsed.txt"
+    sidecar = out_dir / "_parsed.txt"
     with sidecar.open("w", encoding="utf-8") as f:
         for num, title, speech in slides:
             f.write(f"=== 슬라이드 {num}. {title} ===\n{speech}\n\n")
@@ -140,7 +204,7 @@ def main() -> int:
     for idx, (num, title, speech) in enumerate(targets, 1):
         flat = " ".join(s.strip() for s in speech.splitlines() if s.strip())
         flat = normalize_for_kr_tts(flat)
-        out_path = OUT_DIR / f"slide_{num:02d}.wav"
+        out_path = out_dir / f"slide_{num:02d}.wav"
         char_count = len(flat)
         print(
             f"[synth {idx}/{len(targets)}] slide {num} ({char_count} chars): {title}",

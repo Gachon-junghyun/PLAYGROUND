@@ -1,0 +1,3171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Block Writer</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif; color: #1a1a1a; background: #f5f5f4; }
+  body { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+  header { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: #1f1f1f; color: #f5f5f4; flex-shrink: 0; }
+  header h1 { font-size: 14px; font-weight: 600; margin: 0; letter-spacing: 0.4px; }
+  header .sep { flex: 1; }
+  header button { background: #2e2e2e; color: #f5f5f4; border: 1px solid #3a3a3a; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+  header button:hover { background: #3a3a3a; }
+  header .status { font-size: 11px; color: #9a9a9a; margin-right: 6px; }
+
+  /* Document selector */
+  #doc-selector { position: relative; }
+  #doc-current-btn {
+    background: #2e2e2e; color: #f5f5f4; border: 1px solid #3a3a3a;
+    padding: 5px 10px 5px 12px; border-radius: 4px; font-size: 12px; cursor: pointer;
+    display: flex; align-items: center; gap: 6px; max-width: 360px;
+  }
+  #doc-current-btn:hover { background: #3a3a3a; }
+  #doc-current-title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 300px; }
+  #doc-current-btn .caret { color: #9a9a9a; font-size: 10px; }
+  #doc-menu {
+    position: absolute; top: 100%; left: 0; margin-top: 4px;
+    background: #fff; color: #1a1a1a; border: 1px solid #d6d3d1; border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    min-width: 320px; max-width: 480px; max-height: 60vh; overflow-y: auto;
+    z-index: 300; padding: 4px;
+  }
+  #doc-menu[hidden] { display: none; }
+  .doc-item-row {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 8px; border-radius: 4px; cursor: pointer; font-size: 13px;
+  }
+  .doc-item-row:hover { background: #f5f5f4; }
+  .doc-item-row.current { background: #ecfeff; color: #0c4a6e; font-weight: 600; }
+  .doc-item-row .title { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .doc-item-row .meta-id { font-size: 10px; color: #a8a29e; font-family: ui-monospace, monospace; }
+  .doc-item-row .actions { display: none; gap: 4px; }
+  .doc-item-row:hover .actions { display: flex; }
+  .doc-item-row .actions button {
+    background: transparent; border: none; padding: 2px 6px; cursor: pointer;
+    font-size: 11px; color: #78716c; border-radius: 3px;
+  }
+  .doc-item-row .actions button:hover { background: #e7e5e4; color: #1a1a1a; }
+  .doc-item-row .actions button.danger:hover { background: #fef2f2; color: #b91c1c; }
+  #doc-menu .divider { height: 1px; background: #e7e5e4; margin: 4px 2px; }
+  #doc-menu .new-doc-btn {
+    width: 100%; text-align: left;
+    background: transparent; border: none; padding: 6px 8px; cursor: pointer;
+    font-size: 13px; color: #0ea5e9; font-weight: 600; border-radius: 4px;
+  }
+  #doc-menu .new-doc-btn:hover { background: #ecfeff; }
+
+  main { flex: 1; display: flex; min-height: 0; }
+  #canvas-pane { flex: 1; overflow-y: auto; padding: 36px 56px; background: #fafaf9; min-width: 0; }
+  #splitter { width: 6px; flex-shrink: 0; cursor: col-resize; background: transparent; border-left: 1px solid #d6d3d1; transition: background 0.15s; }
+  #splitter:hover, #splitter.dragging { background: #0ea5e9; border-color: #0ea5e9; }
+  body.resizing { user-select: none; cursor: col-resize; }
+  body.resizing * { cursor: col-resize !important; }
+  #scratch-pane { width: 360px; flex-shrink: 0; background: #f5f5f4; display: flex; flex-direction: column; min-width: 220px; }
+
+  /* Canvas */
+  #canvas { max-width: 720px; margin: 0 auto; }
+  #canvas-title { font-size: 30px; font-weight: 700; outline: none; padding: 4px 0; margin-bottom: 16px; }
+  #canvas-title:empty::before { content: "제목 없음"; color: #bbb; }
+  .doc-item { margin: 8px 0; position: relative; }
+  .doc-item.drag-over-top::before, .doc-item.drag-over-bottom::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 2px; background: #0ea5e9;
+  }
+  .doc-item.drag-over-top::before { top: -5px; }
+  .doc-item.drag-over-bottom::after { bottom: -5px; }
+  .doc-para { outline: none; line-height: 1.7; font-size: 16px; padding: 2px 0; min-height: 1.7em; }
+  .doc-para:empty::before { content: "여기에 쓰거나 오른쪽 블럭을 끌어와…"; color: #ccc; }
+  .doc-section { font-size: 20px; font-weight: 700; padding: 14px 12px 10px; margin: 18px 0 6px; border-left: 3px solid #0ea5e9; background: #ecfeff; color: #0c4a6e; border-radius: 0 4px 4px 0; outline: none; }
+  .doc-section .label { font-size: 10px; letter-spacing: 1.2px; color: #0891b2; text-transform: uppercase; display: block; margin-bottom: 2px; }
+  .doc-card { padding: 12px 14px; border: 1px solid #d6d3d1; background: #fff; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); transition: box-shadow 0.15s, border-color 0.15s; }
+  .doc-card:focus-within { border-color: #0ea5e9; box-shadow: 0 0 0 2px #0ea5e9, 0 4px 12px rgba(14,165,233,0.12); }
+  .doc-card .card-head { font-size: 11px; color: #78716c; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.6px; }
+  .doc-card .card-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; outline: none; }
+  .doc-card .card-title:empty::before { content: attr(data-placeholder); color: #ccc; }
+  .doc-card .card-body { font-size: 14px; color: #44403c; line-height: 1.55; white-space: pre-wrap; outline: none; }
+  .doc-card .card-body:empty::before { content: attr(data-placeholder); color: #ccc; }
+  .doc-text { line-height: 1.7; font-size: 16px; padding: 6px 0; border-left: 3px solid #e7e5e4; padding-left: 12px; outline: none; }
+  .doc-text .src { font-size: 10px; color: #a8a29e; display: block; margin-top: 3px; }
+
+  .doc-item .controls { position: absolute; right: -40px; top: 4px; display: none; flex-direction: column; gap: 2px; }
+  .doc-item:hover .controls { display: flex; }
+  .doc-item .controls button { background: #fff; border: 1px solid #d6d3d1; padding: 2px 6px; font-size: 11px; border-radius: 3px; cursor: pointer; color: #57534e; }
+  .doc-item .controls button:hover { background: #f5f5f4; }
+
+  /* Scratch */
+  #scratch-head { padding: 10px 14px; border-bottom: 1px solid #d6d3d1; display: flex; gap: 6px; flex-shrink: 0; }
+  #scratch-head button { flex: 1; background: #fff; border: 1px solid #d6d3d1; padding: 6px 8px; font-size: 12px; border-radius: 4px; cursor: pointer; color: #44403c; }
+  #scratch-head button:hover { background: #fafaf9; }
+  #scratch-list { flex: 1; overflow-y: auto; padding: 10px; }
+  #scratch-list.drop-target { background: #f0fdf4; }
+
+  .block { background: #fff; border: 1px solid #d6d3d1; border-radius: 6px; padding: 10px 12px; margin-bottom: 8px; cursor: grab; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+  .block:active { cursor: grabbing; }
+  .block.dragging { opacity: 0.4; }
+  .block.guideline { border-left: 3px solid #0ea5e9; background: #f0f9ff; }
+  .block.proposition { border-left: 3px solid #f97316; }
+  .block .tag { font-size: 10px; letter-spacing: 0.8px; text-transform: uppercase; color: #78716c; margin-bottom: 4px; display: flex; justify-content: space-between; align-items: center; }
+  .block .tag .del { cursor: pointer; color: #a8a29e; padding: 0 4px; }
+  .block .tag .del:hover { color: #dc2626; }
+  .block .title { font-weight: 600; font-size: 14px; outline: none; margin-bottom: 4px; }
+  .block .title:empty::before { content: "제목…"; color: #ccc; }
+  .block .body { font-size: 13px; color: #44403c; line-height: 1.5; outline: none; white-space: pre-wrap; min-height: 1.5em; }
+  .block .body:empty::before { content: "내용…"; color: #ccc; }
+
+  .guideline .children { margin-top: 8px; padding: 6px 6px 2px; border-top: 1px dashed #cbd5e1; min-height: 28px; }
+  .guideline .children.empty::before { content: "여기에 명제를 끌어 놓기"; font-size: 11px; color: #94a3b8; display: block; text-align: center; padding: 4px 0; }
+  .guideline .children.drop-here { background: #ecfeff; border-radius: 4px; }
+  .guideline .children .block { background: #fff; margin-bottom: 6px; }
+  .guideline .children .block.proposition { background: #fffbf5; }
+
+  #scratch-empty { text-align: center; color: #a8a29e; font-size: 12px; padding: 30px 10px; }
+
+  /* Drag handle + add button + selection */
+  .doc-item { padding-left: 52px; border-radius: 4px; }
+  .item-affordances {
+    position: absolute; left: 0; top: 2px;
+    display: flex; gap: 2px;
+    opacity: 0; transition: opacity 0.1s;
+  }
+  .doc-item:hover .item-affordances,
+  .doc-item.selected .item-affordances,
+  .doc-item:focus-within .item-affordances { opacity: 1; }
+  .add-btn, .drag-handle {
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    color: #cbd5e1; user-select: none;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .add-btn:hover, .drag-handle:hover { color: #1a1a1a; background: #e7e5e4; }
+  .drag-handle { cursor: grab; }
+  .drag-handle:active { cursor: grabbing; }
+  .add-btn { font-size: 16px; line-height: 1; }
+  .doc-item.selected { background: #dbeafe; }
+  .doc-item.selected .drag-handle { color: #1d4ed8; }
+  .doc-item.dragging-item { opacity: 0.3; }
+
+  /* Divider + quote */
+  .doc-divider { border: none; border-top: 1px solid #d6d3d1; margin: 18px 0; height: 0; }
+  .doc-quote {
+    border-left: 4px solid #0ea5e9; background: #f0f9ff;
+    padding: 10px 14px; margin: 8px 0; font-size: 15px;
+    line-height: 1.6; color: #0c4a6e; outline: none; font-style: italic;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* Selection toolbar */
+  #selection-toolbar {
+    position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%);
+    background: #1f1f1f; color: #f5f5f4; padding: 8px 14px; border-radius: 8px;
+    display: flex; gap: 8px; align-items: center; box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+    z-index: 100; font-size: 12px;
+  }
+  #selection-toolbar[hidden] { display: none; }
+  #selection-toolbar .count { color: #9a9a9a; margin-right: 4px; }
+  #selection-toolbar button {
+    background: #2e2e2e; color: #f5f5f4; border: 1px solid #3a3a3a;
+    padding: 4px 10px; font-size: 12px; border-radius: 4px; cursor: pointer;
+  }
+  #selection-toolbar button:hover { background: #3a3a3a; }
+  #selection-toolbar button.danger:hover { background: #7f1d1d; border-color: #991b1b; }
+
+  /* Slash menu */
+  #slash-menu {
+    position: fixed; z-index: 200; background: #fff;
+    border: 1px solid #d6d3d1; border-radius: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    min-width: 220px; max-height: 280px; overflow-y: auto;
+    padding: 4px;
+  }
+  #slash-menu[hidden] { display: none; }
+  .slash-item { padding: 6px 10px; border-radius: 4px; cursor: pointer; }
+  .slash-item:hover, .slash-item.active { background: #ecfeff; }
+  .slash-label { font-size: 13px; font-weight: 600; color: #1a1a1a; }
+  .slash-hint { font-size: 11px; color: #78716c; margin-top: 1px; }
+  .slash-empty { padding: 10px; text-align: center; color: #a8a29e; font-size: 12px; }
+  .slash-section-head { font-size: 10px; text-transform: uppercase; letter-spacing: 0.8px; color: #a8a29e; padding: 6px 10px 2px; }
+
+  /* Scratch block: collapsed by default, expanded when focused inside */
+  .block .body {
+    max-height: 2.4em;
+    overflow: hidden;
+    font-size: 12px;
+    color: #78716c;
+    transition: max-height 0.18s ease, font-size 0.15s, color 0.15s;
+    position: relative;
+  }
+  .block .body::after {
+    content: "";
+    position: absolute; left: 0; right: 0; bottom: 0; height: 1em;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0.95));
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.15s;
+  }
+  .block.guideline .body::after { background: linear-gradient(to bottom, rgba(240,249,255,0), rgba(240,249,255,0.98)); }
+  .block:focus-within .body { max-height: 600px; font-size: 13px; color: #44403c; }
+  .block:focus-within .body::after { opacity: 0; }
+  .block:focus-within { box-shadow: 0 0 0 2px #0ea5e9, 0 4px 12px rgba(14,165,233,0.15); }
+  .block .title { cursor: text; }
+
+  /* Preview mode: strip all "block-like" chrome; sections become a slim left guide. */
+  body.preview-mode #scratch-pane,
+  body.preview-mode #splitter,
+  body.preview-mode .item-affordances,
+  body.preview-mode .doc-item .controls,
+  body.preview-mode .doc-section .label,
+  body.preview-mode .doc-card .card-head,
+  body.preview-mode #selection-toolbar { display: none !important; }
+  body.preview-mode #canvas-pane { padding: 60px 80px; }
+  body.preview-mode .doc-item { padding-left: 0; background: transparent !important; }
+  body.preview-mode #canvas-title:empty::before,
+  body.preview-mode .doc-para:empty::before,
+  body.preview-mode .doc-card .card-title:empty::before,
+  body.preview-mode .doc-card .card-body:empty::before { content: ""; }
+  body.preview-mode [contenteditable] { outline: none; cursor: text; }
+
+  /* Section in preview: just a slim left guide bar + clean heading text */
+  body.preview-mode .doc-section {
+    background: transparent;
+    color: #1a1a1a;
+    border-left: 3px solid #d6d3d1;
+    border-radius: 0;
+    padding: 6px 0 6px 14px;
+    margin: 28px 0 12px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  /* Card in preview: no box, no border, no tag — just bold title + flowing body */
+  body.preview-mode .doc-card {
+    border: none;
+    background: transparent;
+    box-shadow: none !important;
+    padding: 6px 0;
+  }
+  body.preview-mode .doc-card:focus-within { box-shadow: none; border: none; }
+  body.preview-mode .doc-card .card-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 2px;
+  }
+  body.preview-mode .doc-card .card-body {
+    font-size: 16px;
+    color: #1a1a1a;
+    line-height: 1.75;
+    white-space: pre-wrap;
+  }
+  /* doc-text in preview: drop the left border, treat as paragraph */
+  body.preview-mode .doc-text {
+    border-left: none;
+    padding-left: 0;
+    font-size: 16px;
+    color: #1a1a1a;
+  }
+  body.preview-mode .doc-text .src { color: #78716c; }
+
+  /* Toolbar separator */
+  header .gap { width: 6px; }
+
+  /* ============================================================
+     Round 7: writing-craft features (role chips, source/note,
+     diagnostic panel, snippet bank)
+     ============================================================ */
+
+  /* Role chip on scratch blocks + canvas cards */
+  .role-chip {
+    display: inline-flex; align-items: center;
+    padding: 1px 7px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.4px;
+    border-radius: 10px; cursor: pointer; user-select: none;
+    border: 1px solid currentColor;
+    line-height: 1.4;
+  }
+  .role-chip.unset { color: #a8a29e; border-style: dashed; background: transparent; font-weight: 500; }
+  .role-chip:hover { filter: brightness(0.94); }
+
+  /* Role picker popover */
+  #role-picker {
+    position: fixed; z-index: 250; background: #fff;
+    border: 1px solid #d6d3d1; border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    padding: 4px; min-width: 180px;
+  }
+  #role-picker[hidden] { display: none; }
+  #role-picker .role-option {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 8px; border-radius: 4px; cursor: pointer;
+    font-size: 13px;
+  }
+  #role-picker .role-option:hover { background: #f5f5f4; }
+  #role-picker .role-option .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  #role-picker .role-option .unset-mark { color: #a8a29e; font-size: 11px; margin-left: auto; }
+
+  /* Source + Note fields (scratch block, expanded only) */
+  .block { position: relative; }
+  .block .meta-fields {
+    margin-top: 8px;
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    border-top: 1px dashed #e7e5e4;
+    padding-top: 8px;
+  }
+  .block:focus-within .meta-fields { display: flex; }
+  .block .meta-field { display: flex; align-items: flex-start; gap: 6px; }
+  .block .meta-field label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; color: #78716c;
+    min-width: 38px; padding-top: 4px;
+    flex-shrink: 0;
+  }
+  .block .meta-field .input {
+    flex: 1; outline: none;
+    font-size: 12px; color: #44403c;
+    background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 3px;
+    padding: 3px 6px;
+    min-height: 1.4em;
+  }
+  .block .meta-field .input:empty::before {
+    content: attr(data-placeholder); color: #cbd5e1;
+  }
+  .block .meta-field .input:focus { background: #fff; border-color: #0ea5e9; }
+  .block .meta-field.note .input { min-height: 2.6em; font-style: italic; color: #57534e; }
+
+  /* "missing source" dot on propositions */
+  .block.proposition:not(:focus-within) .src-missing {
+    position: absolute; top: 8px; right: 8px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: #f97316; opacity: 0.7;
+    pointer-events: none;
+  }
+
+  /* Diagnostic panel (floating right) */
+  #diagnostic-fab {
+    position: fixed; top: 60px; right: 14px; z-index: 90;
+    background: #1f1f1f; color: #f5f5f4; border: 1px solid #3a3a3a;
+    width: 38px; height: 38px; border-radius: 19px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  #diagnostic-fab:hover { background: #2e2e2e; }
+  #diagnostic-fab .badge {
+    position: absolute; top: -4px; right: -4px;
+    background: #dc2626; color: #fff;
+    min-width: 16px; height: 16px; border-radius: 8px;
+    font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 4px;
+  }
+  #diagnostic-fab .badge[hidden] { display: none; }
+  body.preview-mode #diagnostic-fab { display: none; }
+
+  #diagnostic-panel {
+    position: fixed; top: 56px; right: 14px; z-index: 95;
+    width: 320px; max-height: calc(100vh - 80px);
+    background: #fff; color: #1a1a1a;
+    border: 1px solid #d6d3d1; border-radius: 8px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  #diagnostic-panel[hidden] { display: none; }
+  #diagnostic-panel .head {
+    padding: 10px 14px; border-bottom: 1px solid #e7e5e4;
+    display: flex; align-items: center; justify-content: space-between;
+    background: #fafaf9;
+  }
+  #diagnostic-panel .head h2 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; }
+  #diagnostic-panel .head .close {
+    background: transparent; border: none; cursor: pointer;
+    color: #78716c; font-size: 16px; padding: 2px 6px; border-radius: 3px;
+  }
+  #diagnostic-panel .head .close:hover { background: #e7e5e4; }
+  #diagnostic-panel .body { padding: 10px 14px; overflow-y: auto; flex: 1; font-size: 12px; }
+  #diagnostic-panel .section-h {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.6px;
+    text-transform: uppercase; color: #a8a29e;
+    margin: 10px 0 4px;
+  }
+  #diagnostic-panel .section-h:first-child { margin-top: 0; }
+  #diagnostic-panel .stat-row {
+    display: flex; justify-content: space-between;
+    padding: 2px 0; font-size: 12px;
+  }
+  #diagnostic-panel .role-bar {
+    display: flex; align-items: center; gap: 6px;
+    margin: 2px 0;
+  }
+  #diagnostic-panel .role-bar .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  #diagnostic-panel .role-bar .label { flex: 1; }
+  #diagnostic-panel .role-bar .count { font-weight: 600; color: #1a1a1a; min-width: 24px; text-align: right; }
+  #diagnostic-panel .warn {
+    background: #fef3c7; color: #92400e; padding: 6px 8px;
+    border-radius: 4px; font-size: 11px; margin: 4px 0;
+    border-left: 3px solid #f59e0b;
+  }
+  #diagnostic-panel .warn.error {
+    background: #fee2e2; color: #991b1b;
+    border-left-color: #dc2626;
+  }
+  #diagnostic-panel .warn.info {
+    background: #ecfeff; color: #155e75;
+    border-left-color: #0ea5e9;
+  }
+  #diagnostic-panel .nothing {
+    color: #a8a29e; font-style: italic; font-size: 11px;
+    padding: 4px 0;
+  }
+
+  /* Snippet menu — floating button on focused para + popup */
+  .snippet-trigger {
+    position: absolute; right: -32px; top: 0;
+    width: 24px; height: 24px;
+    display: none; align-items: center; justify-content: center;
+    background: #fff; border: 1px solid #d6d3d1; border-radius: 4px;
+    cursor: pointer; color: #78716c; font-size: 12px;
+  }
+  .doc-item:focus-within > .snippet-trigger { display: flex; }
+  .snippet-trigger:hover { color: #0ea5e9; border-color: #0ea5e9; }
+  body.preview-mode .snippet-trigger { display: none !important; }
+
+  #snippet-menu {
+    position: fixed; z-index: 220; background: #fff;
+    border: 1px solid #d6d3d1; border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    min-width: 320px; max-width: 420px; max-height: 70vh; overflow-y: auto;
+    padding: 4px;
+  }
+  #snippet-menu[hidden] { display: none; }
+  #snippet-menu .snippet-cat {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.6px;
+    color: #a8a29e; padding: 6px 10px 2px; font-weight: 600;
+  }
+  #snippet-menu .snippet-row {
+    padding: 6px 10px; cursor: pointer; font-size: 12px; line-height: 1.45;
+    border-radius: 4px; color: #44403c;
+  }
+  #snippet-menu .snippet-row:hover { background: #ecfeff; color: #1a1a1a; }
+
+  /* Writing tips panel (Round 8) */
+  #tip-fab {
+    position: fixed; top: 60px; left: 14px; z-index: 90;
+    background: #1f1f1f; color: #f5f5f4; border: 1px solid #3a3a3a;
+    width: 38px; height: 38px; border-radius: 19px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  #tip-fab:hover { background: #2e2e2e; }
+  body.preview-mode #tip-fab { display: none; }
+
+  #tip-panel {
+    position: fixed; top: 56px; left: 14px; z-index: 95;
+    width: 360px; max-height: calc(100vh - 80px);
+    background: #fff; color: #1a1a1a;
+    border: 1px solid #d6d3d1; border-radius: 8px;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  #tip-panel[hidden] { display: none; }
+  #tip-panel .head {
+    padding: 10px 14px; border-bottom: 1px solid #e7e5e4;
+    display: flex; align-items: center; justify-content: space-between;
+    background: #fafaf9;
+  }
+  #tip-panel .head h2 { margin: 0; font-size: 13px; font-weight: 700; letter-spacing: 0.4px; }
+  #tip-panel .head .close {
+    background: transparent; border: none; cursor: pointer;
+    color: #78716c; font-size: 16px; padding: 2px 6px; border-radius: 3px;
+  }
+  #tip-panel .head .close:hover { background: #e7e5e4; }
+  #tip-panel .body { padding: 8px 14px 14px; overflow-y: auto; flex: 1; font-size: 12px; }
+  #tip-panel .tip-context {
+    background: #ecfeff; color: #0c4a6e;
+    padding: 6px 10px; border-radius: 4px;
+    font-size: 11px; margin: 4px 0 10px;
+    border-left: 3px solid #0ea5e9;
+  }
+  #tip-panel .tip-context.empty { background: #fafaf9; color: #78716c; border-left-color: #d6d3d1; }
+  #tip-panel .tip-cat-h {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.7px;
+    text-transform: uppercase; color: #a8a29e;
+    margin: 14px 0 6px;
+    padding-bottom: 4px; border-bottom: 1px dashed #e7e5e4;
+  }
+  #tip-panel .tip-cat-h:first-child { margin-top: 0; }
+  #tip-panel .tip-cat-h .tag {
+    display: inline-block; padding: 1px 6px; border-radius: 8px;
+    font-size: 9px; margin-left: 6px;
+    background: currentColor;
+  }
+  #tip-panel .tip-cat-h .tag-inner {
+    color: #fff; font-weight: 700;
+  }
+  #tip-panel .tip {
+    margin: 0 0 10px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    background: #fafaf9;
+    border-left: 2px solid #cbd5e1;
+  }
+  #tip-panel .tip.role { border-left-color: #0ea5e9; }
+  #tip-panel .tip.keyword { border-left-color: #ea580c; }
+  #tip-panel .tip.general { border-left-color: #94a3b8; }
+  #tip-panel .tip .rule {
+    font-size: 12px; font-weight: 600; color: #1a1a1a;
+    margin-bottom: 3px;
+  }
+  #tip-panel .tip .detail {
+    font-size: 11px; color: #57534e;
+    line-height: 1.5;
+  }
+  #tip-panel .tip .detail .arrow {
+    color: #0ea5e9; font-weight: 600; margin-right: 4px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>BLOCK WRITER</h1>
+  <div id="doc-selector" title="글 선택 / 새 글">
+    <button id="doc-current-btn" type="button">
+      <span id="doc-current-title">…</span>
+      <span class="caret">▾</span>
+    </button>
+    <div id="doc-menu" hidden></div>
+  </div>
+  <span class="status" id="status">저장됨</span>
+  <span class="sep"></span>
+  <button id="btn-preview" title="편집 칸 숨기고 깨끗하게 보기">보기 모드</button>
+  <span class="gap"></span>
+  <button id="btn-copy">전체 복사</button>
+  <button id="btn-merge">덧붙이기</button>
+  <button id="btn-export">JSON 내보내기</button>
+  <button id="btn-replace">전체 불러오기</button>
+  <button id="btn-clear">초기화</button>
+  <input type="file" id="file-input" accept="application/json" style="display:none" />
+</header>
+
+<main>
+  <section id="canvas-pane">
+    <div id="canvas">
+      <div id="canvas-title" contenteditable="true" spellcheck="false"></div>
+      <div id="doc-items"></div>
+    </div>
+  </section>
+
+  <div id="splitter" title="드래그해서 패널 크기 조정"></div>
+
+  <aside id="scratch-pane">
+    <div id="scratch-head">
+      <button data-type="proposition">+ 명제</button>
+      <button data-type="guideline">+ 가이드라인</button>
+    </div>
+    <div id="scratch-list"></div>
+  </aside>
+</main>
+
+<div id="selection-toolbar" hidden>
+  <span class="count" id="sel-count">0 선택됨</span>
+  <button id="sel-up" title="Alt+↑">↑ 위로</button>
+  <button id="sel-down" title="Alt+↓">↓ 아래로</button>
+  <button class="danger" id="sel-delete" title="Delete">삭제</button>
+  <button id="sel-clear" title="Esc">해제</button>
+</div>
+
+<div id="slash-menu" hidden></div>
+
+<div id="role-picker" hidden></div>
+<div id="snippet-menu" hidden></div>
+
+<button id="diagnostic-fab" type="button" title="진단 패널 열기 (Ctrl+/)">
+  <span>📊</span>
+  <span class="badge" id="diag-badge" hidden>0</span>
+</button>
+<aside id="diagnostic-panel" hidden>
+  <div class="head">
+    <h2>글 진단</h2>
+    <button class="close" id="diag-close" type="button">×</button>
+  </div>
+  <div class="body" id="diag-body"></div>
+</aside>
+
+<button id="tip-fab" type="button" title="글쓰기 팁 (Ctrl+.)">
+  <span>💡</span>
+</button>
+<aside id="tip-panel" hidden>
+  <div class="head">
+    <h2>글쓰기 팁</h2>
+    <button class="close" id="tip-close" type="button">×</button>
+  </div>
+  <div class="body" id="tip-body"></div>
+</aside>
+
+<script>
+// ============================================================
+// State
+// Schema:
+//   state = { title, blocks[], doc[] }
+//   block = { id, type: 'proposition'|'guideline', title, body, parentId? }
+//     - parentId only on propositions; references a guideline block id (means: nested)
+//   doc item kinds:
+//     - { id, kind: 'para',    text }
+//     - { id, kind: 'section', text, level?, blockId? }   (text is own; blockId optional source pointer)
+//     - { id, kind: 'card',    title, body, blockType?, blockId? }  (forked on drop, edits don't affect source)
+//     - { id, kind: 'text',    text, source? }
+//     - { id, kind: 'divider' }
+//     - { id, kind: 'quote',   text }
+// ============================================================
+const LEGACY_KEY = "block-writer-v1";  // localStorage key from pre-SQLite era (migration source)
+let state = { title: "", blocks: [], doc: [] };
+let importMode = null; // "merge" | "replace"
+let currentDocId = null;     // current document id (from /api/documents)
+let documents = [];          // list of { id, title, ... }
+const selectedItemIds = new Set(); // referenced inside renderDocItem during initial render
+
+// --- Roles (writing-craft taxonomy) ---
+const ROLES = [
+  { key: "claim",       ko: "주장",   color: "#0ea5e9", bg: "#ecfeff" },
+  { key: "evidence",    ko: "근거",   color: "#16a34a", bg: "#f0fdf4" },
+  { key: "counter",     ko: "반박",   color: "#dc2626", bg: "#fef2f2" },
+  { key: "definition",  ko: "정의",   color: "#7c3aed", bg: "#f5f3ff" },
+  { key: "example",     ko: "사례",   color: "#ea580c", bg: "#fff7ed" },
+  { key: "quote",       ko: "인용",   color: "#475569", bg: "#f8fafc" },
+  { key: "implication", ko: "함의",   color: "#9333ea", bg: "#faf5ff" },
+  { key: "emotion",     ko: "감성",   color: "#db2777", bg: "#fdf2f8" },
+  { key: "question",    ko: "질문",   color: "#0891b2", bg: "#ecfeff" },
+  { key: "hypothesis",  ko: "가설",   color: "#ca8a04", bg: "#fefce8" },
+];
+const ROLE_BY_KEY = Object.fromEntries(ROLES.map(r => [r.key, r]));
+
+// --- Genre templates ---
+const TEMPLATES = {
+  analysis: {
+    name: "분석 리포트 (시나리오 보고서 스타일)",
+    title: "",
+    blocks: [
+      { type: "guideline", title: "§1. 단일 결정 변수",            body: "이 글의 6개월 시나리오를 가르는 단일 측정 가능한 변수. 한 줄로 압축." },
+      { type: "guideline", title: "§2. 옛 메커니즘 → 새 메커니즘", body: "기존 BM/해석이 왜 무력화됐고 무엇으로 대체됐는가." },
+      { type: "guideline", title: "§3. 결정 변수 매트릭스",        body: "각 변수 × horizon × 임계치 × 측정 1차 출처." },
+      { type: "guideline", title: "§4. 시나리오 분기 (Base/Bull/Bear)", body: "각 확률 + 단계별 경로 + 사용자 ROI." },
+      { type: "guideline", title: "§5. 카나리아 / 비대칭 베팅",    body: "가장 빠른 측정 가능한 단일 1차 신호." },
+      { type: "guideline", title: "§6. 한계 / 폐기 조건 / 반대 논리", body: "측정 신뢰 한계, 폐기 조건 2개+, 가장 강한 반대 논리." },
+    ]
+  },
+  opinion: {
+    name: "오피니언 칼럼",
+    title: "",
+    blocks: [
+      { type: "guideline", title: "1. 통념의 모순",   body: "독자가 당연하게 여기는 X를 한 줄로 응축, 그 안의 균열 짚기.", role: "hypothesis" },
+      { type: "guideline", title: "2. 핵심 주장",     body: "통념과 정면으로 다른 한 줄 주장.",                          role: "claim" },
+      { type: "guideline", title: "3. 근거 3개",      body: "주장을 받치는 구체적 근거 3개 (수치·사건·1차 출처).",        role: "evidence" },
+      { type: "guideline", title: "4. 반박과 재반박", body: "가장 강한 반대 논리를 인정한 뒤 무력화.",                    role: "counter" },
+      { type: "guideline", title: "5. 함의와 행동 촉구", body: "독자가 무엇을 다르게 봐야 하는가.",                       role: "implication" },
+    ]
+  },
+  essay: {
+    name: "개인 에세이",
+    title: "",
+    blocks: [
+      { type: "guideline", title: "1. 장면",   body: "구체적 시간·장소·감각이 담긴 한 장면.",          role: "emotion" },
+      { type: "guideline", title: "2. 동요",   body: "그 장면이 내 안에서 흔들어 놓은 질문.",          role: "question" },
+      { type: "guideline", title: "3. 사색",   body: "이 동요를 거치며 떠오른 더 큰 패턴.",            role: "implication" },
+      { type: "guideline", title: "4. 회상",   body: "비슷한 옛 장면 또는 인용으로 패턴 확장.",        role: "quote" },
+      { type: "guideline", title: "5. 도착",   body: "그래서 지금 내가 어떻게 다르게 보고 있는가.",    role: "claim" },
+    ]
+  },
+};
+
+// --- Snippet library (lawyer-grade transitions) ---
+const SNIPPETS = [
+  { cat: "주장 도입",   text: "이 글의 결정적 주장은 다음과 같다 — " },
+  { cat: "주장 도입",   text: "한 줄로 압축하면, " },
+  { cat: "근거 제시",   text: "이 주장은 다음 근거 위에 서 있다. 첫째, " },
+  { cat: "근거 제시",   text: "정량적으로 보면 — " },
+  { cat: "반박 인정",   text: "물론 강한 반대 논리가 있다. " },
+  { cat: "반박 인정",   text: "이 주장의 가장 약한 지점은 " },
+  { cat: "재반박",      text: "그러나 이 반박은 X를 놓치고 있다 — " },
+  { cat: "재반박",      text: "이 반론을 충분히 인정한다 해도, " },
+  { cat: "연결/심화",   text: "이 지점이 중요한 이유는 " },
+  { cat: "연결/심화",   text: "한 단계 더 들어가 보면, " },
+  { cat: "조건 명시",   text: "이 결론은 X라는 가정 위에 서 있다 — " },
+  { cat: "조건 명시",   text: "단, 다음 조건이 깨지면 결론도 바뀐다: " },
+  { cat: "감성/임팩트", text: "이 변화의 무게를 가늠하려면, 한 사람의 자리에서 보자 — " },
+  { cat: "감성/임팩트", text: "숫자 뒤에는 — " },
+  { cat: "결론 도입",   text: "결국 이 모든 것이 가리키는 방향은 하나다 — " },
+];
+
+function uid() { return Math.random().toString(36).slice(2, 10); }
+
+async function fetchDocuments() {
+  const r = await fetch("/api/documents", { cache: "no-store" });
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  const data = await r.json();
+  documents = data.documents || [];
+  currentDocId = data.currentId || (documents[0] && documents[0].id) || null;
+  renderDocSelector();
+}
+
+async function load() {
+  try {
+    await fetchDocuments();
+    const url = currentDocId ? `/api/state?doc=${encodeURIComponent(currentDocId)}` : "/api/state";
+    const r = await fetch(url, { cache: "no-store" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    state = await r.json();
+  } catch (e) {
+    showServerDownPanel(e);
+    throw e;
+  }
+  if (!state.doc || state.doc.length === 0) {
+    state.doc = [{ id: uid(), kind: "para", text: "" }];
+  }
+  if (!Array.isArray(state.blocks)) state.blocks = [];
+}
+
+function showServerDownPanel(err) {
+  document.body.innerHTML =
+    `<div style="padding: 60px; font-family: -apple-system, 'Segoe UI', sans-serif; max-width: 560px; margin: 0 auto;">
+       <h2 style="margin:0 0 12px;">서버에 연결할 수 없음</h2>
+       <p style="line-height:1.6; color:#44403c;">
+         이 에디터는 백엔드(<code>serve.py</code>)와 함께 동작합니다.
+         터미널에서 다음을 실행한 뒤 다시 새로고침하세요:
+       </p>
+       <pre style="background:#1f1f1f; color:#f5f5f4; padding:14px 18px; border-radius:6px; font-size:13px;">python serve.py</pre>
+       <p style="color:#a8a29e; font-size:12px; margin-top:18px;">${String(err).replace(/[<>&]/g, c => ({"<":"&lt;",">":"&gt;","&":"&amp;"}[c]))}</p>
+     </div>`;
+}
+
+function _stateUrl() {
+  return currentDocId ? `/api/state?doc=${encodeURIComponent(currentDocId)}` : "/api/state";
+}
+
+let saveTimer = null;
+let savePending = false;
+async function flushSave() {
+  if (!savePending) return;
+  savePending = false;
+  try {
+    const r = await fetch(_stateUrl(), {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(state),
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    document.getElementById("status").textContent = "저장됨";
+    // Title might have changed on the current doc — refresh selector label.
+    const doc = documents.find(d => d.id === currentDocId);
+    if (doc && doc.title !== state.title) {
+      doc.title = state.title;
+      renderDocSelector();
+    }
+  } catch (e) {
+    document.getElementById("status").textContent = "저장 실패";
+    console.error(e);
+  }
+}
+function save() {
+  clearTimeout(saveTimer);
+  document.getElementById("status").textContent = "저장 중…";
+  savePending = true;
+  saveTimer = setTimeout(() => {
+    snapshotNow();
+    flushSave();
+  }, 300);
+}
+
+function findBlock(id) { return state.blocks.find(b => b.id === id); }
+function childrenOf(guidelineId) {
+  return state.blocks.filter(b => b.type === "proposition" && b.parentId === guidelineId);
+}
+function topLevelBlocks() {
+  return state.blocks.filter(b => b.type === "guideline" || !b.parentId);
+}
+
+// ============================================================
+// Scratch panel
+// ============================================================
+const scratchList = document.getElementById("scratch-list");
+
+function renderScratch() {
+  scratchList.innerHTML = "";
+  if (state.blocks.length === 0) {
+    const e = document.createElement("div");
+    e.id = "scratch-empty";
+    e.textContent = "위 버튼으로 블럭 추가";
+    scratchList.appendChild(e);
+    applyPreviewLock();
+    return;
+  }
+  topLevelBlocks().forEach(b => {
+    scratchList.appendChild(renderBlock(b));
+  });
+  applyPreviewLock();
+}
+
+// Defined here so render fns can call it; the toggle button (further below) flips body.preview-mode.
+function applyPreviewLock() {
+  if (!document.body.classList.contains("preview-mode")) return;
+  document.querySelectorAll("[contenteditable='true']").forEach(el => {
+    if (!el.dataset.prevCe) {
+      el.dataset.prevCe = "true";
+      el.contentEditable = "false";
+    }
+  });
+}
+
+function renderBlock(b) {
+  const el = document.createElement("div");
+  el.className = "block " + b.type;
+  el.draggable = true;
+  el.dataset.id = b.id;
+
+  // Tag row (kind + role chip + delete)
+  const tag = document.createElement("div");
+  tag.className = "tag";
+  const kindLabel = document.createElement("span");
+  kindLabel.textContent = b.type === "guideline" ? "GUIDELINE" : "PROPOSITION";
+  const chip = renderRoleChip(b);
+  const del = document.createElement("span");
+  del.className = "del";
+  del.title = "삭제";
+  del.textContent = "×";
+  tag.appendChild(kindLabel);
+  tag.appendChild(chip);
+  const spacer = document.createElement("span");
+  spacer.style.flex = "1";
+  tag.appendChild(spacer);
+  tag.appendChild(del);
+
+  const titleEl = document.createElement("div");
+  titleEl.className = "title";
+  titleEl.contentEditable = "true";
+  titleEl.spellcheck = false;
+  titleEl.textContent = b.title || "";
+
+  const bodyEl = document.createElement("div");
+  bodyEl.className = "body";
+  bodyEl.contentEditable = "true";
+  bodyEl.spellcheck = false;
+  bodyEl.textContent = b.body || "";
+
+  el.appendChild(tag);
+  el.appendChild(titleEl);
+  el.appendChild(bodyEl);
+
+  // Meta fields (source + note), only visible when block is focused
+  const meta = document.createElement("div");
+  meta.className = "meta-fields";
+
+  const srcRow = document.createElement("div");
+  srcRow.className = "meta-field source";
+  const srcLabel = document.createElement("label");
+  srcLabel.textContent = "출처";
+  const srcInput = document.createElement("div");
+  srcInput.className = "input";
+  srcInput.contentEditable = "true";
+  srcInput.spellcheck = false;
+  srcInput.dataset.placeholder = "URL · 1차 출처 · 인용";
+  srcInput.textContent = b.source || "";
+  srcRow.appendChild(srcLabel);
+  srcRow.appendChild(srcInput);
+
+  const noteRow = document.createElement("div");
+  noteRow.className = "meta-field note";
+  const noteLabel = document.createElement("label");
+  noteLabel.textContent = "메모";
+  const noteInput = document.createElement("div");
+  noteInput.className = "input";
+  noteInput.contentEditable = "true";
+  noteInput.spellcheck = false;
+  noteInput.dataset.placeholder = "이 블럭에 대한 자기 메모 (캔버스에 안 보임)";
+  noteInput.textContent = b.note || "";
+  noteRow.appendChild(noteLabel);
+  noteRow.appendChild(noteInput);
+
+  meta.appendChild(srcRow);
+  meta.appendChild(noteRow);
+  el.appendChild(meta);
+
+  // "missing source" dot — only on propositions (definitions/quotes also typically need sources, keep narrow for now)
+  if (b.type === "proposition" && !(b.source || "").trim()) {
+    const dot = document.createElement("div");
+    dot.className = "src-missing";
+    dot.title = "출처가 비어 있음";
+    el.appendChild(dot);
+  }
+
+  titleEl.addEventListener("input", () => { b.title = titleEl.textContent; save(); });
+  bodyEl.addEventListener("input",  () => { b.body  = bodyEl.textContent;  save(); });
+  srcInput.addEventListener("input", () => {
+    b.source = srcInput.textContent;
+    save();
+    // Toggle the missing-source dot visibility live
+    const dot = el.querySelector(".src-missing");
+    if (b.type === "proposition") {
+      if ((b.source || "").trim()) { if (dot) dot.remove(); }
+      else if (!dot) {
+        const d = document.createElement("div"); d.className = "src-missing"; d.title = "출처가 비어 있음";
+        el.appendChild(d);
+      }
+    }
+  });
+  noteInput.addEventListener("input", () => { b.note = noteInput.textContent; save(); });
+  del.addEventListener("click", (e) => { e.stopPropagation(); deleteBlock(b.id); });
+
+  el.addEventListener("dragstart", (ev) => {
+    ev.stopPropagation();
+    el.classList.add("dragging");
+    ev.dataTransfer.effectAllowed = "copyMove";
+    ev.dataTransfer.setData("application/x-block-id", b.id);
+  });
+  el.addEventListener("dragend", () => el.classList.remove("dragging"));
+
+  // Guideline gets a nested children area
+  if (b.type === "guideline") {
+    const childWrap = document.createElement("div");
+    childWrap.className = "children";
+    const kids = childrenOf(b.id);
+    if (kids.length === 0) childWrap.classList.add("empty");
+    kids.forEach(k => childWrap.appendChild(renderBlock(k)));
+
+    // Drop target on the children area: nest a proposition
+    childWrap.addEventListener("dragover", (ev) => {
+      const id = getDragId(ev);
+      if (!id) return;
+      const dragged = findBlock(id);
+      if (!dragged || dragged.type !== "proposition") return;
+      if (dragged.id === b.id) return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      ev.dataTransfer.dropEffect = "move";
+      childWrap.classList.add("drop-here");
+    });
+    childWrap.addEventListener("dragleave", () => childWrap.classList.remove("drop-here"));
+    childWrap.addEventListener("drop", (ev) => {
+      const id = ev.dataTransfer.getData("application/x-block-id");
+      const dragged = findBlock(id);
+      if (!dragged || dragged.type !== "proposition") return;
+      ev.preventDefault();
+      ev.stopPropagation();
+      childWrap.classList.remove("drop-here");
+      dragged.parentId = b.id;
+      renderScratch();
+      save();
+    });
+    el.appendChild(childWrap);
+  }
+
+  return el;
+}
+
+// Drop on scratch list background = un-nest a proposition
+scratchList.addEventListener("dragover", (ev) => {
+  const id = getDragId(ev);
+  if (!id) return;
+  const dragged = findBlock(id);
+  if (!dragged || dragged.type !== "proposition" || !dragged.parentId) return;
+  if (ev.target.closest(".children") || ev.target.closest(".block")) return;
+  ev.preventDefault();
+  ev.dataTransfer.dropEffect = "move";
+  scratchList.classList.add("drop-target");
+});
+scratchList.addEventListener("dragleave", () => scratchList.classList.remove("drop-target"));
+scratchList.addEventListener("drop", (ev) => {
+  const id = ev.dataTransfer.getData("application/x-block-id");
+  const dragged = findBlock(id);
+  if (!dragged || dragged.type !== "proposition" || !dragged.parentId) return;
+  if (ev.target.closest(".children") || ev.target.closest(".block")) return;
+  ev.preventDefault();
+  scratchList.classList.remove("drop-target");
+  delete dragged.parentId;
+  renderScratch();
+  save();
+});
+
+function getDragId(ev) {
+  // Some browsers don't expose dataTransfer.getData during dragover, so check types
+  if (!ev.dataTransfer.types.includes("application/x-block-id")) return null;
+  // We can't read value during dragover reliably, but we set a stash on dragstart:
+  return draggedBlockId;
+}
+let draggedBlockId = null;
+scratchList.addEventListener("dragstart", (ev) => {
+  const el = ev.target.closest(".block");
+  if (el) draggedBlockId = el.dataset.id;
+}, true);
+scratchList.addEventListener("dragend", () => { draggedBlockId = null; }, true);
+
+function deleteBlock(id) {
+  const b = findBlock(id);
+  if (!b) return;
+  // If guideline, also delete (or un-nest) its children. We'll un-nest to preserve user content.
+  if (b.type === "guideline") {
+    state.blocks.forEach(x => { if (x.parentId === id) delete x.parentId; });
+  }
+  state.blocks = state.blocks.filter(x => x.id !== id);
+  renderScratch();
+  save();
+}
+
+document.querySelectorAll("#scratch-head button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const type = btn.dataset.type;
+    state.blocks.unshift({ id: uid(), type, title: "", body: "" });
+    renderScratch();
+    save();
+    const first = scratchList.querySelector(".block .title");
+    if (first) first.focus();
+  });
+});
+
+// ============================================================
+// Canvas
+// ============================================================
+const docItemsEl = document.getElementById("doc-items");
+const titleEl = document.getElementById("canvas-title");
+
+titleEl.addEventListener("input", () => { state.title = titleEl.textContent; save(); });
+
+function renderDoc() {
+  docItemsEl.innerHTML = "";
+  state.doc.forEach((item, idx) => {
+    docItemsEl.appendChild(renderDocItem(item, idx));
+  });
+  applyPreviewLock();
+}
+
+function renderDocItem(item, idx) {
+  const wrap = document.createElement("div");
+  wrap.className = "doc-item";
+  if (selectedItemIds.has(item.id)) wrap.classList.add("selected");
+  wrap.dataset.idx = idx;
+  wrap.dataset.id = item.id;
+
+  // Left-side affordances: + (add new para below) and ⋮⋮ (drag/select)
+  const affordances = document.createElement("div");
+  affordances.className = "item-affordances";
+
+  const addBtn = document.createElement("div");
+  addBtn.className = "add-btn";
+  addBtn.textContent = "+";
+  addBtn.title = "이 항목 아래에 새 단락 추가";
+  addBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    insertParaAfter(item.id);
+  });
+
+  const handle = document.createElement("div");
+  handle.className = "drag-handle";
+  handle.textContent = "⋮⋮";
+  handle.title = "드래그=이동 · 클릭=선택 · Shift+클릭=범위 · Ctrl+클릭=추가";
+  handle.draggable = true;
+  handle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    handleSelectionClick(item.id, e);
+  });
+  handle.addEventListener("dragstart", (e) => {
+    e.stopPropagation();
+    let ids;
+    if (selectedItemIds.has(item.id) && selectedItemIds.size > 1) {
+      ids = state.doc.filter(x => selectedItemIds.has(x.id)).map(x => x.id);
+    } else {
+      ids = [item.id];
+    }
+    e.dataTransfer.effectAllowed = "move";
+    e.dataTransfer.setData("application/x-doc-item-ids", JSON.stringify(ids));
+    ids.forEach(id => {
+      const el = docItemsEl.querySelector(`[data-id="${id}"]`);
+      if (el) el.classList.add("dragging-item");
+    });
+  });
+  handle.addEventListener("dragend", () => {
+    docItemsEl.querySelectorAll(".dragging-item").forEach(el => el.classList.remove("dragging-item"));
+  });
+
+  affordances.appendChild(addBtn);
+  affordances.appendChild(handle);
+  wrap.appendChild(affordances);
+
+  if (item.kind === "para") {
+    const p = document.createElement("div");
+    p.className = "doc-para";
+    p.contentEditable = "true";
+    p.spellcheck = false;
+    p.textContent = item.text || "";
+    p.addEventListener("input", () => {
+      item.text = p.textContent;
+      save();
+      maybeOpenSlashMenu(item, p);
+    });
+    p.addEventListener("keydown", (e) => onParaKeydown(e, item, p));
+    p.addEventListener("paste", (e) => onParaPaste(e, item, p));
+    p.addEventListener("blur", () => { setTimeout(closeSlashMenu, 120); });
+    wrap.appendChild(p);
+  } else if (item.kind === "section") {
+    const s = document.createElement("div");
+    s.className = "doc-section";
+    s.innerHTML = `<span class="label">SECTION</span>`;
+    const inner = document.createElement("div");
+    inner.spellcheck = false;
+    inner.style.outline = "none";
+    inner.contentEditable = "true";
+    inner.textContent = item.text || "";
+    inner.addEventListener("input", () => { item.text = inner.textContent; save(); });
+    inner.addEventListener("keydown", (e) => onSimpleKeydown(e, item, inner));
+    s.appendChild(inner);
+    wrap.appendChild(s);
+  } else if (item.kind === "card") {
+    const c = document.createElement("div");
+    c.className = "doc-card";
+    const tag = (item.blockType === "guideline") ? "GUIDELINE" : "PROPOSITION";
+    const head = document.createElement("div");
+    head.className = "card-head";
+    head.textContent = tag;
+    const titleEl_ = document.createElement("div");
+    titleEl_.className = "card-title";
+    titleEl_.contentEditable = "true";
+    titleEl_.spellcheck = false;
+    titleEl_.dataset.placeholder = "제목";
+    titleEl_.textContent = item.title || "";
+    titleEl_.addEventListener("input", () => { item.title = titleEl_.textContent; save(); });
+    titleEl_.addEventListener("keydown", (e) => onCardKeydown(e, item, titleEl_, bodyEl_, "title"));
+    const bodyEl_ = document.createElement("div");
+    bodyEl_.className = "card-body";
+    bodyEl_.contentEditable = "true";
+    bodyEl_.spellcheck = false;
+    bodyEl_.dataset.placeholder = "본문";
+    bodyEl_.textContent = item.body || "";
+    bodyEl_.addEventListener("input", () => { item.body = bodyEl_.textContent; save(); });
+    bodyEl_.addEventListener("keydown", (e) => onCardKeydown(e, item, titleEl_, bodyEl_, "body"));
+    c.appendChild(head);
+    c.appendChild(titleEl_);
+    c.appendChild(bodyEl_);
+    wrap.appendChild(c);
+  } else if (item.kind === "text") {
+    const t = document.createElement("div");
+    t.className = "doc-text";
+    t.contentEditable = "true";
+    t.spellcheck = false;
+    t.textContent = item.text || "";
+    t.addEventListener("input", () => { item.text = t.textContent; save(); });
+    t.addEventListener("keydown", (e) => onSimpleKeydown(e, item, t));
+    const src = document.createElement("span");
+    src.className = "src";
+    src.textContent = item.source ? `— ${item.source}에서` : "";
+    t.appendChild(src);
+    wrap.appendChild(t);
+  } else if (item.kind === "divider") {
+    const hr = document.createElement("hr");
+    hr.className = "doc-divider";
+    wrap.appendChild(hr);
+  } else if (item.kind === "quote") {
+    const q = document.createElement("div");
+    q.className = "doc-quote";
+    q.contentEditable = "true";
+    q.spellcheck = false;
+    q.textContent = item.text || "";
+    q.addEventListener("input", () => { item.text = q.textContent; save(); });
+    q.addEventListener("keydown", (e) => onSimpleKeydown(e, item, q));
+    wrap.appendChild(q);
+  }
+
+  const controls = document.createElement("div");
+  controls.className = "controls";
+  if (item.kind === "card" || item.kind === "text") {
+    const toggle = document.createElement("button");
+    toggle.textContent = item.kind === "card" ? "→ 텍스트" : "→ 카드";
+    toggle.title = "표시 형식 토글";
+    toggle.addEventListener("click", () => toggleItem(item));
+    controls.appendChild(toggle);
+  }
+  const del = document.createElement("button");
+  del.textContent = "삭제";
+  del.addEventListener("click", () => removeItem(item.id));
+  controls.appendChild(del);
+  wrap.appendChild(controls);
+
+  wrap.addEventListener("dragover", (e) => {
+    const types = e.dataTransfer.types;
+    const isBlock = types.includes("application/x-block-id");
+    const isDocItem = types.includes("application/x-doc-item-ids");
+    if (!isBlock && !isDocItem) return;
+    e.preventDefault();
+    e.dataTransfer.dropEffect = isDocItem ? "move" : "copy";
+    const rect = wrap.getBoundingClientRect();
+    const before = (e.clientY - rect.top) < rect.height / 2;
+    wrap.classList.toggle("drag-over-top", before);
+    wrap.classList.toggle("drag-over-bottom", !before);
+  });
+  wrap.addEventListener("dragleave", () => {
+    wrap.classList.remove("drag-over-top", "drag-over-bottom");
+  });
+  wrap.addEventListener("drop", (e) => {
+    const rect = wrap.getBoundingClientRect();
+    const before = (e.clientY - rect.top) < rect.height / 2;
+    wrap.classList.remove("drag-over-top", "drag-over-bottom");
+    const at = state.doc.findIndex(x => x.id === item.id);
+
+    const docItemIdsRaw = e.dataTransfer.getData("application/x-doc-item-ids");
+    if (docItemIdsRaw) {
+      e.preventDefault();
+      try {
+        const ids = JSON.parse(docItemIdsRaw);
+        moveDocItems(ids, before ? at : at + 1);
+      } catch {}
+      return;
+    }
+    const blockId = e.dataTransfer.getData("application/x-block-id");
+    if (blockId) {
+      e.preventDefault();
+      insertBlockAt(blockId, before ? at : at + 1);
+    }
+  });
+
+  return wrap;
+}
+
+function insertParaAfter(itemId) {
+  const idx = state.doc.findIndex(x => x.id === itemId);
+  if (idx < 0) return;
+  const newItem = { id: uid(), kind: "para", text: "" };
+  state.doc.splice(idx + 1, 0, newItem);
+  renderDoc();
+  save();
+  focusItem(newItem.id);
+}
+
+// Card-specific keydown: Enter/Tab navigation between title→body, Alt+arrow moves item,
+// Backspace on empty body+title removes the card.
+function onCardKeydown(e, item, titleEl, bodyEl, which) {
+  if (e.altKey && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
+    e.preventDefault();
+    moveItemBy(item.id, e.key === "ArrowUp" ? -1 : 1);
+    return;
+  }
+  if (which === "title") {
+    if (e.key === "Enter" || (e.key === "Tab" && !e.shiftKey)) {
+      e.preventDefault();
+      bodyEl.focus();
+      return;
+    }
+  }
+  if (which === "body") {
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+      // Ctrl+Enter: leave the card, create a new para after it, focus.
+      e.preventDefault();
+      insertParaAfter(item.id);
+      return;
+    }
+    if (e.key === "Tab" && e.shiftKey) {
+      e.preventDefault();
+      titleEl.focus();
+      return;
+    }
+  }
+  // Delete an empty card with Backspace on the body if both fields are empty.
+  if (e.key === "Backspace" && !(item.title || "").trim() && !(item.body || "").trim()) {
+    e.preventDefault();
+    const idx = state.doc.findIndex(x => x.id === item.id);
+    if (idx < 0) return;
+    state.doc.splice(idx, 1);
+    if (state.doc.length === 0) state.doc.push({ id: uid(), kind: "para", text: "" });
+    renderDoc();
+    save();
+    const prev = state.doc[Math.max(0, idx - 1)];
+    if (prev) focusItem(prev.id, "end");
+  }
+}
+
+// Generic keydown for editable doc items (section/text/quote) — only handles backspace-to-delete and Alt+arrow
+function onSimpleKeydown(e, item, el) {
+  if (e.altKey && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
+    e.preventDefault();
+    moveItemBy(item.id, e.key === "ArrowUp" ? -1 : 1);
+    return;
+  }
+  if (e.key === "Backspace" && el.textContent === "" && state.doc.length > 1) {
+    e.preventDefault();
+    const idx = state.doc.findIndex(x => x.id === item.id);
+    state.doc.splice(idx, 1);
+    renderDoc();
+    save();
+    const prev = state.doc[Math.max(0, idx - 1)];
+    if (prev) focusItem(prev.id, "end");
+  }
+}
+
+function onParaKeydown(e, item, el) {
+  // Slash menu navigation takes priority when open and bound to this para
+  if (slashMenuEl && !slashMenuEl.hidden && slashTarget && slashTarget.item.id === item.id) {
+    if (e.key === "ArrowDown") { e.preventDefault(); moveSlashSel(1); return; }
+    if (e.key === "ArrowUp")   { e.preventDefault(); moveSlashSel(-1); return; }
+    if (e.key === "Enter")     { e.preventDefault(); chooseSlashActive(); return; }
+    if (e.key === "Escape")    { e.preventDefault(); closeSlashMenu(); return; }
+  }
+  if (e.altKey && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
+    e.preventDefault();
+    moveItemBy(item.id, e.key === "ArrowUp" ? -1 : 1);
+    return;
+  }
+  const idx = state.doc.findIndex(x => x.id === item.id);
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    const newItem = { id: uid(), kind: "para", text: "" };
+    state.doc.splice(idx + 1, 0, newItem);
+    renderDoc();
+    save();
+    focusItem(newItem.id);
+  } else if (e.key === "Backspace" && el.textContent === "" && state.doc.length > 1) {
+    e.preventDefault();
+    state.doc.splice(idx, 1);
+    renderDoc();
+    save();
+    const prev = state.doc[Math.max(0, idx - 1)];
+    if (prev) focusItem(prev.id, "end");
+  }
+}
+
+function focusItem(id, where) {
+  const el = docItemsEl.querySelector(`[data-id="${id}"] [contenteditable="true"]`);
+  if (!el) return;
+  el.focus();
+  if (where === "end") {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    range.collapse(false);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+}
+
+function insertBlockAt(blockId, idx) {
+  const b = findBlock(blockId);
+  if (!b) return;
+  // Fork: copy title/body so editing the placed item doesn't touch the source.
+  const items = [];
+  if (b.type === "guideline") {
+    items.push({
+      id: uid(), kind: "section",
+      text: b.title || "", blockId: b.id,
+    });
+    childrenOf(b.id).forEach(child => {
+      items.push({
+        id: uid(), kind: "card",
+        title: child.title || "", body: child.body || "",
+        blockType: "proposition", blockId: child.id,
+      });
+    });
+  } else {
+    items.push({
+      id: uid(), kind: "card",
+      title: b.title || "", body: b.body || "",
+      blockType: b.type, blockId: b.id,
+    });
+  }
+  // After the drop, leave a fresh empty para so the user can keep writing.
+  const followUp = { id: uid(), kind: "para", text: "" };
+  const nextItem = state.doc[idx];
+  const reuseExisting = nextItem && nextItem.kind === "para" && !(nextItem.text || "").trim();
+  if (!reuseExisting) items.push(followUp);
+  state.doc.splice(idx, 0, ...items);
+  renderDoc();
+  save();
+  const focusTarget = reuseExisting ? nextItem.id : followUp.id;
+  focusItem(focusTarget, "end");
+}
+
+function toggleItem(item) {
+  if (item.kind === "card") {
+    const title = item.title || "";
+    const body = item.body || "";
+    const composed = (title ? title + ": " : "") + body;
+    const src = title || "블럭";
+    Object.keys(item).forEach(k => k !== "id" && delete item[k]);
+    item.kind = "text";
+    item.text = composed;
+    item.source = src;
+  } else if (item.kind === "text") {
+    const source = item.source || "발췌";
+    const text = item.text || "";
+    Object.keys(item).forEach(k => k !== "id" && delete item[k]);
+    item.kind = "card";
+    item.title = source;
+    item.body = text;
+    item.blockType = "proposition";
+  }
+  renderDoc();
+  save();
+}
+
+function removeItem(id) {
+  state.doc = state.doc.filter(x => x.id !== id);
+  if (state.doc.length === 0) state.doc.push({ id: uid(), kind: "para", text: "" });
+  renderDoc();
+  save();
+}
+
+const canvasPane = document.getElementById("canvas-pane");
+canvasPane.addEventListener("dragover", (e) => {
+  if (!e.dataTransfer.types.includes("application/x-block-id")) return;
+  e.preventDefault();
+  e.dataTransfer.dropEffect = "copy";
+});
+canvasPane.addEventListener("drop", (e) => {
+  const blockId = e.dataTransfer.getData("application/x-block-id");
+  if (!blockId) return;
+  if (e.target.closest(".doc-item")) return;
+  e.preventDefault();
+  insertBlockAt(blockId, state.doc.length);
+});
+
+// ============================================================
+// Import / export
+// ============================================================
+document.getElementById("btn-export").addEventListener("click", () => {
+  // Server route streams the file with proper Content-Disposition.
+  // Use the title for the filename when present by re-routing through a blob.
+  const a = document.createElement("a");
+  const fname = (state.title || "block-writer").replace(/[\\/:*?"<>|]/g, "_") + ".json";
+  // Build blob from current in-memory state so name reflects title.
+  const blob = new Blob([JSON.stringify(state, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  a.href = url;
+  a.download = fname;
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("btn-replace").addEventListener("click", () => {
+  importMode = "replace";
+  document.getElementById("file-input").click();
+});
+document.getElementById("btn-merge").addEventListener("click", () => {
+  importMode = "merge";
+  document.getElementById("file-input").click();
+});
+
+document.getElementById("file-input").addEventListener("change", async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const text = await f.text();
+  try {
+    // Validate JSON client-side so we can show a clearer error.
+    JSON.parse(text);
+  } catch (err) {
+    alert("JSON 파싱 실패: " + err.message);
+    e.target.value = "";
+    return;
+  }
+  // Ask the user: import into the CURRENT doc, or create a NEW doc for this file?
+  const intoNewDoc = confirm("새 글로 가져올까요?\n\n[확인] = 새 글 생성 후 거기로 import (안전)\n[취소] = 현재 글에 import (현재 글이 덮이거나 합쳐짐)");
+  try {
+    const params = new URLSearchParams();
+    params.set("mode", importMode || "replace");
+    if (intoNewDoc) {
+      params.set("new_doc", "1");
+    } else if (currentDocId) {
+      params.set("doc", currentDocId);
+    }
+    const r = await fetch(`/api/import?${params}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: text,
+    });
+    if (!r.ok) {
+      const err = await r.json().catch(() => ({}));
+      throw new Error(err.error || ("HTTP " + r.status));
+    }
+    if (intoNewDoc) {
+      // Server already switched current to the new doc; reload from /api/documents.
+      await fetchDocuments();
+    }
+    await load();
+    hydrate();
+    historyStack = [JSON.stringify(state)];
+    flashStatus(importMode === "merge" ? "덧붙여짐" : "교체됨");
+  } catch (err) {
+    alert("import 실패: " + err.message);
+  }
+  e.target.value = "";
+});
+
+function normalizeImport(incoming) {
+  // Ensure required fields exist
+  const s = {
+    title: incoming.title || "",
+    blocks: Array.isArray(incoming.blocks) ? incoming.blocks : [],
+    doc: Array.isArray(incoming.doc) ? incoming.doc : []
+  };
+  // Re-issue IDs to avoid clashes? On replace we don't strictly need to, but normalize missing IDs.
+  const blockIdMap = {};
+  s.blocks = s.blocks.map(b => {
+    const newId = b.id || uid();
+    blockIdMap[b.id || newId] = newId;
+    return { ...b, id: newId };
+  });
+  s.blocks.forEach(b => {
+    if (b.parentId && blockIdMap[b.parentId]) b.parentId = blockIdMap[b.parentId];
+  });
+  s.doc = s.doc.map(it => {
+    const out = { ...it, id: it.id || uid() };
+    if (out.blockId && blockIdMap[out.blockId]) out.blockId = blockIdMap[out.blockId];
+    return out;
+  });
+  if (s.doc.length === 0) s.doc = [{ id: uid(), kind: "para", text: "" }];
+  return s;
+}
+
+function mergeImport(incoming) {
+  // Remap every incoming ID to a fresh one to avoid collisions.
+  const blockIdMap = {};
+  const incomingBlocks = Array.isArray(incoming.blocks) ? incoming.blocks : [];
+  incomingBlocks.forEach(b => { blockIdMap[b.id] = uid(); });
+  const newBlocks = incomingBlocks.map(b => ({
+    ...b,
+    id: blockIdMap[b.id],
+    parentId: b.parentId && blockIdMap[b.parentId] ? blockIdMap[b.parentId] : (b.parentId || undefined)
+  }));
+  // Drop any parentId pointing to a non-imported, non-existing guideline
+  newBlocks.forEach(b => {
+    if (b.parentId && !blockIdMap[b.parentId] && !findBlock(b.parentId)) delete b.parentId;
+  });
+
+  const incomingDoc = Array.isArray(incoming.doc) ? incoming.doc : [];
+  const newDocItems = incomingDoc.map(it => {
+    const out = { ...it, id: uid() };
+    if (out.blockId && blockIdMap[out.blockId]) out.blockId = blockIdMap[out.blockId];
+    return out;
+  });
+
+  state.blocks = state.blocks.concat(newBlocks);
+  // Append doc items at the end (skip trailing empty paragraphs)
+  while (state.doc.length > 0) {
+    const last = state.doc[state.doc.length - 1];
+    if (last.kind === "para" && !(last.text || "").trim()) state.doc.pop();
+    else break;
+  }
+  state.doc = state.doc.concat(newDocItems);
+  if (state.doc.length === 0) state.doc = [{ id: uid(), kind: "para", text: "" }];
+  // If title is empty and incoming has one, adopt it
+  if (!state.title && incoming.title) state.title = incoming.title;
+
+  hydrate();
+  save();
+}
+
+document.getElementById("btn-clear").addEventListener("click", async () => {
+  if (!confirm("현재 글의 모든 내용을 초기화합니다 (다른 글은 안전). 진행할까요?")) return;
+  const empty = { title: "", blocks: [], doc: [{ id: uid(), kind: "para", text: "" }] };
+  try {
+    const r = await fetch(_stateUrl(), {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(empty),
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    state = empty;
+    historyStack = [JSON.stringify(state)];
+    redoStack = [];
+    hydrate();
+    flashStatus("초기화됨");
+    // Refresh document title in the selector.
+    const doc = documents.find(d => d.id === currentDocId);
+    if (doc) { doc.title = ""; renderDocSelector(); }
+  } catch (e) {
+    alert("초기화 실패: " + e.message);
+  }
+});
+
+// ============================================================
+// Boot (async — server-backed)
+// ============================================================
+function hydrate() {
+  titleEl.textContent = state.title || "";
+  renderScratch();
+  renderDoc();
+}
+
+async function boot() {
+  try {
+    await load();
+  } catch (e) { return; }   // server down panel already shown
+  if (hydrateLegacyRefs()) {
+    // Persist the migrated state right away so we never re-run this on next boot.
+    await pushStateToServer();
+  }
+  hydrate();
+  // Initialize history with the loaded state as the first snapshot
+  historyStack = [JSON.stringify(state)];
+  await maybeOfferMigration();
+}
+
+// One-time on-load migration: older doc items used blockId as a live reference
+// (card with only blockId, section with only blockId). Copy source title/body into
+// the item so it becomes a forked, independently editable copy.
+function hydrateLegacyRefs() {
+  let changed = false;
+  for (const item of state.doc) {
+    if (item.kind === "card") {
+      const hasOwn = (item.title != null && item.title !== "") || (item.body != null && item.body !== "");
+      if (!hasOwn && item.blockId) {
+        const b = state.blocks.find(x => x.id === item.blockId);
+        if (b) {
+          item.title = b.title || "";
+          item.body = b.body || "";
+          item.blockType = b.type;
+          changed = true;
+        }
+      }
+    } else if (item.kind === "section") {
+      if ((!item.text || item.text === "") && item.blockId) {
+        const b = state.blocks.find(x => x.id === item.blockId);
+        if (b) {
+          item.text = b.title || "";
+          changed = true;
+        }
+      }
+    }
+  }
+  return changed;
+}
+
+async function maybeOfferMigration() {
+  let legacy = null;
+  try {
+    const raw = localStorage.getItem(LEGACY_KEY);
+    if (raw) legacy = JSON.parse(raw);
+  } catch {}
+  if (!legacy) return;
+  const dbEmpty =
+    state.blocks.length === 0 &&
+    state.doc.length <= 1 &&
+    !(state.doc[0] && state.doc[0].text);
+  const message = dbEmpty
+    ? "이전 버전에서 저장한 localStorage 데이터를 발견했습니다.\n\nSQLite DB로 옮길까요?\n(이후 localStorage 데이터는 삭제됩니다.)"
+    : "이전 버전 localStorage 데이터가 있지만 현재 DB에도 내용이 있습니다.\n\n덧붙이기(merge)로 합칠까요? (취소하면 무시)";
+  if (!confirm(message)) return;
+  const mode = dbEmpty ? "replace" : "merge";
+  try {
+    const r = await fetch(`/api/import?mode=${mode}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(legacy),
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    localStorage.removeItem(LEGACY_KEY);
+    await load();
+    hydrate();
+    historyStack = [JSON.stringify(state)];
+    flashStatus("마이그레이션 완료");
+  } catch (e) {
+    alert("마이그레이션 실패: " + e.message);
+  }
+}
+
+boot();
+
+// ============================================================
+// Splitter (resizable scratch pane)
+// ============================================================
+(() => {
+  const splitter = document.getElementById("splitter");
+  const scratchPane = document.getElementById("scratch-pane");
+  const SAVED = "block-writer-pane-w";
+  const savedW = parseInt(localStorage.getItem(SAVED) || "0", 10);
+  if (savedW >= 220) scratchPane.style.width = savedW + "px";
+
+  let resizing = false;
+  splitter.addEventListener("mousedown", (e) => {
+    resizing = true;
+    splitter.classList.add("dragging");
+    document.body.classList.add("resizing");
+    e.preventDefault();
+  });
+  document.addEventListener("mousemove", (e) => {
+    if (!resizing) return;
+    const w = window.innerWidth - e.clientX;
+    const clamped = Math.max(220, Math.min(window.innerWidth - 320, w));
+    scratchPane.style.width = clamped + "px";
+  });
+  document.addEventListener("mouseup", () => {
+    if (!resizing) return;
+    resizing = false;
+    splitter.classList.remove("dragging");
+    document.body.classList.remove("resizing");
+    localStorage.setItem(SAVED, parseInt(scratchPane.style.width, 10) || 360);
+  });
+})();
+
+// ============================================================
+// Copy entire canvas (markdown-flavored plain text)
+// ============================================================
+function canvasToText() {
+  const out = [];
+  if (state.title) { out.push("# " + state.title); out.push(""); }
+  for (const item of state.doc) {
+    if (item.kind === "para") {
+      out.push(item.text || "");
+      out.push("");
+    } else if (item.kind === "section") {
+      out.push("## " + (item.text || ""));
+      out.push("");
+    } else if (item.kind === "card") {
+      const tag = (item.blockType === "guideline") ? "[GUIDELINE]" : "[PROPOSITION]";
+      out.push(`> ${tag} ${item.title || ""}`.trim());
+      if (item.body) item.body.split(/\n/).forEach(line => out.push("> " + line));
+      out.push("");
+    } else if (item.kind === "text") {
+      out.push(item.text || "");
+      if (item.source) out.push(`— ${item.source}에서`);
+      out.push("");
+    } else if (item.kind === "divider") {
+      out.push("---");
+      out.push("");
+    } else if (item.kind === "quote") {
+      (item.text || "").split(/\n/).forEach(line => out.push("> " + line));
+      out.push("");
+    }
+  }
+  return out.join("\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+
+function flashStatus(msg) {
+  const el = document.getElementById("status");
+  const prev = el.textContent;
+  el.textContent = msg;
+  setTimeout(() => { el.textContent = prev; }, 1200);
+}
+
+document.getElementById("btn-copy").addEventListener("click", async () => {
+  const text = canvasToText();
+  try {
+    await navigator.clipboard.writeText(text);
+    flashStatus("복사됨");
+  } catch (e) {
+    // Fallback for file:// where clipboard API can be blocked
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); flashStatus("복사됨"); }
+    catch { alert("복사 실패. 텍스트를 직접 선택해서 복사하세요."); }
+    document.body.removeChild(ta);
+  }
+});
+
+// ============================================================
+// Ctrl+A inside canvas → select entire canvas content
+// ============================================================
+canvasPane.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === "a" || e.key === "A")) {
+    e.preventDefault();
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById("canvas"));
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+});
+
+// Override copy event when full canvas is selected → use clean markdown text
+canvasPane.addEventListener("copy", (e) => {
+  const sel = window.getSelection();
+  if (!sel || sel.rangeCount === 0) return;
+  const range = sel.getRangeAt(0);
+  const canvas = document.getElementById("canvas");
+  // Detect "select all" — range spans the whole canvas
+  if (range.startContainer === canvas || range.commonAncestorContainer === canvas) {
+    e.preventDefault();
+    e.clipboardData.setData("text/plain", canvasToText());
+    flashStatus("복사됨");
+  }
+});
+
+// ============================================================
+// Paste handler — multi-line paste creates multiple paragraphs (Notion-like)
+// ============================================================
+function onParaPaste(e, item, el) {
+  const cd = e.clipboardData || window.clipboardData;
+  if (!cd) return;
+  const text = cd.getData("text");
+  if (!text) return;
+  e.preventDefault();
+  const lines = text.replace(/\r/g, "").split("\n");
+  // Insert first line at the current cursor position
+  document.execCommand("insertText", false, lines[0]);
+  if (lines.length === 1) {
+    item.text = el.textContent;
+    save();
+    return;
+  }
+  // Subsequent lines → new para items, inserted after current
+  const idx = state.doc.findIndex(x => x.id === item.id);
+  if (idx < 0) return;
+  // Capture the updated current text from DOM (execCommand modified it)
+  item.text = el.textContent;
+  const newItems = lines.slice(1).map(t => ({ id: uid(), kind: "para", text: t }));
+  state.doc.splice(idx + 1, 0, ...newItems);
+  renderDoc();
+  save();
+  focusItem(newItems[newItems.length - 1].id, "end");
+}
+
+// Title paste: strip newlines (it's a single-line field)
+titleEl.addEventListener("paste", (e) => {
+  const cd = e.clipboardData || window.clipboardData;
+  if (!cd) return;
+  const text = cd.getData("text");
+  if (!text) return;
+  e.preventDefault();
+  document.execCommand("insertText", false, text.replace(/\s*\n\s*/g, " "));
+  state.title = titleEl.textContent;
+  save();
+});
+
+// ============================================================
+// History (undo/redo)
+// ============================================================
+let historyStack = [];   // top entry == current state snapshot
+let redoStack = [];
+let isUndoRedo = false;
+const HISTORY_CAP = 60;
+
+function snapshotNow() {
+  if (isUndoRedo) return;
+  const snap = JSON.stringify(state);
+  // Skip if identical to top
+  if (historyStack.length > 0 && historyStack[historyStack.length - 1] === snap) return;
+  historyStack.push(snap);
+  if (historyStack.length > HISTORY_CAP) historyStack.shift();
+  redoStack = [];
+}
+
+async function pushStateToServer() {
+  try {
+    await fetch(_stateUrl(), {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(state),
+    });
+  } catch (e) { console.error("push failed", e); }
+}
+
+function undo() {
+  if (historyStack.length <= 1) return;
+  // Flush pending save first so the latest snapshot is recorded
+  if (saveTimer) { clearTimeout(saveTimer); saveTimer = null; snapshotNow(); }
+  const current = historyStack.pop();
+  redoStack.push(current);
+  const prev = historyStack[historyStack.length - 1];
+  isUndoRedo = true;
+  state = JSON.parse(prev);
+  selectedItemIds.clear();
+  hydrate();
+  pushStateToServer();
+  isUndoRedo = false;
+  flashStatus("실행 취소");
+}
+
+function redo() {
+  if (redoStack.length === 0) return;
+  const next = redoStack.pop();
+  historyStack.push(next);
+  isUndoRedo = true;
+  state = JSON.parse(next);
+  selectedItemIds.clear();
+  hydrate();
+  pushStateToServer();
+  isUndoRedo = false;
+  flashStatus("다시 실행");
+}
+
+// historyStack is seeded by boot() after the first load(), so nothing here.
+
+document.addEventListener("keydown", (e) => {
+  const mod = e.ctrlKey || e.metaKey;
+  if (!mod) return;
+  const k = e.key.toLowerCase();
+  if (k === "z" && !e.shiftKey) { e.preventDefault(); undo(); }
+  else if (k === "y" || (k === "z" && e.shiftKey)) { e.preventDefault(); redo(); }
+});
+
+// ============================================================
+// moveItemBy / moveDocItems
+// ============================================================
+function moveItemBy(itemId, delta) {
+  const idx = state.doc.findIndex(x => x.id === itemId);
+  if (idx < 0) return;
+  const newIdx = idx + delta;
+  if (newIdx < 0 || newIdx >= state.doc.length) return;
+  const [it] = state.doc.splice(idx, 1);
+  state.doc.splice(newIdx, 0, it);
+  renderDoc();
+  save();
+  focusItem(itemId);
+}
+
+function moveDocItems(ids, targetIdx) {
+  const idSet = new Set(ids);
+  const moving = state.doc.filter(x => idSet.has(x.id));
+  if (moving.length === 0) return;
+  const removedBefore = state.doc.slice(0, targetIdx).filter(x => idSet.has(x.id)).length;
+  const adjusted = targetIdx - removedBefore;
+  state.doc = state.doc.filter(x => !idSet.has(x.id));
+  state.doc.splice(adjusted, 0, ...moving);
+  renderDoc();
+  save();
+}
+
+// Move all selected items up or down by 1 (clamped)
+function moveSelectionBy(delta) {
+  if (selectedItemIds.size === 0) return;
+  const ids = state.doc.filter(x => selectedItemIds.has(x.id)).map(x => x.id);
+  if (delta < 0) {
+    // Walk from top
+    for (let i = 0; i < state.doc.length; i++) {
+      if (selectedItemIds.has(state.doc[i].id) && i > 0 && !selectedItemIds.has(state.doc[i - 1].id)) {
+        const tmp = state.doc[i - 1]; state.doc[i - 1] = state.doc[i]; state.doc[i] = tmp;
+      }
+    }
+  } else {
+    for (let i = state.doc.length - 1; i >= 0; i--) {
+      if (selectedItemIds.has(state.doc[i].id) && i < state.doc.length - 1 && !selectedItemIds.has(state.doc[i + 1].id)) {
+        const tmp = state.doc[i + 1]; state.doc[i + 1] = state.doc[i]; state.doc[i] = tmp;
+      }
+    }
+  }
+  renderDoc();
+  save();
+}
+
+// ============================================================
+// Multi-select
+// ============================================================
+// selectedItemIds declared at top of script (used by renderDocItem)
+let lastSelectedId = null;
+const toolbar = document.getElementById("selection-toolbar");
+const selCountEl = document.getElementById("sel-count");
+
+function handleSelectionClick(itemId, e) {
+  if (e.shiftKey && lastSelectedId) {
+    const a = state.doc.findIndex(x => x.id === lastSelectedId);
+    const b = state.doc.findIndex(x => x.id === itemId);
+    if (a >= 0 && b >= 0) {
+      const [lo, hi] = a < b ? [a, b] : [b, a];
+      for (let i = lo; i <= hi; i++) selectedItemIds.add(state.doc[i].id);
+    }
+  } else if (e.ctrlKey || e.metaKey) {
+    if (selectedItemIds.has(itemId)) selectedItemIds.delete(itemId);
+    else selectedItemIds.add(itemId);
+    lastSelectedId = itemId;
+  } else {
+    // Plain click: toggle, but if multiple selected, make this the only one
+    if (selectedItemIds.size === 1 && selectedItemIds.has(itemId)) {
+      selectedItemIds.delete(itemId);
+    } else {
+      selectedItemIds.clear();
+      selectedItemIds.add(itemId);
+    }
+    lastSelectedId = itemId;
+  }
+  refreshSelectionUI();
+}
+
+function refreshSelectionUI() {
+  docItemsEl.querySelectorAll(".doc-item").forEach(el => {
+    el.classList.toggle("selected", selectedItemIds.has(el.dataset.id));
+  });
+  if (selectedItemIds.size > 0) {
+    toolbar.hidden = false;
+    selCountEl.textContent = selectedItemIds.size + " 선택됨";
+  } else {
+    toolbar.hidden = true;
+  }
+}
+
+function clearSelection() {
+  selectedItemIds.clear();
+  lastSelectedId = null;
+  refreshSelectionUI();
+}
+
+function deleteSelection() {
+  if (selectedItemIds.size === 0) return;
+  state.doc = state.doc.filter(x => !selectedItemIds.has(x.id));
+  if (state.doc.length === 0) state.doc.push({ id: uid(), kind: "para", text: "" });
+  selectedItemIds.clear();
+  lastSelectedId = null;
+  renderDoc();
+  refreshSelectionUI();
+  save();
+}
+
+document.getElementById("sel-up").addEventListener("click", () => moveSelectionBy(-1));
+document.getElementById("sel-down").addEventListener("click", () => moveSelectionBy(1));
+document.getElementById("sel-delete").addEventListener("click", deleteSelection);
+document.getElementById("sel-clear").addEventListener("click", clearSelection);
+
+// Esc clears selection (when not editing); Delete/Backspace deletes when selection present and not focused on contenteditable
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    if (slashMenuEl && !slashMenuEl.hidden) { closeSlashMenu(); return; }
+    if (selectedItemIds.size > 0) { clearSelection(); }
+    return;
+  }
+  if (selectedItemIds.size > 0 && (e.key === "Delete" || e.key === "Backspace")) {
+    // Only if focus is not in an editable element (avoid eating backspace in para text)
+    const ae = document.activeElement;
+    const inEditable = ae && (ae.isContentEditable || ae.tagName === "INPUT" || ae.tagName === "TEXTAREA");
+    if (!inEditable) {
+      e.preventDefault();
+      deleteSelection();
+    }
+  }
+  if (selectedItemIds.size > 0 && e.altKey && (e.key === "ArrowUp" || e.key === "ArrowDown")) {
+    const ae = document.activeElement;
+    const inEditable = ae && ae.isContentEditable;
+    if (!inEditable) {
+      e.preventDefault();
+      moveSelectionBy(e.key === "ArrowUp" ? -1 : 1);
+    }
+  }
+});
+
+// Click on canvas blank area: clear selection, otherwise act like docx — create/focus a para.
+canvasPane.addEventListener("click", (e) => {
+  if (e.target.closest(".doc-item")) return;
+  if (e.target.closest("#selection-toolbar")) return;
+  if (e.target.closest("#canvas-title")) return;
+  if (selectedItemIds.size > 0) { clearSelection(); return; }
+  if (document.body.classList.contains("preview-mode")) return;
+  // If the last item is already an empty para, just focus it.
+  const last = state.doc[state.doc.length - 1];
+  if (last && last.kind === "para" && !(last.text || "").trim()) {
+    focusItem(last.id, "end");
+    return;
+  }
+  const newItem = { id: uid(), kind: "para", text: "" };
+  state.doc.push(newItem);
+  renderDoc();
+  save();
+  focusItem(newItem.id);
+});
+
+// ============================================================
+// Preview mode toggle
+// ============================================================
+const btnPreview = document.getElementById("btn-preview");
+btnPreview.addEventListener("click", () => {
+  const on = !document.body.classList.contains("preview-mode");
+  document.body.classList.toggle("preview-mode", on);
+  btnPreview.textContent = on ? "편집 모드" : "보기 모드";
+  btnPreview.style.background = on ? "#0ea5e9" : "";
+  btnPreview.style.borderColor = on ? "#0ea5e9" : "";
+  // In preview mode, also lock contenteditable to prevent accidental edits.
+  document.querySelectorAll("[contenteditable]").forEach(el => {
+    if (on) {
+      el.dataset.prevCe = el.contentEditable;
+      el.contentEditable = "false";
+    } else if (el.dataset.prevCe) {
+      el.contentEditable = el.dataset.prevCe;
+      delete el.dataset.prevCe;
+    }
+  });
+  if (on && selectedItemIds.size > 0) clearSelection();
+});
+
+// ============================================================
+// Slash command menu
+// ============================================================
+const slashMenuEl = document.getElementById("slash-menu");
+let slashTarget = null;
+let slashActiveIdx = 0;
+let slashItems = [];
+let slashMode = "main"; // "main" | "card"
+
+function maybeOpenSlashMenu(item, el) {
+  const text = (item.text || "");
+  // Trigger when text starts with / and has no whitespace after
+  if (/^\/[^\s]*$/.test(text)) {
+    openSlashMenu(item, el);
+  } else {
+    closeSlashMenu();
+  }
+}
+
+function openSlashMenu(item, el) {
+  slashTarget = { item, el };
+  slashMode = "main";
+  renderSlashMenu();
+  positionSlashMenu(el);
+  slashMenuEl.hidden = false;
+}
+
+function closeSlashMenu() {
+  slashMenuEl.hidden = true;
+  slashTarget = null;
+  slashItems = [];
+  slashActiveIdx = 0;
+}
+
+function positionSlashMenu(el) {
+  const r = el.getBoundingClientRect();
+  // Place below the para; clamp to viewport
+  let top = r.bottom + 4;
+  let left = r.left;
+  slashMenuEl.style.top = top + "px";
+  slashMenuEl.style.left = left + "px";
+  // After paint, clamp horizontally
+  requestAnimationFrame(() => {
+    const mr = slashMenuEl.getBoundingClientRect();
+    if (mr.right > window.innerWidth - 8) {
+      slashMenuEl.style.left = (window.innerWidth - mr.width - 8) + "px";
+    }
+    if (mr.bottom > window.innerHeight - 8) {
+      slashMenuEl.style.top = (r.top - mr.height - 4) + "px";
+    }
+  });
+}
+
+function renderSlashMenu() {
+  if (slashMode === "main") {
+    const q = (slashTarget.item.text || "").slice(1).toLowerCase();
+    const all = [
+      { key: "section",  label: "섹션 헤더", hint: "## 큰 섹션 구분", keys: ["section", "섹션", "헤더"] },
+      { key: "quote",    label: "인용",     hint: "> 강조 텍스트",   keys: ["quote", "인용"] },
+      { key: "divider",  label: "구분선",   hint: "── 가로선",      keys: ["divider", "구분선", "hr"] },
+      { key: "card",     label: "스크래치 카드…", hint: "기존 블럭 삽입 (다음 화면에서 선택)", keys: ["card", "카드", "block"] },
+    ];
+    slashItems = q
+      ? all.filter(o => o.keys.some(k => k.toLowerCase().includes(q)) || o.label.toLowerCase().includes(q))
+      : all;
+    slashMenuEl.innerHTML = slashItems.length
+      ? slashItems.map((o, i) => `
+          <div class="slash-item ${i === 0 ? "active" : ""}" data-key="${o.key}" data-idx="${i}">
+            <div class="slash-label">${escapeHtml(o.label)}</div>
+            <div class="slash-hint">${escapeHtml(o.hint)}</div>
+          </div>`).join("")
+      : `<div class="slash-empty">매칭 없음</div>`;
+    slashActiveIdx = 0;
+  } else if (slashMode === "card") {
+    const blocks = state.blocks;
+    slashItems = blocks.map(b => ({ key: "_card_" + b.id, blockId: b.id, label: b.title || "(제목 없음)", hint: b.type === "guideline" ? "GUIDELINE" : "PROPOSITION" }));
+    slashMenuEl.innerHTML = `<div class="slash-section-head">스크래치에서 선택 (Esc로 취소)</div>` + (
+      slashItems.length
+        ? slashItems.map((o, i) => `
+            <div class="slash-item ${i === 0 ? "active" : ""}" data-key="${o.key}" data-idx="${i}">
+              <div class="slash-label">${escapeHtml(o.label)}</div>
+              <div class="slash-hint">${escapeHtml(o.hint)}</div>
+            </div>`).join("")
+        : `<div class="slash-empty">스크래치에 블럭 없음</div>`
+    );
+    slashActiveIdx = 0;
+  }
+  slashMenuEl.querySelectorAll(".slash-item").forEach(el => {
+    el.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      slashActiveIdx = parseInt(el.dataset.idx, 10) || 0;
+      chooseSlashActive();
+    });
+    el.addEventListener("mouseenter", () => {
+      slashActiveIdx = parseInt(el.dataset.idx, 10) || 0;
+      highlightSlashActive();
+    });
+  });
+}
+
+function moveSlashSel(delta) {
+  if (slashItems.length === 0) return;
+  slashActiveIdx = (slashActiveIdx + delta + slashItems.length) % slashItems.length;
+  highlightSlashActive();
+}
+
+function highlightSlashActive() {
+  slashMenuEl.querySelectorAll(".slash-item").forEach((el, i) => {
+    el.classList.toggle("active", i === slashActiveIdx);
+  });
+}
+
+function chooseSlashActive() {
+  if (!slashTarget || slashItems.length === 0) return;
+  const choice = slashItems[slashActiveIdx];
+  const { item } = slashTarget;
+  if (slashMode === "main") {
+    if (choice.key === "card") {
+      // Clear the "/..." text from the para before switching to card picker
+      item.text = "";
+      slashTarget.el.textContent = "";
+      slashMode = "card";
+      renderSlashMenu();
+      positionSlashMenu(slashTarget.el);
+      save();
+      return;
+    }
+    convertParaToKind(item, choice.key);
+    closeSlashMenu();
+  } else if (slashMode === "card") {
+    const idx = state.doc.findIndex(x => x.id === item.id);
+    // Replace current empty para with the inserted block(s)
+    state.doc.splice(idx, 1);
+    closeSlashMenu();
+    insertBlockAt(choice.blockId, idx);
+  }
+}
+
+function convertParaToKind(item, kind) {
+  const idx = state.doc.findIndex(x => x.id === item.id);
+  if (idx < 0) return;
+  const replacement = { id: item.id };
+  if (kind === "section")  { replacement.kind = "section"; replacement.text = ""; }
+  else if (kind === "quote")    { replacement.kind = "quote";   replacement.text = ""; }
+  else if (kind === "divider")  { replacement.kind = "divider"; }
+  state.doc[idx] = replacement;
+  // If divider, append a fresh para after so the user can keep typing
+  if (kind === "divider") {
+    const next = { id: uid(), kind: "para", text: "" };
+    state.doc.splice(idx + 1, 0, next);
+    renderDoc();
+    save();
+    focusItem(next.id);
+  } else {
+    renderDoc();
+    save();
+    focusItem(replacement.id);
+  }
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+// Close slash menu when clicking elsewhere
+document.addEventListener("mousedown", (e) => {
+  if (slashMenuEl && !slashMenuEl.hidden) {
+    if (!slashMenuEl.contains(e.target) && !(slashTarget && slashTarget.el.contains(e.target))) {
+      closeSlashMenu();
+    }
+  }
+});
+
+// ============================================================
+// Document selector
+// ============================================================
+const docCurrentBtn   = document.getElementById("doc-current-btn");
+const docCurrentTitle = document.getElementById("doc-current-title");
+const docMenuEl       = document.getElementById("doc-menu");
+
+function renderDocSelector() {
+  const doc = documents.find(d => d.id === currentDocId);
+  docCurrentTitle.textContent = doc ? (doc.title || "(제목 없음)") : "(글 없음)";
+  docCurrentBtn.title = doc ? (doc.title || "(제목 없음)") : "글이 없습니다";
+}
+
+function renderDocMenu() {
+  docMenuEl.innerHTML = "";
+  documents.forEach(d => {
+    const row = document.createElement("div");
+    row.className = "doc-item-row" + (d.id === currentDocId ? " current" : "");
+    const title = document.createElement("div");
+    title.className = "title";
+    title.textContent = d.title || "(제목 없음)";
+    const id = document.createElement("div");
+    id.className = "meta-id";
+    id.textContent = d.id.slice(0, 6);
+    const actions = document.createElement("div");
+    actions.className = "actions";
+    const renameBtn = document.createElement("button");
+    renameBtn.textContent = "이름";
+    renameBtn.title = "이름 변경";
+    renameBtn.addEventListener("click", (ev) => { ev.stopPropagation(); renameDocPrompt(d.id, d.title); });
+    const delBtn = document.createElement("button");
+    delBtn.className = "danger";
+    delBtn.textContent = "삭제";
+    delBtn.title = "글 삭제";
+    delBtn.addEventListener("click", (ev) => { ev.stopPropagation(); deleteDocConfirm(d.id, d.title); });
+    actions.appendChild(renameBtn);
+    actions.appendChild(delBtn);
+    row.appendChild(title);
+    row.appendChild(id);
+    row.appendChild(actions);
+    row.addEventListener("click", () => switchToDoc(d.id));
+    docMenuEl.appendChild(row);
+  });
+  const divider = document.createElement("div");
+  divider.className = "divider";
+  docMenuEl.appendChild(divider);
+  const newBtn = document.createElement("button");
+  newBtn.className = "new-doc-btn";
+  newBtn.textContent = "+ 새 글";
+  newBtn.addEventListener("click", () => createNewDoc());
+  docMenuEl.appendChild(newBtn);
+}
+
+function openDocMenu() {
+  renderDocMenu();
+  docMenuEl.hidden = false;
+}
+function closeDocMenu() {
+  docMenuEl.hidden = true;
+}
+docCurrentBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  if (docMenuEl.hidden) openDocMenu(); else closeDocMenu();
+});
+document.addEventListener("mousedown", (e) => {
+  if (!docMenuEl.hidden && !docMenuEl.contains(e.target) && !docCurrentBtn.contains(e.target)) {
+    closeDocMenu();
+  }
+});
+
+async function switchToDoc(docId) {
+  if (docId === currentDocId) { closeDocMenu(); return; }
+  // Flush any pending save to the OLD doc before switching.
+  if (saveTimer) {
+    clearTimeout(saveTimer); saveTimer = null;
+    snapshotNow();
+    await flushSave();
+  }
+  closeDocMenu();
+  try {
+    const r = await fetch("/api/current", {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: docId }),
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    currentDocId = docId;
+    await load();
+    if (hydrateLegacyRefs()) await pushStateToServer();
+    hydrate();
+    historyStack = [JSON.stringify(state)];
+    redoStack = [];
+    selectedItemIds.clear();
+    refreshSelectionUI();
+    renderDocSelector();
+    flashStatus("글 전환됨");
+  } catch (e) {
+    alert("전환 실패: " + e.message);
+  }
+}
+
+async function createNewDoc() {
+  const title = (prompt("새 글 제목 (비워두면 나중에 H1에서 편집):", "") || "").trim();
+  closeDocMenu();
+  try {
+    const r = await fetch("/api/documents", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title }),
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const data = await r.json();
+    // Refresh list and switch to the new doc.
+    await fetchDocuments();
+    await switchToDoc(data.id);
+  } catch (e) {
+    alert("생성 실패: " + e.message);
+  }
+}
+
+async function renameDocPrompt(docId, currentTitle) {
+  const next = prompt("새 제목:", currentTitle || "");
+  if (next === null) return;
+  try {
+    const r = await fetch(`/api/documents/${encodeURIComponent(docId)}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title: next }),
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const doc = documents.find(d => d.id === docId);
+    if (doc) doc.title = next;
+    if (docId === currentDocId) {
+      state.title = next;
+      titleEl.textContent = next;
+    }
+    renderDocSelector();
+    renderDocMenu();
+    flashStatus("이름 바뀜");
+  } catch (e) {
+    alert("이름변경 실패: " + e.message);
+  }
+}
+
+async function deleteDocConfirm(docId, title) {
+  if (!confirm(`정말 삭제할까요?\n\n"${title || "(제목 없음)"}"\n\n이 글의 블럭과 캔버스 내용이 모두 사라집니다.`)) return;
+  try {
+    const r = await fetch(`/api/documents/${encodeURIComponent(docId)}`, { method: "DELETE" });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const data = await r.json();
+    closeDocMenu();
+    // Refresh documents and load whatever the server made current.
+    await fetchDocuments();
+    if (currentDocId !== data.currentId) currentDocId = data.currentId;
+    await load();
+    if (hydrateLegacyRefs()) await pushStateToServer();
+    hydrate();
+    historyStack = [JSON.stringify(state)];
+    redoStack = [];
+    selectedItemIds.clear();
+    refreshSelectionUI();
+    renderDocSelector();
+    flashStatus("삭제됨");
+  } catch (e) {
+    alert("삭제 실패: " + e.message);
+  }
+}
+
+// ============================================================
+// Role chip + picker
+// ============================================================
+function renderRoleChip(b) {
+  const chip = document.createElement("span");
+  chip.className = "role-chip";
+  applyChipLook(chip, b.role);
+  chip.title = "역할 설정 (주장/근거/반박 등)";
+  chip.addEventListener("click", (e) => {
+    e.stopPropagation();
+    openRolePicker(chip, b);
+  });
+  return chip;
+}
+
+function applyChipLook(chipEl, role) {
+  if (role && ROLE_BY_KEY[role]) {
+    const r = ROLE_BY_KEY[role];
+    chipEl.classList.remove("unset");
+    chipEl.textContent = r.ko;
+    chipEl.style.color = r.color;
+    chipEl.style.background = r.bg;
+  } else {
+    chipEl.classList.add("unset");
+    chipEl.textContent = "역할 ?";
+    chipEl.style.color = "";
+    chipEl.style.background = "";
+  }
+}
+
+const rolePickerEl = document.getElementById("role-picker");
+let rolePickerTarget = null;
+function openRolePicker(chipEl, b) {
+  rolePickerTarget = { chip: chipEl, block: b };
+  rolePickerEl.innerHTML = "";
+  ROLES.forEach(r => {
+    const row = document.createElement("div");
+    row.className = "role-option";
+    const dot = document.createElement("span");
+    dot.className = "dot";
+    dot.style.background = r.color;
+    const label = document.createElement("span");
+    label.textContent = r.ko;
+    label.style.flex = "1";
+    row.appendChild(dot);
+    row.appendChild(label);
+    if (b.role === r.key) {
+      const mark = document.createElement("span");
+      mark.className = "unset-mark";
+      mark.textContent = "✓";
+      row.appendChild(mark);
+    }
+    row.addEventListener("mousedown", (ev) => { ev.preventDefault(); chooseRole(r.key); });
+    rolePickerEl.appendChild(row);
+  });
+  if (b.role) {
+    const sep = document.createElement("div");
+    sep.style.cssText = "height:1px;background:#e7e5e4;margin:4px 2px;";
+    rolePickerEl.appendChild(sep);
+    const clear = document.createElement("div");
+    clear.className = "role-option";
+    const cdot = document.createElement("span");
+    cdot.className = "dot";
+    cdot.style.background = "#e7e5e4";
+    cdot.style.border = "1px dashed #a8a29e";
+    const clbl = document.createElement("span");
+    clbl.textContent = "역할 지우기";
+    clbl.style.color = "#78716c";
+    clbl.style.flex = "1";
+    clear.appendChild(cdot);
+    clear.appendChild(clbl);
+    clear.addEventListener("mousedown", (ev) => { ev.preventDefault(); chooseRole(null); });
+    rolePickerEl.appendChild(clear);
+  }
+  const rect = chipEl.getBoundingClientRect();
+  rolePickerEl.style.left = rect.left + "px";
+  rolePickerEl.style.top = (rect.bottom + 4) + "px";
+  rolePickerEl.hidden = false;
+  requestAnimationFrame(() => {
+    const r = rolePickerEl.getBoundingClientRect();
+    if (r.right > window.innerWidth - 8) rolePickerEl.style.left = (window.innerWidth - r.width - 8) + "px";
+    if (r.bottom > window.innerHeight - 8) rolePickerEl.style.top = (rect.top - r.height - 4) + "px";
+  });
+}
+function closeRolePicker() { rolePickerEl.hidden = true; rolePickerTarget = null; }
+function chooseRole(key) {
+  if (!rolePickerTarget) return;
+  const { chip, block } = rolePickerTarget;
+  block.role = key || undefined;
+  applyChipLook(chip, key);
+  closeRolePicker();
+  save();
+  scheduleDiagnostic();
+}
+document.addEventListener("mousedown", (e) => {
+  if (!rolePickerEl.hidden && !rolePickerEl.contains(e.target)) {
+    if (!rolePickerTarget || !rolePickerTarget.chip.contains(e.target)) closeRolePicker();
+  }
+});
+
+// ============================================================
+// Diagnostic panel
+// ============================================================
+const diagFab   = document.getElementById("diagnostic-fab");
+const diagPanel = document.getElementById("diagnostic-panel");
+const diagBody  = document.getElementById("diag-body");
+const diagBadge = document.getElementById("diag-badge");
+
+function computeDiagnostic() {
+  const props = state.blocks.filter(b => b.type === "proposition");
+  const guides = state.blocks.filter(b => b.type === "guideline");
+  const roleCounts = {};
+  ROLES.forEach(r => roleCounts[r.key] = 0);
+  let untagged = 0;
+  let propsMissingSource = 0;
+  for (const b of state.blocks) {
+    if (b.role && roleCounts.hasOwnProperty(b.role)) roleCounts[b.role]++;
+    else untagged++;
+  }
+  for (const p of props) {
+    if (!(p.source || "").trim()) propsMissingSource++;
+  }
+  const emptyGuidelines = guides.filter(g => !state.blocks.some(b => b.parentId === g.id));
+
+  // Doc-level stats
+  const titleLen = (state.title || "").length;
+  let canvasChars = 0;
+  let canvasPara = 0;
+  let canvasCards = 0;
+  let canvasSections = 0;
+  for (const it of state.doc) {
+    if (it.kind === "para") { canvasChars += (it.text || "").length; canvasPara++; }
+    else if (it.kind === "card") { canvasChars += (it.title || "").length + (it.body || "").length; canvasCards++; }
+    else if (it.kind === "section") { canvasChars += (it.text || "").length; canvasSections++; }
+    else if (it.kind === "text" || it.kind === "quote") { canvasChars += (it.text || "").length; }
+  }
+  const readMinutes = Math.max(1, Math.round(canvasChars / 500)); // ~500 chars/min Korean reading
+
+  // Warnings
+  const warns = [];
+  if (props.length > 0 && roleCounts.claim === 0) {
+    warns.push({ level: "error", msg: "주장(claim) 블럭이 0개. 글의 결정적 한 줄을 명제로 명시하세요." });
+  }
+  if (roleCounts.claim > 0 && roleCounts.evidence < roleCounts.claim) {
+    warns.push({ level: "warn", msg: `주장 ${roleCounts.claim}개 vs 근거 ${roleCounts.evidence}개 — 근거가 부족.` });
+  }
+  if (props.length >= 5 && roleCounts.counter === 0) {
+    warns.push({ level: "warn", msg: "반박(counter) 블럭 0개. 가장 강한 반대 논리를 1개라도 인정해야 변호사급 글." });
+  }
+  if (props.length >= 4 && propsMissingSource >= Math.ceil(props.length / 2)) {
+    warns.push({ level: "warn", msg: `명제 ${props.length}개 중 ${propsMissingSource}개가 출처 비어있음 — 맨주장 위험.` });
+  }
+  if (emptyGuidelines.length > 0) {
+    warns.push({ level: "info", msg: `빈 가이드라인 ${emptyGuidelines.length}개 — 채우거나 삭제.` });
+  }
+  if (untagged > 0 && state.blocks.length > 0) {
+    warns.push({ level: "info", msg: `역할이 안 잡힌 블럭 ${untagged}개. 명확한 글은 모든 블럭의 역할이 의식적임.` });
+  }
+  if (canvasCards > 0 && roleCounts.emotion === 0 && roleCounts.example === 0) {
+    warns.push({ level: "info", msg: "감성·사례 블럭 0개. 논리만으로는 공감이 어렵습니다." });
+  }
+  if (canvasChars > 0 && canvasChars < 400) {
+    warns.push({ level: "info", msg: `본문 ${canvasChars}자 — 아직 골격 단계. 단락 채워 보세요.` });
+  }
+
+  return { roleCounts, untagged, propsMissingSource, emptyGuidelines, props, guides, titleLen,
+           canvasChars, canvasPara, canvasCards, canvasSections, readMinutes, warns };
+}
+
+function renderDiagnostic() {
+  const d = computeDiagnostic();
+  diagBody.innerHTML = "";
+
+  // Stats overview
+  const h1 = document.createElement("div"); h1.className = "section-h"; h1.textContent = "개요";
+  diagBody.appendChild(h1);
+  const stats = [
+    ["가이드라인", d.guides.length],
+    ["명제",       d.props.length],
+    ["빈 가이드라인", d.emptyGuidelines.length],
+    ["본문 글자수", d.canvasChars],
+    ["단락",        d.canvasPara],
+    ["섹션",        d.canvasSections],
+    ["박힌 카드",   d.canvasCards],
+    ["예상 읽기",   d.readMinutes + "분"],
+  ];
+  for (const [k, v] of stats) {
+    const row = document.createElement("div"); row.className = "stat-row";
+    const a = document.createElement("span"); a.textContent = k; a.style.color = "#78716c";
+    const b = document.createElement("span"); b.textContent = v; b.style.fontWeight = "600";
+    row.appendChild(a); row.appendChild(b); diagBody.appendChild(row);
+  }
+
+  // Role distribution
+  const h2 = document.createElement("div"); h2.className = "section-h"; h2.textContent = "역할 분포";
+  diagBody.appendChild(h2);
+  const totalRoled = ROLES.reduce((s, r) => s + d.roleCounts[r.key], 0) + d.untagged;
+  if (totalRoled === 0) {
+    const n = document.createElement("div"); n.className = "nothing"; n.textContent = "(블럭 없음)";
+    diagBody.appendChild(n);
+  } else {
+    for (const r of ROLES) {
+      const c = d.roleCounts[r.key];
+      if (c === 0) continue;
+      const row = document.createElement("div"); row.className = "role-bar";
+      const dot = document.createElement("span"); dot.className = "dot"; dot.style.background = r.color;
+      const lbl = document.createElement("span"); lbl.className = "label"; lbl.textContent = r.ko;
+      const cnt = document.createElement("span"); cnt.className = "count"; cnt.textContent = c;
+      row.appendChild(dot); row.appendChild(lbl); row.appendChild(cnt);
+      diagBody.appendChild(row);
+    }
+    if (d.untagged > 0) {
+      const row = document.createElement("div"); row.className = "role-bar";
+      const dot = document.createElement("span"); dot.className = "dot";
+      dot.style.background = "transparent"; dot.style.border = "1px dashed #a8a29e";
+      const lbl = document.createElement("span"); lbl.className = "label";
+      lbl.textContent = "(역할 미설정)"; lbl.style.color = "#a8a29e";
+      const cnt = document.createElement("span"); cnt.className = "count"; cnt.textContent = d.untagged;
+      row.appendChild(dot); row.appendChild(lbl); row.appendChild(cnt);
+      diagBody.appendChild(row);
+    }
+  }
+
+  // Warnings
+  const h3 = document.createElement("div"); h3.className = "section-h"; h3.textContent = "약점 진단";
+  diagBody.appendChild(h3);
+  if (d.warns.length === 0) {
+    const n = document.createElement("div"); n.className = "nothing"; n.textContent = "(현재 약점 없음 — 좋습니다)";
+    diagBody.appendChild(n);
+  } else {
+    for (const w of d.warns) {
+      const div = document.createElement("div"); div.className = "warn " + (w.level || "");
+      div.textContent = w.msg;
+      diagBody.appendChild(div);
+    }
+  }
+
+  // Badge on FAB shows error+warn count
+  const seriousCount = d.warns.filter(w => w.level === "error" || w.level === "warn").length;
+  if (seriousCount > 0) { diagBadge.hidden = false; diagBadge.textContent = seriousCount; }
+  else { diagBadge.hidden = true; }
+}
+
+let _diagTimer = null;
+function scheduleDiagnostic() {
+  clearTimeout(_diagTimer);
+  _diagTimer = setTimeout(renderDiagnostic, 250);
+}
+
+diagFab.addEventListener("click", () => {
+  if (diagPanel.hidden) { renderDiagnostic(); diagPanel.hidden = false; }
+  else { diagPanel.hidden = true; }
+});
+document.getElementById("diag-close").addEventListener("click", () => { diagPanel.hidden = true; });
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey || e.metaKey) && e.key === "/") {
+    e.preventDefault();
+    diagFab.click();
+  }
+});
+
+// Recompute diagnostic when state changes (piggyback on save)
+const _origSave = save;
+save = function(...args) {
+  _origSave.apply(this, args);
+  scheduleDiagnostic();
+};
+// Also after hydrate
+const _origHydrate = hydrate;
+hydrate = function(...args) {
+  _origHydrate.apply(this, args);
+  scheduleDiagnostic();
+};
+
+// ============================================================
+// Snippet menu (transition phrases)
+// ============================================================
+const snippetMenuEl = document.getElementById("snippet-menu");
+let snippetTargetEl = null;  // contenteditable element to insert into
+
+function openSnippetMenu(triggerEl, paraEl) {
+  snippetTargetEl = paraEl;
+  snippetMenuEl.innerHTML = "";
+  const byCat = {};
+  for (const s of SNIPPETS) {
+    if (!byCat[s.cat]) byCat[s.cat] = [];
+    byCat[s.cat].push(s);
+  }
+  for (const cat of Object.keys(byCat)) {
+    const h = document.createElement("div");
+    h.className = "snippet-cat";
+    h.textContent = cat;
+    snippetMenuEl.appendChild(h);
+    for (const s of byCat[cat]) {
+      const row = document.createElement("div");
+      row.className = "snippet-row";
+      row.textContent = s.text;
+      row.addEventListener("mousedown", (e) => { e.preventDefault(); insertSnippet(s.text); });
+      snippetMenuEl.appendChild(row);
+    }
+  }
+  const rect = triggerEl.getBoundingClientRect();
+  snippetMenuEl.style.left = (rect.right + 6) + "px";
+  snippetMenuEl.style.top  = rect.top + "px";
+  snippetMenuEl.hidden = false;
+  requestAnimationFrame(() => {
+    const r = snippetMenuEl.getBoundingClientRect();
+    if (r.right > window.innerWidth - 8) snippetMenuEl.style.left = (window.innerWidth - r.width - 8) + "px";
+    if (r.bottom > window.innerHeight - 8) snippetMenuEl.style.top = (window.innerHeight - r.height - 8) + "px";
+  });
+}
+function closeSnippetMenu() { snippetMenuEl.hidden = true; snippetTargetEl = null; }
+function insertSnippet(text) {
+  if (!snippetTargetEl) return;
+  snippetTargetEl.focus();
+  document.execCommand("insertText", false, text);
+  // Trigger input handler so state.text gets updated
+  snippetTargetEl.dispatchEvent(new Event("input", { bubbles: true }));
+  closeSnippetMenu();
+}
+document.addEventListener("mousedown", (e) => {
+  if (!snippetMenuEl.hidden && !snippetMenuEl.contains(e.target) && !e.target.classList.contains("snippet-trigger")) {
+    closeSnippetMenu();
+  }
+});
+
+// Attach snippet trigger to every editable doc item (para/text/quote/section).
+// We hook into renderDoc via a post-render pass.
+const _origRenderDoc = renderDoc;
+renderDoc = function(...args) {
+  _origRenderDoc.apply(this, args);
+  decorateDocItemsWithSnippetTriggers();
+};
+function decorateDocItemsWithSnippetTriggers() {
+  const items = docItemsEl.querySelectorAll(".doc-item");
+  items.forEach(wrap => {
+    const editable = wrap.querySelector('[contenteditable="true"]');
+    if (!editable) return;
+    if (wrap.querySelector(".snippet-trigger")) return;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "snippet-trigger";
+    btn.textContent = "✏︎";
+    btn.title = "전환 표현 라이브러리";
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openSnippetMenu(btn, editable);
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+// ============================================================
+// Templates — hook into createNewDoc
+// ============================================================
+async function createNewDocWithTemplate() {
+  const choice = prompt(
+    "새 글:\n\n" +
+    "1 = 분석 리포트 (시나리오 보고서 골격)\n" +
+    "2 = 오피니언 칼럼\n" +
+    "3 = 개인 에세이\n" +
+    "(엔터 = 빈 글)\n\n제목 (옵션): 1, 2, 3 중 하나 또는 빈 칸",
+    ""
+  );
+  if (choice === null) return null;
+  const ch = (choice || "").trim();
+  let title = "";
+  let tpl = null;
+  if (ch === "1") tpl = TEMPLATES.analysis;
+  else if (ch === "2") tpl = TEMPLATES.opinion;
+  else if (ch === "3") tpl = TEMPLATES.essay;
+  else title = ch;  // free-text title, no template
+  if (tpl) title = prompt(`"${tpl.name}" 글의 제목:`, "") || "";
+
+  closeDocMenu();
+  try {
+    const r = await fetch("/api/documents", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title }),
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const data = await r.json();
+    await fetchDocuments();
+    await switchToDoc(data.id);
+    // If a template was chosen, seed the new doc with its guidelines via PUT.
+    if (tpl) {
+      const seedBlocks = tpl.blocks.map((b, i) => ({
+        id: uid() + "_" + i,
+        type: b.type,
+        title: b.title || "",
+        body: b.body || "",
+        role: b.role || undefined,
+      }));
+      state = { title, blocks: seedBlocks, doc: [{ id: uid(), kind: "para", text: "" }] };
+      await pushStateToServer();
+      hydrate();
+      historyStack = [JSON.stringify(state)];
+    }
+    flashStatus(tpl ? `${tpl.name} 템플릿 적용` : "새 글 생성");
+    return data.id;
+  } catch (e) {
+    alert("생성 실패: " + e.message);
+    return null;
+  }
+}
+// Override the simple createNewDoc with the template-aware one.
+createNewDoc = createNewDocWithTemplate;
+
+// ============================================================
+// Writing tips panel (Round 8)
+// ============================================================
+const TIPS = {
+  byRole: {
+    claim: [
+      { rule: "두괄식 — 첫 문장에 핵심 주장을 박아라", detail: "결론을 끌면 독자가 떠난다. \"이 글은 X를 주장한다\" 형태로 첫 줄을 잡아라." },
+      { rule: "한 명제 = 하나의 방어 가능한 주장", detail: "\"A와 B다\" 같은 복합 주장 금지. A와 B는 별도 명제로 분리." },
+      { rule: "모호어 금지 — 측정 가능한 표현으로", detail: "\"중요하다\" → \"X가 빠지면 매출의 30%가 사라진다\". \"좋은/나쁜\" 같은 형용사는 수치·결과로 치환." },
+      { rule: "반박 가능한가 자문하라", detail: "누군가 \"X는 사실이 아니다\"라고 반대할 수 있어야 진짜 주장. \"사람들은 가족을 사랑한다\"는 주장이 아니다(반대 불가)." },
+      { rule: "안전한 주장 = 무가치한 주장", detail: "누구도 반대 안 하는 건 쓸 가치 없음. 글의 무게는 *얼마나 새로운가 + 얼마나 위험한가*로 결정." },
+      { rule: "핵심 명사 + 강한 동사 = 강한 주장", detail: "\"사랑은 헌신을 요구하지 않는다\"는 \"사랑은 헌신과 다른 것이다\"보다 강함. 동사가 명사보다 무거워야." },
+      { rule: "한 줄로 압축 불가하면 너도 모르는 것", detail: "쓰기 전에 한 줄 요약부터. 한 줄 안 되면 명제 자체가 흐릿하다는 신호." },
+    ],
+    evidence: [
+      { rule: "정량성 우선 — 수치·날짜·이름", detail: "\"많은 사람이\" → \"응답자의 64%가\". \"최근에\" → \"2024년 3월에\". 수치 없는 근거는 약함." },
+      { rule: "1차 출처가 강하다", detail: "통계청·논문·일간지·당사자 직접 인용. 위키피디아·블로그는 보조 자료지 1차 출처가 아님." },
+      { rule: "약한 근거 패턴을 의심하라", detail: "\"내가 들은 바로는\", \"상식적으로\", \"일반적으로\", \"흔히\" — 이 표현이 들어가면 근거가 약하다는 자기 신호." },
+      { rule: "근거 종류 다양화: 통계 + 사례 + 권위 + 추론", detail: "한 종류만 쌓으면 독자가 의심. 4종류 섞으면 입체적." },
+      { rule: "출처 없는 숫자는 거짓말로 의심받는다", detail: "모든 수치 옆에 *어디서 왔는지* 적어라. 출처가 없는 숫자는 안 쓰는 게 낫다." },
+      { rule: "일화는 *대표성*을 명시하라", detail: "\"내 친구가 그랬다\" → \"내 친구의 경험인데, X 연구에서 60%가 보고한 패턴과 일치한다\"." },
+      { rule: "강한 근거 1개 > 약한 근거 5개", detail: "약한 근거를 늘리면 *전체*가 약해 보임. 약한 거 잘라내고 강한 거 하나에 집중." },
+    ],
+    counter: [
+      { rule: "*가장 강한* 반박을 인정하라", detail: "약한 반박만 다루면 *허수아비 오류*. 자기 주장의 가장 큰 적을 찾아 인용." },
+      { rule: "인정의 강도 = 재반박의 강도", detail: "\"이 반론은 일견 결정적이다\" 처럼 강하게 인정해야 재반박이 무게 받음." },
+      { rule: "구조: 인정 → 핵심 차이 → 자기 주장 재확인", detail: "예: \"X는 정당하다. 그러나 X와 Y는 다른 사건이다. 이 글은 Y만 다룬다.\"" },
+      { rule: "반박을 충분히 펼친 뒤 무력화", detail: "반박을 짧게 처리하면 독자가 \"안 다뤘다\"고 느낌. 한 단락 통째로 반박에 쓸 각오." },
+      { rule: "반박 0개 = 자신 없거나 글 안 읽은 신호", detail: "변호사가 절대 안 하는 실수. 가장 강한 반박 하나라도 박아라." },
+      { rule: "\"이 반론도 X를 놓치지 않으면 결론은 같다\" 패턴", detail: "반론을 *내 주장의 변형*으로 흡수. 가장 깔끔한 재반박." },
+    ],
+    definition: [
+      { rule: "정의는 *좁히는 방향*으로", detail: "넓은 정의는 함정. \"사랑\" 대신 \"*일상의 무조건적 헌신*\"으로 좁혀라." },
+      { rule: "정의 뒤에 *경계 사례* 두기", detail: "\"X는 A를 포함하지만 B는 아니다\"로 경계 명확화. 경계 없는 정의는 흐릿." },
+      { rule: "어휘 정의 vs 조작적 정의 — 후자를 써라", detail: "어휘: \"행복은 좋은 상태\". 조작: \"행복은 주관적 만족도 7점 이상\". 측정 가능 형태." },
+      { rule: "통념 정의를 *먼저* 짚고 너의 정의를 도입", detail: "\"흔히 X를 Y로 정의한다. 이 글은 Z로 좁혀 쓴다.\" 명시." },
+    ],
+    example: [
+      { rule: "구체성: 시간·장소·이름·숫자", detail: "\"옛날 어떤 사람\" → \"2019년 봄, 서울 노원구의 김 모 씨\". 구체가 권위." },
+      { rule: "사례의 *대표성*을 명시하라", detail: "전형인가, 극단인가? 극단을 일반화하면 글이 무너진다." },
+      { rule: "강한 사례 1개 > 약한 사례 5개", detail: "사례를 양적으로 쌓지 마라. 하나를 깊게 묘사하라." },
+      { rule: "직접 경험 사례 우선", detail: "들은 이야기보다 *내가 본/겪은* 사례가 진정성 있음. 자기 목소리가 박힘." },
+      { rule: "사례 뒤엔 *일반화 명제*가 따라와야 한다", detail: "사례만 던지면 독자가 \"그래서?\". 사례 → 일반화 → 함의 3단계." },
+    ],
+    quote: [
+      { rule: "인용은 *짧게*", detail: "길게 인용하면 자기 글이 아니게 된다. 핵심 한 줄만 따와라." },
+      { rule: "인용 뒤에 *왜 인용했는지* 한 줄 설명", detail: "인용만 던지면 독자가 못 잇는다. \"이 말은 X를 의미한다\"로 연결." },
+      { rule: "권위 인용 vs 핵심 표현 인용 구분", detail: "권위 인용은 *누가 말했나*를 강조. 핵심 표현 인용은 *문장 자체*를 강조." },
+      { rule: "출처는 정확히 — 이름·책·연도", detail: "출처 불명확하면 인용 신뢰도 0. 가능하면 페이지까지." },
+    ],
+    implication: [
+      { rule: "*그래서 무엇이냐* (So what?) 에 답하라", detail: "함의가 약하면 글 전체가 약해 보인다. 함의 = 글의 무게추." },
+      { rule: "행동 가능한 결론", detail: "\"우리는 더 잘 살아야 한다\" 금지. \"다음 X 하기 전에 Y를 물어라\" 처럼 *구체 행동*." },
+      { rule: "함의는 글의 *마지막 한 발*", detail: "약하면 글 전체가 무너진다. 다른 데 다 다듬은 뒤 함의는 또 한 번." },
+      { rule: "추상적 함의 금지", detail: "\"사랑에 대한 우리의 관점을 바꿔야 한다\" → \"다음 친절 전에 '이건 누구를 위한 것인가' 자문하라.\"" },
+      { rule: "함의가 주장과 *호응*하는가", detail: "첫 줄(주장)과 마지막 줄(함의)이 같은 메시지인지 확인. 안 호응하면 둘 중 하나가 잘못된 것." },
+    ],
+    emotion: [
+      { rule: "감정의 *이름*을 부르지 마라 — *상황*을 보여라", detail: "\"슬펐다\" → \"그가 떠난 자리에 그가 두고 간 컵이 있었다.\" Show, don't tell." },
+      { rule: "구체 명사 + 감각 동사", detail: "시각·청각·촉각·후각·미각 중 *하나는 박혀야*. \"추웠다\" → \"눈이 신발 안에 들어와 양말이 젖었다.\"" },
+      { rule: "한 장면 = 한 감정", detail: "슬픔 + 분노를 한 장면에 섞지 마라. 두 장면으로 쪼개라. 섞으면 둘 다 안 닿음." },
+      { rule: "감성 단락 뒤엔 *사색*이 와야 한다", detail: "감정만 있으면 멜로드라마. 감성 다음에 그 감정이 *무엇을 가리키는지* 한 줄." },
+      { rule: "\"나\"보다 \"그 사람\"을 보여라", detail: "1인칭 감정은 자기 연민으로 떨어지기 쉽다. 3인칭이 안전하고 독자가 자기를 대입함." },
+      { rule: "글의 *가장 감성적인 한 줄*을 의식적으로 박아라", detail: "평탄한 글에 한 줄의 *날카로움*이 임팩트를 만든다. 그 한 줄을 찾아 다듬어라." },
+    ],
+    question: [
+      { rule: "수사학적 질문 vs 진짜 질문 구분", detail: "수사학적이면 즉시 답을 줘라. 진짜 질문이면 글 안에서 답을 찾아라." },
+      { rule: "글의 *첫 줄* 질문은 강한 무기", detail: "독자가 끌려온다. 단, 뒤의 답이 너무 빠르면 김 빠짐. 적절히 뜸 들여라." },
+      { rule: "답을 모르겠는 질문은 정직하게 \"모른다\"", detail: "억지로 답하지 마라. 모른다는 게 정직한 답일 때가 있음. 정직이 우선." },
+      { rule: "질문 뒤에 *한 줄 멈춤*을 둬라", detail: "빈 줄 한 칸이 독자의 사색 시간을 만든다. 빠른 답은 질문을 무력화함." },
+    ],
+    hypothesis: [
+      { rule: "\"X일지도 모른다\" → \"X일 가능성이 높다, 왜냐하면…\"", detail: "가설도 *근거의 무게*를 가져야 한다. 그냥 추측은 안 됨." },
+      { rule: "가설은 *반증 가능*해야 한다", detail: "어떤 조건이면 가설이 깨지는지 명시. \"이 가설은 X 데이터가 나오면 폐기.\"" },
+      { rule: "추측을 사실처럼 쓰지 마라", detail: "\"X일 것이다\"는 가설, \"X다\"는 주장. 두 톤을 섞지 마라." },
+      { rule: "가설을 던졌으면 *검증 방법*도 제시", detail: "검증 없는 가설은 공상. 어떻게 확인할 수 있는지 한 줄이라도." },
+    ],
+  },
+
+  byKeyword: {
+    "통념": [
+      { rule: "통념을 *그대로 인용*한 뒤 균열을 짚어라", detail: "너 말로 풀이하면 약해 보임. 통념 표현을 따옴표로 인용하라." },
+      { rule: "통념의 *출처*를 짚어라", detail: "어디서 왔나, 누가 만들었나. \"이 통념은 X 영화/책/문화에서 왔다\"." },
+      { rule: "통념을 깨려면 *통념이 옳은 부분*도 인정", detail: "통념 전부 부정하면 독자가 방어함. 일부 인정 후 한정." },
+    ],
+    "모순": [
+      { rule: "두 명제가 *공존 불가능*함을 보여라", detail: "\"A를 받아들이면 B는 불가능하다\"의 형태." },
+      { rule: "모순은 *명시적*으로 적시. 함축 금지", detail: "독자가 모순을 알아채길 기대하지 마라. 직접 짚어라." },
+    ],
+    "근거": [
+      { rule: "근거 3개 이상이면 *강도 순서*로 배치", detail: "가장 강한 것을 *처음* 또는 *마지막*에 (양 끝이 가장 기억됨)." },
+      { rule: "근거가 부족하면 *주장의 범위*를 좁혀라", detail: "근거 1개로 큰 주장 못 함. 작은 주장으로 압축." },
+    ],
+    "이유": [
+      { rule: "이유 = 인과 관계가 검증 가능한 형태", detail: "\"X 때문이다\" → \"X일 때 Y가 N% 증가한다\"." },
+    ],
+    "반박": [
+      { rule: "인정의 강도를 *과장하라*", detail: "\"그 반론은 일견 결정적이다\"부터 시작. 약한 인정은 허수아비." },
+      { rule: "반박 뒤 *한 칸 띄고* 재반박 — 시각 분리", detail: "한 단락에 합치지 마라. 단락 분리가 무게를 만든다." },
+    ],
+    "재반박": [
+      { rule: "재반박은 반박의 *핵심 가정*을 공격하라", detail: "반박이 X 전제 위에 서 있다면 그 X를 흔들어라. 결론만 부정하면 약함." },
+    ],
+    "결론": [
+      { rule: "결론은 글의 *첫 줄*과 호응해야 한다", detail: "처음과 끝이 다르면 글이 길을 잃은 것. 첫 줄로 돌아가서 확인." },
+      { rule: "결론 = 한 문장으로 압축 가능해야", detail: "한 문장 안 되면 결론이 아직 정리 안 된 것." },
+    ],
+    "함의": [
+      { rule: "함의는 *행동 가능*해야 한다", detail: "독자가 무엇을 다르게 할 것인가. 행동 없는 함의는 공허." },
+    ],
+    "정의": [
+      { rule: "정의는 *좁히는 방향*. 넓은 정의는 함정", detail: "글 안에서 쓸 *조작적 정의*로 좁혀라." },
+      { rule: "정의 후 *경계 사례* — 이건 포함, 이건 제외", detail: "경계 없으면 정의가 흐릿해서 어디서 적용해야 할지 모름." },
+    ],
+    "사례": [
+      { rule: "사례는 *시간·장소·이름·숫자*가 박혀야 강하다", detail: "\"어떤 사람\" → \"2019년 봄 서울의 김 모 씨\"." },
+      { rule: "사례 하나당 한 단락 — 여러 사례 묶지 마라", detail: "사례 압축하면 임팩트 사라짐. 하나를 깊게." },
+    ],
+    "예시": [
+      { rule: "예시는 *대표성* 명시 — 전형인가 극단인가", detail: "극단 예시를 일반화하면 글이 무너진다." },
+    ],
+    "질문": [
+      { rule: "질문 뒤 한 줄 멈춤 — 빈 줄 한 칸", detail: "답으로 바로 넘어가면 질문의 힘이 죽음." },
+      { rule: "답 없는 질문도 가치 있음 — 정직이 우선", detail: "모르겠으면 모른다고 정직하게. 억지 답이 글을 망친다." },
+    ],
+    "감성": [
+      { rule: "감정 이름 부르지 말고 *상황*을 보여라", detail: "Show, don't tell. 슬픔 → 떠난 자리의 컵." },
+    ],
+    "비유": [
+      { rule: "비유는 *독자가 아는 것 → 모르는 것* 방향", detail: "모르는 것으로 모르는 것 비유하면 망한다. 일상에서 시작." },
+      { rule: "비유는 1~2문장으로 끝내고 본문으로 돌아와라", detail: "비유가 길어지면 글이 *비유에 잡아먹힘*." },
+      { rule: "비유가 *주장과 정확히 일치*하는지 검증", detail: "비유는 매력적이라 검증 없이 통과되기 쉽다. 한 번 더 확인." },
+    ],
+    "행동": [
+      { rule: "행동은 *구체적*이어야 한다", detail: "\"X 하라\"의 형태. \"더 사랑하자\" 같은 추상 금지." },
+    ],
+    "촉구": [
+      { rule: "촉구는 *오늘부터 가능한* 행동으로", detail: "거대한 사회 변화 촉구는 무력. 한 사람이 한 번에 할 수 있는 것." },
+    ],
+    "도입": [
+      { rule: "도입의 임무 = 독자를 *멈추게* 하기", detail: "익숙한 통념의 균열, 의외의 사실, 강한 질문. 셋 중 하나." },
+    ],
+    "서론": [
+      { rule: "서론은 *글의 약속*을 명시", detail: "이 글이 무엇을 다룰지, 무엇을 다루지 않을지. 모호함이 가장 위험." },
+    ],
+  },
+
+  general: [
+    { rule: "한 단락 = 한 주장", detail: "두 주장이 들어가면 단락을 쪼개라. 단락 안에서 길을 잃으면 독자도 잃는다." },
+    { rule: "추상 명사 + 약한 동사 패턴을 피해라", detail: "\"감사의 마음을 느꼈다\" → \"감사했다\". 추상명사 사슬은 글을 흐리게 한다." },
+    { rule: "형용사·부사 줄이고 동사·명사 늘려라", detail: "강한 글은 명사·동사로, 약한 글은 형용사·부사로 만들어진다. 다듬을 때 형용사부터 도려내라." },
+    { rule: "마지막 문장이 다음 단락 첫 문장을 *예고*하게", detail: "단락 사이가 끊기지 않게 연결. 흐름이 부드러우면 독자가 안 멈춘다." },
+    { rule: "처음 쓸 때는 길게, 다듬을 때는 짧게", detail: "초고는 토하듯이, 퇴고는 도려내듯이. *짧아질수록 좋다*." },
+    { rule: "첫 줄과 마지막 줄이 *호응*하는가", detail: "처음과 끝이 같은 메시지를 가리키면 글이 단단. 다르면 길을 잃은 것." },
+    { rule: "두 시간 뒤 다시 읽어도 *멈칫* 없이 흐르는가", detail: "다듬은 직후엔 다 좋아 보인다. 시간 두고 다시 읽으면 약점이 드러남." },
+    { rule: "한 글 = 한 핵심 주장", detail: "둘 이상 있으면 두 글로 쪼개라. 한 글에 두 주장이 들어가면 둘 다 약해짐." },
+    { rule: "*가장 약한 문단*을 찾아 도려내라", detail: "글에는 *없으면 더 강해질* 부분이 반드시 있다. 그 부분이 가장 약한 문단." },
+    { rule: "너가 *지루하다*고 느끼면 독자는 더 지루하다", detail: "스스로 읽다 지루한 부분은 도려내거나 압축하라. 자비 없이." },
+    { rule: "*결정적 한 줄*을 의식적으로 만들어 박아라", detail: "글에는 *기억되는 한 줄*이 있어야 한다. 평탄하기만 하면 잊혀진다." },
+    { rule: "같은 단어를 한 단락에 두 번 이상 쓰지 마라", detail: "유의어로 바꾸거나 문장 구조를 바꿔라. 반복은 게으름의 신호." },
+    { rule: "접속사를 자주 쓰는 글은 *논리가 엉성*하다", detail: "\"그리고, 그러나, 또한\"이 많으면 문장 사이 관계가 명확하지 않다는 신호." },
+    { rule: "글을 *소리 내어 읽어보라*", detail: "발음이 어려운 곳은 문장이 어려운 곳. 호흡이 끊기는 곳은 문장 구조가 잘못된 곳." },
+    { rule: "*독자가 누구인지* 한 명을 떠올려라", detail: "막연한 \"독자들\"이 아니라 *구체적 한 사람*. 그 사람한테 말하듯 써라." },
+  ],
+};
+
+// Build keyword regex for fast matching (sort by length desc so longer matches win)
+const KEYWORD_KEYS = Object.keys(TIPS.byKeyword).sort((a, b) => b.length - a.length);
+
+const tipFab   = document.getElementById("tip-fab");
+const tipPanel = document.getElementById("tip-panel");
+const tipBody  = document.getElementById("tip-body");
+
+let currentFocusedBlockId   = null;
+let currentFocusedDocItemId = null;
+
+function getCurrentContext() {
+  // Returns { role, sources: [{label, text}], roleLabel }
+  let role = null;
+  let roleLabel = null;
+  const sources = [];
+
+  if (currentFocusedBlockId) {
+    const b = state.blocks.find(x => x.id === currentFocusedBlockId);
+    if (b) {
+      role = b.role || null;
+      if (role && ROLE_BY_KEY[role]) roleLabel = ROLE_BY_KEY[role].ko;
+      sources.push({ label: "블럭 제목", text: b.title || "" });
+      sources.push({ label: "블럭 본문", text: b.body || "" });
+      if (b.parentId) {
+        const parent = state.blocks.find(x => x.id === b.parentId);
+        if (parent) sources.push({ label: "상위 가이드라인", text: parent.title || "" });
+      }
+    }
+  } else if (currentFocusedDocItemId) {
+    const it = state.doc.find(x => x.id === currentFocusedDocItemId);
+    if (it) {
+      if (it.kind === "card") {
+        // role from source block (if still exists), else from blockType heuristic
+        if (it.blockId) {
+          const src = state.blocks.find(b => b.id === it.blockId);
+          if (src) {
+            role = src.role || null;
+            if (role && ROLE_BY_KEY[role]) roleLabel = ROLE_BY_KEY[role].ko;
+          }
+        }
+        sources.push({ label: "카드 제목", text: it.title || "" });
+        sources.push({ label: "카드 본문", text: it.body || "" });
+      } else if (it.kind === "section") {
+        sources.push({ label: "섹션 제목", text: it.text || "" });
+      } else if (it.kind === "para" || it.kind === "quote" || it.kind === "text") {
+        sources.push({ label: "단락 본문", text: it.text || "" });
+        // Find nearest preceding section for guideline context
+        const idx = state.doc.findIndex(x => x.id === it.id);
+        for (let i = idx - 1; i >= 0; i--) {
+          if (state.doc[i].kind === "section") {
+            sources.push({ label: "이 섹션", text: state.doc[i].text || "" });
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  return { role, roleLabel, sources };
+}
+
+function detectKeywords(sources) {
+  const found = new Set();
+  for (const s of sources) {
+    const text = s.text || "";
+    for (const kw of KEYWORD_KEYS) {
+      if (text.includes(kw)) found.add(kw);
+    }
+  }
+  return [...found];
+}
+
+function renderTips() {
+  if (tipPanel.hidden) return;
+  const ctx = getCurrentContext();
+  const keywords = detectKeywords(ctx.sources);
+
+  tipBody.innerHTML = "";
+
+  // Context banner
+  const contextEl = document.createElement("div");
+  contextEl.className = "tip-context" + (ctx.role || keywords.length ? "" : " empty");
+  if (ctx.role || keywords.length) {
+    const parts = [];
+    if (ctx.roleLabel) parts.push(`역할: <b>${ctx.roleLabel}</b>`);
+    if (keywords.length) parts.push(`키워드: <b>${keywords.join(", ")}</b>`);
+    contextEl.innerHTML = parts.join(" · ");
+  } else {
+    contextEl.textContent = "블럭이나 단락에 포커스하면 그 역할·키워드에 맞는 팁이 나옴. 지금은 일반 원칙만.";
+  }
+  tipBody.appendChild(contextEl);
+
+  // Role-based tips
+  if (ctx.role && TIPS.byRole[ctx.role]) {
+    appendTipCategory(`역할: ${ctx.roleLabel}`, TIPS.byRole[ctx.role], "role", "#0ea5e9");
+  }
+
+  // Keyword-based tips
+  for (const kw of keywords) {
+    if (TIPS.byKeyword[kw]) {
+      appendTipCategory(`키워드: ${kw}`, TIPS.byKeyword[kw], "keyword", "#ea580c");
+    }
+  }
+
+  // General principles always
+  appendTipCategory("기본 원칙", TIPS.general, "general", "#94a3b8");
+}
+
+function appendTipCategory(headLabel, tips, klass, color) {
+  const h = document.createElement("div");
+  h.className = "tip-cat-h";
+  h.textContent = headLabel;
+  h.style.color = color;
+  tipBody.appendChild(h);
+  for (const t of tips) {
+    const wrap = document.createElement("div");
+    wrap.className = "tip " + klass;
+    if (klass === "role") wrap.style.borderLeftColor = color;
+    if (klass === "keyword") wrap.style.borderLeftColor = color;
+    const rule = document.createElement("div");
+    rule.className = "rule";
+    rule.textContent = t.rule;
+    wrap.appendChild(rule);
+    if (t.detail) {
+      const det = document.createElement("div");
+      det.className = "detail";
+      const arrow = document.createElement("span");
+      arrow.className = "arrow";
+      arrow.textContent = "→";
+      det.appendChild(arrow);
+      det.appendChild(document.createTextNode(t.detail));
+      wrap.appendChild(det);
+    }
+    tipBody.appendChild(wrap);
+  }
+}
+
+// Focus tracking across canvas + scratch (and titles too)
+document.addEventListener("focusin", (e) => {
+  const blockEl = e.target.closest(".block");
+  const docItemEl = e.target.closest(".doc-item");
+  const newBlock = blockEl ? blockEl.dataset.id : null;
+  const newDoc = docItemEl ? docItemEl.dataset.id : null;
+  if (newBlock !== currentFocusedBlockId || newDoc !== currentFocusedDocItemId) {
+    currentFocusedBlockId = newBlock;
+    currentFocusedDocItemId = newDoc;
+    if (!tipPanel.hidden) renderTips();
+  }
+});
+
+tipFab.addEventListener("click", () => {
+  if (tipPanel.hidden) {
+    tipPanel.hidden = false;
+    renderTips();
+  } else {
+    tipPanel.hidden = true;
+  }
+});
+document.getElementById("tip-close").addEventListener("click", () => { tipPanel.hidden = true; });
+document.addEventListener("keydown", (e) => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === "." || e.key === "Period")) {
+    e.preventDefault();
+    tipFab.click();
+  }
+});
+
+</script>
+</body>
+</html>

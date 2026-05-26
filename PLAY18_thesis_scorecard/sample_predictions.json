@@ -1,0 +1,38 @@
+[
+  {
+    "prediction_id": "2026-05-19-POWER-F26-01",
+    "claim": "12일 -22% 가격 + 컨센 목표가 유지 = F26 분리 레짐 진입 초기. 45일 안에 가격이 컨센 방향으로 수렴",
+    "direction": "bull",
+    "judge_at": "2026-07-03",
+    "hit_when": {"field": "upside_pct", "op": "<", "threshold": 15.0},
+    "miss_when": {"field": "upside_pct", "op": ">=", "threshold": 15.0},
+    "observed": {"upside_pct": 12.4},
+    "notes": "298040 효성중 7/3 종가 기준 컨센 상승여력 +12.4%로 축소 → 가격이 컨센 방향으로 일부 수렴 (분리 레짐 부분 해소)"
+  },
+  {
+    "prediction_id": "2026-05-19-POWER-F08-01",
+    "claim": "글로벌 변압기 lead time 30개월 이상 유지 + 한국 capa 증설 +14% 이하 → F08 사이클 길이 4분기 추가 연장",
+    "direction": "bull",
+    "judge_at": "2026-08-15",
+    "hit_when": {"field": "leadtime_months", "op": ">=", "threshold": 30},
+    "observed": {"leadtime_months": 36},
+    "notes": "8/15 pv-magazine 추정 36개월 — 추세 *증가*. F08 anti_signal 발동 안 함"
+  },
+  {
+    "prediction_id": "2026-05-19-POWER-F44-01",
+    "claim": "국가기간 전력망 특별법 9월 정기국회 재상정 실패 시 F44 강한 발동 유지",
+    "direction": "bear",
+    "judge_at": "2026-10-15",
+    "hit_when": {"field": "law_passed", "op": "==", "threshold": false},
+    "observed": {"law_passed": true},
+    "notes": "10/15 본회의 통과 — F44 발동 해소, thesis 일부 무력화"
+  },
+  {
+    "prediction_id": "2026-05-19-POWER-F23-01",
+    "claim": "메타 Q2 2026 어닝 CapEx 가이던스 $140B 이상 유지 시 F23 글로벌 수요 강화",
+    "direction": "bull",
+    "judge_at": "2026-08-01",
+    "hit_when": {"field": "meta_capex_b", "op": ">=", "threshold": 140},
+    "notes": "어닝 미도래 — pending"
+  }
+]

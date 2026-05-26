@@ -1,0 +1,2755 @@
+{
+  "dataset_name": "r6_industry_function_map",
+  "version": "v1",
+  "created_at": "2026-05-19",
+  "purpose": "산업 input → R5 함수 + R6 KPI/sources/actions 자동 매핑 (산업 분석 인사이트 극대화)",
+  "principles": [
+    "ranked_functions는 산업 본질 의미 매칭 (단순 키워드 X)",
+    "priority_indicators는 Tier 1 abstract 우선",
+    "industry_threshold_override는 *한국 KOSPI 맥락* 미세조정만",
+    "first_questions는 함수 ID 인용으로 trace 가능",
+    "데이터 창작 금지 — 실재 ID + 실재 종목"
+  ],
+  "total_industries": 13,
+  "industries": [
+    {
+      "industry_id": "POWER_INFRA",
+      "name": "전력 인프라 (송전·변환·배전·전력기기)",
+      "korea_kospi_relevance": "high",
+      "domain_keywords": [
+        "energy",
+        "industrial",
+        "infrastructure",
+        "supply_chain",
+        "policy",
+        "power"
+      ],
+      "core_companies_hint": [
+        "효성중공업(298040)",
+        "HD현대일렉트릭(267260)",
+        "LS일렉트릭(010120)",
+        "산일전기(062040)",
+        "두산에너빌리티(034020)",
+        "대한전선(001440)"
+      ],
+      "linked_industry_protocol": "POWER_INFRA_REPORT_PROTOCOL.md",
+      "ranked_functions": [
+        {
+          "function_id": "F08",
+          "rank": 1,
+          "weight": 0.95,
+          "why": "변압기·HVDC·전기강판 공급 캡파 경직성이 본질. 사이클 길이 = 캡파가 *왜* 못 늘어나는가에서 추정.",
+          "primary_question": "공급 캡파가 *왜* 못 늘어나는가? (인프라·인력·인허가·원자재 중 어디?)"
+        },
+        {
+          "function_id": "F20",
+          "rank": 2,
+          "weight": 0.9,
+          "why": "빅테크 CapEx → 데이터센터 전력 수요 transmission. 후방 매출 함수.",
+          "primary_question": "MSFT·GOOGL·META·AMZN 다음 분기 CapEx 가이던스 *방향*은?"
+        },
+        {
+          "function_id": "F21",
+          "rank": 3,
+          "weight": 0.88,
+          "why": "빅테크 CapEx 한 줄이 후방 *반도체·전력·SW* 매출로 흘러감. 거시 종속.",
+          "primary_question": "빅테크 CapEx 부담을 후방 매출 떠받침과 어떻게 분리해 보나?"
+        },
+        {
+          "function_id": "F07",
+          "rank": 4,
+          "weight": 0.82,
+          "why": "변압기·전기강판·구리가 어닝콜에 *콕 집어* 언급되는 분기 = 가격결정력 공급 측 이동.",
+          "primary_question": "한국 전력기기 부품(변압기·전기강판·구리)이 빅테크 어닝콜에서 콕 집힌 분기가 시작됐나?"
+        },
+        {
+          "function_id": "F32",
+          "rank": 5,
+          "weight": 0.78,
+          "why": "LNG 발전·중동 우회·SMR 등 분자 스펙·인프라 호환성으로 *진짜 대체* 판정.",
+          "primary_question": "전력 발전 믹스 대체(LNG·SMR·재생)가 분자·인프라 호환성까지 통과하나?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 6,
+          "weight": 0.7,
+          "why": "송전망 80조 같은 거대 CAPEX 서사 vs 실제 인허가·착공 진척 분리.",
+          "primary_question": "한국 송전망 80조 진척이 *실제 계약·착공*으로 가시화됐나?"
+        },
+        {
+          "function_id": "F02",
+          "rank": 7,
+          "weight": 0.65,
+          "why": "호르무즈 통행료 영구화 → LNG 발전 원가·정유 백업 노드 가격 베이스라인 변화.",
+          "primary_question": "호르무즈 통행료 영구화 시 한국 LNG 발전·정유 백업 노드 가격이 어떻게 재설정되나?"
+        },
+        {
+          "function_id": "F31",
+          "rank": 8,
+          "weight": 0.62,
+          "why": "에너지 전환 채택 곡선 — 도메인별(육상 SMR vs 해상 SMR vs 재생) 차등.",
+          "primary_question": "에너지 전환(SMR·재생)이 한국 전력 시스템에서 도메인별 어디부터 채택되나?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_SECTOR_CAPEX_GUIDANCE_DIRECTION",
+          "rank": 1,
+          "industry_threshold_override": {
+            "watch": "MSFT·GOOGL CapEx YoY +20%+ + 한국전력 capex 가이던스 상향 동시",
+            "warn": "빅테크 4사 중 1사 CapEx 가이던스 컷 시작",
+            "critical": "빅테크 CapEx 컷 + 한국전력 12차 전기본 진척 stall 동시"
+          },
+          "korea_specific_note": "한국전력 누적 적자가 송전망 capex 실집행 시점을 정책 발표보다 뒤로 미룬다"
+        },
+        {
+          "indicator_id": "IND_ABS_COMPONENT_CONTRACT_PRICE_QOQ",
+          "rank": 2,
+          "industry_threshold_override": {
+            "watch": "변압기·전기강판·구리 컨트랙트 가격 QoQ +5%+",
+            "warn": "QoQ +10%+ 2분기 연속",
+            "critical": "어닝콜 비용 압박 사유로 부품명 콕 집혀 언급"
+          },
+          "korea_specific_note": null
+        },
+        {
+          "indicator_id": "IND_CAPEX_TO_OI",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "빅테크 CapEx/OI 비율 90%+ 도달 → 2027~28 빅테크 영업이익 압박 → capa 증설 완공과 동시에 P 부양 동력 약화 함정"
+        },
+        {
+          "indicator_id": "IND_ABS_INFRA_AVAILABILITY_INDEX",
+          "rank": 4,
+          "industry_threshold_override": {
+            "watch": "글로벌 변압기 lead time 18개월+",
+            "warn": "24개월+ 유지",
+            "critical": "30개월+ + 신규 capa 증설 발표 부재"
+          },
+          "korea_specific_note": "lead time이 *왜* 줄지 않는가 본질 = 인허가·인력·전기강판"
+        },
+        {
+          "indicator_id": "IND_ABS_FUNDING_COMMITMENT_GAP",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "수주잔액과 capa·인력 미스매치 — 발표 수주 ≠ 매출 인식 시점"
+        },
+        {
+          "indicator_id": "IND_ABS_SOURCE_REGION_DEPENDENCY_RATIO",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "미국 발주처 중국 변압기 의존 축소 = 한국 3사 *조건부 프리미엄* — 정책 1번에 흔들림"
+        },
+        {
+          "indicator_id": "IND_ABS_DOMESTIC_REFORM_BILL_PROGRESS",
+          "rank": 7,
+          "industry_threshold_override": null,
+          "korea_specific_note": "12차 전기본·국가기간 전력망 특별법 진척 — 발표 ≠ 통과 ≠ 시행령"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 6사 분기보고 자동 등록 (298040·267260·010120·062040·034020·001440)"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis '빅테크 CapEx → 한국 전력기기 수주' watchlist.json 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "변압기 lead time·전기강판·구리·한국전력 capex·MSFT·GOOGL CapEx 가이던스 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E018(원물 병목)·E024(LNG 유연성)·E053(SMR 비기술 게이트)·E036~E038(CapEx 카나리아 시리즈)·E008(영업이익 잠식)·E060(중국 흑자 대체)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "글로벌 변압기 lead time·한국 송전망 80조 진척·12차 전기본·빅테크 1Q26 CapEx 가이던스·어닝콜 부품명 콕 집기 사건"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_STATE_REPORT_URGENT_UPDATE",
+          "context": "thesis 부합/반증 anchor 박제"
+        }
+      ],
+      "first_questions": [
+        "공급 캡파가 *왜* 못 늘어나는가 — 인프라·인력·인허가·원자재 중 어디? (F08)",
+        "빅테크 4사 다음 분기 CapEx 가이던스 *방향*은? (F20)",
+        "변압기·전기강판·구리가 빅테크 어닝콜에서 *콕 집혀* 비용 압박 사유로 언급된 분기가 시작됐나? (F07)",
+        "한국 송전망 80조 진척이 *실제 계약·착공*으로 가시화됐나, 아니면 정책 발표에 머무나? (F44)",
+        "호르무즈 통행료 영구화 시 한국 정유 *유종 유연성·LNG 우회*가 작동하나? (F02 + E024)",
+        "빅테크 CapEx/OI 90% 잠식이 2027~28 capa 완공 시점에 *P 부양 동력 약화*로 작동하나? (F20 + E008)",
+        "한국 3사가 단순 비용·품질 우위가 아닌 *조건부 프리미엄(중국 의존 축소)*에 기대고 있다면 약화 트리거는 무엇? (F21 + E060)"
+      ],
+      "anti_signals_to_watch": [
+        "한국전력 누적 적자 → 송전망 capex 실집행 시점 지연 (정책 발표 ≠ 실제 발주)",
+        "글로벌 변압기 capa 신규 증설 발표 다수 → bottleneck 함수 약화",
+        "미·중 관계 완화 → 중국 변압기 회귀 → 한국 3사 *조건부 프리미엄* 소멸",
+        "AI 데이터센터 효율 개선·소형화 → 단위당 전력 수요 가이던스 하향"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E024",
+          "tier": "direct",
+          "why": "한국 정유 다유종 LNG 수혜 — 전력원가·LNG 발전 마진 백업 노드"
+        },
+        {
+          "card_id": "E053",
+          "tier": "direct",
+          "why": "SMR 비기술 게이트(입항허가·보험·국제규칙) — 한국 SMR 발전 상용화 동일 게이트"
+        },
+        {
+          "card_id": "E048",
+          "tier": "direct",
+          "why": "AI 자본지출 의존 경제 — 전력기기 수주가 거시 GDP에 종속"
+        },
+        {
+          "card_id": "E008",
+          "tier": "direct",
+          "why": "빅테크 CapEx 영업이익 90% 잠식 — 2027~28 capa 완공 시점 P 부양 동력 약화 함정"
+        },
+        {
+          "card_id": "E060",
+          "tier": "direct",
+          "why": "중국 흑자 1.19조 → 지정학적 대체 — 한국 3사 조건부 프리미엄 위치"
+        },
+        {
+          "card_id": "E018",
+          "tier": "mirror",
+          "why": "원물/CAPA 경직 — 변압기·전기강판·구리에 동일 적용"
+        },
+        {
+          "card_id": "E036",
+          "tier": "mirror",
+          "why": "CapEx 가이던스 방향만 진짜 신호 — 빅테크+한국전력 동시 추적"
+        },
+        {
+          "card_id": "E037",
+          "tier": "mirror",
+          "why": "어닝콜 부품명 콕 집기 — 변압기·구리·전기강판이 콕 집히는 분기가 임계"
+        },
+        {
+          "card_id": "E038",
+          "tier": "mirror",
+          "why": "캡파 경직 사이클 장기화 — 변압기·HVDC도 동일 함수"
+        },
+        {
+          "card_id": "E044",
+          "tier": "mirror",
+          "why": "약정 vs 자금 미스매치 — 수주잔액 vs capa/인력 미스매치"
+        },
+        {
+          "card_id": "E057",
+          "tier": "mirror",
+          "why": "B2B 인프라 베타 — B2C 데이터센터 흥행 뒤의 B2B 전력기기 위치"
+        },
+        {
+          "card_id": "E022",
+          "tier": "regime",
+          "why": "금융억압 — 인프라 capex 자금 조달·한국전력 채권 발행 환경"
+        },
+        {
+          "card_id": "E027",
+          "tier": "regime",
+          "why": "박스피 탈출 누적 음덕 — 한국 전력주 멀티플 재평가"
+        },
+        {
+          "card_id": "E041",
+          "tier": "regime",
+          "why": "달리오 9단계 — 미국 약체화 시 유가·LNG 변동성"
+        },
+        {
+          "card_id": "E051",
+          "tier": "regime",
+          "why": "달러 강세 ≠ 미국국채 강세 — 환율·금리·외인 매수 환경"
+        }
+      ]
+    },
+    {
+      "industry_id": "DEFENSE",
+      "name": "방산 (지상·항공·해상·MRO)",
+      "korea_kospi_relevance": "high",
+      "domain_keywords": [
+        "geopolitics",
+        "trade_policy",
+        "policy",
+        "industrial",
+        "supply_chain",
+        "corporate_strategy"
+      ],
+      "core_companies_hint": [
+        "한화에어로스페이스(012450)",
+        "LIG넥스원(079550)",
+        "현대로템(064350)",
+        "풍산(103140)",
+        "HD현대중공업(329180)",
+        "한국항공우주(047810)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F01",
+          "rank": 1,
+          "weight": 0.92,
+          "why": "휴전·종전·MOU·계약 narrative를 *깨질 조건의 물리적 구성*으로 재평가 — 방산 수주 본질.",
+          "primary_question": "이 수주 합의가 *깨지려면* 무엇이 안 이뤄져야 하나? (대표·국가·신뢰·문서)"
+        },
+        {
+          "function_id": "F08",
+          "rank": 2,
+          "weight": 0.85,
+          "why": "탄약·미사일·전차·잠수함 — 공급 capa 경직 → 사이클 장기화.",
+          "primary_question": "방산 capa가 *왜* 못 늘어나는가? (인력·시설·인증·원자재)"
+        },
+        {
+          "function_id": "F14",
+          "rank": 3,
+          "weight": 0.8,
+          "why": "약체 신호(우크라·중동·대만)가 다른 곳의 학습효과·확전 트리거 — 신규 수주국 결정.",
+          "primary_question": "현재 분쟁에서 어느 신호가 NATO·아시아 동맹의 *학습효과*를 트리거하나?"
+        },
+        {
+          "function_id": "F15",
+          "rank": 4,
+          "weight": 0.75,
+          "why": "수출 매개자(국가·중개·금융)가 1차 행위자보다 더 오래 기억 — K-방산 매개 구조 재평가.",
+          "primary_question": "이 수출 라인의 매개자 구조(국가·중개·금융)는 얼마나 영구화됐나?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 5,
+          "weight": 0.72,
+          "why": "NATO 5% 지출 같은 서사 vs 실제 예산·발주 채택 지표 미달 가능성.",
+          "primary_question": "NATO 5% 지출 서사가 *실제 발주·계약*으로 가시화됐나?"
+        },
+        {
+          "function_id": "F05",
+          "rank": 6,
+          "weight": 0.68,
+          "why": "수출 무기가 어디로 들어가는가 — 운용 환경·인접국 학습으로 가치 재평가.",
+          "primary_question": "K9·K2·천궁이 *어디* 들어가는가 — 운용 환경 자체가 다음 수주의 카탈로그가 되나?"
+        },
+        {
+          "function_id": "F25",
+          "rank": 7,
+          "weight": 0.62,
+          "why": "트럼프·미국 톤 반전 패턴 — 동맹 압박이 방산 수출 가속 vs 감속 양면.",
+          "primary_question": "미국의 동맹 압박 톤 반전이 한국 방산에 가속·감속 어느 쪽인가?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_BILATERAL_STRATEGIC_AGREEMENT_PROGRESS",
+          "rank": 1,
+          "industry_threshold_override": {
+            "watch": "신규 동맹·전략협약 1건 MOU",
+            "warn": "본계약 진척 단계 도달",
+            "critical": "현지 생산·기술이전 단계 진척"
+          },
+          "korea_specific_note": "K-방산 수출은 단순 무기 판매 ≠ 정부 패키지 — 기술이전·MRO·교육까지 묶임"
+        },
+        {
+          "indicator_id": "IND_ABS_INTL_RULE_MILESTONE_PROGRESS",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "NATO 2% → 5% 지출 합의 진척 — 회원국별 채택 시점차 큼"
+        },
+        {
+          "indicator_id": "IND_ABS_SECTOR_EXPORT_VOLUME",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 방산 수출액 분기 — 폴란드·UAE·호주·사우디 비중 분해"
+        },
+        {
+          "indicator_id": "IND_ABS_COMPONENT_CONTRACT_PRICE_QOQ",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "탄약·미사일·전차 컨트랙트 가격 QoQ — 글로벌 수요 폭증 시 가격 결정력 이동"
+        },
+        {
+          "indicator_id": "IND_ABS_FUNDING_COMMITMENT_GAP",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "수주잔고 vs 실제 capa·인력 — 발표 수주 ≠ 매출 인식"
+        },
+        {
+          "indicator_id": "IND_ABS_DOMESTIC_REFORM_BILL_PROGRESS",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "방산 수출 금융지원 입법·KEXIM 한도 확대 진척"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 6사 단일판매·공급계약 공시 알람 (012450·079550·064350·103140·329180·047810)"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis 'NATO 5% + 신규 수주국 → K-방산 cycle' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "한국 방산 수출액·NATO 회원국 예산·미 FY 국방예산·신규 동맹 MOU 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E021(트럼프 협상 타코)·E041(달리오 9단계)·E033/E034/E035 호르무즈 시즌 (지정학 프리미엄)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "미 FY27 defense budget·NATO 5% spending 진척·폴란드 K2 2차·UAE 천궁 후속·사우디·이집트 K-방산"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_STATE_REPORT_URGENT_UPDATE",
+          "context": "수주 anchor + 매개자 구조 + 깨질 조건 박제"
+        }
+      ],
+      "first_questions": [
+        "이 수주 합의가 *깨지려면* 무엇이 안 이뤄져야 하나? (F01)",
+        "방산 capa(탄약·미사일·전차)가 *왜* 못 늘어나는가 — 인력·인증·시설? (F08)",
+        "현재 분쟁의 약체 신호가 어느 동맹의 *학습효과·추가 발주*를 트리거했나? (F14)",
+        "K-방산 수출의 매개자 구조(KEXIM·정부 패키지·기술이전)가 얼마나 영구화됐나? (F15)",
+        "NATO 5% 지출 서사가 *실제 발주·계약*으로 가시화된 회원국은 어디? (F44)",
+        "K9·K2·천궁이 *어디* 운용되는가 — 인접국 학습이 다음 수주의 카탈로그인가? (F05)",
+        "미국 동맹 압박 톤이 한국 방산에 가속/감속 어느 쪽인가? (F25)"
+      ],
+      "anti_signals_to_watch": [
+        "수주 발표 ≠ 본계약 — MOU·LOI 단계에서 멈추는 사례 누적",
+        "글로벌 휴전·종전 도달 시 신규 수주 모멘텀 급랭",
+        "한국 방산 수출 금융지원 한도 소진 → 후속 수주 지연",
+        "트럼프식 동맹 분담금 압박이 한국 무기 수입국에 동일 적용 → 발주국 자국 생산 회귀"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E021",
+          "tier": "direct",
+          "why": "트럼프 협상 타코 — 동맹·관세 톤 반전 패턴이 방산 수출 직접 영향"
+        },
+        {
+          "card_id": "E041",
+          "tier": "direct",
+          "why": "달리오 9단계 미국 약체 — 동맹 부담 증대 → K-방산 수요 가속"
+        },
+        {
+          "card_id": "E033",
+          "tier": "mirror",
+          "why": "호르무즈 수금소 영구화 — 지정학 리스크 프리미엄 영구화 패턴"
+        },
+        {
+          "card_id": "E034",
+          "tier": "mirror",
+          "why": "휴전안 언어판본 트랩 — 휴전 narrative의 *깨질 조건* 점검"
+        },
+        {
+          "card_id": "E035",
+          "tier": "mirror",
+          "why": "이스라엘 와일드카드 — 확전 트리거 학습"
+        },
+        {
+          "card_id": "E044",
+          "tier": "mirror",
+          "why": "약정 vs 자금 미스매치 — 수주잔고 vs 실제 capa"
+        },
+        {
+          "card_id": "E018",
+          "tier": "mirror",
+          "why": "원물 병목 — 화약·탄약 원료 capa 경직"
+        },
+        {
+          "card_id": "E038",
+          "tier": "mirror",
+          "why": "capa 경직 사이클 장기화 — 방산 capa 동일 함수"
+        }
+      ]
+    },
+    {
+      "industry_id": "SEMICONDUCTOR_AI",
+      "name": "반도체·AI 인프라 (HBM·AI 칩·데이터센터)",
+      "korea_kospi_relevance": "high",
+      "domain_keywords": [
+        "semiconductor",
+        "ai_tech",
+        "big_tech",
+        "infrastructure",
+        "tech_supply_chain",
+        "tech_platform"
+      ],
+      "core_companies_hint": [
+        "삼성전자(005930)",
+        "SK하이닉스(000660)",
+        "한미반도체(042700)",
+        "이오테크닉스(039030)",
+        "리노공업(058470)",
+        "솔브레인(357780)",
+        "원익IPS(240810)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F20",
+          "rank": 1,
+          "weight": 0.95,
+          "why": "빅테크 CapEx → HBM·AI 칩 수요 transmission. 본질 함수.",
+          "primary_question": "빅테크 4사 다음 분기 CapEx 가이던스 *방향*은?"
+        },
+        {
+          "function_id": "F07",
+          "rank": 2,
+          "weight": 0.92,
+          "why": "HBM·EUV 마스크·웨이퍼 — 부품명 콕 집기로 가격결정력 이동 신호.",
+          "primary_question": "어닝콜에서 HBM·메모리·소부장 부품명이 콕 집힌 분기가 시작됐나?"
+        },
+        {
+          "function_id": "F08",
+          "rank": 3,
+          "weight": 0.9,
+          "why": "HBM capa·EUV 라인 경직성 → 사이클 장기화.",
+          "primary_question": "HBM·EUV capa가 *왜* 못 늘어나는가?"
+        },
+        {
+          "function_id": "F23",
+          "rank": 4,
+          "weight": 0.85,
+          "why": "AI 토큰 권력 재편 — 인프라(반도체·DC·GPU)로 가치 이동.",
+          "primary_question": "AI 토큰 분배 권력이 누구한테 모이고 한국 반도체는 어느 단에 위치?"
+        },
+        {
+          "function_id": "F21",
+          "rank": 5,
+          "weight": 0.82,
+          "why": "빅테크 CapEx 한 줄이 후방 매출로 transmission — 한국 반도체 매출 거시 종속.",
+          "primary_question": "빅테크 CapEx 부담을 후방 매출 떠받침과 어떻게 분리하나?"
+        },
+        {
+          "function_id": "F19",
+          "rank": 6,
+          "weight": 0.72,
+          "why": "AI 단위경제 허들(1인당 매출) 점프 — 반도체 ARPU 점프 가능성.",
+          "primary_question": "AI 인프라 도입으로 한국 반도체 ARPU 허들이 점프했나?"
+        },
+        {
+          "function_id": "F27",
+          "rank": 7,
+          "weight": 0.68,
+          "why": "필라델피아 반도체 70% 6주 랠리 같은 펀더 vs 가격 디버전스 — 기대·믿음 함수.",
+          "primary_question": "반도체 가격 랠리가 펀더(BB ratio·HBM 컨트랙트)와 디커플링됐나?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 8,
+          "weight": 0.62,
+          "why": "AI 인프라 서사(CapEx 풍성) vs 채택 지표(토큰·매출) 미달 시그널.",
+          "primary_question": "AI 인프라 CapEx 풍성 vs 채택 지표 미달 누적 적자 시그널이 보이나?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_SECTOR_CAPEX_GUIDANCE_DIRECTION",
+          "rank": 1,
+          "industry_threshold_override": {
+            "watch": "빅테크 4사 CapEx 가이던스 YoY +20%+ 유지",
+            "warn": "1사 가이던스 컷",
+            "critical": "2사+ 컷 + HBM 컨트랙트 가격 QoQ 하향"
+          },
+          "korea_specific_note": "빅테크 CapEx 컷 시 SK하이닉스·삼성전자 HBM 수주 모멘텀 즉시 영향"
+        },
+        {
+          "indicator_id": "IND_ABS_COMPONENT_CONTRACT_PRICE_QOQ",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "HBM 컨트랙트 가격은 분기 단위 협상 — QoQ +10% 초과 시 가격결정력 공급 측"
+        },
+        {
+          "indicator_id": "IND_CAPEX_TO_OI",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "빅테크 CapEx/OI 90% 도달 시 2027~28 영업이익 압박 → 한국 반도체 후방 매출 약화 함정"
+        },
+        {
+          "indicator_id": "IND_ABS_AI_TOKEN_VOLUME_GROWTH",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "토큰 수요 둔화 시 빅테크 CapEx 합리화 압박 → HBM 가격 협상 약화"
+        },
+        {
+          "indicator_id": "IND_ABS_INFRA_AVAILABILITY_INDEX",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "GPU 클라우드 가용성·HBM 리드타임 동시 추적"
+        },
+        {
+          "indicator_id": "IND_ABS_FUNDING_COMMITMENT_GAP",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "오픈AI·xAI 등 컴퓨팅 약정 vs 조달 자금 미스매치 → 반도체 발주 risk"
+        },
+        {
+          "indicator_id": "IND_ABS_SECTOR_INDEX_CONSECUTIVE_UP_DAYS",
+          "rank": 7,
+          "industry_threshold_override": null,
+          "korea_specific_note": "필라델피아 반도체 + KRX 반도체 — 디버전스 임계 모니터"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 7사 분기보고·CapEx 공시 알람"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis 'AI 인프라 cycle 후방 매출 → 한국 메모리·소부장' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "빅테크 CapEx·HBM 컨트랙트·필라델피아 반도체·GPU 가용성 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E008·E036·E037·E038·E044·E047(반도체 6주 랠리)·E025(AI 토큰 권력)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "MSFT META GOOGL AMZN Q1 26 capex·HBM contract price·SK hynix earnings·NVIDIA blackwell allocation"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_T2_PROMOTION_FLAG",
+          "context": "디버전스 임계 도달 시 T2 promotion candidate"
+        }
+      ],
+      "first_questions": [
+        "빅테크 4사 다음 분기 CapEx 가이던스 *방향*은? (F20)",
+        "HBM·EUV 부품명이 어닝콜에서 콕 집힌 분기가 시작됐나? (F07)",
+        "HBM·EUV capa가 *왜* 못 늘어나는가? (F08)",
+        "AI 토큰 분배 권력이 누구한테 모이고 한국 반도체는 어느 단? (F23)",
+        "반도체 70% 6주 랠리가 펀더(BB·HBM)와 디커플링됐나? (F27)",
+        "AI 인프라 CapEx 풍성 vs 채택 지표 미달 시그널 누적? (F44)",
+        "빅테크 CapEx/OI 90% 잠식이 2027~28 한국 메모리 후방 매출 약화로 transmission되나? (F21 + E008)"
+      ],
+      "anti_signals_to_watch": [
+        "빅테크 CapEx 가이던스 컷 — 1사 컷 시 다른 3사 follow 가능성",
+        "AI 토큰 수요 둔화 → CapEx 합리화 압박",
+        "NVIDIA Blackwell 할당 변경 → SK하이닉스 HBM3E 비중 시프트",
+        "오픈AI·xAI 자금 미스매치 → 반도체 발주 risk",
+        "필라델피아·KRX 반도체 펀더-가격 디버전스 임계 통과"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E008",
+          "tier": "direct",
+          "why": "빅테크 CapEx 영업이익 90% 잠식 — 후방 매출 함정 본질"
+        },
+        {
+          "card_id": "E036",
+          "tier": "direct",
+          "why": "빅테크 CapEx 꺾임 = 카나리아 — 한국 반도체 주가 즉반응"
+        },
+        {
+          "card_id": "E037",
+          "tier": "direct",
+          "why": "메모리 가격이 CapEx 35% 잠식 — 부품명 콕 집기 본질"
+        },
+        {
+          "card_id": "E038",
+          "tier": "direct",
+          "why": "CPU Q증가 불가 = 사이클 장기화 — TSMC·HBM 동일 함수"
+        },
+        {
+          "card_id": "E025",
+          "tier": "direct",
+          "why": "AI 토큰 권력 재편 — 인프라로 가치 이동"
+        },
+        {
+          "card_id": "E044",
+          "tier": "direct",
+          "why": "오픈AI 약정 vs 자금 미스매치 — 반도체 발주 risk"
+        },
+        {
+          "card_id": "E047",
+          "tier": "direct",
+          "why": "반도체 70% 6주 랠리 단절성 — 디버전스 알람"
+        },
+        {
+          "card_id": "E042",
+          "tier": "mirror",
+          "why": "AI 세부지표 vs 시장 믿음 디커플 — 동일 함수"
+        },
+        {
+          "card_id": "E048",
+          "tier": "mirror",
+          "why": "AI 자본지출 떠받침 경제 — 거시 종속"
+        },
+        {
+          "card_id": "E039",
+          "tier": "mirror",
+          "why": "엔트로픽 양다리·순환출자 — AI 생태계 부동산"
+        }
+      ]
+    },
+    {
+      "industry_id": "BIOTECH",
+      "name": "바이오·헬스 (신약·CDMO·바이오시밀러)",
+      "korea_kospi_relevance": "medium",
+      "domain_keywords": [
+        "biotech",
+        "specialty_chemicals",
+        "consumer_health",
+        "policy",
+        "compliance"
+      ],
+      "core_companies_hint": [
+        "삼성바이오로직스(207940)",
+        "셀트리온(068270)",
+        "SK바이오팜(326030)",
+        "HK이노엔(195940)",
+        "유한양행(000100)",
+        "한미약품(128940)",
+        "메디톡스(086900)",
+        "휴젤(145020)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F42",
+          "rank": 1,
+          "weight": 0.92,
+          "why": "반복 수요(만성질환) + 원료 접근권 규제(균주·세포주) 이중 함수 — 바이오 본질.",
+          "primary_question": "이 약·시술의 *반복 수요 구조*와 *원료 접근권 규제*는 어떻게 결합되나?"
+        },
+        {
+          "function_id": "F01",
+          "rank": 2,
+          "weight": 0.85,
+          "why": "FDA 승인·임상 결과·CMS 가격 합의 narrative를 *깨질 조건*으로 점검.",
+          "primary_question": "이 임상·승인 narrative가 *깨지려면* 무엇이 안 이뤄져야 하나?"
+        },
+        {
+          "function_id": "F15",
+          "rank": 3,
+          "weight": 0.78,
+          "why": "IP 분쟁(균주·구조식·CMO 계약) 매개자 — 1차 행위자보다 오래 기억.",
+          "primary_question": "이 분쟁의 매개자 구조(법원·USPTO·해수부·식약처)가 얼마나 영구화됐나?"
+        },
+        {
+          "function_id": "F31",
+          "rank": 4,
+          "weight": 0.72,
+          "why": "신약 도메인별(GLP-1·항암·자가면역) 채택 곡선 — 물리법칙·인프라 의존도 분기.",
+          "primary_question": "이 신약·플랫폼이 *어느 도메인부터* 채택되나?"
+        },
+        {
+          "function_id": "F03",
+          "rank": 5,
+          "weight": 0.65,
+          "why": "임상 실패·승인 거부 후 *뼈만 남았을 때 뭐가 남는가* — 파이프라인·CDMO 잔존가치.",
+          "primary_question": "이 신약 실패 시 *뼈만 남은* 잔존 자산(파이프라인·CDMO capa)은 무엇?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 6,
+          "weight": 0.6,
+          "why": "AI 신약 발견 같은 서사 vs 임상 진척·매출 채택 지표 미달.",
+          "primary_question": "AI 신약·신플랫폼 서사 vs 실제 임상·매출 채택은?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_REGULATOR_NEW_PRODUCT_RULING",
+          "rank": 1,
+          "industry_threshold_override": {
+            "watch": "FDA 승인 캘린더 등록",
+            "warn": "PDUFA date 30일 이내",
+            "critical": "AdCom 부정 의견 발표"
+          },
+          "korea_specific_note": "FDA·EMA·식약처 동시 추적 — 한국 바이오는 글로벌 승인이 결정적"
+        },
+        {
+          "indicator_id": "IND_ABS_IP_LITIGATION_RULING_DIRECTION",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "균주·항체 구조식·CMO 계약 분쟁 — 메디톡스-대웅·휴젤 사례 모니터"
+        },
+        {
+          "indicator_id": "IND_ABS_LONG_CONTRACT_REPRICING_RATIO",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "CMS drug pricing 협상 — 메디케어 IRA 영향"
+        },
+        {
+          "indicator_id": "IND_ABS_RD_INTENSITY_RATIO",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "R&D 매출 비중 — 한국 바이오는 매출 비중 50%+ 다수, OPEX 부담"
+        },
+        {
+          "indicator_id": "IND_ABS_FUNDING_COMMITMENT_GAP",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "임상 비용 약정 vs 자금 미스매치 — 바이오벤처 cash runway risk"
+        },
+        {
+          "indicator_id": "IND_ABS_TOP_N_CUSTOMER_CONCENTRATION",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "CDMO Top 5 고객사 비중 — 삼성바이오로직스·셀트리온 collateral risk"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 8사 임상시험계획·결과 공시 알람"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis 'FDA 캘린더 + IRA + 글로벌 CDMO cycle' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "FDA 승인 캘린더·임상 진척·CDMO 수주·균주 IP 분쟁 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E056(보톡스 균주관리)·E058(중국차 정비 데이터 — 데이터 자산 mirror)·E044(약정 미스매치)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "FDA approval calendar 2026·CMS drug pricing·GLP-1 supply·CDMO global capacity·균주 분쟁"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_NEW_THESIS_RESEARCH_TRIGGER",
+          "context": "신약 승인/분쟁 신호 발생 시 cold-start 트리거"
+        }
+      ],
+      "first_questions": [
+        "이 약·시술의 *반복 수요 구조*와 *원료 접근권 규제*는 어떻게 결합되나? (F42)",
+        "이 임상·승인 narrative가 *깨지려면* 무엇이 안 이뤄져야 하나? (F01)",
+        "이 분쟁의 매개자 구조(법원·USPTO·해수부·식약처)가 얼마나 영구화됐나? (F15)",
+        "이 신약·플랫폼이 *어느 도메인부터* 채택되나? (F31)",
+        "임상 실패 시 *뼈만 남은* 잔존 자산(파이프라인·CDMO capa)은? (F03)",
+        "AI 신약 서사 vs 임상·매출 채택 지표 미달 누적인가? (F44)"
+      ],
+      "anti_signals_to_watch": [
+        "FDA AdCom 부정 의견·PDUFA date 연기",
+        "CMS IRA 가격 협상 — 메디케어 가격 하향 → 글로벌 ASP 하향 압력",
+        "한국 바이오 R&D OPEX 부담 → cash runway 단축",
+        "균주 분쟁 한국 측 패소 시 톡신·바이오시밀러 글로벌 ASP 압박"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E056",
+          "tier": "direct",
+          "why": "보톡스 = 균주관리 비즈니스 — 원료 접근권 규제 본질"
+        },
+        {
+          "card_id": "E044",
+          "tier": "mirror",
+          "why": "약정 vs 자금 미스매치 — 임상 비용 vs cash runway"
+        },
+        {
+          "card_id": "E058",
+          "tier": "mirror",
+          "why": "중국차 = 정비 데이터 자산 — 신약·CDMO도 *데이터·균주* 자산"
+        },
+        {
+          "card_id": "E031",
+          "tier": "mirror",
+          "why": "60대 보유 자본 → 헬스케어 수요 demographic 함수"
+        },
+        {
+          "card_id": "E041",
+          "tier": "regime",
+          "why": "달리오 9단계 — 글로벌 의료 시스템 재편"
+        },
+        {
+          "card_id": "E022",
+          "tier": "regime",
+          "why": "금융억압 — 바이오 R&D 자금 조달 환경"
+        }
+      ]
+    },
+    {
+      "industry_id": "SHIPBUILDING_SHIPPING",
+      "name": "조선·해운 (LNG 운반·컨테이너·BDI)",
+      "korea_kospi_relevance": "high",
+      "domain_keywords": [
+        "shipping",
+        "industrial",
+        "energy_transition",
+        "supply_chain",
+        "geopolitics"
+      ],
+      "core_companies_hint": [
+        "HD한국조선해양(009540)",
+        "HD현대중공업(329180)",
+        "삼성중공업(010140)",
+        "한화오션(042660)",
+        "HMM(011200)",
+        "팬오션(028670)",
+        "대우해양(미상장 — 한화오션 흡수)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F08",
+          "rank": 1,
+          "weight": 0.92,
+          "why": "조선 도크·LNG 운반선 capa 경직 → 사이클 5~7년 장기화 본질.",
+          "primary_question": "조선 capa(도크·인력·LNG 인증)가 *왜* 못 늘어나는가?"
+        },
+        {
+          "function_id": "F31",
+          "rank": 2,
+          "weight": 0.85,
+          "why": "전기 선박·암모니아·SMR 추진 등 도메인별 채택 곡선 — 물리·인프라 의존.",
+          "primary_question": "해운 도메인(LNG·암모니아·SMR·전기)별 채택 시점차는?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 3,
+          "weight": 0.78,
+          "why": "신조 발주 서사 vs 실제 LOI→본계약 채택 지표 미달.",
+          "primary_question": "신조 발주 서사가 LOI→본계약→인도까지 채택되나?"
+        },
+        {
+          "function_id": "F02",
+          "rank": 4,
+          "weight": 0.72,
+          "why": "호르무즈 통행료·수에즈 우회·중국 BDI — 통행료 구조 재해석.",
+          "primary_question": "주요 항로 통행료·우회 비용이 어떻게 영구화되나?"
+        },
+        {
+          "function_id": "F32",
+          "rank": 5,
+          "weight": 0.7,
+          "why": "LNG·암모니아 분자 스펙·인프라 호환성 — 진짜 대체 판정.",
+          "primary_question": "LNG·암모니아 추진이 분자·항만 인프라 호환까지 통과하나?"
+        },
+        {
+          "function_id": "F07",
+          "rank": 6,
+          "weight": 0.62,
+          "why": "조선 부품(엔진·블록·기자재) 콕 집기 — 가격결정력 이동.",
+          "primary_question": "조선 부품(엔진·블록)이 어닝콜에 콕 집힌 분기가 시작됐나?"
+        },
+        {
+          "function_id": "F22",
+          "rank": 7,
+          "weight": 0.55,
+          "why": "기존 BM(컨테이너·벌크) 수명 vs 신규 BM(LNG·암모니아) 재평가 시점.",
+          "primary_question": "기존 BM 수명 vs LNG·암모니아 신규 BM 재평가 시점은?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_SECTOR_EXPORT_VOLUME",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": "신조 발주잔량·인도량 분기 — LNG 운반선 비중이 결정적"
+        },
+        {
+          "indicator_id": "IND_ABS_COMPONENT_CONTRACT_PRICE_QOQ",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "선박 가격 인덱스 QoQ — LNG 운반선 단가 추적"
+        },
+        {
+          "indicator_id": "IND_ABS_INTL_RULE_MILESTONE_PROGRESS",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "IMO 탈탄소 규제·원자력 상선 규정 진척 — SMR 채택 트리거"
+        },
+        {
+          "indicator_id": "IND_ABS_GEOPOL_CHOKEPOINT_TRANSIT_RATIO",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "호르무즈·수에즈·홍해 통과 비율 — 해운 운임에 직결"
+        },
+        {
+          "indicator_id": "IND_ABS_INFRA_AVAILABILITY_INDEX",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "조선 도크 가동률·인도 lead time"
+        },
+        {
+          "indicator_id": "IND_ABS_FUNDING_COMMITMENT_GAP",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "수주잔고 vs capa·인력 — 발표 수주 ≠ 매출 인식"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 7사 단일판매·공급계약 공시"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis 'LNG 운반·암모니아·SMR 추진 + 호르무즈 항로' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "신조 발주잔량·BDI·CCFI·호르무즈 통과·LNG 운반선 단가 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E064(전기 선박 차등 채택)·E053(SMR 추진선 트릴레마)·E024(LNG 유연성)·E033(호르무즈)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "global newbuild order Q1 26·BDI·IMO carbon rule·SMR vessel·HD KSOE earnings"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_STATE_REPORT_URGENT_UPDATE",
+          "context": "수주잔량 + IMO 규제 + 항로 통행료 박제"
+        }
+      ],
+      "first_questions": [
+        "조선 capa(도크·인력·LNG 인증)가 *왜* 못 늘어나는가? (F08)",
+        "해운 도메인(LNG·암모니아·SMR·전기)별 채택 시점차는? (F31)",
+        "신조 발주 서사가 LOI→본계약→인도까지 채택되나? (F44)",
+        "주요 항로 통행료·우회 비용이 어떻게 영구화되나? (F02)",
+        "LNG·암모니아 추진이 분자·항만 인프라 호환까지 통과하나? (F32)",
+        "조선 부품(엔진·블록)이 어닝콜에 콕 집힌 분기가 시작됐나? (F07)"
+      ],
+      "anti_signals_to_watch": [
+        "BDI·CCFI 급락 → 해운사 운임 매출 압박",
+        "중국 조선소 capa 신규 증설 가속 → 한국 점유율 약화",
+        "IMO 탈탄소 규제 연기 → LNG 신조 모멘텀 둔화",
+        "유가 급락 → LNG 가격 메리트 약화 → LNG 운반선 발주 둔화"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E064",
+          "tier": "direct",
+          "why": "전기 선박 도메인별 차등 채택 — 채택 곡선 본질"
+        },
+        {
+          "card_id": "E053",
+          "tier": "direct",
+          "why": "SMR 추진선의 3종 트릴레마 — 비기술 게이트"
+        },
+        {
+          "card_id": "E024",
+          "tier": "direct",
+          "why": "한국 정유 다유종 LNG — LNG 운반·발전 cycle"
+        },
+        {
+          "card_id": "E033",
+          "tier": "direct",
+          "why": "호르무즈 수금소 영구화 — 항로 통행료 본질"
+        },
+        {
+          "card_id": "E018",
+          "tier": "mirror",
+          "why": "원물 병목 — 조선 블록·후판 capa 경직"
+        },
+        {
+          "card_id": "E038",
+          "tier": "mirror",
+          "why": "capa 경직 사이클 장기화 — 조선 동일 함수"
+        },
+        {
+          "card_id": "E041",
+          "tier": "regime",
+          "why": "달리오 9단계 — 글로벌 무역 흐름 재편"
+        }
+      ]
+    },
+    {
+      "industry_id": "AUTOMOTIVE_EV",
+      "name": "자동차·전기차 (배터리·부품·중국 EV)",
+      "korea_kospi_relevance": "high",
+      "domain_keywords": [
+        "industrial",
+        "supply_chain",
+        "consumer",
+        "tech_platform",
+        "trade_policy"
+      ],
+      "core_companies_hint": [
+        "현대자동차(005380)",
+        "기아(000270)",
+        "현대모비스(012330)",
+        "LG에너지솔루션(373220)",
+        "삼성SDI(006400)",
+        "SK이노베이션(096770)",
+        "포스코퓨처엠(003670)",
+        "에코프로비엠(247540)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F31",
+          "rank": 1,
+          "weight": 0.9,
+          "why": "EV·하이브리드·수소·자율주행 도메인별 채택 곡선 — 물리·인프라·사업구조 분기.",
+          "primary_question": "EV·HEV·수소·자율주행이 *어느 도메인부터* 채택되나?"
+        },
+        {
+          "function_id": "F30",
+          "rank": 2,
+          "weight": 0.85,
+          "why": "내수 약함이 밀어내는 흑자 — 중국 EV 수출 폭증 본질.",
+          "primary_question": "중국 EV 수출 폭증이 한국 완성차·배터리에 어떻게 transmission?"
+        },
+        {
+          "function_id": "F22",
+          "rank": 3,
+          "weight": 0.78,
+          "why": "ICE BM 종언 vs EV 재평가 시점 — 산업 재평가 분기 함정.",
+          "primary_question": "ICE BM 종언 vs EV 재평가 시점이 *언제* 산업 멀티플로 반영되나?"
+        },
+        {
+          "function_id": "F32",
+          "rank": 4,
+          "weight": 0.72,
+          "why": "배터리 분자·인프라 호환성 — LFP vs NCM·전고체 진짜 대체 판정.",
+          "primary_question": "LFP·전고체·나트륨 배터리가 분자·인프라까지 진짜 대체하나?"
+        },
+        {
+          "function_id": "F08",
+          "rank": 5,
+          "weight": 0.68,
+          "why": "배터리 셀·양극재·분리막 capa 경직 → 사이클.",
+          "primary_question": "배터리 capa(셀·양극재·분리막)가 *왜* 못 늘어나는가?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 6,
+          "weight": 0.62,
+          "why": "EV 채택률·자율주행 가이던스 vs 실제 매출 채택 미달.",
+          "primary_question": "EV·자율주행 가이던스 vs 실제 매출 채택 미달 누적?"
+        },
+        {
+          "function_id": "F05",
+          "rank": 7,
+          "weight": 0.55,
+          "why": "수출 EV가 *어디* 들어가는가 — 미국·유럽·신흥국 채택 시점차.",
+          "primary_question": "한국 EV·배터리가 *어디* 들어가고, 그 운용 환경이 다음 발주의 카탈로그인가?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_SECTOR_EXPORT_VOLUME",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 자동차·배터리 수출 대수·금액 분기 — 미국 IRA 영향"
+        },
+        {
+          "indicator_id": "IND_ABS_EXPORT_UNIT_PRICE_QOQ",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 EV·배터리 수출 단가 QoQ — 중국 LFP 가격 압박"
+        },
+        {
+          "indicator_id": "IND_ABS_COUNTRY_TRADE_BALANCE_MONTHLY",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "중국 EV 수출 흑자 vs 한국 EV 수출 — 점유율 trade-off"
+        },
+        {
+          "indicator_id": "IND_ABS_DOMESTIC_REFORM_BILL_PROGRESS",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "미국 IRA 보조금 룰·EU CBAM 진척"
+        },
+        {
+          "indicator_id": "IND_ABS_COMPONENT_CONTRACT_PRICE_QOQ",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "리튬·코발트·니켈 컨트랙트 가격"
+        },
+        {
+          "indicator_id": "IND_ABS_SECTOR_GLOBAL_GROWTH_YOY",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "글로벌 EV 침투율 YoY — 도메인별(승용·상용·HEV) 분해"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 8사 분기보고·해외 capa 공시 알람"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis 'EV 채택 도메인별 차등 + IRA + 중국 EV 압력' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "한국 자동차 수출·중국 EV 수출·리튬 가격·IRA 룰·EV 침투율 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E058(중국차 정비 데이터)·E060(중국 흑자)·E064(전기 선박 차등)·E020(가전 게이트키퍼 mirror)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "IRA 2026·중국 EV 수출·LFP price·현대차 IRA 공장·LG에너지솔루션 capacity"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_PEER_BASELINE_SNAPSHOT",
+          "context": "글로벌 EV·배터리 peer 베이스라인 스냅샷"
+        }
+      ],
+      "first_questions": [
+        "EV·HEV·수소·자율주행이 *어느 도메인부터* 채택되나? (F31)",
+        "중국 EV 수출 폭증이 한국 완성차·배터리에 어떻게 transmission? (F30)",
+        "ICE BM 종언 vs EV 재평가 시점이 *언제* 산업 멀티플로 반영되나? (F22)",
+        "LFP·전고체·나트륨 배터리가 분자·인프라까지 진짜 대체하나? (F32)",
+        "배터리 capa(셀·양극재·분리막)가 *왜* 못 늘어나는가? (F08)",
+        "EV·자율주행 가이던스 vs 실제 매출 채택 미달 누적? (F44)",
+        "한국 EV·배터리가 *어디* 들어가고, 운용 환경이 다음 발주 카탈로그인가? (F05)"
+      ],
+      "anti_signals_to_watch": [
+        "미국 IRA 보조금 축소·취소 → 한국 배터리 미국 capa 매출 압박",
+        "중국 LFP·나트륨 가격 하향 가속 → 한국 NCM 가격 경쟁력 약화",
+        "EV 침투율 정체(특히 미국·유럽 둔화) → 자동차 멀티플 재산정 지연",
+        "리튬·니켈 가격 급락 → 배터리 in-cost 마진 일시 개선 vs 셀 ASP 하락"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E058",
+          "tier": "direct",
+          "why": "중국차 정비 데이터 자산 — 자동차 산업 데이터·서비스 자산 본질"
+        },
+        {
+          "card_id": "E060",
+          "tier": "direct",
+          "why": "중국 무역 흑자 1.19조 — EV 수출 압력 본질"
+        },
+        {
+          "card_id": "E064",
+          "tier": "direct",
+          "why": "전기 선박 도메인별 차등 — 자동차 EV 채택 mirror"
+        },
+        {
+          "card_id": "E020",
+          "tier": "mirror",
+          "why": "가전 게이트키퍼 → 브랜드 → 취향 AI — 자동차도 동일 함수"
+        },
+        {
+          "card_id": "E031",
+          "tier": "mirror",
+          "why": "60대 보유 자본 → 시드 격차 — 자동차 수요 demographic"
+        },
+        {
+          "card_id": "E044",
+          "tier": "mirror",
+          "why": "약정 vs 자금 미스매치 — 배터리 capa 약정 vs 조달 자금"
+        },
+        {
+          "card_id": "E022",
+          "tier": "regime",
+          "why": "금융억압 — EV 보조금·인프라 자금 환경"
+        }
+      ]
+    },
+    {
+      "industry_id": "CONSUMER_K_BRAND",
+      "name": "소비재·K뷰티·식품 (ODM·OEM·K-푸드)",
+      "korea_kospi_relevance": "medium",
+      "domain_keywords": [
+        "consumer",
+        "brand_strategy",
+        "F&B",
+        "retail",
+        "tech_platform"
+      ],
+      "core_companies_hint": [
+        "아모레퍼시픽(090430)",
+        "LG생활건강(051900)",
+        "한국콜마(161890)",
+        "코스맥스(192820)",
+        "오리온(271560)",
+        "CJ제일제당(097950)",
+        "농심(004370)",
+        "삼양식품(003230)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F33",
+          "rank": 1,
+          "weight": 0.88,
+          "why": "분절 시장 게이트키퍼 이동 — AI 큐레이션·취향이 K뷰티·K푸드 유통 본질 함수.",
+          "primary_question": "K뷰티·K푸드 유통 게이트키퍼가 누구한테 이동했나? (AI·플랫폼·인플루언서)"
+        },
+        {
+          "function_id": "F17",
+          "rank": 2,
+          "weight": 0.82,
+          "why": "공간·서사 자산 → 맛·반복·전문성 — 카페·식품 가치 포획 이동.",
+          "primary_question": "이 브랜드의 가치 포획이 공간·서사에서 맛·반복으로 이동했나?"
+        },
+        {
+          "function_id": "F19",
+          "rank": 3,
+          "weight": 0.78,
+          "why": "단위경제 허들(SKU당 매출·매장당 매출) 점프 — 소비재 cycle 본질.",
+          "primary_question": "이 브랜드의 단위경제(SKU당·매장당) 허들이 점프했나?"
+        },
+        {
+          "function_id": "F38",
+          "rank": 4,
+          "weight": 0.72,
+          "why": "유입(외국인·관광객·SNS) 헤드라인을 동선·객단가·아이템 적합도로 분해.",
+          "primary_question": "K뷰티 유입을 동선·객단가·아이템 적합도 세그먼트로 분해하면?"
+        },
+        {
+          "function_id": "F16",
+          "rank": 5,
+          "weight": 0.68,
+          "why": "가치 포획 위치 이동을 *신규 유료 코호트 분포*로 추적.",
+          "primary_question": "이 브랜드의 신규 유료 코호트(국가·연령) 분포가 어떻게 이동?"
+        },
+        {
+          "function_id": "F13",
+          "rank": 6,
+          "weight": 0.6,
+          "why": "관세·환율 헤드라인 1차 영향 vs 2차 파급(수혜·피해자) 분리.",
+          "primary_question": "관세·환율 헤드라인의 1차 영향 vs 2차 파급은?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 7,
+          "weight": 0.55,
+          "why": "K-콘텐츠 서사 vs 실제 해외 매출 채택 미달 가능성.",
+          "primary_question": "K-콘텐츠·K-브랜드 서사 vs 실제 해외 매출 채택?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_DOMAIN_EXPORT_YOY",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 화장품·라면·김 수출 YoY — 국가별 분해(미·중·동남아)"
+        },
+        {
+          "indicator_id": "IND_ABS_TOP_N_CUSTOMER_CONCENTRATION",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국콜마·코스맥스 Top 5 고객사 비중 — 신흥 인디 브랜드 의존"
+        },
+        {
+          "indicator_id": "IND_ABS_SECTOR_OP_MARGIN_REGIME",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "오리온 17%·CJ 6~7% — 영업이익률 레짐 본질"
+        },
+        {
+          "indicator_id": "IND_ABS_DEMOGRAPHIC_FLOW_PERSISTENCE",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "관광객·외국인 demographic 유입 — 동선·객단가 분해"
+        },
+        {
+          "indicator_id": "IND_ABS_EXPORT_UNIT_PRICE_QOQ",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "K뷰티·K푸드 ASP — 인디 브랜드 가격 압박"
+        },
+        {
+          "indicator_id": "IND_ABS_SEGMENT_REVENUE_YOY",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "삼양식품 불닭 비중·LG생건 럭셔리 비중 — 세그먼트 매출"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 8사 분기보고·해외 매출 공시"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis 'K뷰티·K푸드 게이트키퍼 이동 + 미·중 관세' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "화장품·라면·김 수출·ODM 수주·인디 브랜드 출현 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E018(김 원물 병목)·E019(오리온 17% 해자)·E057(콜마 ODM)·E020(가전 게이트키퍼)·E011(브랜드 재부상)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "한국 화장품 수출·삼양식품 미국 매출·CJ 미국 만두·아모레 중국·관광객 유입"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_PEER_BASELINE_SNAPSHOT",
+          "context": "글로벌 화장품·식품 peer 베이스라인"
+        }
+      ],
+      "first_questions": [
+        "K뷰티·K푸드 유통 게이트키퍼가 누구한테 이동했나? (AI·플랫폼·인플루언서) (F33)",
+        "이 브랜드의 가치 포획이 공간·서사에서 맛·반복으로 이동했나? (F17)",
+        "이 브랜드의 단위경제(SKU당·매장당) 허들이 점프했나? (F19)",
+        "K뷰티 유입을 동선·객단가·아이템 적합도 세그먼트로 분해하면? (F38)",
+        "신규 유료 코호트(국가·연령) 분포 이동은? (F16)",
+        "관세·환율 헤드라인의 1차 영향 vs 2차 파급은? (F13)"
+      ],
+      "anti_signals_to_watch": [
+        "미·중 관세 인상 → K뷰티·K푸드 마진 압박",
+        "ODM Top 5 고객 의존 — 인디 브랜드 휘발 시 매출 채널 위축",
+        "관광객 유입 감소 → 동선·객단가 baseline 하향",
+        "삼양식품 불닭 같은 single SKU 의존 → ASP 정점 후 reversion"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E018",
+          "tier": "direct",
+          "why": "한국 김 원물 병목 — K푸드 가격 리레이팅 본질"
+        },
+        {
+          "card_id": "E019",
+          "tier": "direct",
+          "why": "오리온 17% 영업이익률 — 수직계열화 해자"
+        },
+        {
+          "card_id": "E057",
+          "tier": "direct",
+          "why": "한국콜마 ODM 인프라 — B2C 흥행 뒤의 B2B 가치 포획"
+        },
+        {
+          "card_id": "E020",
+          "tier": "direct",
+          "why": "가전 게이트키퍼 → 브랜드 → 취향 AI — 소비재 가치사슬 함수"
+        },
+        {
+          "card_id": "E011",
+          "tier": "direct",
+          "why": "취향 소멸 시대 브랜드 재부상 — 소비재 차별화"
+        },
+        {
+          "card_id": "E006",
+          "tier": "mirror",
+          "why": "카페 트렌드 공간 → 맛 전환 — 가치 포획 이동"
+        },
+        {
+          "card_id": "E004",
+          "tier": "mirror",
+          "why": "외국인 동선 = 평일 매출 — 유입 분해"
+        },
+        {
+          "card_id": "E031",
+          "tier": "mirror",
+          "why": "60대 보유 자본 → 소비 demographic"
+        }
+      ]
+    },
+    {
+      "industry_id": "GAME_CONTENT",
+      "name": "게임·콘텐츠·엔터 (콘솔·PC·드라마·K-팝)",
+      "korea_kospi_relevance": "medium",
+      "domain_keywords": [
+        "game_industry",
+        "media",
+        "consumer_tech",
+        "consumer",
+        "tech_platform"
+      ],
+      "core_companies_hint": [
+        "엔씨소프트(036570)",
+        "넷마블(251270)",
+        "크래프톤(259960)",
+        "카카오게임즈(293490)",
+        "위메이드(112040)",
+        "하이브(352820)",
+        "JYP Ent.(035900)",
+        "에스엠(041510)",
+        "CJ ENM(035760)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F22",
+          "rank": 1,
+          "weight": 0.92,
+          "why": "리니지 BM 종언 → K-게임 르네상스 — 산업 재평가 본질.",
+          "primary_question": "기존 BM(리니지·MMORPG·확률형)이 종언되고 신규 BM 어디로?"
+        },
+        {
+          "function_id": "F39",
+          "rank": 2,
+          "weight": 0.85,
+          "why": "국가 사이클 × 플랫폼 사이클 이중 분해 — 콘솔·PC·모바일·중국 시점차.",
+          "primary_question": "국가(한·중·미·일) × 플랫폼(콘솔·PC·모바일) 사이클의 *이중 분해*는?"
+        },
+        {
+          "function_id": "F16",
+          "rank": 3,
+          "weight": 0.78,
+          "why": "가치 포획 위치 이동 — 신규 유료 코호트 분포로 추적.",
+          "primary_question": "신규 유료 코호트(국가·플랫폼·연령) 분포 이동은?"
+        },
+        {
+          "function_id": "F40",
+          "rank": 4,
+          "weight": 0.72,
+          "why": "디렉터·창업자 IP 이슈메이킹 — 재무 변동성 변수.",
+          "primary_question": "이 IP·디렉터의 이슈메이킹 능력이 어떻게 매출 변동성을 만드나?"
+        },
+        {
+          "function_id": "F19",
+          "rank": 5,
+          "weight": 0.68,
+          "why": "유저당 매출·게임당 매출 등 단위경제 허들 점프.",
+          "primary_question": "유저당·게임당 단위경제 허들이 점프했나?"
+        },
+        {
+          "function_id": "F41",
+          "rank": 6,
+          "weight": 0.62,
+          "why": "장기 미디어 권리 계약(올림픽·콘서트 IP) 회수 가능성 재평가.",
+          "primary_question": "장기 계약(미디어 권리·IP·아티스트) 회수 가능성이 어떻게 재평가?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 7,
+          "weight": 0.55,
+          "why": "메타버스·블록체인 게임 서사 vs 채택 미달 본질.",
+          "primary_question": "메타버스·블록체인 게임 서사 vs 채택 미달 누적?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_SECTOR_GLOBAL_GROWTH_YOY",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": "글로벌 게임(콘솔·PC·모바일) 성장률 분해"
+        },
+        {
+          "indicator_id": "IND_ABS_DEMOGRAPHIC_FLOW_PERSISTENCE",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "K-팝·드라마 demographic 유입 지속성"
+        },
+        {
+          "indicator_id": "IND_ABS_LONG_CONTRACT_REPRICING_RATIO",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "중계권·IP·아티스트 장기 계약 재가격 — JTBC 사례"
+        },
+        {
+          "indicator_id": "IND_ABS_SEGMENT_REVENUE_YOY",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "신작 게임·앨범·콘서트 세그먼트 매출"
+        },
+        {
+          "indicator_id": "IND_ABS_REVENUE_PER_HEADCOUNT",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "스튜디오·기획사 1인당 매출 — 단위경제 점프"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 9사 신작·중계권·앨범 공시"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis 'K-게임 BM 전환 + K-팝·콘텐츠 글로벌 침투' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "글로벌 게임 매출·신작 출시 캘린더·앨범 판매·중계권 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E013(리니지 BM 종언)·E014(콘솔·중국 시점차)·E017(JTBC 중계권)·E015(디렉터 팬덤)·E040(럭셔리 mirror)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "global game market·HYBE BTS 복귀·크래프톤 신작·중국 판호·콘솔 출시 캘린더"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_T2_PROMOTION_FLAG",
+          "context": "BM 전환·신규 IP 임계 도달 시 T2 promotion"
+        }
+      ],
+      "first_questions": [
+        "기존 BM(리니지·MMORPG·확률형)이 종언되고 신규 BM 어디로? (F22)",
+        "국가 × 플랫폼 사이클의 이중 분해는? (F39)",
+        "신규 유료 코호트 분포 이동은? (F16)",
+        "이 IP·디렉터의 이슈메이킹이 매출 변동성을 어떻게 만드나? (F40)",
+        "유저당·게임당 단위경제 허들 점프? (F19)",
+        "장기 계약(중계권·IP·아티스트) 회수 가능성 재평가? (F41)"
+      ],
+      "anti_signals_to_watch": [
+        "중국 판호 발급 변동성 — 한국 게임 채널 휘발",
+        "신작 출시 지연·흥행 실패 → 분기 매출 단발 변동성",
+        "K-팝 아티스트 군 입대·재계약 협상 risk",
+        "중계권·IP 계약 비용 vs 광고·구독 매출 reversion"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E013",
+          "tier": "direct",
+          "why": "리니지 BM 종언 → K-게임 르네상스 — 산업 재평가"
+        },
+        {
+          "card_id": "E014",
+          "tier": "direct",
+          "why": "콘솔 회복·중국 약진 vs 한국 정체 — 국가×플랫폼"
+        },
+        {
+          "card_id": "E017",
+          "tier": "direct",
+          "why": "JTBC 7천억 중계권 — 장기 계약 재평가"
+        },
+        {
+          "card_id": "E015",
+          "tier": "direct",
+          "why": "디렉터 팬덤이 럭셔리 추월 — 이슈메이킹 함수"
+        },
+        {
+          "card_id": "E040",
+          "tier": "direct",
+          "why": "디렉터·창업자 IP 변동성 — 콘텐츠 산업 본질"
+        },
+        {
+          "card_id": "E062",
+          "tier": "mirror",
+          "why": "메타버스 약속 → 수요 실종 — 채택 미달 시그널"
+        },
+        {
+          "card_id": "E022",
+          "tier": "mirror",
+          "why": "BM 수명 재평가 — 미디어 권리도 동일 함수"
+        },
+        {
+          "card_id": "E061",
+          "tier": "mirror",
+          "why": "예측시장 정보 서사 → 도박 재포장 — BM 전환 mirror"
+        }
+      ]
+    },
+    {
+      "industry_id": "ENERGY_COMMODITIES",
+      "name": "에너지·원자재 (정유·LNG·금속·곡물)",
+      "korea_kospi_relevance": "medium",
+      "domain_keywords": [
+        "energy",
+        "materials",
+        "geopolitics",
+        "trade_policy",
+        "supply_chain"
+      ],
+      "core_companies_hint": [
+        "SK이노베이션(096770)",
+        "S-Oil(010950)",
+        "GS(078930)",
+        "포스코홀딩스(005490)",
+        "고려아연(010130)",
+        "포스코퓨처엠(003670)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F02",
+          "rank": 1,
+          "weight": 0.92,
+          "why": "호르무즈·말라카·수에즈 통행료 영구화 — 에너지 가격 베이스라인 재해석.",
+          "primary_question": "주요 chokepoint 통행료가 어떻게 영구화되나?"
+        },
+        {
+          "function_id": "F32",
+          "rank": 2,
+          "weight": 0.85,
+          "why": "원유 다유종·LNG·SMR 분자 스펙·인프라 호환 — 진짜 대체 판정.",
+          "primary_question": "정유사 유종 다변화·LNG 우회가 분자·인프라까지 작동하나?"
+        },
+        {
+          "function_id": "F07",
+          "rank": 3,
+          "weight": 0.78,
+          "why": "구리·니켈·리튬·전기강판 부품명 콕 집기 — 가격결정력 이동.",
+          "primary_question": "어느 원자재가 어닝콜에 콕 집힌 분기가 시작됐나?"
+        },
+        {
+          "function_id": "F08",
+          "rank": 4,
+          "weight": 0.75,
+          "why": "광산 capa·정제 capa 경직 → 사이클 장기화.",
+          "primary_question": "광산·정제 capa가 *왜* 못 늘어나는가?"
+        },
+        {
+          "function_id": "F30",
+          "rank": 5,
+          "weight": 0.65,
+          "why": "중국 내수 약함이 밀어내는 흑자 — 원자재·철강 가격에 영향.",
+          "primary_question": "중국 내수 약함이 원자재 흑자로 어떻게 흘러나오나?"
+        },
+        {
+          "function_id": "F33",
+          "rank": 6,
+          "weight": 0.55,
+          "why": "원자재 분절 시장 게이트키퍼 이동 — OPEC·중국 stockpile·트레이더.",
+          "primary_question": "원자재 분절 시장 게이트키퍼가 누구한테 이동했나?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_GEOPOL_CHOKEPOINT_TRANSIT_RATIO",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": "호르무즈·말라카 통과 비율 — 한국 정유 백업 노드 가치"
+        },
+        {
+          "indicator_id": "IND_ABS_GEOPOL_CHOKEPOINT_FLOW_VOLUME",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "일일 유조선·LNG선 통과량"
+        },
+        {
+          "indicator_id": "IND_ABS_INFORMAL_TOLL_FORMATION",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "비공식 통행료(보험료 가산·배럴당 부담) 형성 단계"
+        },
+        {
+          "indicator_id": "IND_ABS_COMMODITY_OUTBOUND_FLOW",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "카타르 LNG·러시아 원유·중국 철강 출하"
+        },
+        {
+          "indicator_id": "IND_ABS_SECTOR_PROCESSING_MARGIN",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 정유 4사 정제 마진"
+        },
+        {
+          "indicator_id": "IND_ABS_SOURCE_REGION_DEPENDENCY_RATIO",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 중동 원유 의존도·중국 희토류 의존"
+        },
+        {
+          "indicator_id": "IND_ABS_SOURCE_DIVERSIFICATION_FLOW",
+          "rank": 7,
+          "industry_threshold_override": null,
+          "korea_specific_note": "TMX·미국 셰일·아프리카 신규 라인"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 6사 분기·유종 다변화 공시"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis '호르무즈 영구화 + 한국 백업 노드' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "호르무즈·말라카 통과·정제 마진·LNG 가격·구리·니켈 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E024·E033·E034·E035·E045·E049·E059·E052"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "Hormuz transit·OPEC production·LNG spot·copper inventory·중국 철강 수출"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_STATE_REPORT_URGENT_UPDATE",
+          "context": "통행료·정제 마진·원자재 가격 박제"
+        }
+      ],
+      "first_questions": [
+        "주요 chokepoint 통행료가 어떻게 영구화되나? (F02)",
+        "정유사 유종 다변화·LNG 우회가 분자·인프라까지 작동하나? (F32)",
+        "어느 원자재가 어닝콜에 콕 집힌 분기가 시작됐나? (F07)",
+        "광산·정제 capa가 *왜* 못 늘어나는가? (F08)",
+        "중국 내수 약함이 원자재 흑자로 어떻게 흘러나오나? (F30)",
+        "원자재 분절 시장 게이트키퍼가 누구한테 이동했나? (F33)"
+      ],
+      "anti_signals_to_watch": [
+        "호르무즈·말라카 정상화 — 통행료 영구화 가설 약화",
+        "OPEC+ 증산 확대 → 유가 하향 → 정제 마진 압박",
+        "중국 부동산·내수 회복 → 철강·원자재 흑자 감소",
+        "셰일·재생에너지 단가 하향 → 화석연료 cycle 단축"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E024",
+          "tier": "direct",
+          "why": "한국 정유 다유종 LNG 수혜"
+        },
+        {
+          "card_id": "E033",
+          "tier": "direct",
+          "why": "호르무즈 수금소 모델 영구화"
+        },
+        {
+          "card_id": "E034",
+          "tier": "direct",
+          "why": "휴전안 언어판본 트랩"
+        },
+        {
+          "card_id": "E035",
+          "tier": "direct",
+          "why": "이스라엘 와일드카드"
+        },
+        {
+          "card_id": "E045",
+          "tier": "direct",
+          "why": "호르무즈 긴장 vs 실적 디커플링"
+        },
+        {
+          "card_id": "E049",
+          "tier": "direct",
+          "why": "프로젝트 프리덤 양면 작동"
+        },
+        {
+          "card_id": "E059",
+          "tier": "direct",
+          "why": "중동 의존 축소 → 원유 블렌딩 인프라"
+        },
+        {
+          "card_id": "E052",
+          "tier": "mirror",
+          "why": "UAE OPEC 탈퇴 = 달러망 편입 — 지정학 재편"
+        },
+        {
+          "card_id": "E060",
+          "tier": "mirror",
+          "why": "중국 흑자 1.19조 — 원자재 흑자 transmission"
+        }
+      ]
+    },
+    {
+      "industry_id": "FINANCE_BANK",
+      "name": "금융·은행·증권 (NIM·연체율·자본시장)",
+      "korea_kospi_relevance": "high",
+      "domain_keywords": [
+        "fixed_income",
+        "central_bank",
+        "macro",
+        "currency",
+        "regulation",
+        "policy"
+      ],
+      "core_companies_hint": [
+        "KB금융(105560)",
+        "신한지주(055550)",
+        "하나금융지주(086790)",
+        "우리금융지주(316140)",
+        "메리츠금융지주(138040)",
+        "한국금융지주(071050)",
+        "미래에셋증권(006800)",
+        "삼성생명(032830)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F09",
+          "rank": 1,
+          "weight": 0.88,
+          "why": "부채 위기를 디폴트·긴축 아닌 금융억압 비대칭 조합으로 — 한국 가계부채 본질.",
+          "primary_question": "한국 가계부채·정부부채가 디폴트·긴축이 아닌 어떤 금융억압 조합으로 해소되나?"
+        },
+        {
+          "function_id": "F35",
+          "rank": 2,
+          "weight": 0.82,
+          "why": "한은·연준 반대표·이견 부호 변화 → 정책 반응함수 평행이동.",
+          "primary_question": "한은·연준 반대표 방향이 정책 함수를 어떻게 평행이동시키나?"
+        },
+        {
+          "function_id": "F43",
+          "rank": 3,
+          "weight": 0.75,
+          "why": "예측시장·이벤트 계약 같은 제도화·이름표 갈아입기 검증.",
+          "primary_question": "한국 금융혁신 신규 상품이 *말과 가격의 어긋남*에서 어떻게 검증되나?"
+        },
+        {
+          "function_id": "F12",
+          "rank": 4,
+          "weight": 0.7,
+          "why": "달러 강세 ≠ 미국국채 강세 — 결제·유동성 vs 부채자산 분리.",
+          "primary_question": "원화·달러·국채를 결제·유동성 vs 부채자산으로 분리하면?"
+        },
+        {
+          "function_id": "F11",
+          "rank": 5,
+          "weight": 0.65,
+          "why": "한은 외환 행동을 정치 일정의 시간 매수 함수로.",
+          "primary_question": "한은 외환·기준금리가 정치 일정의 시간 매수 함수인가?"
+        },
+        {
+          "function_id": "F29",
+          "rank": 6,
+          "weight": 0.55,
+          "why": "한국 자본시장 부양 입법 + 인덱스 가중치 시프트 → 자금 유입.",
+          "primary_question": "한국 자본시장 개혁 입법 + 인덱스 가중치 시프트가 자금 유입을 어떻게 증폭하나?"
+        },
+        {
+          "function_id": "F26",
+          "rank": 7,
+          "weight": 0.5,
+          "why": "매크로-주가 상관관계 끊기는 구간을 별도 레짐.",
+          "primary_question": "매크로(금리·환율)와 한국 금융주 상관관계가 어디서 끊기는가?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_SOVEREIGN_LONG_YIELD",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 국고채 10년·미 10년 — NIM·캐리 환경"
+        },
+        {
+          "indicator_id": "IND_ABS_GOV_DEBT_TO_GDP",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 정부부채/GDP — 금융억압 압력 본질"
+        },
+        {
+          "indicator_id": "IND_ABS_CENTRAL_BANK_DISSENT_DIRECTION",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한은·연준 반대표 방향 동시 추적"
+        },
+        {
+          "indicator_id": "IND_ABS_FX_IMPLIED_VOL",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "원달러·원엔·달러지수 변동성 — 외인 자금 흐름"
+        },
+        {
+          "indicator_id": "IND_ABS_DOMESTIC_REFORM_BILL_PROGRESS",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "물적분할·자사주 마법·쪼개기 — 자본시장 개혁 입법"
+        },
+        {
+          "indicator_id": "IND_ABS_FOREIGN_REGULATOR_PENALTY_COUNT",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "OFAC 한국 시중은행 벌금·조사 — 매개자 함수"
+        },
+        {
+          "indicator_id": "IND_ABS_REGULATOR_NEW_PRODUCT_RULING",
+          "rank": 7,
+          "industry_threshold_override": null,
+          "korea_specific_note": "CFTC 이벤트 계약·금감원 신상품 — 제도화 검증"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 8사 분기보고·자사주·배당 공시"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis '금융억압 + 자본시장 개혁 + 반대표 부호' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "한국·미국 금리·NIM·연체율·외인 자금·자본시장 입법 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E022(금융억압)·E027(박스피 탈출)·E046(연준 이견 방향)·E051(달러≠국채)·E041(달리오 9단계)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "한국 기준금리·NIM·자본시장 개혁·OFAC·코리아 디스카운트"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_STATE_REPORT_URGENT_UPDATE",
+          "context": "금리·환율·반대표 anchor 박제"
+        }
+      ],
+      "first_questions": [
+        "한국 가계·정부부채가 디폴트·긴축이 아닌 어떤 금융억압 조합으로 해소되나? (F09)",
+        "한은·연준 반대표 방향이 정책 함수를 어떻게 평행이동시키나? (F35)",
+        "한국 금융혁신 신상품이 *말과 가격의 어긋남*에서 어떻게 검증? (F43)",
+        "원화·달러·국채를 결제·유동성 vs 부채자산으로 분리하면? (F12)",
+        "한은 외환·기준금리가 정치 일정의 시간 매수 함수인가? (F11)",
+        "자본시장 개혁 + 인덱스 가중치 시프트가 자금 유입을 어떻게 증폭하나? (F29)",
+        "매크로와 한국 금융주 상관관계가 어디서 끊기는가? (F26)"
+      ],
+      "anti_signals_to_watch": [
+        "한국 가계부채 LTV·DSR 급격 규제 → 은행 대출 성장 둔화",
+        "OFAC 한국 시중은행 벌금·조사 헤드라인",
+        "자본시장 개혁 입법 후 후속 시행령 지연",
+        "외인 자금 KOSPI 이탈 — 인덱스 가중치 시프트 무산"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E022",
+          "tier": "direct",
+          "why": "금융억압 부채 인플레 — 본질"
+        },
+        {
+          "card_id": "E027",
+          "tier": "direct",
+          "why": "박스피 탈출 누적 음덕 — 자본시장 개혁"
+        },
+        {
+          "card_id": "E046",
+          "tier": "direct",
+          "why": "연준 이견의 방향 전환"
+        },
+        {
+          "card_id": "E051",
+          "tier": "direct",
+          "why": "달러 강세 ≠ 미국국채 강세"
+        },
+        {
+          "card_id": "E041",
+          "tier": "direct",
+          "why": "달리오 9단계 미국 약체 신호"
+        },
+        {
+          "card_id": "E031",
+          "tier": "mirror",
+          "why": "60대 보유 자본 → 시드 격차"
+        },
+        {
+          "card_id": "E054",
+          "tier": "mirror",
+          "why": "터키 금-달러 스왑 — 외환 시간 매수"
+        },
+        {
+          "card_id": "E055",
+          "tier": "mirror",
+          "why": "이집트 위기 = 달러부족형"
+        },
+        {
+          "card_id": "E061",
+          "tier": "mirror",
+          "why": "예측시장 — 신상품 제도화"
+        }
+      ]
+    },
+    {
+      "industry_id": "REAL_ESTATE_CONSTRUCTION",
+      "name": "부동산·건설 (디벨로퍼·임대·재건축)",
+      "korea_kospi_relevance": "medium",
+      "domain_keywords": [
+        "real_estate",
+        "industrial_cluster",
+        "consumer",
+        "policy"
+      ],
+      "core_companies_hint": [
+        "삼성물산(028260)",
+        "현대건설(000720)",
+        "DL이앤씨(375500)",
+        "GS건설(006360)",
+        "대우건설(047040)",
+        "HDC현대산업개발(294870)",
+        "현대엘리베이터(017800)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F03",
+          "rank": 1,
+          "weight": 0.85,
+          "why": "표면 지표 빼고 *뼈만 남았을 때 뭐가 남나* — 부동산 잔존가치 본질.",
+          "primary_question": "이 상권·자산이 뼈만 남았을 때 뭐가 남나?"
+        },
+        {
+          "function_id": "F36",
+          "rank": 2,
+          "weight": 0.82,
+          "why": "공실 버티기 = 자본환원율 방어 효용함수 — 비합리 행동의 합리적 해.",
+          "primary_question": "이 건물주·디벨로퍼의 공실·홀딩 행동이 자본환원율 방어 함수인가?"
+        },
+        {
+          "function_id": "F37",
+          "rank": 3,
+          "weight": 0.78,
+          "why": "차별화 자산을 본인이 직접 파괴하는 자기파괴 동학 — 공장·공실·지구단위계획.",
+          "primary_question": "이 차별화 자산이 본인 행동에 의해 어떻게 자기파괴되나?"
+        },
+        {
+          "function_id": "F38",
+          "rank": 4,
+          "weight": 0.72,
+          "why": "유입(외국인·관광객) 헤드라인을 동선·객단가·아이템 적합도로 분해.",
+          "primary_question": "상권 유입을 동선·객단가·아이템 적합도로 분해하면?"
+        },
+        {
+          "function_id": "F08",
+          "rank": 5,
+          "weight": 0.65,
+          "why": "건설·자재 capa·인력 경직 — 분양·착공 cycle 본질.",
+          "primary_question": "건설 capa(인력·자재·인허가)가 *왜* 못 늘어나는가?"
+        },
+        {
+          "function_id": "F09",
+          "rank": 6,
+          "weight": 0.6,
+          "why": "PF·금리·금융억압이 부동산 가격에 어떻게 transmission.",
+          "primary_question": "PF·금리·금융억압이 부동산 가격에 어떻게 transmission?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_LAND_USE_POLICY_DESIGNATION_COUNT",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": "서울시 지구단위계획·용도지역 변경 — 자기파괴 함수 신호"
+        },
+        {
+          "indicator_id": "IND_ABS_SOVEREIGN_LONG_YIELD",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 국고채·주택담보대출 금리 — 분양·매매 cycle"
+        },
+        {
+          "indicator_id": "IND_ABS_DEMOGRAPHIC_FLOW_PERSISTENCE",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "외국인·관광객·인구 유입 지속성"
+        },
+        {
+          "indicator_id": "IND_ABS_FUNDING_COMMITMENT_GAP",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "PF 약정 vs 자금 미스매치 — 분양 risk"
+        },
+        {
+          "indicator_id": "IND_ABS_INFRA_AVAILABILITY_INDEX",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "건설 자재(시멘트·철근)·인력 가용성"
+        },
+        {
+          "indicator_id": "IND_ABS_DOMESTIC_REFORM_BILL_PROGRESS",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "재건축·재개발 규제·종부세·임대차 입법"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 7사 분양·수주·PF 공시"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis '서울 지구단위 + PF + 외국인 유입' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "용도지역 변경·금리·분양 수주·관광객 유입 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E001~E005(상권·공실)·E028(셀프스토리지)·E022(금융억압)·E031(60대 자본)"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "서울 지구단위·재건축·PF·전세·임대차"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_PEER_BASELINE_SNAPSHOT",
+          "context": "글로벌 부동산 peer 베이스라인"
+        }
+      ],
+      "first_questions": [
+        "이 상권·자산이 뼈만 남았을 때 뭐가 남나? (F03)",
+        "이 건물주·디벨로퍼 공실·홀딩이 자본환원율 방어 함수인가? (F36)",
+        "차별화 자산이 본인 행동에 의해 어떻게 자기파괴되나? (F37)",
+        "상권 유입을 동선·객단가·아이템 적합도로 분해하면? (F38)",
+        "건설 capa(인력·자재·인허가)가 *왜* 못 늘어나는가? (F08)",
+        "PF·금리·금융억압이 부동산 가격에 어떻게 transmission? (F09)"
+      ],
+      "anti_signals_to_watch": [
+        "PF 부실 — 건설사 cash runway risk",
+        "전세·임대차 규제 강화 → 임대 수익률 압박",
+        "외국인 관광객 유입 둔화 → 명동·강남 상권 객단가 하향",
+        "재건축·재개발 규제 강화 → 디벨로퍼 매출 인식 지연"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E001",
+          "tier": "direct",
+          "why": "상권 잔존가치 = 미래가치"
+        },
+        {
+          "card_id": "E002",
+          "tier": "direct",
+          "why": "건물주 공실 버티기 = 자본환원 방어"
+        },
+        {
+          "card_id": "E003",
+          "tier": "direct",
+          "why": "자식상권 사이클 한계"
+        },
+        {
+          "card_id": "E004",
+          "tier": "direct",
+          "why": "외국인 동선 = 평일 매출"
+        },
+        {
+          "card_id": "E005",
+          "tier": "direct",
+          "why": "공장 잔존가치 자가훼손"
+        },
+        {
+          "card_id": "E028",
+          "tier": "direct",
+          "why": "셀프스토리지 → 상업/주거 부동산 가위"
+        },
+        {
+          "card_id": "E022",
+          "tier": "mirror",
+          "why": "금융억압 — PF·금리 환경"
+        },
+        {
+          "card_id": "E031",
+          "tier": "mirror",
+          "why": "60대 보유 자본 → 부동산 수요"
+        }
+      ]
+    },
+    {
+      "industry_id": "MACRO_GLOBAL",
+      "name": "매크로·환율·금리 (글로벌 매크로 thesis)",
+      "korea_kospi_relevance": "high",
+      "domain_keywords": [
+        "macro",
+        "central_bank",
+        "fixed_income",
+        "currency",
+        "geopolitics",
+        "sovereign_credit"
+      ],
+      "core_companies_hint": [
+        "(개별 종목 아님 — 매크로 thesis용 자산)",
+        "KOSPI200·KODEX 미국채·달러지수·금·원달러",
+        "삼성전자(005930)·SK하이닉스(000660) — 매크로 베타 대표주"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F04",
+          "rank": 1,
+          "weight": 0.9,
+          "why": "단년 충격이 아니라 누적된 정책·자본 선택의 잠재 손상 — 매크로 본질.",
+          "primary_question": "현재 매크로 충격이 단년이 아니라 어떤 누적 손상의 후행 지표인가?"
+        },
+        {
+          "function_id": "F09",
+          "rank": 2,
+          "weight": 0.88,
+          "why": "부채 위기를 디폴트·긴축이 아니라 금융억압 비대칭 조합으로.",
+          "primary_question": "각국 부채를 어떤 금융억압 조합으로 녹이나?"
+        },
+        {
+          "function_id": "F10",
+          "rank": 3,
+          "weight": 0.82,
+          "why": "EM 외화 수입원 vs 외채 만기 통화 미스매치 분해.",
+          "primary_question": "EM 위기를 외화 수입원 vs 외채 만기 통화 미스매치로 분해하면?"
+        },
+        {
+          "function_id": "F11",
+          "rank": 4,
+          "weight": 0.78,
+          "why": "중앙은행 외환 행동을 정치 일정의 시간 매수.",
+          "primary_question": "각국 중앙은행 외환 행동이 어떤 정치 일정의 시간 매수인가?"
+        },
+        {
+          "function_id": "F12",
+          "rank": 5,
+          "weight": 0.75,
+          "why": "결제·유동성 자산 vs 부채자산 분리.",
+          "primary_question": "달러·원화·금·국채를 결제·유동성 vs 부채자산으로 분리하면?"
+        },
+        {
+          "function_id": "F25",
+          "rank": 6,
+          "weight": 0.72,
+          "why": "트럼프 톤 반전 시간축 패턴 학습.",
+          "primary_question": "트럼프 톤 반전 시간축 패턴 학습 후 한국 시장 반응은?"
+        },
+        {
+          "function_id": "F26",
+          "rank": 7,
+          "weight": 0.65,
+          "why": "매크로 상관관계 끊기는 구간을 별도 레짐.",
+          "primary_question": "매크로 변수 상관관계가 어디서 끊기고 별도 레짐인가?"
+        },
+        {
+          "function_id": "F34",
+          "rank": 8,
+          "weight": 0.55,
+          "why": "기저 조건 차이로 *2022 재현* 같은 패턴매칭 거부.",
+          "primary_question": "현재 상황이 과거 패턴(2022·2008)과 기저 조건이 어떻게 다른가?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_HEADLINE_INFLATION_YOY",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": null
+        },
+        {
+          "indicator_id": "IND_ABS_SOVEREIGN_LONG_YIELD",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "미·한·일·독 10년"
+        },
+        {
+          "indicator_id": "IND_ABS_GOV_DEBT_TO_GDP",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": null
+        },
+        {
+          "indicator_id": "IND_ABS_GOV_INTEREST_BURDEN",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": null
+        },
+        {
+          "indicator_id": "IND_ABS_FX_IMPLIED_VOL",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "달러·원·엔·위안 변동성"
+        },
+        {
+          "indicator_id": "IND_ABS_CENTRAL_BANK_DISSENT_DIRECTION",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "FOMC·BOJ·한은 반대표"
+        },
+        {
+          "indicator_id": "IND_ABS_RHETORIC_TONE_REVERSAL_LAG",
+          "rank": 7,
+          "industry_threshold_override": null,
+          "korea_specific_note": "트럼프 톤 반전 lag"
+        },
+        {
+          "indicator_id": "IND_ABS_COUNTRY_TRADE_BALANCE_MONTHLY",
+          "rank": 8,
+          "industry_threshold_override": null,
+          "korea_specific_note": "중국·독일·한국 흑자"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "매크로 thesis watchlist — 종목 아닌 자산군 묶음"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "CPI·금리·반대표·환율·트럼프 톤 lag·중국 흑자 시계열"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E021·E022·E026·E041·E046·E050·E051·E054·E055·E060"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "FOMC dot plot·BOJ pivot·트럼프 관세·중국 흑자·EM stress"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_STATE_REPORT_URGENT_UPDATE",
+          "context": "매크로 anchor + 레짐 변화 박제"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_DOMAIN_FUNCTION_LOOKUP",
+          "context": "macro·central_bank·currency 도메인 함수 전수 호출"
+        }
+      ],
+      "first_questions": [
+        "현재 매크로 충격이 단년이 아니라 어떤 누적 손상의 후행 지표인가? (F04)",
+        "각국 부채를 어떤 금융억압 조합으로 녹이나? (F09)",
+        "EM 위기를 외화 수입원 vs 외채 통화 미스매치로 분해하면? (F10)",
+        "각국 중앙은행 외환 행동이 어떤 정치 일정의 시간 매수인가? (F11)",
+        "달러·원화·금·국채를 결제·유동성 vs 부채자산으로 분리? (F12)",
+        "트럼프 톤 반전 시간축 패턴 학습 후 한국 시장 반응? (F25)",
+        "매크로 변수 상관관계가 어디서 끊기고 별도 레짐인가? (F26)",
+        "현재 상황이 과거 패턴(2022·2008)과 기저 조건이 어떻게 다른가? (F34)"
+      ],
+      "anti_signals_to_watch": [
+        "급격한 디스인플레이션 — 금융억압 시나리오 약화",
+        "강달러·강미국채 동조 회귀 — 결제·부채자산 분리 가설 약화",
+        "FOMC 만장일치 회귀 — 반대표 방향 함수 무효화",
+        "EM 외환 안정 — 미스매치 함수 약화"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E021",
+          "tier": "direct",
+          "why": "트럼프 협상 타코 패턴"
+        },
+        {
+          "card_id": "E022",
+          "tier": "direct",
+          "why": "금융억압 부채 인플레"
+        },
+        {
+          "card_id": "E026",
+          "tier": "direct",
+          "why": "신흥국 캐치업 자금 순환"
+        },
+        {
+          "card_id": "E041",
+          "tier": "direct",
+          "why": "달리오 9단계 미국 약체"
+        },
+        {
+          "card_id": "E046",
+          "tier": "direct",
+          "why": "연준 이견 방향 전환"
+        },
+        {
+          "card_id": "E050",
+          "tier": "direct",
+          "why": "실적 비트율 80% 안전망"
+        },
+        {
+          "card_id": "E051",
+          "tier": "direct",
+          "why": "달러 강세 ≠ 미국국채 강세"
+        },
+        {
+          "card_id": "E054",
+          "tier": "direct",
+          "why": "터키 금-달러 스왑"
+        },
+        {
+          "card_id": "E055",
+          "tier": "direct",
+          "why": "이집트 위기 = 달러부족형"
+        },
+        {
+          "card_id": "E060",
+          "tier": "direct",
+          "why": "중국 무역 흑자 1.19조"
+        },
+        {
+          "card_id": "E043",
+          "tier": "mirror",
+          "why": "2022 재현 vs 이번이 다른 이유"
+        },
+        {
+          "card_id": "E063",
+          "tier": "mirror",
+          "why": "영국 청년 이탈 누적 부실"
+        }
+      ]
+    },
+    {
+      "industry_id": "PLATFORM_INTERNET",
+      "name": "플랫폼·인터넷·AI agent (포털·메신저·이커머스·AI SaaS)",
+      "korea_kospi_relevance": "high",
+      "domain_keywords": [
+        "tech_platform",
+        "ai_tech",
+        "consumer_tech",
+        "software",
+        "media",
+        "consulting",
+        "labor_market"
+      ],
+      "core_companies_hint": [
+        "네이버(035420)",
+        "카카오(035720)",
+        "쿠팡(미국 상장 — CPNG)",
+        "엔씨소프트(036570)",
+        "더존비즈온(012510)",
+        "한글과컴퓨터(030520)"
+      ],
+      "linked_industry_protocol": null,
+      "ranked_functions": [
+        {
+          "function_id": "F23",
+          "rank": 1,
+          "weight": 0.92,
+          "why": "AI 토큰 권력 재편 → 인프라·SaaS·agent로 가치 이동.",
+          "primary_question": "AI 토큰 분배 권력이 어느 단으로 모이고 한국 플랫폼은 어디 위치?"
+        },
+        {
+          "function_id": "F24",
+          "rank": 2,
+          "weight": 0.88,
+          "why": "AI 추출 파이프라인 → 일자리·노동시장 함수 직접 끼우기.",
+          "primary_question": "AI 추출 파이프라인이 어느 직군·산업의 일자리를 어떻게 잠식?"
+        },
+        {
+          "function_id": "F19",
+          "rank": 3,
+          "weight": 0.82,
+          "why": "AI 네이티브 1인당 매출 점프(5억→10억) — 단위경제 점프 함정.",
+          "primary_question": "이 SaaS·플랫폼의 1인당 매출 허들이 점프했나?"
+        },
+        {
+          "function_id": "F33",
+          "rank": 4,
+          "weight": 0.78,
+          "why": "분절 시장 게이트키퍼 이동 — AI 큐레이션·취향이 이커머스·콘텐츠 본질.",
+          "primary_question": "이커머스·콘텐츠 게이트키퍼가 누구한테 이동했나?"
+        },
+        {
+          "function_id": "F16",
+          "rank": 5,
+          "weight": 0.72,
+          "why": "가치 포획 이동 — 신규 유료 코호트 분포 추적.",
+          "primary_question": "이 플랫폼의 신규 유료 코호트 분포가 어떻게 이동?"
+        },
+        {
+          "function_id": "F06",
+          "rank": 6,
+          "weight": 0.65,
+          "why": "헤드라인 명분 vs 진짜 확장 자산 분리 — AI 명분 vs 실제 데이터·관계 자산.",
+          "primary_question": "이 플랫폼의 AI 명분 vs 진짜 확장 자산(데이터·관계·인프라) 분리?"
+        },
+        {
+          "function_id": "F44",
+          "rank": 7,
+          "weight": 0.58,
+          "why": "AI 서사·CAPEX 풍성 vs 채택 지표 미달 누적 적자 시그널.",
+          "primary_question": "AI 서사 vs 채택 지표 미달 누적 적자 시그널?"
+        }
+      ],
+      "priority_indicators": [
+        {
+          "indicator_id": "IND_ABS_ENTERPRISE_API_MOM_GROWTH",
+          "rank": 1,
+          "industry_threshold_override": null,
+          "korea_specific_note": "네이버 클로바·카카오 i — 엔터프라이즈 API MoM"
+        },
+        {
+          "indicator_id": "IND_ABS_REVENUE_PER_HEADCOUNT",
+          "rank": 2,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 IT 1인당 매출 — 단위경제 점프 임계"
+        },
+        {
+          "indicator_id": "IND_ABS_AI_TOKEN_VOLUME_GROWTH",
+          "rank": 3,
+          "industry_threshold_override": null,
+          "korea_specific_note": "토큰 수요 증감 — 한국 LLM API 매출"
+        },
+        {
+          "indicator_id": "IND_ABS_AI_LABELED_LAYOFF_COUNT",
+          "rank": 4,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 IT 'AI 명시' 감원 분기 누적"
+        },
+        {
+          "indicator_id": "IND_ABS_SECTOR_HIRING_YOY",
+          "rank": 5,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 IT 대기업 신입 채용 공고 YoY — F24"
+        },
+        {
+          "indicator_id": "IND_ABS_SAAS_RPO_GROWTH",
+          "rank": 6,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 SaaS RPO 분기 성장 — 더존·한컴 본질"
+        },
+        {
+          "indicator_id": "IND_ABS_AI_AUTOMATION_DISCLOSURE_LEVEL",
+          "rank": 7,
+          "industry_threshold_override": null,
+          "korea_specific_note": "한국 IT 'X% 코드 AI 작성' 공식 발언"
+        }
+      ],
+      "recommended_action_chain": [
+        {
+          "step": 1,
+          "action_id": "ACT_DART_ALERT_REGISTER",
+          "context": "core 6사 분기보고·AI 사업 공시"
+        },
+        {
+          "step": 2,
+          "action_id": "ACT_WATCHLIST_ADD",
+          "context": "thesis 'AI 토큰 권력 + 1인당 매출 점프 + 채용 둔화' 등록"
+        },
+        {
+          "step": 3,
+          "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+          "context": "엔터프라이즈 API·1인당 매출·AI 감원·신입 채용·SaaS RPO 시계열"
+        },
+        {
+          "step": 4,
+          "action_id": "ACT_CROSS_REF_R4_CARDS",
+          "context": "E007·E009·E010·E012·E025·E029·E042·E044·E062"
+        },
+        {
+          "step": 5,
+          "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+          "context": "Naver 클로바·카카오 AI·쿠팡 자동화·한국 IT 신입 채용·AI agent SaaS"
+        },
+        {
+          "step": 6,
+          "action_id": "ACT_T2_PROMOTION_FLAG",
+          "context": "1인당 매출 점프 임계·AI 명시 감원 임계 도달 시 promotion"
+        }
+      ],
+      "first_questions": [
+        "AI 토큰 분배 권력이 어느 단으로 모이고 한국 플랫폼은 어디 위치? (F23)",
+        "AI 추출 파이프라인이 어느 직군·산업의 일자리를 어떻게 잠식? (F24)",
+        "이 SaaS·플랫폼의 1인당 매출 허들이 점프했나? (F19)",
+        "이커머스·콘텐츠 게이트키퍼가 누구한테 이동했나? (F33)",
+        "신규 유료 코호트 분포 이동은? (F16)",
+        "AI 명분 vs 진짜 확장 자산(데이터·관계·인프라) 분리? (F06)",
+        "AI 서사 vs 채택 지표 미달 누적 적자 시그널? (F44)"
+      ],
+      "anti_signals_to_watch": [
+        "엔터프라이즈 API 성장 둔화 — AI 단위경제 점프 무산",
+        "한국 IT 신입 채용 정상화 — AI 자동화 함수 약화",
+        "SaaS RPO 성장 둔화 — 장기 계약 모멘텀 약화",
+        "AI agent 비용 폭증 vs 매출 채택 미달 누적 적자"
+      ],
+      "industry_specific_r4_cards": [
+        {
+          "card_id": "E007",
+          "tier": "direct",
+          "why": "AI 패턴 발견 → 전문가 SaaS 침식"
+        },
+        {
+          "card_id": "E009",
+          "tier": "direct",
+          "why": "1인당 매출 허들 5억 → 10억"
+        },
+        {
+          "card_id": "E010",
+          "tier": "direct",
+          "why": "전문툴 vs 쉬운툴 시장 역전"
+        },
+        {
+          "card_id": "E012",
+          "tier": "direct",
+          "why": "신입 안 뽑는 시대 자가발전"
+        },
+        {
+          "card_id": "E025",
+          "tier": "direct",
+          "why": "AI 토큰 권력 재편"
+        },
+        {
+          "card_id": "E029",
+          "tier": "direct",
+          "why": "AI 암묵지 추출 → 매니저 대체"
+        },
+        {
+          "card_id": "E042",
+          "tier": "direct",
+          "why": "AI 세부지표 vs 시장 믿음 디커플"
+        },
+        {
+          "card_id": "E044",
+          "tier": "direct",
+          "why": "오픈AI 약정 vs 자금 미스매치"
+        },
+        {
+          "card_id": "E062",
+          "tier": "direct",
+          "why": "메타버스 약속 → 수요 실종"
+        },
+        {
+          "card_id": "E039",
+          "tier": "mirror",
+          "why": "엔트로픽 양다리·순환출자"
+        },
+        {
+          "card_id": "E016",
+          "tier": "mirror",
+          "why": "BDC 종말 → 셀러 애그리게이터"
+        }
+      ]
+    }
+  ],
+  "schema_notes": {
+    "korea_kospi_relevance": "high | medium | low",
+    "ranked_functions": "산업당 5~10개, R5 function_id 인용",
+    "priority_indicators": "산업당 5~10개, Tier 1 abstract 우선, threshold_override 선택",
+    "recommended_action_chain": "4~6 step, R6 action_id 인용",
+    "first_questions": "5~8개, 함수 ID 인용으로 trace 가능",
+    "anti_signals_to_watch": "3~5개, thesis가 *틀릴 가능성*",
+    "industry_specific_r4_cards": "5~15장, R4 card_id 인용, tier=direct/mirror/regime"
+  }
+}

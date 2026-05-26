@@ -1,0 +1,306 @@
+{
+  "title": "시나리오 보고서 — 한국 전력인프라 4층 우회 구조 (2026-05-25, power_infra_2026q2)",
+  "blocks": [
+    {
+      "id": "g1",
+      "type": "guideline",
+      "title": "§1. 단일 결정 변수",
+      "body": "6개월 시나리오의 갈림은 빅테크 4사 2Q 어닝 CapEx 가이던스 하나에 응축."
+    },
+    {
+      "id": "p1_1",
+      "type": "proposition",
+      "title": "단일 결정 변수 = 빅테크 4사 합산 2Q CapEx 가이던스 톤",
+      "body": "MSFT·GOOGL·META·AMZN 2Q 어닝(2026-07-22 GOOGL ~ 2026-08-05 AMZN) 합산 2026 회계연도 잔여 CapEx 가이던스가 컨센 3,500억$ 이상으로 유지·재확인되면 Bull/Base (한국 4층 우회 매출 6~12개월 지속), 2사 이상 -10%+ 컷 명시 또는 Microsoft 데이터센터 2GW 취소(2026-02~03 TD Cowen 1차) 확대 보도가 따라붙으면 Bear (1층=미 수요 동결).",
+      "parentId": "g1"
+    },
+
+    {
+      "id": "g2",
+      "type": "guideline",
+      "title": "§2. 멈추는 옛 메커니즘",
+      "body": "한국 전력기기 BM이 내수→미 데이터센터 직접 노출 자산으로 재평가. 그리드 막힘이 1:1 호재 해석에서 3갈래 다른 사이클로 분기. 미 보조금이 AI 반도체+양자컴퓨팅으로 격상."
+    },
+    {
+      "id": "p2_1",
+      "type": "proposition",
+      "title": "한국 전력기기 = 미 데이터센터 직접 노출 자산으로 재평가",
+      "body": "2020~2024 LS일렉·효성중공업·HD현대일렉 미국 매출 비중 분기 평균 18~25%. 2026 1Q에 LS ELECTRIC OP 1,265억 YoY +44%(hankyung 2026-04-21)·효성중공업 1,523억 +48.8%(efsystem) 동시 측정되며 BM이 \"내수+신흥국 수주\"에서 \"미 데이터센터 직접 노출\"로 재평가된 분기 시점. [F22·F08]",
+      "parentId": "g2"
+    },
+    {
+      "id": "p2_2",
+      "type": "proposition",
+      "title": "송전망 막힘 1:1 호재 해석 무력화 — 3갈래 사이클 분기",
+      "body": "美 PJM·MISO 큐 230GW 적체·평균 3~7년 대기(Utility Dive 2026 PJM Inside Lines·L20260520001)가 마이크로그리드(즉시 우회)·SMR(중기 우회)·원전 설계(장기 우회) 3갈래 *서로 다른 사이클*로 분기. LS일렉 2달 5건 8,132억(L20260523001) 정량 공개로 1:1 해석 확정 무력화. [F02·F08]",
+      "parentId": "g2"
+    },
+    {
+      "id": "p2_3",
+      "type": "proposition",
+      "title": "미 보조금 = AI 반도체 + 양자컴퓨팅 국가 우선순위 격상",
+      "body": "2026-05-23 미 상무부 IBM·글로벌파운드리스 양자컴퓨팅 9곳 총 20억$ 보조금 + 정부 지분 투자 구조 공식화(sedaily 2026-05-24). IBM 10억$ 추가, 뉴욕 올버니 미 최초 양자 반도체 전용 제조시설. 글로벌파운드리스 3.75억$ + 정부 1% 지분. 백악관 OSTP 양자=AI 동급 우선순위 — 양자 데이터센터가 AI 위 두 번째 전력 부담축. [F23·F05]",
+      "parentId": "g2"
+    },
+
+    {
+      "id": "g3",
+      "type": "guideline",
+      "title": "§2. 새 메커니즘 — 4층 우회 구조",
+      "body": "그리드 막힘 → 마이크로그리드(즉시) → SMR 제조(중기) → 원전 설계(장기) → 양자 데이터센터(흡수 vs 회수 분기) 4층 자기조직화."
+    },
+    {
+      "id": "p3_1",
+      "type": "proposition",
+      "title": "1층 마이크로그리드 = 즉시 실행·고마진 채널",
+      "body": "LS ELECTRIC 38kV 배전반 단일 수주 6,400만$(L20260521001) → 2달 5건 8,132억 정량(L20260523001) + 1Q OP 1,265억 YoY +44%. 분기 매출 6~7천억 추정 대비 누적 수주 캐리오버가 0.5분기 매출 분량을 2개월에 확보. 가치 포획 위치 = 변압기 캐파 보유사. [E041 인프라 밸류체인 후방 가치 이동] 거푸집. [F08·F07]",
+      "parentId": "g3"
+    },
+    {
+      "id": "p3_2",
+      "type": "proposition",
+      "title": "2층 SMR 제조 = 한국 단조의 4세대 우회로",
+      "body": "HD현대중공업 테라파워 나트륨 SMR 주기기 우선협상자(L20260522001·sedaily 2026-05-21). yonhap 2026-05-17 \"美 첫 SMR 건설 테라파워, 한국 원전 기술 사들였다\" — 미 1호 SMR이 한국 단조·주기기를 우회 채널로 사용. 컴퓨팅 수요가 인프라 풀에서 한국 단조 풀로 가치 이동. [E025 AI 모델·인프라·칩 순환] 거푸집. [F23·F14]",
+      "parentId": "g3"
+    },
+    {
+      "id": "p3_3",
+      "type": "proposition",
+      "title": "3층 원전 설계 = 영업이익률 레짐 점프",
+      "body": "한전기술 1Q OP +1,082% YoY(SK증권 인용·L20260523001), 목표가 11→16.8만원(+53%). 두코바니 18.6B USD 본계약 + 신한울·미국·아시아 진출(hankyung 2026-05-22·WNN). 두산에너빌리티 1Q 매출 4.26조 OP +63.9%(donga 2026-04-29) + 베트남 원전 MOU(asiae 2026-04-24). 한국 원전 풀이 발주 1차에서 OPM 레짐 점프 단계 진입. [F08·F22]",
+      "parentId": "g3"
+    },
+    {
+      "id": "p3_4",
+      "type": "proposition",
+      "title": "4층 양자 데이터센터 = 흡수 vs 회수의 6개월 분기",
+      "body": "IBM 뉴욕 올버니 양자 팹 자체가 추가 전력 수요원, 글로벌파운드리스 1% 지분 양도는 미 정부의 파운드리 캐파 자국 직접 통제 신호. 한국 대미 투자 패키지에 원전+양자 인프라가 *동시 편입*되면 흡수 채널 확대, *분리*되면 회수 레짐. [E048 AI 자본지출이 떠받치는 경제]가 정부 직접 자본 단계로 격상. [F23·F08]",
+      "parentId": "g3"
+    },
+
+    {
+      "id": "g4",
+      "type": "guideline",
+      "title": "§3. 결정 변수 매트릭스 (6개 × horizon)",
+      "body": "1주(3개: LS일렉 공시·CPI·노조) + 1개월(빅테크 CapEx) + 1분기(한전기술 2Q) + 6개월+(한미 원자력협정). v3 원칙 14 \"1주~1개월 horizon ≥2개\" 충족(4개)."
+    },
+    {
+      "id": "p4_1",
+      "type": "proposition",
+      "title": "변수1: 빅테크 4사 2Q CapEx 가이던스 (horizon 1개월)",
+      "body": "현재값: 4사 합산 2025 CapEx 2,930억$. 컨센 2026 3,400~3,700억$. MS 2GW 취소·신규 빌드 ~50% 지연(TD Cowen 2026-02·DCD). 임계: ≥3,500억 유지 + MS 취소 반전 = Bull / 2사 이상 -10%+ 컷 + MS 추가 = Bear. 측정: 4사 8-K·콜 transcript·Bloomberg CapEx tracker. 윈도우: 7/22 GOOGL ~ 8/5 AMZN. [F20·F21·F23]",
+      "parentId": "g4"
+    },
+    {
+      "id": "p4_2",
+      "type": "proposition",
+      "title": "변수2: LS ELECTRIC DART 단일판매계약 pace (horizon 1주~1분기)",
+      "body": "베이스라인: 2달 5건 8,132억 = 월 4,066억(L20260523001). 본 24h 0건. 임계: 1주 ≥1건 = Bull 약 / 1개월 ≥2,000억 = Base / 월평균 ≥4,000억 유지 = Bull 강 / -50% 둔화 = Bear. 측정: DART 010120 단일판매·공급계약체결 (장중 미완 — 5/26 화 정규장 후 첫 측정). 주(금) 마감. [F07·F08]",
+      "parentId": "g4"
+    },
+    {
+      "id": "p4_3",
+      "type": "proposition",
+      "title": "변수3: 美 5월 Core CPI MoM (horizon 1주, 6/11 발표)",
+      "body": "현재값: 2026-04 Core CPI MoM +0.2% (컨센 +0.2~0.3% 6/11). 임계: +0.4%+ + 10Y Treasury 4.8% 5거래일 안정 = Bear (PPA WACC +75bp 충격 → SMR/CCGT 신규 발주 IRR 허들 미달). 측정: BLS CPI 공식·FRED DGS10·Constellation/Vistra/NRG 컨퍼런스 콜. [F26·F23]",
+      "parentId": "g4"
+    },
+    {
+      "id": "p4_4",
+      "type": "proposition",
+      "title": "변수4: 삼성전자 노조 5/27 찬반투표 (cross-domain horizon 1주)",
+      "body": "5/23 10:40 투표율 74.27%·가결 9부 능선 평가(sedaily 2026-05-24). 메모리 6억 vs 비메모리 1.6억 4배 격차. 임계: 가결+가처분 기각+6/13 위원장 재신임 = Base (한국 시클리컬 수급 안전) / 부결 또는 가처분 인용+코스피 5일 -6% = Bear (LS일렉·삼성E&A·한화오션 외국인 -15~-20%). [F01·F25]",
+      "parentId": "g4"
+    },
+    {
+      "id": "p4_5",
+      "type": "proposition",
+      "title": "변수5: 한전기술 2Q OPM + 두코바니 EPC (horizon 1분기, 8월 중순)",
+      "body": "현재값: 1Q OP +1,082%·SK증권 목표가 16.8만원·1Q OP 컨센 상회(L20260523001). 임계: 2Q OPM ≥1Q (영업이익 ≥40억 분기) + 두코바니 8월 EPC milestone 통과 = Bull / 30% 회귀 + EPC 슬립 = Base / 50%+ 회귀 = Bear (셀사이드 reversal). 측정: 한전기술 2Q 분기보고서 8월 중순 DART·WNN milestone. [F08·F25]",
+      "parentId": "g4"
+    },
+    {
+      "id": "p4_6",
+      "type": "proposition",
+      "title": "변수6: 한미 원자력협정 농축 권한 + NRC SMR (long-horizon 6개월+)",
+      "body": "韓 핵추진 로드맵 외교부 조율 단계(UPI 2026-05-24). NRC docket: NuScale·BWRX-300·Xe-100 3개 미정. 임계: 11월 한미 정상회담 의제 채택 + NRC 6개월 내 design certification 1건+ = Bull / 미 NSC \"비지원\" 성명 + NRC 통과 0건 = Bear. 측정: 외교부·국무부 공동성명·NRC 공식 docket. [F23·F14]",
+      "parentId": "g4"
+    },
+
+    {
+      "id": "g5",
+      "type": "guideline",
+      "title": "§4. Base 시나리오 (50%)",
+      "body": "빅테크 CapEx 유지·LS일렉 pace 횡보·이란 종전 모호·SMR 인허가 1건 통과. 4층 우회 두께 *프리미엄 유지*."
+    },
+    {
+      "id": "p5_1",
+      "type": "proposition",
+      "title": "Base 근거: 컨센 중앙값 + MS 컷은 이미 가격 반영",
+      "body": "4사 합산 2025 2,930억$ → 2026 3,400~3,500억$ 유지가 컨센 중앙값. MS 2GW 취소(TD Cowen)는 이미 반영. AMZN·META·GOOGL 동시 컷 신호 없음. PJM 큐 30GW 잔량 처리 1~2년 단축(Utility Dive)됐지만 본격 가동 2027~28. 트럼프 50대50 이란 협상은 [E021 협상 타코 패턴]대로 부분합의·연기 확률이 결렬·재공습보다 높음.",
+      "parentId": "g5"
+    },
+    {
+      "id": "p5_2",
+      "type": "proposition",
+      "title": "Base 경로 7단계",
+      "body": "(1) 6/1~11 Core CPI +0.2~0.3% 부합 → 10Y 4.3~4.5% 안정 (2) 6 중순 ~ 7 초 LS일렉 신규 월 2,000~3,500억 (3) 6/13 삼성 노조 위원장 재신임 + 가처분 기각 → 외국인 K-시클리컬 매수 재개 (4) 7/22~8/5 빅테크 4사 합산 CapEx 3,400~3,500억$ 유지, MS APAC 추가 없음 (5) 8 중순 한전기술 2Q OP 30~40억(1Q 70~80%) + 두코바니 milestone 통과 (6) 9월 NRC NuScale certification 통과 또는 6개월 연기 → SMR 두께 ±10% (7) 11월 한미 정상회담 농축 권한 단계 합의·부분 모호.",
+      "parentId": "g5"
+    },
+    {
+      "id": "p5_3",
+      "type": "proposition",
+      "title": "Base 사용자 포트 ROI (5/22 종가 기준)",
+      "body": "010120 LS ELECTRIC(모의·293,500원): +8~15% (목표 318~338K, 손익비 1:2, stop -7%). 028050 삼성E&A(모의): +5~10% (단독 카탈리스트 부재). 042660 한화오션(모의): +3~7% (원자력 추진선 MOU 시점 7~8월). AMD(실전·RSI 75.2): +5~12% (h52w $481.41 돌파, stop $436.52). GOOGL: +3~8% (2Q CapEx 직결). SOXX: +5~10%. HD현대중공업(신규 후보): +8~15%.",
+      "parentId": "g5"
+    },
+    {
+      "id": "p5_4",
+      "type": "proposition",
+      "title": "Base reflexive cycle 중간",
+      "body": "한국 시클리컬 풀(010120·028050·042660·삼성전자·SK하이닉스)이 발행 직전 12거래일에 톤 반전 4~5회 측정 (5/14 호르무즈·5/20 잠정합의·5/21 8.42% 폭등·5/22 노노 갈등·5/23 투표 결집세). VKOSPI 66.97 + 신용잔고 36.5조 + 삼전닉스 빚투 7조 돌파(yonhap 2026-05-24) — 가격 변동성·단기 자금 리스크가 thesis와 무관하게 짧은 주기 진입가 손상 가능. [E021 트럼프 협상 타코] 거푸집 cross-domain 재사용 — 노조·CPI·이란 같은 5~7거래일 주기 반전.",
+      "parentId": "g5"
+    },
+
+    {
+      "id": "g6",
+      "type": "guideline",
+      "title": "§4. Bull 시나리오 (25%)",
+      "body": "빅테크 CapEx +10%+ 상향·LS일렉 가속·한미 농축 권한 합의·SMR 2건+ NRC 통과. 4층 흡수 채널 가속."
+    },
+    {
+      "id": "p6_1",
+      "type": "proposition",
+      "title": "Bull 근거: AI 추론 전환 + 양자 부담축 + PJM 단축 3중 호재",
+      "body": "AMZN·GOOGL의 AI 추론 단계 전환(L20260520003) + 양자 데이터센터 추가 부담축(L20260525001) + 미 PJM 큐 단축 1~2년(Utility Dive) 3중 호재로 빅테크 4사 2Q CapEx 가이던스 3,800억$+ 가능. MS 데이터센터 취소분 50%+ 반전 보도가 7월 어닝 시즌에 나오면 한국 풀 흡수 가속. 한국 대미 투자 패키지에 양자+원전 동시 편입 시 흡수 채널 확정. 트럼프 행정명령 NRC 18개월 인허가 단축 실효 진입.",
+      "parentId": "g6"
+    },
+    {
+      "id": "p6_2",
+      "type": "proposition",
+      "title": "Bull 경로 8단계",
+      "body": "(1) 6/1 LS일렉 첫 주 +2건 ≥1,500억 → DART 카나리아 첫 신호 (2) 6/11 Core CPI +0.1%·디스인플레 → 10Y 4.0% → PPA WACC -50bp → SMR/CCGT 발주 가속 (3) 6/13 삼성 노조 재신임 + 코스피 +3~5% V반등 (4) 7 중순 IBM 올버니 양자 팹 보도자료에 SMR/한국산 변압기 조달 명시 → 흡수 채널 공식화 (5) 7/22~8/5 빅테크 4사 합산 3,800억$+ + MS 취소 반전 + AMD 대만 후공정 15조 가속 (6) 8 중순 한전기술 2Q OPM 1Q 동등 + EPC 조기 통과 + 한미 NRC 협력 명시 (7) 9월 NRC NuScale + X-energy 2건 통과 → HD현대중공업 본계약 9~10월 가속 (8) 11월 한미 정상회담 농축 권한 단계 합의 + 韓 핵추진 로드맵 + 폴란드 K9 2차 + 두코바니 3·4호기 옵션.",
+      "parentId": "g6"
+    },
+    {
+      "id": "p6_3",
+      "type": "proposition",
+      "title": "Bull 사용자 포트 ROI",
+      "body": "010120 LS ELECTRIC: +25~40% (목표 365~410K, 손익비 1:4). 028050 삼성E&A: +15~25% (데이터센터 EPC 가시화). 042660 한화오션: +20~35% (원자력 추진선·미 해군 시너지). AMD: +15~25% (h52w 후 추가 +20%). GOOGL: +10~20%. SOXX: +12~20%. HD현대중공업 신규: +20~35%.",
+      "parentId": "g6"
+    },
+    {
+      "id": "p6_4",
+      "type": "proposition",
+      "title": "Bull reflexive cycle 낮음",
+      "body": "빅테크 CapEx 상향 + 노조 가결 + CPI 디스인플레 3축 동시 호재로 짧은 주기 반전 진폭 크게 축소.",
+      "parentId": "g6"
+    },
+
+    {
+      "id": "g7",
+      "type": "guideline",
+      "title": "§4. Bear 시나리오 (25%)",
+      "body": "빅테크 CapEx -10%+ 컷·MS 추가 취소·CPI 재가속·삼성 노조 부결. 1층=미 수요 동결로 4층 전체 한 분기 안에 얇아짐."
+    },
+    {
+      "id": "p7_1",
+      "type": "proposition",
+      "title": "Bear 근거: MS 패턴은 전조이지 최종이 아님",
+      "body": "Microsoft 2GW 취소(2026-02~03 TD Cowen·DCD)는 *전조*이지 *최종*이 아닌 패턴 — MS 신규 빌드 ~50% 지연/취소가 6~7월 어닝에서 META·AMZN으로 *동시* 확산 가능. 미 PJM 큐 1~2년 단축이 한국 우회 프리미엄을 자체 소진. 韓 송전망 전국 병목(sedaily 2026-05-02)은 한국 자체 발주 환경이 미국과 정반대 contra 신호. CPI 재가속 + 노조 부결 cross-domain 충격이 thesis 펀더멘털과 무관하게 진입가 손상.",
+      "parentId": "g7"
+    },
+    {
+      "id": "p7_2",
+      "type": "proposition",
+      "title": "Bear 경로 7단계",
+      "body": "(1) 5/27 노조 부결 또는 DX 가처분 인용 → 코스피 -5~-8% → 외국인 K-시클리컬 일주일 -3,000억 (2) 6/11 Core CPI +0.4%+ → 10Y 4.8% → PPA WACC +75bp → Constellation/Vistra 6월 컨퍼런스 PPA 슬립 코멘트 (3) 6 중순 LS일렉 4주 누적 ≤500억(-80% 둔화) → 셀사이드 reversal 1차 (4) 7/22~8/5 MSFT·META 2사 동시 -10%+ 컷 명시 + MS 추가 2~3GW 취소 (5) 8 중순 한전기술 2Q OPM -50%+ 회귀 + EPC milestone 슬립 → SK증권 16.8→12.0만원 reversal (6) 9월 NRC NuScale 18개월+ 추가 연기 → HD현대중공업 본계약 4Q 슬립 (7) 11월 한미 정상회담 농축 권한 결렬 또는 발표 보류 → 韓 핵추진 로드맵 연기.",
+      "parentId": "g7"
+    },
+    {
+      "id": "p7_3",
+      "type": "proposition",
+      "title": "Bear 사용자 포트 ROI",
+      "body": "010120 LS ELECTRIC: -20~-35% (목표 187~234K, 손익비 1:1.5, stop 발동 필수). 028050 삼성E&A: -15~-25%. 042660 한화오션: -10~-20%. AMD: -10~-20% (blow-off 후 RSI 30 → 횡보). GOOGL: -8~-15%. SOXX: -12~-22%. GLD(실전·5/23 stop 이탈): +5~10% (매크로 위험회피 수혜 반전).",
+      "parentId": "g7"
+    },
+    {
+      "id": "p7_4",
+      "type": "proposition",
+      "title": "Bear reflexive cycle 높음",
+      "body": "단계 1~4가 5~7거래일 주기로 반복 패턴. CapEx 컷 + 노조 부결 + CPI 재가속 동시 시 6말~7월에 -10%/+5%/-8% 짧은 주기 반복 가능. [E021 협상 타코 패턴] 거푸집 확장 적용. §5 카나리아에 *반전 주기 측정 지표* 의무 포함.",
+      "parentId": "g7"
+    },
+
+    {
+      "id": "g8",
+      "type": "guideline",
+      "title": "§5. 비대칭 베팅 / 카나리아",
+      "body": "단일 1차 카나리아 = LS일렉 DART 공시 pace. 비대칭 자산 1~2개. reflexive 중간·높음 → 보조 카나리아 3개 의무."
+    },
+    {
+      "id": "p8_1",
+      "type": "proposition",
+      "title": "단일 1차 카나리아 = LS ELECTRIC DART 단일판매계약 pace (주 단위)",
+      "body": "왜 가장 빠른가: 분기보고서 공시 40일 lag + 셀사이드 revision 2~3주 lag — DART 단일판매계약은 *체결 즉시* 공시 의무, 측정 빈도 주 단위. 5/22 종가 293,500원 + 2달 5건 8,132억 베이스라인 = 분기 매출 1.3x 캐리오버. 1주~1분기 다중 horizon 동시 검증 가능한 유일 변수. 룰: 1주 ≥1건 = Bull 약 / 1주 0건 + 다음 주 0건 = 1차 경계 / 1개월 누적 ≤500억 = Bear 1차. 출처: dart.fss.or.kr 010120. [F07]",
+      "parentId": "g8"
+    },
+    {
+      "id": "p8_2",
+      "type": "proposition",
+      "title": "비대칭 자산 1~2개 (사용자 포트 직결)",
+      "body": "(1) 010120 LS ELECTRIC 모의 (5/22 293,500원, 진입가 평균 추정 220~250K → 모의 P&L +20~33%). stop 6개월 273K (현재 -7%). 신규 매수 시 stop 272K·target Base 320K·Bull 380K. 손익비 Base 1:2 / Bull 1:4 / Bear 1:1.5. (2) HD현대중공업 신규 후보(미보유) — 테라파워 본계약 + NRC NuScale 통과 동시 발생 시 비대칭 상승. 진입 trigger: LS일렉 1주 신규 ≥1건 + 빅테크 1사 CapEx 상향 first signal. 손익비 1:3 (Bull).",
+      "parentId": "g8"
+    },
+    {
+      "id": "p8_3",
+      "type": "proposition",
+      "title": "보조 카나리아 3개 (reflexive 중간·높음 대응)",
+      "body": "(a) LS일렉 일중 거래량 vs 20일 MA + 종가 부호 역전 5거래일 주기 — 거래량 300%+ 급증 후 다음 거래일 역방향 closing = reflexive 진입, 3거래일 내 역전 2건 = bear cycle. (yfinance 일봉) (b) VKOSPI 5거래일 평균 + 외국인 KOSPI 4주 누적 순매수 — ≥25 + -3,000억 = thesis 펀더멘털과 무관한 진입가 손상 경고. (KRX 데이터) (c) parser.py cron 정상화 후 24h power_infra 직접 헤드라인 N건 — 0~2건 유지 = thesis 단기 모멘텀 둔화 (L20260525001 bear_trigger 직결). (search_news_alert.py 매일)",
+      "parentId": "g8"
+    },
+
+    {
+      "id": "g9",
+      "type": "guideline",
+      "title": "§6. 한계 / 폐기 조건 / 반대 논리 / 다음 anchor",
+      "body": "측정 신뢰 흔들림 (24h 0건 + parser cron 29h 결손). 폐기 2개 + cross-domain 폐기 2개. 반대 논리 1개. backtest schedule 의무."
+    },
+    {
+      "id": "p9_1",
+      "type": "proposition",
+      "title": "한계: 측정 신뢰 흔들림 + 5/22 종가에서 정지",
+      "body": "본 24h power_infra 직접 0건 + parser.py cron 29h 결손(2026-05-24T06:17~05-25T11:14) 동시 발생으로 측정 신뢰 자체가 흔들림. L20260525001 grade=low. 5/26 화 catch-up이 시장 조용함인지 측정 결손인지 가를 예정. scenario.db stale (최신 2026-05-05) — \"전력인프라\"·\"데이터센터 전력\" 0건, \"SMR\" 1건. 빅테크 가이던스 7~8월 1.5~2개월 후행. 한전기술 2Q OPM 8월 중순 분기 단일. yf snapshot 5/22 종가 정지 — 5/26 화 종가 확정 후 §3 재평가 필수.",
+      "parentId": "g9"
+    },
+    {
+      "id": "p9_2",
+      "type": "proposition",
+      "title": "폐기 조건 2개 (R5 거푸집 안)",
+      "body": "(1) 빅테크 4사 2Q 어닝 합산 CapEx -10%+ 컷 발생 + Microsoft 추가 2~3GW 데이터센터 취소 보도 동시 → Bear 25→55% 재조정·v2 재작성. (2) LS ELECTRIC DART 단일판매계약 6주 누적 ≤1,500억 (현재 pace 4,066억/월 대비 -80% 둔화) → 4층 1층 무너짐 신호, Base 50→25%·v2 재작성.",
+      "parentId": "g9"
+    },
+    {
+      "id": "p9_3",
+      "type": "proposition",
+      "title": "Cross-domain 폐기 조건 2개 (R5 거푸집 밖)",
+      "body": "CD-1 (노동·신용시장): 2026-05-27 삼성 노조 부결 + 6월 첫주 DX 가처분 인용 + 코스피 5일 -6% + 신용잔고 7조 종목군 일일 반대매매 -1,500억 4개 동시 → 펀더멘털 멀쩡한데 진입가 -15~-20% 손상. CD-2 (외환·금리): 6/11 Core CPI ≥+0.4% + 10Y 4.8% 5일 안정 + Constellation/Vistra/NRG 중 2사 PPA WACC +75bp 슬립 코멘트 3개 동시 → SMR/CCGT 발주 IRR 미달로 한 분기 동결. 두 시점 모두 ~2주 내 절대시점 — 충족 시 본 보고서 폐기.",
+      "parentId": "g9"
+    },
+    {
+      "id": "p9_4",
+      "type": "proposition",
+      "title": "반대 논리: 미 자국 캐파 회수 12~18개월",
+      "body": "한국 4층 프리미엄은 미 변압기·SMR 캐파 부족이 *지속*된다는 전제. FERC PJM 큐 1~2년 단축(Utility Dive 2026 Inside Lines·230GW→30GW 잔량) + 미 LPO + IRA 45X 확대로 18~24개월 안에 미 자국 변압기 캐파 +30~40% 증설 가능. 6개월 horizon에서는 우회 프리미엄 유지되지만 12~18개월에서는 1층(미 수요)·2층(마이크로그리드 우회) 동시 약화 가능. 본 보고서는 *프리미엄이 가장 두꺼운 6개월 구간*을 포착할 뿐, BM 영구화 논리 아님.",
+      "parentId": "g9"
+    },
+    {
+      "id": "p9_5",
+      "type": "proposition",
+      "title": "Next anchor + backtest schedule",
+      "body": "다음 anchor 변수: 빅테크 4사 2Q 어닝 CapEx 가이던스(7/22~8/5). new R5: F20·F21 추가. 24h 전파 후보: (a) parser cron catch-up 후 24h 직접 헤드라인 N건 (b) LS일렉 DART 6/1주 신규 (c) IBM 올버니 전력 조달 계획 (자체/지역 그리드/SMR) (d) 한국 대미 패키지 양자+원전 동시 편입 여부 (e) HD현대중공업 테라파워 본계약 시점 + 한전기술 두코바니 다음 분기 milestone. Backtest: due_7d 6/1, due_14d 6/8, due_30d 6/24.",
+      "parentId": "g9"
+    }
+  ],
+  "doc": []
+}

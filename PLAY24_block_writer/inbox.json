@@ -1,0 +1,34 @@
+{
+  "title": "",
+  "blocks": [
+    {
+      "id": "g_sample",
+      "type": "guideline",
+      "title": "서론: 문제 제기",
+      "body": "독자가 왜 이 글을 읽어야 하는지 한 문단으로 설득."
+    },
+    {
+      "id": "p_sample_1",
+      "type": "proposition",
+      "title": "현재 상황은 X로 수렴 중",
+      "body": "최근 6개월 데이터에서 X 추세가 명확해짐. 단, Y 변수는 아직 노이즈.",
+      "parentId": "g_sample"
+    },
+    {
+      "id": "p_sample_2",
+      "type": "proposition",
+      "title": "기존 설명은 Z를 놓침",
+      "body": "통상적 해석은 A, B만 본다. Z 요인을 빼면 최근 변동이 설명되지 않음.",
+      "parentId": "g_sample"
+    },
+    {
+      "id": "p_standalone",
+      "type": "proposition",
+      "title": "보조 근거: 시장 구조 변화",
+      "body": "유동성 풀의 구성이 바뀜. 자세한 수치는 본문에서."
+    }
+  ],
+  "doc": [
+    { "id": "d_para_intro", "kind": "para", "text": "이 글은 X 흐름을 다룬다." }
+  ]
+}

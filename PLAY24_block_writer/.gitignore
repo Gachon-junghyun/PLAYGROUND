@@ -1,0 +1,6 @@
+blocks.db
+blocks.db-journal
+blocks.db-shm
+blocks.db-wal
+__pycache__/
+*.pyc

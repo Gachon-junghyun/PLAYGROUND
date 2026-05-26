@@ -1,0 +1,3981 @@
+{
+  "dataset_name": "r6_indicators",
+  "version": "v2",
+  "schema_change": "v1 -> v2: tier(abstract|semi_abstract|case_specific) 분리 + applies_to_domain + examples_specific + abstract_parent 4 신규 필드. R7-B 보강 (Tier 1 추상 KPI 신규 추가). abstract_pattern 카테고리 신설.",
+  "created_at": "2026-05-18",
+  "updated_at": "2026-05-19",
+  "total_indicators": 120,
+  "tier_distribution": {
+    "abstract": 60,
+    "semi_abstract": 12,
+    "case_specific": 48
+  },
+  "categories": [
+    "abstract_pattern",
+    "macro",
+    "industry_supply_chain",
+    "company_financial",
+    "market_sentiment",
+    "policy_regulation"
+  ],
+  "indicators": [
+    {
+      "indicator_id": "IND_ABS_HEADLINE_INFLATION_YOY",
+      "name": "Headline 인플레이션 YoY (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "월별 헤드라인 CPI(또는 PPI/PCE) 전년동월대비",
+      "unit": "%",
+      "frequency": "월간",
+      "thresholds": {
+        "normal": "중앙은행 타깃 부근(2.0 이하)",
+        "watch": "타깃 +0~150bp",
+        "warn": "타깃 +150~200bp",
+        "critical": "타깃 +200bp+"
+      },
+      "threshold_rationale": "선진국 인플레이션 타깃팅 일반 임계 (R4 카드 평균: E043·E045·E050 CPI 3.8~4%대 패턴 추상화)",
+      "data_sources": [
+        "DS_NATIONAL_STATS_OFFICE",
+        "DS_FRED_TIMESERIES"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "macro",
+        "us_economy"
+      ],
+      "examples_specific": [
+        "IND_CPI_HEADLINE_YOY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F28",
+        "F34"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_CORE_INFLATION_MOM",
+      "name": "Core 인플레이션 MoM (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "근원(식품·에너지 제외) 인플레이션 전월대비",
+      "unit": "%",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "0.3",
+        "warn": "0.4",
+        "critical": "0.5+"
+      },
+      "threshold_rationale": "연환산 ~3.6%(0.3% MoM) 임계 일반 (E043 패턴 추상화)",
+      "data_sources": [
+        "DS_NATIONAL_STATS_OFFICE",
+        "DS_FRED_TIMESERIES"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "macro",
+        "us_economy"
+      ],
+      "examples_specific": [
+        "IND_CORE_CPI_MOM"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F28",
+        "F34"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_CORE_INFLATION_YOY",
+      "name": "Core 인플레이션 YoY (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "근원 인플레이션 전년동월대비",
+      "unit": "%",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "타깃+0.5~0.9%p",
+        "warn": "타깃+1.0~1.4%p",
+        "critical": "타깃+1.5%p+"
+      },
+      "threshold_rationale": "정책반응함수 임계 일반화 (E043·E045 cross-ref 추상화)",
+      "data_sources": [
+        "DS_NATIONAL_STATS_OFFICE"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "macro",
+        "us_economy"
+      ],
+      "examples_specific": [
+        "IND_CORE_CPI_YOY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F34"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SOVEREIGN_LONG_YIELD",
+      "name": "주요국 장기 국채금리 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "발행국 장기 국채(10y) 일간 종가",
+      "unit": "%",
+      "frequency": "일간",
+      "thresholds": {
+        "normal": "장기평균±50bp",
+        "watch": "장기평균+50~99bp",
+        "warn": "장기평균+100~149bp",
+        "critical": "장기평균+150bp+ 또는 4주 지속"
+      },
+      "threshold_rationale": "장기 국채금리 sovereign rate regime 일반화 (E026·E051 US 10y 4~5% 패턴 추상화)",
+      "data_sources": [
+        "DS_FRED_TIMESERIES",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "macro",
+        "us_sovereign"
+      ],
+      "examples_specific": [
+        "IND_US_TREASURY_10Y_YIELD"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F12",
+        "F29"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_GOV_DEBT_TO_GDP",
+      "name": "정부 부채/GDP 비율 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "공공부채 잔액 ÷ 명목 GDP",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "100~119",
+        "warn": "120~129",
+        "critical": "130+"
+      },
+      "threshold_rationale": "선진국 sovereign credit 임계 일반 (E022·E051 US 사례 추상화)",
+      "data_sources": [
+        "DS_IMF_FISCAL",
+        "DS_FRED_TIMESERIES"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "macro",
+        "sovereign_credit"
+      ],
+      "examples_specific": [
+        "IND_US_DEBT_TO_GDP"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F09",
+        "F12"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_GOV_INTEREST_BURDEN",
+      "name": "정부 이자비용/GDP (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "정부 이자지급액 ÷ 명목 GDP",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "2.5 이하",
+        "watch": "3.0~3.4",
+        "warn": "3.5~3.9",
+        "critical": "4.0+"
+      },
+      "threshold_rationale": "이자 흡수 한계 임계 일반 (E022 US 사례 추상화)",
+      "data_sources": [
+        "DS_IMF_FISCAL",
+        "DS_BEA_GDP"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "macro",
+        "sovereign_credit"
+      ],
+      "examples_specific": [
+        "IND_INTEREST_EXPENSE_GDP"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F09"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_FX_IMPLIED_VOL",
+      "name": "주요통화 환율 내재 변동성 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "G7 또는 EM 통화바스켓 옵션 내재 변동성 지수",
+      "unit": "포인트",
+      "frequency": "일간",
+      "thresholds": {
+        "normal": "장기평균 이하",
+        "watch": "장기평균+1σ",
+        "warn": "+2σ",
+        "critical": "+3σ 또는 4주 지속"
+      },
+      "threshold_rationale": "FX 변동성 regime 일반 임계 (E021 MOVE/CVIX 언급 추상화)",
+      "data_sources": [
+        "DS_BLOOMBERG_TERMINAL",
+        "DS_CME_FX_VOL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "macro",
+        "fx"
+      ],
+      "examples_specific": [
+        "IND_FX_VOLATILITY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F25"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_INDEX_EARNINGS_BEAT_RATE",
+      "name": "주가지수 분기 실적 비트율 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "EPS 컨센서스 상회 기업 수 ÷ 발표 기업 수 (해당 지수 구성종목)",
+      "unit": "%",
+      "frequency": "분기 (실적시즌 주차별)",
+      "thresholds": {
+        "normal": "75+",
+        "watch": "70~74",
+        "warn": "65~69",
+        "critical": "65 미만"
+      },
+      "threshold_rationale": "지수 실적 흡수용량 임계 일반 (E045·E050 S&P 80~85% 패턴 추상화 — 미국 외 지수는 베이스 낮음)",
+      "data_sources": [
+        "DS_LSEG_EARNINGS_SCORECARD",
+        "DS_FACTSET_INSIGHT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "equity_strategy",
+        "us_market"
+      ],
+      "examples_specific": [
+        "IND_SP500_EARNINGS_BEAT_RATE"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F26",
+        "F28"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_INDEX_EPS_GROWTH_YOY",
+      "name": "주가지수 종합 EPS 성장률 YoY (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "지수 구성종목 종합 EPS 전년동기대비",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "20 이하",
+        "warn": "10 이하",
+        "critical": "0 미만"
+      },
+      "threshold_rationale": "earnings recession 임계 일반 (E050 패턴 추상화)",
+      "data_sources": [
+        "DS_LSEG_EARNINGS_SCORECARD"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "equity_strategy",
+        "us_market"
+      ],
+      "examples_specific": [
+        "IND_SP500_EPS_GROWTH_YOY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F28"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_EQUITY_IMPLIED_VOL",
+      "name": "주식시장 내재 변동성 지수 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "주가지수 옵션 내재 30일 변동성 (VIX 계열)",
+      "unit": "포인트",
+      "frequency": "일간",
+      "thresholds": {
+        "normal": "15 이하",
+        "watch": "15~25",
+        "warn": "25~35",
+        "critical": "35+"
+      },
+      "threshold_rationale": "글로벌 equity vol regime 일반 (E021·E051 VIX 사례 추상화)",
+      "data_sources": [
+        "DS_CBOE_VIX_FEED",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "market_sentiment",
+        "us_market"
+      ],
+      "examples_specific": [
+        "IND_VIX_INDEX"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F25",
+        "F26"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_COUNTRY_TRADE_BALANCE_MONTHLY",
+      "name": "국가 월간 무역수지 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "수출 - 수입 (달러 환산, 월별)",
+      "unit": "10억 달러",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "GDP 대비 +5~7% 흑자/적자",
+        "warn": "+8~10%",
+        "critical": "+10%+ (밀어내기 흑자 신호 또는 적자 위기)"
+      },
+      "threshold_rationale": "내수 약함이 밀어내는 흑자 패턴 일반 (E060 중국 사례 추상화)",
+      "data_sources": [
+        "DS_NATIONAL_CUSTOMS",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "macro",
+        "china_trade"
+      ],
+      "examples_specific": [
+        "IND_CHINA_TRADE_SURPLUS_MONTHLY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F30"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_GEOPOL_CHOKEPOINT_TRANSIT_RATIO",
+      "name": "지정학 chokepoint 정상 통과 비율",
+      "category": "abstract_pattern",
+      "formula": "분기 정상 통과 일수 ÷ 분기 전체 일수 (호르무즈·바브엘만데브·말라카·수에즈 등)",
+      "unit": "% (또는 일수)",
+      "frequency": "주간/분기",
+      "thresholds": {
+        "normal": "95+%",
+        "watch": "85~94%",
+        "warn": "70~84% 또는 봉쇄·지연 분기 2회+",
+        "critical": "70% 미만 또는 실제 차단 3일+ 누적"
+      },
+      "threshold_rationale": "chokepoint risk regime 일반 (E023·E045 호르무즈 패턴 추상화)",
+      "data_sources": [
+        "DS_AIS_VESSEL_TRACKING",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "geopolitics",
+        "energy",
+        "hormuz"
+      ],
+      "examples_specific": [
+        "IND_HORMUZ_TRANSIT_DAYS"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F01",
+        "F02"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_GEOPOL_CHOKEPOINT_FLOW_VOLUME",
+      "name": "지정학 chokepoint 일일 통과량",
+      "category": "abstract_pattern",
+      "formula": "AIS 기준 일일 통과 화물선/유조선 수",
+      "unit": "척/일 또는 배럴/일",
+      "frequency": "일간",
+      "thresholds": {
+        "watch": "장기평균 -10~29%",
+        "warn": "-30%YoY 또는 AIS off 급증",
+        "critical": "-50%+ 또는 1주 지속"
+      },
+      "threshold_rationale": "chokepoint flow disruption 일반 임계 (E033·E034 호르무즈 패턴 추상화)",
+      "data_sources": [
+        "DS_AIS_VESSEL_TRACKING",
+        "DS_KPLER_OIL_FLOWS"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "geopolitics",
+        "energy",
+        "hormuz"
+      ],
+      "examples_specific": [
+        "IND_HORMUZ_DAILY_TANKER_COUNT"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F02"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_INFORMAL_TOLL_FORMATION",
+      "name": "비공식 통행료/사용료 형성 단계",
+      "category": "abstract_pattern",
+      "formula": "이정표: 비공식 보도 → 단가 보도 → 문서화·공식화",
+      "unit": "이정표 (rumor → market_rate → documented)",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "비공식 단가 보도 등장",
+        "warn": "단가 시계열 형성",
+        "critical": "통행료 공식화·문서 등장"
+      },
+      "threshold_rationale": "공식 봉쇄·개방을 통행료 구조로 재해석하는 F02 패턴 (E033 호르무즈 사례 추상화)",
+      "data_sources": [
+        "DS_REUTERS_SHIPPING",
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "geopolitics",
+        "energy",
+        "hormuz"
+      ],
+      "examples_specific": [
+        "IND_HORMUZ_TOLL_PER_VESSEL"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F02"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_COMMODITY_OUTBOUND_FLOW",
+      "name": "원자재 핵심 산지 출하/스프레드 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "주간 핵심 산지 출하량 + 현물-선물 스프레드",
+      "unit": "MT/주, USD/단위",
+      "frequency": "주간",
+      "thresholds": {
+        "normal": "정상화 4주+",
+        "warn": "출하 차질 분기 2회+",
+        "critical": "스프레드 +30% 이상 지속"
+      },
+      "threshold_rationale": "단일 산지 의존 commodity flow 일반 (E023 카타르 LNG 패턴 추상화)",
+      "data_sources": [
+        "DS_KPLER_OIL_FLOWS",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "energy",
+        "lng",
+        "qatar"
+      ],
+      "examples_specific": [
+        "IND_QATAR_LNG_OUTBOUND"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F01",
+        "F02"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SECTOR_PROCESSING_MARGIN",
+      "name": "섹터 가공·정제 마진 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "섹터 상위 N사 가중 처리 마진 (원료-제품 스프레드)",
+      "unit": "USD/단위 또는 %",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "장기평균",
+        "watch": "장기평균 ±10~20%",
+        "warn": "±30%+ 1분기",
+        "critical": "±30%+ 2분기 연속"
+      },
+      "threshold_rationale": "공급 캡파 경직성 사이클 일반 (E024·E059 한국 정유 사례 추상화)",
+      "data_sources": [
+        "DS_INDUSTRY_REPORT",
+        "DS_DART_QUARTERLY"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "energy",
+        "refining",
+        "korea"
+      ],
+      "examples_specific": [
+        "IND_KOREA_REFINING_MARGIN"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F08",
+        "F32"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SOURCE_REGION_DEPENDENCY_RATIO",
+      "name": "원자재 단일 산지 의존도 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "(단일 산지 수입량 ÷ 총 수입량) × 100",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "60 이하",
+        "watch": "60~74",
+        "warn": "75~84",
+        "critical": "85+"
+      },
+      "threshold_rationale": "공급망 단일 의존 임계 일반 (E059 한국 중동 원유 사례 추상화)",
+      "data_sources": [
+        "DS_NATIONAL_CUSTOMS"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "energy",
+        "korea",
+        "import"
+      ],
+      "examples_specific": [
+        "IND_KOREA_MIDEAST_OIL_DEP"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F32"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SOURCE_DIVERSIFICATION_FLOW",
+      "name": "공급원 다변화 신규 라인 분기 선적량",
+      "category": "abstract_pattern",
+      "formula": "신규 공급 라인(터미널·파이프라인) 분기 선적량 시계열",
+      "unit": "단위/일 또는 USD/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "총 수입의 1~4% 도달",
+        "warn": "5~9% (의미 있는 다변화)",
+        "critical": "10%+ 또는 기존 산지 비중 -10%p 동반"
+      },
+      "threshold_rationale": "분자 스펙·인프라 호환성 다변화 일반 (E059 TMX 한국 사례 추상화)",
+      "data_sources": [
+        "DS_KPLER_OIL_FLOWS",
+        "DS_REUTERS_SHIPPING"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "energy",
+        "korea",
+        "import"
+      ],
+      "examples_specific": [
+        "IND_TMX_KOREA_FLOW"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F32"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_COMPONENT_CONTRACT_PRICE_QOQ",
+      "name": "핵심 부품 컨트랙트 가격 QoQ (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "분기 부품 컨트랙트 가격 MoM/QoQ (메모리·디스플레이·배터리 셀 등)",
+      "unit": "% 변화",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "-5~-9% QoQ",
+        "warn": "-10%+ QoQ",
+        "critical": "-10%+ 2분기 연속"
+      },
+      "threshold_rationale": "공급 측 부품 가격 결정력 이동 일반 (E027·E037 HBM 사례 추상화 — F07)",
+      "data_sources": [
+        "DS_TRENDFORCE_REPORT",
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "semiconductor",
+        "memory"
+      ],
+      "examples_specific": [
+        "IND_HBM_PRICE_INDEX"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F07",
+        "F08"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SECTOR_INDEX_CONSECUTIVE_UP_DAYS",
+      "name": "섹터 지수 연속 상승 거래일 수",
+      "category": "abstract_pattern",
+      "formula": "섹터 지수 연속 상승 거래일 수 (양의 일별 수익률)",
+      "unit": "거래일",
+      "frequency": "일간",
+      "thresholds": {
+        "watch": "10거래일+",
+        "warn": "15거래일+",
+        "critical": "역대 최장 갱신 또는 18거래일+"
+      },
+      "threshold_rationale": "매크로 상관관계 단절 레짐 신호 일반 (E047 필라델피아 반도체 사례 추상화 — F26)",
+      "data_sources": [
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "equity_strategy",
+        "semiconductor",
+        "us_market"
+      ],
+      "examples_specific": [
+        "IND_PHILA_SEMI_CONSECUTIVE_UP"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F26"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_AI_TOKEN_VOLUME_GROWTH",
+      "name": "AI 토큰 처리량 성장 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "AI 추론 토큰 사용량 월간/연간 성장률",
+      "unit": "YoY 배수",
+      "frequency": "월간",
+      "thresholds": {
+        "normal": "10배 YoY+",
+        "watch": "5배 YoY",
+        "warn": "2배 YoY (단계 둔화)",
+        "critical": "2배 미만 + 빅테크 QoQ -10% 동반"
+      },
+      "threshold_rationale": "AI 채택 곡선 단계 둔화 임계 일반 (E042 OpenRouter 사례 추상화 — F23·F27)",
+      "data_sources": [
+        "DS_OPENROUTER_PUBLIC",
+        "DS_WEBSEARCH_PATTERN"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "ai_tech",
+        "infrastructure"
+      ],
+      "examples_specific": [
+        "IND_OPENROUTER_TOKEN_VOLUME"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F23",
+        "F27"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SECTOR_USAGE_QOQ_DIVERGENCE",
+      "name": "섹터 상위 N사 사용량 QoQ 발산",
+      "category": "abstract_pattern",
+      "formula": "섹터 상위 N사 핵심 사용량/매출 QoQ 시계열",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "+30~60% QoQ",
+        "watch": "+10~20% QoQ",
+        "warn": "-10%QoQ 1사",
+        "critical": "-10%QoQ 다수사 동반"
+      },
+      "threshold_rationale": "동조-탈동조 임계 일반 (E042 빅테크 토큰 사례 추상화)",
+      "data_sources": [
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT",
+        "DS_SEC_10Q"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "ai_tech",
+        "big_tech"
+      ],
+      "examples_specific": [
+        "IND_BIGTECH_TOKEN_QOQ"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F23",
+        "F27"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_INFRA_AVAILABILITY_INDEX",
+      "name": "핵심 인프라 가용성 인덱스 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "주요 인프라(GPU 클라우드·항만 슬롯·전력 capacity) 가용성 지수",
+      "unit": "지수",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "역대 최저 유지(초과수요)",
+        "warn": "최저에서 회복 시작(수요 둔화 의심)",
+        "critical": "정상 회복 + 가격 -30% 동반"
+      },
+      "threshold_rationale": "수요 초과 → 둔화 시그널 일반 (E042 GPU 사례 추상화)",
+      "data_sources": [
+        "DS_INDUSTRY_REPORT",
+        "DS_WEBSEARCH_PATTERN"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "ai_tech",
+        "infrastructure"
+      ],
+      "examples_specific": [
+        "IND_GPU_CLOUD_AVAILABILITY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F23"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_EXPORT_UNIT_PRICE_QOQ",
+      "name": "도메인 수출 단가 QoQ (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "분기 수출액 ÷ 수출 물량 (특정 품목)",
+      "unit": "USD/단위",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "전년 동기 동등",
+        "watch": "+5~9% QoQ",
+        "warn": "+10%+ 2분기 연속",
+        "critical": "작황 -20% 동반 또는 단가 우위 소실"
+      },
+      "threshold_rationale": "단가 vs 물량 패턴 일반 (E018 한국 김 사례 추상화)",
+      "data_sources": [
+        "DS_NATIONAL_CUSTOMS"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "agriculture",
+        "korea",
+        "export"
+      ],
+      "examples_specific": [
+        "IND_KOREA_GIM_EXPORT_PRICE"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F08"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SECTOR_EXPORT_VOLUME",
+      "name": "섹터 수출 대수/물량 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "섹터 완제품 분기·연 수출 물량",
+      "unit": "만대 또는 MT",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "전년 +50% 가속",
+        "warn": "+100%+ 가속",
+        "critical": "+100%+ + 수입국 반덤핑 발표"
+      },
+      "threshold_rationale": "밀어내기 수출 → 무역분쟁 임계 일반 (E060 중국 EV 사례 추상화)",
+      "data_sources": [
+        "DS_NATIONAL_CUSTOMS",
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "industrial",
+        "china",
+        "trade"
+      ],
+      "examples_specific": [
+        "IND_CHINA_EV_EXPORT_VOLUME"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F30"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SECTOR_GLOBAL_GROWTH_YOY",
+      "name": "섹터 글로벌 매출 성장률 YoY (세그먼트별)",
+      "category": "abstract_pattern",
+      "formula": "글로벌 섹터 매출 YoY (세그먼트별 — 콘솔/PC/모바일 등)",
+      "unit": "%",
+      "frequency": "연간",
+      "thresholds": {
+        "normal": "전체 2~3%",
+        "watch": "세그먼트별 4%+",
+        "warn": "특정국만 0% YoY 정체",
+        "critical": "신흥 시장 30%+ 2년 + 본국 마이너스"
+      },
+      "threshold_rationale": "국가 사이클 × 플랫폼 사이클 이중 분해 일반 (E013·E014 게임 사례 추상화 — F39)",
+      "data_sources": [
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "game_industry",
+        "media"
+      ],
+      "examples_specific": [
+        "IND_GLOBAL_GAME_GROWTH"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F22",
+        "F39"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SECTOR_CAPEX_GUIDANCE_DIRECTION",
+      "name": "섹터 상위사 CapEx 가이던스 방향 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "섹터 상위 N사 차기 분기/연 CapEx 가이던스",
+      "unit": "10억 단위 + 방향(상향/유지/컷)",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "전사 상향",
+        "warn": "1사 가이던스 컷",
+        "critical": "복수사 컷 동반"
+      },
+      "threshold_rationale": "사이클 변곡점 신호 일반 (E036·E044·E047·E048·E062 빅테크 패턴 추상화)",
+      "data_sources": [
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT",
+        "DS_SEC_10Q"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "big_tech",
+        "company_financial"
+      ],
+      "examples_specific": [
+        "IND_BIGTECH_CAPEX_GUIDANCE"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F20",
+        "F21"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_FUNDING_COMMITMENT_GAP",
+      "name": "사업 약정 vs 조달 자금 미스매치 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "공시된 약정 총액 - 누적 조달액",
+      "unit": "10억 달러 또는 약정 대비 조달 비율",
+      "frequency": "비정기 (보도 시점)",
+      "thresholds": {
+        "watch": "약정 대비 조달 50%",
+        "warn": "30% 이하",
+        "critical": "20% 이하 (장기 채택 지표 미달 동반)"
+      },
+      "threshold_rationale": "서사·CapEx 풍성 vs 채택 지표 미달 임계 일반 (E044 OpenAI 사례 추상화 — F44)",
+      "data_sources": [
+        "DS_WSJ_BLOOMBERG_LEAK",
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "startup_business",
+        "ai_tech"
+      ],
+      "examples_specific": [
+        "IND_OPENAI_FUNDING_MISMATCH"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F20",
+        "F21"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_ENTERPRISE_API_MOM_GROWTH",
+      "name": "엔터프라이즈 API 매출 MoM 성장 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "엔터프라이즈 SaaS/API 매출 월간 MoM 성장률",
+      "unit": "%",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "+30%+ MoM 1개월",
+        "warn": "+50%+ MoM 3개월",
+        "critical": "+50%+ MoM 6개월 연속"
+      },
+      "threshold_rationale": "AI/SaaS 도입 가속 임계 일반 (E029 Anthropic 사례 추상화)",
+      "data_sources": [
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "ai_tech",
+        "saas"
+      ],
+      "examples_specific": [
+        "IND_ENTROPIC_API_MOM"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F23",
+        "F24"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_REVENUE_PER_HEADCOUNT",
+      "name": "1인당 매출 (ARR/FTE) — 단위경제 점프 임계",
+      "category": "abstract_pattern",
+      "formula": "ARR ÷ FTE 직원수",
+      "unit": "억원/명 또는 USD/명",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "5억원 (전통 IT 베이스)",
+        "watch": "10억원 (우수)",
+        "warn": "20억원 (단위경제 점프)",
+        "critical": "100억원+ (AI 네이티브 사례)"
+      },
+      "threshold_rationale": "단위경제 허들 자체 점프 신호 일반 (E009·E012·E029 사례 추상화 — F19)",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_CRUNCHBASE_FUND"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "software",
+        "ai_tech",
+        "startup_business"
+      ],
+      "examples_specific": [
+        "IND_REVENUE_PER_HEADCOUNT_AI"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F19",
+        "F24"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SAAS_RPO_GROWTH",
+      "name": "SaaS RPO 분기 성장률 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "잔여 이행의무(RPO) 분기 QoQ/YoY",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "25%+ YoY",
+        "watch": "15~24%",
+        "warn": "두 분기 연속 컨센 미스",
+        "critical": "신규 결제 -10% YoY 동반"
+      },
+      "threshold_rationale": "가치 포획 위치 이동 신호 일반 (E007·E010 어도비·세일즈포스 사례 추상화 — F16)",
+      "data_sources": [
+        "DS_SEC_10Q",
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "software",
+        "saas"
+      ],
+      "examples_specific": [
+        "IND_RPO_GROWTH"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F16"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_COMPANY_OP_MARGIN_REGIME",
+      "name": "기업 영업이익률 레짐 회귀 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "기업 분기/연 영업이익 ÷ 매출",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "최근 5년 중간값±2%p",
+        "watch": "-3~-5%p",
+        "warn": "-6~-9%p",
+        "critical": "과거 저점 수준 회귀"
+      },
+      "threshold_rationale": "표면 지표 뺐을 때 단위경제 본질 임계 (E019 오리온 사례 추상화 — F03)",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_SEC_10Q"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "consumer",
+        "food",
+        "korea"
+      ],
+      "examples_specific": [
+        "IND_ORION_OP_MARGIN"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F19"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_NEW_BIZ_CUMULATIVE_LOSS",
+      "name": "신사업 부문 누적 영업손실 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "신규 사업부 분기 누적 영업손실",
+      "unit": "10억 달러",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "누적 50B+",
+        "warn": "100B+",
+        "critical": "120B+ 또는 채택 지표 정체 동반"
+      },
+      "threshold_rationale": "서사 vs 채택 누적 적자 임계 일반 (E062 메타 Reality Labs 사례 추상화 — F44)",
+      "data_sources": [
+        "DS_SEC_10Q"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "big_tech",
+        "tech_themes"
+      ],
+      "examples_specific": [
+        "IND_META_REALITY_LABS_LOSS"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F44"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_TOP_N_CUSTOMER_CONCENTRATION",
+      "name": "Top N 고객사 매출 집중도",
+      "category": "abstract_pattern",
+      "formula": "상위 N개 고객사 매출 합계 ÷ 총 매출 (N=3·5·10)",
+      "unit": "%",
+      "frequency": "분기 (IR/DART)",
+      "thresholds": {
+        "watch": "30~49 (적정 수준)",
+        "warn": "50~69 (한 고객 이탈 시 매출 -10%+)",
+        "critical": "70+ (단일 고객 의존)"
+      },
+      "threshold_rationale": "B2B ODM·CDMO·OEM 산업 평균 임계 (E057 한국콜마 패턴 일반화 — F03)",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_SEC_10Q",
+        "DS_MVP_MODULE_BUSINESS"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "cosmetics_ODM",
+        "korea"
+      ],
+      "examples_specific": [
+        "IND_KOLMAR_CLIENT_CONCENTRATION"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F03"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_DOMAIN_EXPORT_YOY",
+      "name": "도메인 수출 YoY (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "월간/분기 도메인 수출액 전년동기대비",
+      "unit": "%",
+      "frequency": "월간/분기",
+      "thresholds": {
+        "normal": "30+ (호황)",
+        "watch": "10~29",
+        "warn": "0~9 (둔화)",
+        "critical": "0 미만"
+      },
+      "threshold_rationale": "수출 의존 도메인 호황 → 둔화 임계 일반 (E057 한국 화장품 사례 추상화)",
+      "data_sources": [
+        "DS_NATIONAL_CUSTOMS"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "consumer",
+        "korea",
+        "export"
+      ],
+      "examples_specific": [
+        "IND_KOREA_COSMETICS_EXPORT_YOY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F03"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_COMPANY_QUARTERLY_REVENUE_REGIME",
+      "name": "회사 분기 매출/영업이익 레짐 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "분기 매출 + 영업이익 시계열 (베이스 대비)",
+      "unit": "조원 또는 USD",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "베이스 유지",
+        "watch": "한 자릿수 YoY 둔화",
+        "warn": "신규 결제 YoY 둔화",
+        "critical": "신규 결제 -10% YoY"
+      },
+      "threshold_rationale": "기업 단위 레짐 변화 임계 일반 (E007·E010 어도비 사례 추상화)",
+      "data_sources": [
+        "DS_SEC_10Q",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "software",
+        "saas"
+      ],
+      "examples_specific": [
+        "IND_ADOBE_QUARTERLY_REV"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F16"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_LONG_CONTRACT_REPRICING_RATIO",
+      "name": "장기 계약 재가격 비율 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "갱신 시점 단가 ÷ 이전 사이클 단가 - 1",
+      "unit": "%",
+      "frequency": "사이클별",
+      "thresholds": {
+        "normal": "이전 수준 회복(0% 부근)",
+        "watch": "-10~-29%",
+        "warn": "-30%+",
+        "critical": "-30%+ + 잔여 자산 재판매 0~1건"
+      },
+      "threshold_rationale": "계약 시점에 못 본 변수 회수 가능성 임계 일반 (E017 JTBC 사례 추상화 — F41)",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "media",
+        "media_rights",
+        "korea"
+      ],
+      "examples_specific": [
+        "IND_JTBC_OLYMPIC_AD_RATE"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F41"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_RD_INTENSITY_RATIO",
+      "name": "R&D 매출 비중 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "R&D 지출 ÷ 매출",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "5~10% (전통 제조 베이스)",
+        "watch": "15~24%",
+        "warn": "25~29% (혁신 가속)",
+        "critical": "30%+ 2년 지속 + 경쟁사 가전 영업이익률 3% 미만 동반"
+      },
+      "threshold_rationale": "분절 시장 게이트키퍼 이동 임계 일반 (E020 샤오미 사례 추상화 — F33)",
+      "data_sources": [
+        "DS_HK_HKEX_FILING",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "consumer_electronics",
+        "china"
+      ],
+      "examples_specific": [
+        "IND_XIAOMI_RD_REVENUE"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F33"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SECTOR_OP_MARGIN_REGIME",
+      "name": "섹터 영업이익률 레짐 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "섹터 상위 N사 부문 분기 영업이익률 가중평균",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "5+",
+        "watch": "4~4.9",
+        "warn": "3~3.9",
+        "critical": "3 미만 4분기 연속"
+      },
+      "threshold_rationale": "분절 시장 침투 시 기존 강자 마진 압박 임계 일반 (E020 삼성·LG 가전 사례 추상화)",
+      "data_sources": [
+        "DS_DART_QUARTERLY"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "consumer_electronics",
+        "korea"
+      ],
+      "examples_specific": [
+        "IND_SAMSUNG_LG_HOME_APPLIANCE_OPM"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F33"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_AI_AUTOMATION_DISCLOSURE_LEVEL",
+      "name": "AI 자동화 공식 발언 수치 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "공식 발표/어닝콜 'AI 작성·대체' 비중 인용 수치",
+      "unit": "%",
+      "frequency": "분기 (발언 시)",
+      "thresholds": {
+        "normal": "50~74",
+        "watch": "75 (선도사 베이스)",
+        "warn": "85+",
+        "critical": "복수 빅테크 85%+ 공식화"
+      },
+      "threshold_rationale": "AI 추출 파이프라인 → 노동시장 영향 임계 일반 (E040 구글 75% 사례 추상화 — F24)",
+      "data_sources": [
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT",
+        "DS_BIGTECH_BLOG_POST"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "big_tech",
+        "ai_tech",
+        "labor_market"
+      ],
+      "examples_specific": [
+        "IND_GOOGLE_AI_CODE_PCT"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F16",
+        "F24"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SEGMENT_REVENUE_YOY",
+      "name": "기업 부문 매출 YoY (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "특정 부문 분기 매출 YoY",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "20+",
+        "watch": "16~19",
+        "warn": "15 이하 두 분기 연속",
+        "critical": "둔화 + 경쟁사 점유율 +3%p 동반"
+      },
+      "threshold_rationale": "공급 캡파 경직성 사이클 임계 (E038 인텔 DC&AI 사례 추상화 — F08)",
+      "data_sources": [
+        "DS_SEC_10Q"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "semiconductor",
+        "company_financial"
+      ],
+      "examples_specific": [
+        "IND_INTEL_DC_AI_YOY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F08"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SECTOR_HIRING_YOY",
+      "name": "섹터 신입 채용 공고 수 YoY (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "섹터 상위사 신입 채용 공고 분기 YoY",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "-10~+10% (안정)",
+        "watch": "-10~-19% 1분기",
+        "warn": "-20%+ 1분기",
+        "critical": "-20%+ 두 분기 연속"
+      },
+      "threshold_rationale": "AI 노동시장 영향 임계 (E009·E012·E029 한국 IT 사례 추상화)",
+      "data_sources": [
+        "DS_JOBKOREA_SARAMIN",
+        "DS_DART_QUARTERLY"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "labor_market",
+        "korea",
+        "software"
+      ],
+      "examples_specific": [
+        "IND_K_IT_HIRING_YOY"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F19",
+        "F24"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_AI_LABELED_LAYOFF_COUNT",
+      "name": "'AI 명시' 화이트칼라 감원 분기 누적",
+      "category": "abstract_pattern",
+      "formula": "분기 누적 감원 인원 중 'AI 자동화' 명시 비중",
+      "unit": "명/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "1000+/분기",
+        "warn": "3000+/분기 + AI 명시",
+        "critical": "5000+/분기 + AI 명시"
+      },
+      "threshold_rationale": "AI 일자리 잠식 임계 일반 (E029·E040 빅테크 사례 추상화)",
+      "data_sources": [
+        "DS_WARN_NOTICE_US",
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "labor_market",
+        "big_tech",
+        "ai_tech"
+      ],
+      "examples_specific": [
+        "IND_BIGTECH_LAYOFF_AI_TAG"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F24"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SELLSIDE_TARGET_REVISION_FREQ",
+      "name": "Sell-side 지수 목표 상/하향 빈도",
+      "category": "abstract_pattern",
+      "formula": "주요 IB 지수 목표 한 주 내 상향/하향 발표 건수",
+      "unit": "건/주",
+      "frequency": "주간",
+      "thresholds": {
+        "watch": "한 주 2건+ 동조",
+        "warn": "다수 기관 하향 동조",
+        "critical": "주요 3+사 동시 하향"
+      },
+      "threshold_rationale": "컨센서스 시프트 선행 임계 일반 (E045·E050 S&P 사례 추상화)",
+      "data_sources": [
+        "DS_IB_RESEARCH_NOTE"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "equity_strategy",
+        "us_market"
+      ],
+      "examples_specific": [
+        "IND_SP500_TARGET_REVISION"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F28"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_ANCHOR_INVESTOR_POSITION_SHIFT",
+      "name": "신뢰 앵커 투자자 분기 포지션 시프트",
+      "category": "abstract_pattern",
+      "formula": "13F/대형 자산운용사 분기 공시 내 특정 카테고리 비중 QoQ",
+      "unit": "%p",
+      "frequency": "분기 (13F)",
+      "thresholds": {
+        "watch": "비중 유지",
+        "warn": "비중 +1%p 확대",
+        "critical": "추가 확대 + 다른 대형사 동조"
+      },
+      "threshold_rationale": "정보 과잉 임계점 통과 후 신뢰 앵커로 자금 재집중 일반 (E011 버크셔·NYT 사례 추상화 — F18)",
+      "data_sources": [
+        "DS_SEC_13F_FILING",
+        "DS_WHALEWISDOM"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "equity_strategy",
+        "media"
+      ],
+      "examples_specific": [
+        "IND_BERKSHIRE_13F_NYT"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F18"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_RETAIL_LEVERAGE_INFLOW_QOQ",
+      "name": "리테일 레버리지·신용 유입 QoQ (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "분기 신규 계좌 + 신용 비중 + 레버리지 ETF 비중 QoQ",
+      "unit": "% QoQ",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "+5~9% QoQ",
+        "warn": "+10%+ QoQ",
+        "critical": "+10%+ + 외인성 자산(코인) 비중 동반"
+      },
+      "threshold_rationale": "후행 지표로 누적 정책·자본 선택 잠재 손상 역추적 임계 일반 (E031 한국 30대 사례 추상화 — F04)",
+      "data_sources": [
+        "DS_KRX_INVESTOR_DATA",
+        "DS_KSD_KSEDS"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "market_sentiment",
+        "korea"
+      ],
+      "examples_specific": [
+        "IND_KOREA_30S_NEW_ACCOUNTS"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F04"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_ASSET_CLASS_ETF_FLOW",
+      "name": "자산군 ETF 자금 유입 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "주요 자산군 ETF 일별/주별 순유입",
+      "unit": "USD/주",
+      "frequency": "주간",
+      "thresholds": {
+        "normal": "4주+ 연속 플러스",
+        "watch": "2~3주 플러스",
+        "warn": "유출 전환",
+        "critical": "지수 리밸런싱 반대방향 발화"
+      },
+      "threshold_rationale": "기계적 인덱스 가중치 시프트 임계 일반 (E026 EM ETF 사례 추상화 — F29)",
+      "data_sources": [
+        "DS_EPFR_FLOW",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "etf_flow",
+        "emerging_markets"
+      ],
+      "examples_specific": [
+        "IND_EM_ETF_FLOW"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F29"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_SELLSIDE_LOSER_LIST_GROWTH",
+      "name": "Sell-side 부정 리스트 추가 빈도",
+      "category": "abstract_pattern",
+      "formula": "주요 IB 리서치 'X 피해' 종목 명단 변경 건수",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "1건 첫 지목",
+        "warn": "2~3건 추가",
+        "critical": "3건+ + 시장 대표 종목 동시 포함"
+      },
+      "threshold_rationale": "컨센서스 시프트 시작 선행 일반 (E007 AI loser 사례 추상화)",
+      "data_sources": [
+        "DS_IB_RESEARCH_NOTE"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "equity_strategy",
+        "ai_tech"
+      ],
+      "examples_specific": [
+        "IND_BOFA_AI_LOSER_LIST"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F16"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_NEW_VENUE_VOLUME_GROWTH",
+      "name": "신규 거래 venue 분기 거래량/MAU 가속",
+      "category": "abstract_pattern",
+      "formula": "예측시장·신규 자산군 venue 분기 합산 거래량·MAU",
+      "unit": "USD/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "+50% QoQ",
+        "warn": "+100% QoQ",
+        "critical": "+100% + 가격-펀더 괴리 빈발"
+      },
+      "threshold_rationale": "제도화·이름표 갈아입기 검증 일반 (E061 Polymarket·Kalshi 사례 추상화 — F43)",
+      "data_sources": [
+        "DS_POLYMARKET_API",
+        "DS_KALSHI_PUBLIC"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "financial_innovation",
+        "market_structure"
+      ],
+      "examples_specific": [
+        "IND_POLYMARKET_KALSHI_VOLUME"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F43"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_DEMOGRAPHIC_FLOW_PERSISTENCE",
+      "name": "특정 인구통계 자금 유입 지속성 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "주별 특정 코호트(연령/외국인 등) 누적 순매수",
+      "unit": "원/주",
+      "frequency": "주간",
+      "thresholds": {
+        "normal": "4주+ 연속 플러스",
+        "watch": "정체",
+        "warn": "유출 전환 1주",
+        "critical": "유출 + 핵심 섹터 사이클 정점 동반"
+      },
+      "threshold_rationale": "코호트별 자금 흐름 임계 일반 (E027 한국 60대 여성·외인 사례 추상화)",
+      "data_sources": [
+        "DS_KRX_INVESTOR_DATA"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "market_sentiment",
+        "korea",
+        "etf_flow"
+      ],
+      "examples_specific": [
+        "IND_FOREIGN_KR_FUND_FLOW"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F04"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_RHETORIC_TONE_REVERSAL_LAG",
+      "name": "리더십 극단발언 → 톤반전 경과시간",
+      "category": "abstract_pattern",
+      "formula": "극단 발언 시점부터 톤 반전 멘트 등장까지 영업일",
+      "unit": "영업일",
+      "frequency": "이벤트별",
+      "thresholds": {
+        "normal": "5~10영업일 안 반전",
+        "watch": "10~13영업일",
+        "warn": "14일+ 톤 반전 없음",
+        "critical": "데드라인 후 추가 제재·군사행동"
+      },
+      "threshold_rationale": "헤드라인 톤 반전 시간축 패턴 학습 임계 일반 (E021·E035 트럼프 사례 추상화 — F25)",
+      "data_sources": [
+        "DS_WHITEHOUSE_PRESS",
+        "DS_REUTERS_POLITICAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "geopolitics",
+        "policy_reaction"
+      ],
+      "examples_specific": [
+        "IND_TRUMP_TONE_REVERSAL_LAG"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F25"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_CENTRAL_BANK_DISSENT_DIRECTION",
+      "name": "중앙은행 반대표 방향 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "중앙은행 정책결정문 반대표 개수 × 부호(완화 -1 / 긴축 +1)",
+      "unit": "정수",
+      "frequency": "회의별",
+      "thresholds": {
+        "watch": "1표 등장",
+        "warn": "복수 반대표(부호 반전)",
+        "critical": "지역 위원이 반대 방향 공식 발언"
+      },
+      "threshold_rationale": "정책 반응함수 평행이동 신호 임계 일반 (E046 FOMC 사례 추상화 — F35)",
+      "data_sources": [
+        "DS_FOMC_STATEMENT",
+        "DS_FRB_PRESS_BRIEFING"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "central_bank",
+        "us_fomc"
+      ],
+      "examples_specific": [
+        "IND_FOMC_DISSENT_DIRECTION"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F35"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_LAND_USE_POLICY_DESIGNATION_COUNT",
+      "name": "용도지역·지구단위계획 변경 신청·지정 건수",
+      "category": "abstract_pattern",
+      "formula": "분기 신청·고시 건수 (대상 지역)",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "1~2건 신청",
+        "warn": "3건+",
+        "critical": "보전지구 지정 공고"
+      },
+      "threshold_rationale": "차별화 자산 자기파괴 동학 임계 일반 (E003·E005 서울 사례 추상화 — F37)",
+      "data_sources": [
+        "DS_SEOUL_OPENGOV",
+        "DS_LOCAL_GOV_OPEN_DATA"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "real_estate",
+        "policy",
+        "korea"
+      ],
+      "examples_specific": [
+        "IND_SEOUL_REZONING_DESIGNATION"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F03",
+        "F37"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_REGULATOR_NEW_PRODUCT_RULING",
+      "name": "규제기관 신규 상품 승인·금지 결정 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "분기 결정 건수 (승인/금지/카테고리 확장)",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "카테고리 확장 승인",
+        "warn": "포지션 한도·KYC 도입 없는 추가 승인",
+        "critical": "한도+KYC 동시 도입(Bull) / 확장만(Bear)"
+      },
+      "threshold_rationale": "제도화·이름표 갈아입기 → 가격 어긋남 임계 (E061 CFTC 사례 추상화 — F43)",
+      "data_sources": [
+        "DS_CFTC_PUBLIC_RULING",
+        "DS_FEDERAL_REGISTER"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "regulation",
+        "financial_innovation"
+      ],
+      "examples_specific": [
+        "IND_CFTC_EVENT_CONTRACT_RULING"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F43"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_INTL_RULE_MILESTONE_PROGRESS",
+      "name": "국제 규정 채택 이정표 진척 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "국제기구 또는 정부 규정 채택 단계",
+      "unit": "이정표 (제안→초안→채택→시행)",
+      "frequency": "연간",
+      "thresholds": {
+        "watch": "초안 등장",
+        "warn": "정상 일정",
+        "critical": "2년+ 지연 또는 1차 채택"
+      },
+      "threshold_rationale": "도메인별 채택 곡선을 인프라 의존도로 분기 임계 (E018·E053 사례 추상화 — F31)",
+      "data_sources": [
+        "DS_IMO_PUBLIC_DOCS",
+        "DS_KOREA_NA_BILLINFO"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "regulation",
+        "shipping",
+        "energy_transition",
+        "agriculture",
+        "korea"
+      ],
+      "examples_specific": [
+        "IND_IMO_NUCLEAR_RULE_PROGRESS",
+        "IND_KOREA_HAESUBU_GIM_GRADING"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F08",
+        "F31"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_DOMESTIC_REFORM_BILL_PROGRESS",
+      "name": "국내 자본시장·산업 개혁 입법 가시화",
+      "category": "abstract_pattern",
+      "formula": "관련 법안 발의·통과 건수 (의안정보)",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "발의 다수",
+        "warn": "상임위 통과",
+        "critical": "본회의 통과"
+      },
+      "threshold_rationale": "단년 충격이 아니라 누적 정책 선택 잠재 손상 임계 (E027 한국 자본시장 사례 추상화 — F04)",
+      "data_sources": [
+        "DS_KOREA_NA_BILLINFO",
+        "DS_FSC_PRESS"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "regulation",
+        "korea",
+        "equity_strategy"
+      ],
+      "examples_specific": [
+        "IND_KOREA_CAPITAL_MARKET_BILL"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F04"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_FOREIGN_REGULATOR_PENALTY_COUNT",
+      "name": "외국 규제기관 자국 기업 벌금·조사 분기 건수",
+      "category": "abstract_pattern",
+      "formula": "분기 외국 규제기관 자국 기업 결정 건수 (벌금·조사·SDN)",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "조사 개시",
+        "warn": "벌금 1건",
+        "critical": "SDN/제재 리스트 등재"
+      },
+      "threshold_rationale": "매개자가 1차 행위자보다 더 오래 기억된다 임계 일반 (E065 OFAC 한국 사례 추상화 — F15)",
+      "data_sources": [
+        "DS_OFAC_SDN_LIST",
+        "DS_US_TREASURY_PRESS"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "compliance",
+        "regulation"
+      ],
+      "examples_specific": [
+        "IND_OFAC_KR_BANK_FINES"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F15"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_BILATERAL_STRATEGIC_AGREEMENT_PROGRESS",
+      "name": "양자 전략 협약 진행 단계 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "공식 발표 시점·패키지 진행 이정표",
+      "unit": "이정표",
+      "frequency": "비정기",
+      "thresholds": {
+        "watch": "협상 시작 보도",
+        "warn": "MOU 초안 공개",
+        "critical": "1년 내 체결(Bull) / 1년 내 미체결(Bear)"
+      },
+      "threshold_rationale": "그것이 무엇인가가 아니라 어디로 들어가고 있나 임계 일반 (E052 미-UAE 사례 추상화 — F05)",
+      "data_sources": [
+        "DS_US_STATE_DEPT",
+        "DS_REUTERS_POLITICAL"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "geopolitics",
+        "trade_policy"
+      ],
+      "examples_specific": [
+        "IND_US_UAE_SECURITY_MOU"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F05"
+      ]
+    },
+    {
+      "indicator_id": "IND_ABS_IP_LITIGATION_RULING_DIRECTION",
+      "name": "원료·IP 분쟁 판결 방향 (도메인 일반)",
+      "category": "abstract_pattern",
+      "formula": "ITC·국내 법원 판결 시점·내용",
+      "unit": "이정표 (화해/사용금지)",
+      "frequency": "비정기",
+      "thresholds": {
+        "watch": "심리 진행",
+        "warn": "1심 판결",
+        "critical": "사용·수출 금지(Bear) / 화해·로열티(Bull)"
+      },
+      "threshold_rationale": "반복 수요 + 원료 접근권 규제 이중 함수 임계 (E056 메디톡스 사례 추상화 — F42)",
+      "data_sources": [
+        "DS_USITC_RULING",
+        "DS_KOREA_COURT_PUBLIC"
+      ],
+      "interpretation_direction": "both_tail",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "biotech",
+        "ip_litigation"
+      ],
+      "examples_specific": [
+        "IND_BOTOX_STRAIN_RULING"
+      ],
+      "abstract_parent": null,
+      "related_R5_functions": [
+        "F42"
+      ]
+    },
+    {
+      "indicator_id": "IND_CAPEX_TO_OI",
+      "name": "빅테크 CapEx / 영업이익 비율",
+      "category": "company_financial",
+      "formula": "분기 CapEx ÷ 분기 영업이익",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "30 이하 (MS 22년 베이스라인)",
+        "watch": "30~69",
+        "warn": "70~89",
+        "critical": "90+ (MS 25년 1분기 92% 사례)"
+      },
+      "threshold_rationale": "E008 keep_as_fact 'MS 22년 CapEx 30%, 25년 1분기 92%'; '아마존 3분기 CapEx 342억 달러 vs 영업이익 174억 달러'(196%); '구글 분기 영업이익의 77% CapEx'",
+      "data_sources": [
+        "DS_SEC_10Q",
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E008",
+        "E036",
+        "E044",
+        "E048"
+      ],
+      "related_R5_functions": [
+        "F20",
+        "F21"
+      ],
+      "anti_signal_note": "CapEx가 즉시 매출로 회수되는 (예: 클라우드 사용량 즉시 인식) 사이클이면 임계 의미 약화",
+      "tier": "abstract",
+      "applies_to_domain": [
+        "company_financial"
+      ],
+      "examples_specific": [],
+      "abstract_parent": null
+    },
+    {
+      "indicator_id": "IND_CPI_HEADLINE_YOY",
+      "name": "미국 CPI YoY (헤드라인)",
+      "category": "macro",
+      "formula": "월별 미국 CPI 전년동월대비",
+      "unit": "%",
+      "frequency": "월간",
+      "thresholds": {
+        "normal": "2.0 이하",
+        "watch": "2.0~3.5",
+        "warn": "3.5~4.0",
+        "critical": "4.0+"
+      },
+      "threshold_rationale": "E043 keep_as_fact 'CPI YoY 3.8%'·'2022 정점 9.1%'; E050 monitoring 'CPI 3.8% → 4%+ 단계 둔화 = 흡수 용량 한계'",
+      "data_sources": [
+        "DS_BLS_CPI_RELEASE",
+        "DS_FRED_TIMESERIES",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E043",
+        "E045",
+        "E050"
+      ],
+      "related_R5_functions": [
+        "F28",
+        "F34"
+      ],
+      "anti_signal_note": "공급망 일회성 충격으로 단발 점프 시 기저 조건 다르므로 패턴매칭 보류 (F34)",
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "macro",
+        "us_economy"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_HEADLINE_INFLATION_YOY"
+    },
+    {
+      "indicator_id": "IND_CORE_CPI_MOM",
+      "name": "근원 CPI MoM",
+      "category": "macro",
+      "formula": "근원(식품·에너지 제외) CPI 전월대비",
+      "unit": "%",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "0.3",
+        "warn": "0.4",
+        "critical": "0.5+"
+      },
+      "threshold_rationale": "E043 keep_as_fact '근원 CPI +0.4%(예상 +0.3%)' — 0.1%p 상회가 의미 신호; E043 triggers '근원 CPI 3.0% 돌파'",
+      "data_sources": [
+        "DS_BLS_CPI_RELEASE",
+        "DS_FRED_TIMESERIES"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E043",
+        "E045",
+        "E050"
+      ],
+      "related_R5_functions": [
+        "F28",
+        "F34"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "macro",
+        "us_economy"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_CORE_INFLATION_MOM"
+    },
+    {
+      "indicator_id": "IND_CORE_CPI_YOY",
+      "name": "근원 CPI YoY",
+      "category": "macro",
+      "formula": "근원 CPI 전년동월대비",
+      "unit": "%",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "2.5~2.9",
+        "warn": "3.0~3.4",
+        "critical": "3.5+"
+      },
+      "threshold_rationale": "E043 triggers '근원 CPI 3.0% 돌파'; E045 bear '근원 CPI 3.0% 돌파(E043 cross-ref)'",
+      "data_sources": [
+        "DS_BLS_CPI_RELEASE"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E043",
+        "E045"
+      ],
+      "related_R5_functions": [
+        "F34"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "macro",
+        "us_economy"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_CORE_INFLATION_YOY"
+    },
+    {
+      "indicator_id": "IND_FOMC_DISSENT_DIRECTION",
+      "name": "FOMC 반대표 방향 (인하 요구 vs 인상 고려)",
+      "category": "macro",
+      "formula": "FOMC 성명문 반대표 개수 × 부호(인하 -1 / 인상 +1)",
+      "unit": "정수",
+      "frequency": "FOMC 회의별 (연 8회)",
+      "thresholds": {
+        "watch": "1표 등장",
+        "warn": "복수 반대표(이전 패턴과 부호 반대)",
+        "critical": "지역 연은 총재가 '인상도 고려' 공식 발언"
+      },
+      "threshold_rationale": "E046 triggers 'FOMC에서 동결 만장일치인데 성명 문구에 복수 반대'·'지역 연은 총재가 인상도 고려 공식 표현 사용'",
+      "data_sources": [
+        "DS_FOMC_STATEMENT",
+        "DS_FRB_PRESS_BRIEFING"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E046"
+      ],
+      "related_R5_functions": [
+        "F35"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "central_bank",
+        "us_fomc"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_CENTRAL_BANK_DISSENT_DIRECTION"
+    },
+    {
+      "indicator_id": "IND_US_TREASURY_10Y_YIELD",
+      "name": "미 10년물 국채금리",
+      "category": "macro",
+      "formula": "미 10년물 국채 일간 종가",
+      "unit": "%",
+      "frequency": "일간",
+      "thresholds": {
+        "normal": "4% 부근 안정",
+        "watch": "4.5~4.9",
+        "warn": "5.0+ 재상승",
+        "critical": "5.0+ 4주 지속"
+      },
+      "threshold_rationale": "E026 monitoring/bull 'EM ETF 자금 유입 4주 연속 플러스 + 4% 부근 정착'; bear '5%+ 재상승'",
+      "data_sources": [
+        "DS_FRED_TIMESERIES",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E026",
+        "E051"
+      ],
+      "related_R5_functions": [
+        "F12",
+        "F29"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "macro",
+        "us_sovereign"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SOVEREIGN_LONG_YIELD"
+    },
+    {
+      "indicator_id": "IND_US_DEBT_TO_GDP",
+      "name": "미국 정부부채/GDP 비율",
+      "category": "macro",
+      "formula": "공공부채 잔액 ÷ 명목 GDP",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "100~119",
+        "warn": "120~129",
+        "critical": "130+ 또는 2차 대전 후 정점 재돌파"
+      },
+      "threshold_rationale": "E022 keep_as_fact '2차 대전 후 부채/GDP 정점'; E051 triggers '미국 부채/GDP 비율 1% 상승'",
+      "data_sources": [
+        "DS_US_TREASURY_DEBT",
+        "DS_FRED_TIMESERIES"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E022",
+        "E051"
+      ],
+      "related_R5_functions": [
+        "F09",
+        "F12"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "macro",
+        "sovereign_credit"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_GOV_DEBT_TO_GDP"
+    },
+    {
+      "indicator_id": "IND_INTEREST_EXPENSE_GDP",
+      "name": "이자비용/GDP",
+      "category": "macro",
+      "formula": "연방 이자지급액 ÷ 명목 GDP",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "2.5 이하",
+        "watch": "3.0~3.4",
+        "warn": "3.5~3.9",
+        "critical": "4.0+"
+      },
+      "threshold_rationale": "E022 keep_as_fact 'GDP 대비 이자비용 3.2%'; triggers '미 정부 이자비용/GDP 4% 돌파'",
+      "data_sources": [
+        "DS_US_TREASURY_DEBT",
+        "DS_BEA_GDP"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E022"
+      ],
+      "related_R5_functions": [
+        "F09"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "macro",
+        "sovereign_credit"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_GOV_INTEREST_BURDEN"
+    },
+    {
+      "indicator_id": "IND_SP500_EARNINGS_BEAT_RATE",
+      "name": "S&P500 분기 실적 비트율",
+      "category": "macro",
+      "formula": "EPS 컨센서스 상회 기업 수 ÷ 발표 기업 수",
+      "unit": "%",
+      "frequency": "분기 (실적 시즌 주차별)",
+      "thresholds": {
+        "normal": "85+",
+        "watch": "80~84",
+        "warn": "75~79",
+        "critical": "75 미만"
+      },
+      "threshold_rationale": "E050 keep_as_fact '주차별 비트율 수치'; bull '85% → 87%+'; bear '85% → 80% 이하 단계 둔화'; E045 'S&P500 실적 비트율이 80% 이상 누적'",
+      "data_sources": [
+        "DS_LSEG_EARNINGS_SCORECARD",
+        "DS_FACTSET_INSIGHT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E045",
+        "E050"
+      ],
+      "related_R5_functions": [
+        "F26",
+        "F28"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "equity_strategy",
+        "us_market"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_INDEX_EARNINGS_BEAT_RATE"
+    },
+    {
+      "indicator_id": "IND_SP500_EPS_GROWTH_YOY",
+      "name": "S&P500 EPS 성장률 YoY",
+      "category": "macro",
+      "formula": "S&P500 종합 EPS 전년동기대비",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "20 이하",
+        "warn": "10 이하",
+        "critical": "0 미만"
+      },
+      "threshold_rationale": "E050 monitoring 'LSEG 1분기 EPS 성장률 28% → 다음 분기 30%+ 갱신' bull / bear '28% → 20% 이하 단계 둔화'",
+      "data_sources": [
+        "DS_LSEG_EARNINGS_SCORECARD",
+        "DS_FACTSET_INSIGHT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E050"
+      ],
+      "related_R5_functions": [
+        "F28"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "equity_strategy",
+        "us_market"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_INDEX_EPS_GROWTH_YOY"
+    },
+    {
+      "indicator_id": "IND_VIX_INDEX",
+      "name": "VIX 변동성 지수",
+      "category": "macro",
+      "formula": "S&P500 옵션 내재 30일 변동성",
+      "unit": "포인트",
+      "frequency": "일간",
+      "thresholds": {
+        "normal": "15 이하",
+        "watch": "15~25",
+        "warn": "25~35",
+        "critical": "35+"
+      },
+      "threshold_rationale": "E021 monitoring 'VIX·MOVE·KOSPI200 선물 스큐 — 극단 발언 직후 24시간 변동성'; E051 triggers '빅스(VIX) 급등 국면'",
+      "data_sources": [
+        "DS_CBOE_VIX_FEED",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E021",
+        "E051"
+      ],
+      "related_R5_functions": [
+        "F25",
+        "F26"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "market_sentiment",
+        "us_market"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_EQUITY_IMPLIED_VOL"
+    },
+    {
+      "indicator_id": "IND_CHINA_TRADE_SURPLUS_MONTHLY",
+      "name": "중국 월간 무역 흑자",
+      "category": "macro",
+      "formula": "중국 월간 수출 - 수입 (달러 환산)",
+      "unit": "10억 달러",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "800~999",
+        "warn": "1000+ (1조 달러 연환산)",
+        "critical": "1100+ 또는 연 누적 1.19조 돌파"
+      },
+      "threshold_rationale": "E060 keep_as_fact '흑자 1.19조 달러'; triggers '중국 월간 무역 흑자 1000억 달러 돌파 헤드라인'",
+      "data_sources": [
+        "DS_CHINA_CUSTOMS",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E060"
+      ],
+      "related_R5_functions": [
+        "F30"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "macro",
+        "china_trade"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_COUNTRY_TRADE_BALANCE_MONTHLY"
+    },
+    {
+      "indicator_id": "IND_FX_VOLATILITY",
+      "name": "주요통화 환율 변동성 (MOVE/CVIX)",
+      "category": "macro",
+      "formula": "주요 G7 환율 옵션 내재 변동성 지수",
+      "unit": "포인트",
+      "frequency": "일간",
+      "thresholds": {},
+      "threshold_rationale": "정보 공백 — 수동 보강 필요 (E021 monitoring에서 'VIX·MOVE·KOSPI200 선물 스큐'로만 언급)",
+      "data_sources": [
+        "DS_BLOOMBERG_TERMINAL",
+        "DS_CME_FX_VOL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E021",
+        "E051"
+      ],
+      "related_R5_functions": [
+        "F25"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "macro",
+        "fx"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_FX_IMPLIED_VOL"
+    },
+    {
+      "indicator_id": "IND_HORMUZ_TRANSIT_DAYS",
+      "name": "호르무즈 해협 정상 운항 일수",
+      "category": "industry_supply_chain",
+      "formula": "분기 내 정상 통과 일수 / 통과 선박 수 시계열",
+      "unit": "일",
+      "frequency": "주간/분기",
+      "thresholds": {
+        "normal": "정상 운항 4주+",
+        "watch": "산발적 지연",
+        "warn": "봉쇄·지연 분기 2회+",
+        "critical": "실제 차단 3일+ 누적"
+      },
+      "threshold_rationale": "E023 monitoring '호르무즈 해협 정상 운항 일수·통과 선박 수' / bear '봉쇄·지연 분기 2회+'; E045 monitoring '호르무즈 통과 유조선 실제 차단 일수 (Bear: 3일+ 누적 시 디커플 깨짐)'",
+      "data_sources": [
+        "DS_AIS_VESSEL_TRACKING",
+        "DS_BLOOMBERG_TERMINAL",
+        "DS_REUTERS_SHIPPING"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E023",
+        "E024",
+        "E033",
+        "E045",
+        "E049"
+      ],
+      "related_R5_functions": [
+        "F02",
+        "F01"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "geopolitics",
+        "energy",
+        "hormuz"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_GEOPOL_CHOKEPOINT_TRANSIT_RATIO"
+    },
+    {
+      "indicator_id": "IND_HORMUZ_DAILY_TANKER_COUNT",
+      "name": "호르무즈 일일 유조선 통과 척수",
+      "category": "industry_supply_chain",
+      "formula": "AIS 기준 일일 통과 유조선 수",
+      "unit": "척/일",
+      "frequency": "일간",
+      "thresholds": {
+        "normal": "15+",
+        "watch": "10~14",
+        "warn": "-30%YoY 또는 AIS off 급증",
+        "critical": "10 미만"
+      },
+      "threshold_rationale": "E033 keep_as_fact '하루 15척 통과(4월 2일 기준)'; E034 monitoring '호르무즈 통과 유조선 수·AIS 신호 패턴 (Bear: 하루 통과량 -30%+ 또는 AIS off 선박 급증)'",
+      "data_sources": [
+        "DS_AIS_VESSEL_TRACKING",
+        "DS_KPLER_OIL_FLOWS"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E033",
+        "E034"
+      ],
+      "related_R5_functions": [
+        "F02"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "geopolitics",
+        "energy",
+        "hormuz"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_GEOPOL_CHOKEPOINT_FLOW_VOLUME"
+    },
+    {
+      "indicator_id": "IND_HORMUZ_TOLL_PER_VESSEL",
+      "name": "호르무즈 비공식 통행료/배럴 부담",
+      "category": "industry_supply_chain",
+      "formula": "이란 비공식 통행료 (선박당 USD / 배럴당 USD)",
+      "unit": "USD/선박, USD/배럴",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "선박당 100만 도달",
+        "warn": "선박당 200만 / 배럴당 1달러 정착",
+        "critical": "통행료 공식화 문서 등장"
+      },
+      "threshold_rationale": "E033 keep_as_fact '선박당 200만 달러·배럴당 1달러'; triggers '호르무즈 통행료 공식화·문서화 뉴스'",
+      "data_sources": [
+        "DS_REUTERS_SHIPPING",
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E033"
+      ],
+      "related_R5_functions": [
+        "F02"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "geopolitics",
+        "energy",
+        "hormuz"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_INFORMAL_TOLL_FORMATION"
+    },
+    {
+      "indicator_id": "IND_QATAR_LNG_OUTBOUND",
+      "name": "카타르 LNG 출하/인도양 LNG 스프레드",
+      "category": "industry_supply_chain",
+      "formula": "주간 카타르 LNG 출하량 + 인도양 LNG 현물-선물 스프레드",
+      "unit": "MT/주, USD/MMBtu",
+      "frequency": "주간",
+      "thresholds": {
+        "normal": "정상화 4주+",
+        "warn": "출하 차질 분기 2회+",
+        "critical": "스프레드 +30% 이상 지속"
+      },
+      "threshold_rationale": "E023 monitoring '카타르 LNG 출하·인도양 LNG 가격 스프레드 (Bull: 출하 정상화 4주+, Bear: 차질 분기 2회+)'; E024 동일 cross-ref",
+      "data_sources": [
+        "DS_KPLER_LNG_FLOWS",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E023",
+        "E024"
+      ],
+      "related_R5_functions": [
+        "F02",
+        "F01"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "energy",
+        "lng",
+        "qatar"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_COMMODITY_OUTBOUND_FLOW"
+    },
+    {
+      "indicator_id": "IND_KOREA_REFINING_MARGIN",
+      "name": "한국 정유 4사 분기 정제 마진",
+      "category": "industry_supply_chain",
+      "formula": "SK이노·GS칼텍스·S-Oil·현대오일뱅크 가중 정제 마진",
+      "unit": "USD/배럴",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "평년치",
+        "watch": "평년 +10~20%",
+        "warn": "평년 +30%+ 1분기",
+        "critical": "평년 +30%+ 2분기 연속"
+      },
+      "threshold_rationale": "E024 monitoring '한국 정유 4사 분기 정제 마진 시계열 (Bull: 평년치 +30% 이상 2분기 연속)'; triggers 동일",
+      "data_sources": [
+        "DS_PETRONET_KR",
+        "DS_DART_QUARTERLY",
+        "DS_KPC_REFINING"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E024",
+        "E059"
+      ],
+      "related_R5_functions": [
+        "F08",
+        "F32"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "energy",
+        "refining",
+        "korea"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SECTOR_PROCESSING_MARGIN"
+    },
+    {
+      "indicator_id": "IND_KOREA_MIDEAST_OIL_DEP",
+      "name": "한국 중동 원유 수입 의존도",
+      "category": "industry_supply_chain",
+      "formula": "(중동산 원유 수입량 ÷ 총 원유 수입량) × 100",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "70 이하",
+        "watch": "70~80",
+        "warn": "80~85",
+        "critical": "85+"
+      },
+      "threshold_rationale": "E059 keep_as_fact '86%→69.6% 의존도 변화'",
+      "data_sources": [
+        "DS_KPC_REFINING",
+        "DS_KOREA_CUSTOMS",
+        "DS_PETRONET_KR"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E059",
+        "E024"
+      ],
+      "related_R5_functions": [
+        "F32"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "energy",
+        "korea",
+        "import"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SOURCE_REGION_DEPENDENCY_RATIO"
+    },
+    {
+      "indicator_id": "IND_TMX_KOREA_FLOW",
+      "name": "캐나다 TMX 한국향 원유 선적량",
+      "category": "industry_supply_chain",
+      "formula": "TMX/웨스트리지 터미널 한국향 분기 선적량",
+      "unit": "배럴/일",
+      "frequency": "분기",
+      "thresholds": {},
+      "threshold_rationale": "정보 공백 — E059 keep_as_fact 'TMX 89만 배럴/일', '한국향 캐나다 원유 4억 달러'만 존재. 임계는 수동 보강 필요",
+      "data_sources": [
+        "DS_KPLER_OIL_FLOWS",
+        "DS_REUTERS_SHIPPING"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E059"
+      ],
+      "related_R5_functions": [
+        "F32"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "energy",
+        "korea",
+        "import"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SOURCE_DIVERSIFICATION_FLOW"
+    },
+    {
+      "indicator_id": "IND_HBM_PRICE_INDEX",
+      "name": "HBM 컨트랙트 가격 지수",
+      "category": "industry_supply_chain",
+      "formula": "분기 HBM 가격 (TrendForce 등) MoM/QoQ",
+      "unit": "% 변화",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "-5~-9% QoQ",
+        "warn": "-10%+ QoQ",
+        "critical": "-10%+ 2분기 연속"
+      },
+      "threshold_rationale": "E027 monitoring '분기 HBM 가격·메모리 출하·삼성/SK하이닉스 가이던스 (Bear: HBM 가격 -10%+ 또는 출하 둔화)'; E037 'HBM 가동률·DRAM 컨트랙트 가격 인덱스'",
+      "data_sources": [
+        "DS_TRENDFORCE_REPORT",
+        "DS_DRAMEXCHANGE",
+        "DS_DART_QUARTERLY"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E027",
+        "E037",
+        "E047"
+      ],
+      "related_R5_functions": [
+        "F07",
+        "F08"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "semiconductor",
+        "memory"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_COMPONENT_CONTRACT_PRICE_QOQ"
+    },
+    {
+      "indicator_id": "IND_PHILA_SEMI_CONSECUTIVE_UP",
+      "name": "필라델피아 반도체 지수 연속 상승 일수",
+      "category": "industry_supply_chain",
+      "formula": "SOX 연속 상승 거래일 수 (양의 일별 수익률)",
+      "unit": "거래일",
+      "frequency": "일간",
+      "thresholds": {
+        "watch": "10거래일+",
+        "warn": "15거래일+",
+        "critical": "18거래일+ (사상 최장 갱신)"
+      },
+      "threshold_rationale": "E047 keep_as_fact '필라델피아 반도체 지수 18거래일 연속 상승'; monitoring 'Bear: 18거래일 이후 4일+ 단계 조정'",
+      "data_sources": [
+        "DS_BLOOMBERG_TERMINAL",
+        "DS_NASDAQ_FEED"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E047"
+      ],
+      "related_R5_functions": [
+        "F26"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "equity_strategy",
+        "semiconductor",
+        "us_market"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SECTOR_INDEX_CONSECUTIVE_UP_DAYS"
+    },
+    {
+      "indicator_id": "IND_OPENROUTER_TOKEN_VOLUME",
+      "name": "OpenRouter 월간 토큰 사용량",
+      "category": "industry_supply_chain",
+      "formula": "월간 합산 토큰 사용량",
+      "unit": "조 토큰/월 또는 YoY 배수",
+      "frequency": "월간",
+      "thresholds": {
+        "normal": "10배 YoY 이상",
+        "watch": "5배 YoY",
+        "warn": "2배 YoY (단계 둔화)",
+        "critical": "2배 미만 + 빅테크 QoQ -10% 동반"
+      },
+      "threshold_rationale": "E042 keep_as_fact '오픈라우터 1년 10배'; bear '1년 10배 → 5배 → 2배로 단계 둔화'",
+      "data_sources": [
+        "DS_OPENROUTER_PUBLIC",
+        "DS_WEBSEARCH_PATTERN"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E025",
+        "E042"
+      ],
+      "related_R5_functions": [
+        "F23",
+        "F27"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "ai_tech",
+        "infrastructure"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_AI_TOKEN_VOLUME_GROWTH"
+    },
+    {
+      "indicator_id": "IND_BIGTECH_TOKEN_QOQ",
+      "name": "빅테크 분기 토큰 사용량 QoQ",
+      "category": "industry_supply_chain",
+      "formula": "구글·MS·메타 토큰 처리량 분기 QoQ",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "+60%+ (구글 1Q 사례)",
+        "watch": "+20~30%",
+        "warn": "-10%QoQ 1사",
+        "critical": "-10%QoQ 3사 동반"
+      },
+      "threshold_rationale": "E042 keep_as_fact '구글 1Q QoQ 토큰 +60%'; monitoring 'Bear: 3사 모두 -10%QoQ 동반'",
+      "data_sources": [
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT",
+        "DS_SEC_10Q"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E042"
+      ],
+      "related_R5_functions": [
+        "F23",
+        "F27"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "ai_tech",
+        "big_tech"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SECTOR_USAGE_QOQ_DIVERGENCE"
+    },
+    {
+      "indicator_id": "IND_GPU_CLOUD_AVAILABILITY",
+      "name": "GPU 클라우드 가용성 인덱스 (A100/H100)",
+      "category": "industry_supply_chain",
+      "formula": "주요 클라우드 A100/H100 인스턴스 가용성",
+      "unit": "지수",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "역대 최저 부근 유지 (수요 초과 시그널)",
+        "warn": "역대 최저에서 회복 시작 (수요 둔화 시그널)",
+        "critical": "정상 회복 + 가격 -30% 동반"
+      },
+      "threshold_rationale": "E042 monitoring 'GPU 클라우드 가용성 인덱스(A100/H100) (Bear: 가용성 역대 최저 → 정상 회복으로 수요 둔화 시그널)'",
+      "data_sources": [
+        "DS_CLOUDIRR_GPU_INDEX",
+        "DS_WEBSEARCH_PATTERN"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E025",
+        "E042"
+      ],
+      "related_R5_functions": [
+        "F23"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "ai_tech",
+        "infrastructure"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_INFRA_AVAILABILITY_INDEX"
+    },
+    {
+      "indicator_id": "IND_KOREA_GIM_EXPORT_PRICE",
+      "name": "한국 김 수출 단가 (분기)",
+      "category": "industry_supply_chain",
+      "formula": "분기 김 수출액 ÷ 수출 물량",
+      "unit": "USD/MT",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "전년 동기 동등",
+        "watch": "단가 +5~9% QoQ",
+        "warn": "+10%+ 2분기 연속",
+        "critical": "작황 -20% 동반 또는 한중일 단가 우위 소실"
+      },
+      "threshold_rationale": "E018 monitoring '김 수출 분기별 단가·물량 추이 (Bull: 단가 +10%+ 2분기 연속)' / bear '작황 -20%+ + 한국 단가 우위 소실'; keep_as_fact '1.6조원 수출'",
+      "data_sources": [
+        "DS_KOREA_CUSTOMS",
+        "DS_MOF_FISHERY",
+        "DS_DART_QUARTERLY"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E018"
+      ],
+      "related_R5_functions": [
+        "F08"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "agriculture",
+        "korea",
+        "export"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_EXPORT_UNIT_PRICE_QOQ"
+    },
+    {
+      "indicator_id": "IND_CHINA_EV_EXPORT_VOLUME",
+      "name": "중국 EV 수출 대수 (연/분기)",
+      "category": "industry_supply_chain",
+      "formula": "중국 EV 완성차 분기 수출 대수",
+      "unit": "만대",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "100만대/분기",
+        "warn": "150만대/분기",
+        "critical": "260만대/연 또는 EU·미국 반덤핑 발표"
+      },
+      "threshold_rationale": "E060 keep_as_fact 'EV 260만대 수출'; triggers '중국 EV·배터리·태양광 특정 국가별 수출 급증'",
+      "data_sources": [
+        "DS_CHINA_CUSTOMS",
+        "DS_CAAM_AUTO_STATS"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E060",
+        "E058"
+      ],
+      "related_R5_functions": [
+        "F30"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "industrial",
+        "china",
+        "trade"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SECTOR_EXPORT_VOLUME"
+    },
+    {
+      "indicator_id": "IND_GLOBAL_GAME_GROWTH",
+      "name": "글로벌 게임 매출 성장률 (콘솔/PC/모바일)",
+      "category": "industry_supply_chain",
+      "formula": "글로벌 게임 매출 YoY (세그먼트별)",
+      "unit": "%",
+      "frequency": "연간",
+      "thresholds": {
+        "normal": "전체 2~3% 성장",
+        "watch": "콘솔 4%+ (회복기)",
+        "warn": "한국만 0% YoY 정체",
+        "critical": "중국 30%+ 2년 지속 + 한국 마이너스"
+      },
+      "threshold_rationale": "E014 keep_as_fact '글로벌 매출 277조원', '연 2.8%·콘솔 4.7%'; monitoring '미호요·텐센트 글로벌 매출 시계열 (Bear: 연 30%+ 성장 2년 지속)'",
+      "data_sources": [
+        "DS_NEWZOO_GAMING",
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E013",
+        "E014"
+      ],
+      "related_R5_functions": [
+        "F22",
+        "F39"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "game_industry",
+        "media"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SECTOR_GLOBAL_GROWTH_YOY"
+    },
+    {
+      "indicator_id": "IND_BIGTECH_CAPEX_GUIDANCE",
+      "name": "빅테크 4사 분기 CapEx 가이던스 (절대 규모)",
+      "category": "company_financial",
+      "formula": "MS·구글·아마존·메타 차기 분기/연 CapEx 가이던스",
+      "unit": "10억 달러 (분기/연)",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "MS 1,500억+/연",
+        "warn": "MS 1,900억+/연 또는 메타 1,150~1,450억",
+        "critical": "1곳이라도 컷 발표"
+      },
+      "threshold_rationale": "E036 keep_as_fact '마이크로소프트 2026 CapEx 1,900억'; E048 'MSFT 1,900억 capex 가이던스'; E062 'CapEx 1,150~1,450억 달러 가이던스'; E047 bear '1곳이라도 CapEx 가이던스 컷'",
+      "data_sources": [
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT",
+        "DS_SEC_10Q"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E036",
+        "E044",
+        "E047",
+        "E048",
+        "E062"
+      ],
+      "related_R5_functions": [
+        "F20",
+        "F21"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "big_tech",
+        "company_financial"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SECTOR_CAPEX_GUIDANCE_DIRECTION"
+    },
+    {
+      "indicator_id": "IND_OPENAI_FUNDING_MISMATCH",
+      "name": "오픈AI 약정 vs 조달 자금 미스매치",
+      "category": "company_financial",
+      "formula": "공시된 약정 총액 - 누적 조달액",
+      "unit": "10억 달러",
+      "frequency": "비정기 (보도 시점)",
+      "thresholds": {
+        "watch": "200B+ 갭",
+        "warn": "300B+ 갭",
+        "critical": "478B+ 갭 (6,000억 약정 - 1,220억 조달)"
+      },
+      "threshold_rationale": "E044 keep_as_fact '6,000억 약정', '1,220억 조달', 'WAU 9억 추정', 'GPU 렌탈 역대 최고'",
+      "data_sources": [
+        "DS_WSJ_BLOOMBERG_LEAK",
+        "DS_OPENAI_PUBLIC_PR"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E044",
+        "E048"
+      ],
+      "related_R5_functions": [
+        "F20",
+        "F21"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "startup_business",
+        "ai_tech"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_FUNDING_COMMITMENT_GAP"
+    },
+    {
+      "indicator_id": "IND_ENTROPIC_API_MOM",
+      "name": "Anthropic 엔터프라이즈 API MoM 성장",
+      "category": "company_financial",
+      "formula": "Anthropic 엔터프라이즈 API 매출 MoM 성장률",
+      "unit": "%",
+      "frequency": "월간",
+      "thresholds": {
+        "watch": "+30%+ MoM 1개월",
+        "warn": "+50%+ MoM 3개월 연속",
+        "critical": "+50%+ MoM 6개월 연속"
+      },
+      "threshold_rationale": "E029 monitoring 'Anthropic·OpenAI 엔터프라이즈 API 매출 MoM (Bear: 50%+ 6개월 연속)'; keep_as_fact 'Anthropic 매출 월 2배 증가 발언'",
+      "data_sources": [
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT",
+        "DS_WEBSEARCH_PATTERN"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E025",
+        "E029"
+      ],
+      "related_R5_functions": [
+        "F23",
+        "F24"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "ai_tech",
+        "saas"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_ENTERPRISE_API_MOM_GROWTH"
+    },
+    {
+      "indicator_id": "IND_REVENUE_PER_HEADCOUNT_AI",
+      "name": "AI 네이티브 1인당 매출 (ARR/직원수)",
+      "category": "company_financial",
+      "formula": "ARR ÷ FTE 직원수",
+      "unit": "억원/명 또는 USD/명",
+      "frequency": "분기 (공개 시점)",
+      "thresholds": {
+        "normal": "5억원 (한국 IT 베이스)",
+        "watch": "10억원 (한국 IT 우수)",
+        "warn": "20억원 (두나무 사례)",
+        "critical": "100억원+ (Cursor ARR $1B / 150명)"
+      },
+      "threshold_rationale": "E009 keep_as_fact 'Cursor AI ARR 10억 달러·150명', '두나무 1인당 매출 약 20억', '한국 IT 잘하는 회사 기준 5억→10억 이동(업계 통념)'",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_CRUNCHBASE_FUND",
+        "DS_WEBSEARCH_PATTERN"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E009",
+        "E012",
+        "E029"
+      ],
+      "related_R5_functions": [
+        "F19",
+        "F24"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "software",
+        "ai_tech",
+        "startup_business"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_REVENUE_PER_HEADCOUNT"
+    },
+    {
+      "indicator_id": "IND_RPO_GROWTH",
+      "name": "전문가 SaaS RPO 분기 성장률",
+      "category": "company_financial",
+      "formula": "잔여 이행의무(RPO) 분기 QoQ/YoY",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "25%+ YoY (어도비 베이스)",
+        "watch": "15~24% YoY",
+        "warn": "두 분기 연속 컨센 미스",
+        "critical": "신규 결제 -10% YoY 동반"
+      },
+      "threshold_rationale": "E007 monitoring '어도비·세일즈포스·아토라시안·오토데스크 분기 RPO·신규 결제 가이던스 (Bear: 두 분기 연속 컨센 미스 + 신규 결제 YoY 둔화)'; E010 '어도비 RPO 25%+ 4분기 연속'",
+      "data_sources": [
+        "DS_SEC_10Q",
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E007",
+        "E010"
+      ],
+      "related_R5_functions": [
+        "F16"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "software",
+        "saas"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SAAS_RPO_GROWTH"
+    },
+    {
+      "indicator_id": "IND_ORION_OP_MARGIN",
+      "name": "오리온 영업이익률",
+      "category": "company_financial",
+      "formula": "오리온 분기/연 영업이익 ÷ 매출",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "14~16",
+        "watch": "13 이하",
+        "warn": "12 이하",
+        "critical": "10 이하 (2014년 9% 수준 회귀)"
+      },
+      "threshold_rationale": "E019 keep_as_fact '오리온 매출 3.1조·영업이익률 17.5%', '2014년 9%→2024년 17%', '원가율 61%'",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_KIND_KR_DISCLOSURE"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E019"
+      ],
+      "related_R5_functions": [
+        "F19"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "consumer",
+        "food",
+        "korea"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_COMPANY_OP_MARGIN_REGIME"
+    },
+    {
+      "indicator_id": "IND_META_REALITY_LABS_LOSS",
+      "name": "메타 리얼리티랩스 누적 영업손실",
+      "category": "company_financial",
+      "formula": "리얼리티랩스 분기 누적 영업손실",
+      "unit": "10억 달러",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "900~1100B",
+        "warn": "1100~1199B",
+        "critical": "1200B+ 돌파"
+      },
+      "threshold_rationale": "E062 keep_as_fact '881억 달러 누적 손실'; monitoring 'Bear: 누적 1,200억 달러+'; bear '리얼리티랩스 누적 손실 1,200억 달러+ 돌파'",
+      "data_sources": [
+        "DS_SEC_10Q",
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E062"
+      ],
+      "related_R5_functions": [
+        "F44"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "big_tech",
+        "tech_themes"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_NEW_BIZ_CUMULATIVE_LOSS"
+    },
+    {
+      "indicator_id": "IND_KOLMAR_CLIENT_CONCENTRATION",
+      "name": "한국콜마 Top 5 고객사 매출 비중",
+      "category": "company_financial",
+      "formula": "상위 5개 고객사 매출 합계 ÷ 총 매출",
+      "unit": "%",
+      "frequency": "분기 (IR 공개 시)",
+      "thresholds": {
+        "watch": "50~59",
+        "warn": "60+ (Top 5 노출 위험)",
+        "critical": "60+ + 화장품 수출 YoY 0%"
+      },
+      "threshold_rationale": "E057 monitoring '한국콜마 분기 매출·영업이익률·고객사 집중도 IR 공개 (Bear: Top 5 60%+ 노출)'",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_KOLMAR_IR_PRES"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E057"
+      ],
+      "related_R5_functions": [
+        "F03"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "cosmetics_ODM",
+        "korea"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_TOP_N_CUSTOMER_CONCENTRATION"
+    },
+    {
+      "indicator_id": "IND_KOREA_COSMETICS_EXPORT_YOY",
+      "name": "한국 화장품 수출 YoY",
+      "category": "company_financial",
+      "formula": "월간/분기 한국 화장품 수출액 전년동기대비",
+      "unit": "%",
+      "frequency": "월간/분기",
+      "thresholds": {
+        "normal": "30+ (호황)",
+        "watch": "10~29",
+        "warn": "0~9 (둔화)",
+        "critical": "0 미만"
+      },
+      "threshold_rationale": "E057 monitoring '한국 화장품 수출 월간·분기 데이터 (Bull: 30%+ YoY 지속, Bear: 0% YoY 둔화)'; keep_as_fact '수출 114억$'",
+      "data_sources": [
+        "DS_KOREA_CUSTOMS",
+        "DS_KCOSMA_TRADE_STAT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E057"
+      ],
+      "related_R5_functions": [
+        "F03"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "consumer",
+        "korea",
+        "export"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_DOMAIN_EXPORT_YOY"
+    },
+    {
+      "indicator_id": "IND_ADOBE_QUARTERLY_REV",
+      "name": "어도비 분기 매출 / 영업이익",
+      "category": "company_financial",
+      "formula": "분기 매출, 분기 영업이익 (원화 환산 포함)",
+      "unit": "조원",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "매출 35조 이상 / 영업이익 12조 이상 (베이스)",
+        "watch": "성장률 둔화 (한 자릿수 YoY)",
+        "warn": "신규 결제 YoY 둔화 (E007)",
+        "critical": "신규 결제 -10% YoY"
+      },
+      "threshold_rationale": "E007 keep_as_fact '어도비 분기 매출 35조·영업이익 12조', '세일즈포스 1년 -27%, 아틀라시안 -40%'",
+      "data_sources": [
+        "DS_SEC_10Q",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E007",
+        "E010"
+      ],
+      "related_R5_functions": [
+        "F16"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "software",
+        "saas"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_COMPANY_QUARTERLY_REVENUE_REGIME"
+    },
+    {
+      "indicator_id": "IND_JTBC_OLYMPIC_AD_RATE",
+      "name": "JTBC 단독중계 광고 단가 (밀라노 vs 평창)",
+      "category": "company_financial",
+      "formula": "밀라노 동계 광고 단가 ÷ 평창 광고 단가 - 1",
+      "unit": "%",
+      "frequency": "사이클별",
+      "thresholds": {
+        "normal": "평창 수준 회복 (0% 부근)",
+        "watch": "-10~-29",
+        "warn": "-30%+ (Bear 트리거)",
+        "critical": "-30%+ + 잔여 5개 대회 중 0~1건만 재판매"
+      },
+      "threshold_rationale": "E017 monitoring '밀라노 동계올림픽 JTBC 단독중계 광고 단가·시청률 (Bear: 평창 대비 -30%+)'; keep_as_fact 'JTBC 매출 3800억·계약 5억불', 'IOC 4년 77억불'",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_KOBA_AD_INDEX"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E017"
+      ],
+      "related_R5_functions": [
+        "F41"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "media",
+        "media_rights",
+        "korea"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_LONG_CONTRACT_REPRICING_RATIO"
+    },
+    {
+      "indicator_id": "IND_XIAOMI_RD_REVENUE",
+      "name": "샤오미 매출 / R&D 비중",
+      "category": "company_financial",
+      "formula": "분기 매출 (조원), R&D 비중 (%)",
+      "unit": "조원, %",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "매출 56조 / R&D 27% (베이스)",
+        "watch": "매출 +20% YoY",
+        "warn": "매출 +30% YoY + R&D 30%+ 2년 지속",
+        "critical": "삼성·LG 가전 영업이익률 3% 미만 4분기 연속 동반"
+      },
+      "threshold_rationale": "E020 keep_as_fact '샤오미 매출 56→74조·R&D 27%'; monitoring 'Bear: R&D 30%+ + 매출 30%YoY+'",
+      "data_sources": [
+        "DS_HK_HKEX_FILING",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E020"
+      ],
+      "related_R5_functions": [
+        "F33"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "consumer_electronics",
+        "china"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_RD_INTENSITY_RATIO"
+    },
+    {
+      "indicator_id": "IND_SAMSUNG_LG_HOME_APPLIANCE_OPM",
+      "name": "삼성·LG 가전 부문 영업이익률",
+      "category": "company_financial",
+      "formula": "가전(CE/HA) 부문 분기 영업이익률",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "5+",
+        "watch": "4~4.9",
+        "warn": "3~3.9 (3% 미만 1분기)",
+        "critical": "3 미만 4분기 연속"
+      },
+      "threshold_rationale": "E020 monitoring '삼성·LG 가전 부문 분기 영업이익률 (Bear: 3% 미만 4분기 연속)'",
+      "data_sources": [
+        "DS_DART_QUARTERLY",
+        "DS_KIND_KR_DISCLOSURE"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E020"
+      ],
+      "related_R5_functions": [
+        "F33"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "consumer_electronics",
+        "korea"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SECTOR_OP_MARGIN_REGIME"
+    },
+    {
+      "indicator_id": "IND_GOOGLE_AI_CODE_PCT",
+      "name": "빅테크 'X% of code is AI-written' 비중",
+      "category": "company_financial",
+      "formula": "공식 발표/어닝콜 'AI 작성 코드 비중' 인용 수치",
+      "unit": "%",
+      "frequency": "분기 (발언 시)",
+      "thresholds": {
+        "normal": "50~74",
+        "watch": "75 (구글 베이스)",
+        "warn": "85+",
+        "critical": "복수 빅테크 85%+ 공식화"
+      },
+      "threshold_rationale": "E040 keep_as_fact '구글 신규 코드 75% AI'; monitoring 'Bear: 75% → 85%+'",
+      "data_sources": [
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT",
+        "DS_BIGTECH_BLOG_POST"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E040"
+      ],
+      "related_R5_functions": [
+        "F16",
+        "F24"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "big_tech",
+        "ai_tech",
+        "labor_market"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_AI_AUTOMATION_DISCLOSURE_LEVEL"
+    },
+    {
+      "indicator_id": "IND_INTEL_DC_AI_YOY",
+      "name": "인텔 DC&AI 매출 YoY",
+      "category": "company_financial",
+      "formula": "인텔 데이터센터&AI 분기 매출 YoY",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "20+ (22% 베이스)",
+        "watch": "16~19",
+        "warn": "15 이하 두 분기 연속",
+        "critical": "둔화 + ARM 점유율 +3%p 동반"
+      },
+      "threshold_rationale": "E038 keep_as_fact '인텔 DC&AI 22% YoY'; monitoring 'Bear: 두 분기 연속 15% 이하'",
+      "data_sources": [
+        "DS_SEC_10Q",
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E038"
+      ],
+      "related_R5_functions": [
+        "F08"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "semiconductor",
+        "company_financial"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SEGMENT_REVENUE_YOY"
+    },
+    {
+      "indicator_id": "IND_K_IT_HIRING_YOY",
+      "name": "한국 IT 대기업 신입 채용 공고 수 YoY",
+      "category": "company_financial",
+      "formula": "네이버·카카오·NHN·라인·쿠팡·토스 신입 채용 공고 분기 YoY",
+      "unit": "%",
+      "frequency": "분기",
+      "thresholds": {
+        "normal": "-10~+10% (안정)",
+        "watch": "-10~-19% 1분기",
+        "warn": "-20%+ 1분기",
+        "critical": "-20%+ 두 분기 연속"
+      },
+      "threshold_rationale": "E009 monitoring '한국 IT 대기업 신규 채용 공시 시계열 (Bear: -20%YoY 두 분기 연속)'; E012 동일",
+      "data_sources": [
+        "DS_JOBKOREA_SARAMIN",
+        "DS_DART_QUARTERLY"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E009",
+        "E012",
+        "E029"
+      ],
+      "related_R5_functions": [
+        "F19",
+        "F24"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "labor_market",
+        "korea",
+        "software"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SECTOR_HIRING_YOY"
+    },
+    {
+      "indicator_id": "IND_BIGTECH_LAYOFF_AI_TAG",
+      "name": "미국 빅테크 'AI 명시' 화이트칼라 감원",
+      "category": "company_financial",
+      "formula": "분기 누적 감원 인원 중 'AI 자동화' 명시 비중",
+      "unit": "명",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "1000+ 분기",
+        "warn": "3000+ 분기 + AI 명시",
+        "critical": "5000+ 분기 누적 + AI 명시 (MS 8700명 사례)"
+      },
+      "threshold_rationale": "E040 keep_as_fact 'MS 8,700명'; E029 monitoring '미국 빅테크 화이트칼라 감원 발표 누적 (Bear: 분기 5,000+ 명 누적 + AI 명시)'",
+      "data_sources": [
+        "DS_WARN_NOTICE_US",
+        "DS_BIGTECH_EARNINGS_TRANSCRIPT"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E029",
+        "E040"
+      ],
+      "related_R5_functions": [
+        "F24"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "labor_market",
+        "big_tech",
+        "ai_tech"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_AI_LABELED_LAYOFF_COUNT"
+    },
+    {
+      "indicator_id": "IND_SP500_TARGET_REVISION",
+      "name": "Sell-side 연말 S&P500 목표 상/하향 빈도",
+      "category": "market_sentiment",
+      "formula": "주요 IB 연말 S&P 목표 한 주 내 상향/하향 발표 건수",
+      "unit": "건/주",
+      "frequency": "주간",
+      "thresholds": {
+        "watch": "한 주 2건+ 동조",
+        "warn": "다수 기관 하향 동조",
+        "critical": "RBC·HSBC·바클레이스 + 골드만·모건스탠리 동시 하향"
+      },
+      "threshold_rationale": "E050 monitoring 'sell-side 연말 S&P 목표 상향/하향 빈도 (Bear: 다수 기관 하향 동조)'; keep_as_fact 'RBC·HSBC·바클레이스 상향', '야데니 8,253 목표'",
+      "data_sources": [
+        "DS_IB_RESEARCH_NOTE",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E045",
+        "E050"
+      ],
+      "related_R5_functions": [
+        "F28"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "equity_strategy",
+        "us_market"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SELLSIDE_TARGET_REVISION_FREQ"
+    },
+    {
+      "indicator_id": "IND_BERKSHIRE_13F_NYT",
+      "name": "버크셔 13F NYT/미디어 비중 변화",
+      "category": "market_sentiment",
+      "formula": "분기 13F 공시 내 NYT(또는 신뢰 앵커 미디어) 보유 비중 QoQ",
+      "unit": "%p",
+      "frequency": "분기 (13F 공시)",
+      "thresholds": {
+        "watch": "비중 유지",
+        "warn": "비중 +1%p 확대",
+        "critical": "추가 확대 + 다른 대형 자산운용사 동조"
+      },
+      "threshold_rationale": "E011 monitoring '버크셔·블랙록 등 대형 자산운용사 13F에서 NYT·미디어주 비중 변화 (Bear 트리거: 추가 확대)'; keep_as_fact '워렌 버핏이 버크셔 회장 물러나기 전 마지막 매수가 뉴욕타임스'",
+      "data_sources": [
+        "DS_SEC_13F_FILING",
+        "DS_WHALEWISDOM"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E011"
+      ],
+      "related_R5_functions": [
+        "F18"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "equity_strategy",
+        "media"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_ANCHOR_INVESTOR_POSITION_SHIFT"
+    },
+    {
+      "indicator_id": "IND_KOREA_30S_NEW_ACCOUNTS",
+      "name": "한국 30대 코스피 신규 계좌·신용·레버리지 ETF 비중",
+      "category": "market_sentiment",
+      "formula": "분기 30대 신규 계좌 + 신용 비중 + 레버리지 ETF 보유 비중",
+      "unit": "% QoQ",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "+5~+9% QoQ",
+        "warn": "+10%+ QoQ",
+        "critical": "+10%+ QoQ + 코인 비중 동반 + 영끌·신용 임계"
+      },
+      "threshold_rationale": "E031 monitoring '한국 30대·40대 코스피 신규 계좌 수·신용 비중·레버리지 ETF 비중 (Bear: 분기 +10%+ 급등)'",
+      "data_sources": [
+        "DS_KRX_INVESTOR_DATA",
+        "DS_KSD_KSEDS"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E027",
+        "E031"
+      ],
+      "related_R5_functions": [
+        "F04"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "market_sentiment",
+        "korea"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_RETAIL_LEVERAGE_INFLOW_QOQ"
+    },
+    {
+      "indicator_id": "IND_EM_ETF_FLOW",
+      "name": "EM ETF 자금 유입 (EEM/VWO 등)",
+      "category": "market_sentiment",
+      "formula": "주요 EM ETF 일별/주별 순유입",
+      "unit": "USD/주",
+      "frequency": "주간",
+      "thresholds": {
+        "normal": "4주+ 연속 플러스 (Bull)",
+        "watch": "2~3주 플러스",
+        "warn": "유출 전환",
+        "critical": "MSCI 리밸런싱 반대방향 발화"
+      },
+      "threshold_rationale": "E026 monitoring 'EM ETF(EEM·VWO 등) 자금 유입 일별·주별 시계열 (Bull: 4주+ 연속 플러스)'; bear 'EM ETF 자금 유입 둔화·유출 전환'",
+      "data_sources": [
+        "DS_EPFR_FLOW",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E026"
+      ],
+      "related_R5_functions": [
+        "F29"
+      ],
+      "tier": "semi_abstract",
+      "applies_to_domain": [
+        "etf_flow",
+        "emerging_markets"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_ASSET_CLASS_ETF_FLOW"
+    },
+    {
+      "indicator_id": "IND_BOFA_AI_LOSER_LIST",
+      "name": "Sell-side 'AI loser' 명단 추가 빈도",
+      "category": "market_sentiment",
+      "formula": "BofA·MS·GS sell-side 리포트의 'AI 타격' 종목 명단 변경 건수",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "1건 추가 (어도비 같은 첫 지목)",
+        "warn": "2~3건 추가",
+        "critical": "3건+ + 어도비·세일즈포스·아토라시안 동시 포함"
+      },
+      "threshold_rationale": "E007 monitoring 'BofA·MS·GS sell-side의 AI loser 리스트 변화 (선행 지표 — 명단 추가 = 컨센서스 시프트 시작)'; keep_as_fact 'BofA가 어도비를 AI 타격 1순위 지목'",
+      "data_sources": [
+        "DS_IB_RESEARCH_NOTE",
+        "DS_BLOOMBERG_TERMINAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E007"
+      ],
+      "related_R5_functions": [
+        "F16"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "equity_strategy",
+        "ai_tech"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_SELLSIDE_LOSER_LIST_GROWTH"
+    },
+    {
+      "indicator_id": "IND_POLYMARKET_KALSHI_VOLUME",
+      "name": "예측시장(Polymarket/Kalshi) 분기 거래량",
+      "category": "market_sentiment",
+      "formula": "분기 합산 거래량·MAU",
+      "unit": "USD/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "+50% QoQ",
+        "warn": "+100% QoQ",
+        "critical": "+100% + 대선/금리 베팅 가격-여론 괴리 빈발"
+      },
+      "threshold_rationale": "E061 monitoring 'Polymarket·Kalshi 분기 거래량·MAU·평균 베팅액 (Bear: 분기 +100%+ 가속)'",
+      "data_sources": [
+        "DS_POLYMARKET_API",
+        "DS_KALSHI_PUBLIC"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E061"
+      ],
+      "related_R5_functions": [
+        "F43"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "financial_innovation",
+        "market_structure"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_NEW_VENUE_VOLUME_GROWTH"
+    },
+    {
+      "indicator_id": "IND_FOREIGN_KR_FUND_FLOW",
+      "name": "60대 여성·외국인 한국주식 자금 유입",
+      "category": "market_sentiment",
+      "formula": "주별 60대 여성·외국인 누적 순매수 (코스피)",
+      "unit": "원 (주별)",
+      "frequency": "주간",
+      "thresholds": {
+        "normal": "4주+ 연속 플러스 (Bull)",
+        "watch": "정체",
+        "warn": "유출 전환 1주",
+        "critical": "유출 + 반도체 사이클 정점 동반"
+      },
+      "threshold_rationale": "E027 monitoring '60대 여성·외국인 자금 유입 시계열 (Bull: 4주+ 연속 플러스)'",
+      "data_sources": [
+        "DS_KRX_INVESTOR_DATA",
+        "DS_FSS_DART"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E027",
+        "E031"
+      ],
+      "related_R5_functions": [
+        "F04"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "market_sentiment",
+        "korea",
+        "etf_flow"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_DEMOGRAPHIC_FLOW_PERSISTENCE"
+    },
+    {
+      "indicator_id": "IND_TRUMP_TONE_REVERSAL_LAG",
+      "name": "트럼프 극단발언→톤반전 경과시간",
+      "category": "market_sentiment",
+      "formula": "극단 발언 시점부터 '전화 왔다·곧 합의' 멘트 등장까지 영업일",
+      "unit": "영업일",
+      "frequency": "이벤트별",
+      "thresholds": {
+        "normal": "5~10영업일 안 반전 (Bull 사이클 재현)",
+        "watch": "10~13영업일",
+        "warn": "14일+ 톤 반전 없음",
+        "critical": "데드라인 후 추가 제재·군사행동"
+      },
+      "threshold_rationale": "E021 monitoring '트럼프 극단 발언 후 톤 반전까지 *경과 시간* 시계열 (Bear: 14일 이상 톤 반전 없음)'; bull '5~10영업일 안에'",
+      "data_sources": [
+        "DS_TRUMP_TRUTHSOCIAL",
+        "DS_WHITEHOUSE_PRESS",
+        "DS_REUTERS_POLITICAL"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E021",
+        "E035"
+      ],
+      "related_R5_functions": [
+        "F25"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "geopolitics",
+        "policy_reaction"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_RHETORIC_TONE_REVERSAL_LAG"
+    },
+    {
+      "indicator_id": "IND_SEOUL_REZONING_DESIGNATION",
+      "name": "서울시 지구단위계획·용도지역 변경 신청·고시 건수",
+      "category": "policy_regulation",
+      "formula": "분기 신청·고시 건수 (후암·해방촌·성수 등 대상 지역)",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "1~2건 신청",
+        "warn": "3건+ (Bull 트리거 — E003/E005)",
+        "critical": "후암·해방촌 / 성수동 보전지구 지정 공고"
+      },
+      "threshold_rationale": "E003 monitoring '서울시 지구단위계획·용도지역 변경 신청·고시 건수 (Bull 트리거: 후암·해방촌 지정 신청)'; E005 monitoring '서울시·성동구 지구단위계획·보전지구 지정 공고'",
+      "data_sources": [
+        "DS_SEOUL_OPENGOV",
+        "DS_KIND_KR_DISCLOSURE"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E003",
+        "E005"
+      ],
+      "related_R5_functions": [
+        "F03",
+        "F37"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "real_estate",
+        "policy",
+        "korea"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_LAND_USE_POLICY_DESIGNATION_COUNT"
+    },
+    {
+      "indicator_id": "IND_CFTC_EVENT_CONTRACT_RULING",
+      "name": "CFTC 이벤트 계약 승인·금지 결정",
+      "category": "policy_regulation",
+      "formula": "분기 CFTC 결정 건수 (승인/금지/카테고리 확장)",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "카테고리 확장 승인",
+        "warn": "포지션 한도·KYC 도입 없는 추가 승인",
+        "critical": "포지션 한도+KYC 동시 도입 (Bull) / 카테고리 확장만 (Bear)"
+      },
+      "threshold_rationale": "E061 monitoring 'CFTC의 이벤트 계약 승인·금지 결정·포지션 한도 도입 (Bull: 포지션 한도+KYC, Bear: 카테고리 확장만 승인)'",
+      "data_sources": [
+        "DS_CFTC_PUBLIC_RULING",
+        "DS_FEDERAL_REGISTER"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E061"
+      ],
+      "related_R5_functions": [
+        "F43"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "regulation",
+        "financial_innovation"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_REGULATOR_NEW_PRODUCT_RULING"
+    },
+    {
+      "indicator_id": "IND_IMO_NUCLEAR_RULE_PROGRESS",
+      "name": "IMO 원자력 상선 규정 개정 진척",
+      "category": "policy_regulation",
+      "formula": "IMO 해사안전위/환경보호위 1차 채택 진행 단계",
+      "unit": "이정표 (제안→초안→채택)",
+      "frequency": "연간",
+      "thresholds": {
+        "watch": "초안 등장",
+        "warn": "2027년 1차 채택 (Bull)",
+        "critical": "2030년+ 지연 (Bear)"
+      },
+      "threshold_rationale": "E053 monitoring 'IMO 해사안전위원회·환경보호위원회 원자력 상선 규정 개정 일정 (Bull: 2027년 1차 채택)'; bear '2030년+ 지연'",
+      "data_sources": [
+        "DS_IMO_PUBLIC_DOCS",
+        "DS_INDUSTRY_REPORT"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E053"
+      ],
+      "related_R5_functions": [
+        "F31"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "regulation",
+        "shipping",
+        "energy_transition"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_INTL_RULE_MILESTONE_PROGRESS"
+    },
+    {
+      "indicator_id": "IND_KOREA_CAPITAL_MARKET_BILL",
+      "name": "한국 자본시장 부양 입법 가시화 (물적분할·자사주 마법·쪼개기)",
+      "category": "policy_regulation",
+      "formula": "관련 법안 발의·통과 건수 (국회 의안정보)",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "발의 다수",
+        "warn": "법사위 통과",
+        "critical": "본회의 통과 (Bull 트리거)"
+      },
+      "threshold_rationale": "E027 monitoring '한국 자본시장 부양 입법 — 물적분할·쪼개기 상장·자사주 마법 규제 강화 (Bull: 입법 통과)'",
+      "data_sources": [
+        "DS_KOREA_NA_BILLINFO",
+        "DS_FSC_PRESS"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E027"
+      ],
+      "related_R5_functions": [
+        "F04"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "regulation",
+        "korea",
+        "equity_strategy"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_DOMESTIC_REFORM_BILL_PROGRESS"
+    },
+    {
+      "indicator_id": "IND_KOREA_HAESUBU_GIM_GRADING",
+      "name": "해수부 김 등급제·원산지 표준 추진 일정",
+      "category": "policy_regulation",
+      "formula": "해수부 등급제 도입 이정표 (제안→고시→시행)",
+      "unit": "이정표",
+      "frequency": "연간",
+      "thresholds": {
+        "watch": "고시안 등장",
+        "warn": "정상 일정",
+        "critical": "2년+ 지연 (Bear 트리거)"
+      },
+      "threshold_rationale": "E018 monitoring '해수부 김 등급제·원산지 표준 제도 추진 일정'; bear '등급제 도입 지연(해수부 일정 2년 이상 미뤄짐)'",
+      "data_sources": [
+        "DS_KOREA_MOF",
+        "DS_KOREA_NA_BILLINFO"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E018"
+      ],
+      "related_R5_functions": [
+        "F08"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "regulation",
+        "agriculture",
+        "korea"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_INTL_RULE_MILESTONE_PROGRESS"
+    },
+    {
+      "indicator_id": "IND_OFAC_KR_BANK_FINES",
+      "name": "OFAC 한국 시중은행·기업 벌금·조사 헤드라인",
+      "category": "policy_regulation",
+      "formula": "분기 OFAC 한국 관련 결정 건수 (벌금/조사/SDN)",
+      "unit": "건/분기",
+      "frequency": "분기",
+      "thresholds": {
+        "watch": "조사 개시",
+        "warn": "벌금 1건",
+        "critical": "SDN 리스트 한국 기업 등재"
+      },
+      "threshold_rationale": "E065 monitoring '미국 OFAC의 한국 시중은행·기업 벌금·조사 헤드라인 (Bear: 추가 벌금·SDN 리스트)'",
+      "data_sources": [
+        "DS_OFAC_SDN_LIST",
+        "DS_US_TREASURY_PRESS"
+      ],
+      "interpretation_direction": "higher_is_warning",
+      "related_R4_cards": [
+        "E065"
+      ],
+      "related_R5_functions": [
+        "F15"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "compliance",
+        "regulation"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_FOREIGN_REGULATOR_PENALTY_COUNT"
+    },
+    {
+      "indicator_id": "IND_US_UAE_SECURITY_MOU",
+      "name": "미국-UAE 안보·AI·반도체 MOU 체결 진행",
+      "category": "policy_regulation",
+      "formula": "공식 발표 시점·F-35 패키지 진행",
+      "unit": "이정표",
+      "frequency": "비정기",
+      "thresholds": {
+        "watch": "협상 시작 보도",
+        "warn": "MOU 초안 공개",
+        "critical": "1년 내 체결 (Bull) / 1년 내 미체결 (Bear)"
+      },
+      "threshold_rationale": "E052 monitoring '미국-UAE 안보·AI·반도체 MOU·F-35 패키지 공식 발표 시점 (Bull: 1년 내 체결)'",
+      "data_sources": [
+        "DS_US_STATE_DEPT",
+        "DS_REUTERS_POLITICAL"
+      ],
+      "interpretation_direction": "lower_is_warning",
+      "related_R4_cards": [
+        "E052"
+      ],
+      "related_R5_functions": [
+        "F05"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "geopolitics",
+        "trade_policy"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_BILATERAL_STRATEGIC_AGREEMENT_PROGRESS"
+    },
+    {
+      "indicator_id": "IND_BOTOX_STRAIN_RULING",
+      "name": "메디톡스-대웅·휴젤 균주 분쟁 판결",
+      "category": "policy_regulation",
+      "formula": "ITC·국내 법원 판결 시점·내용",
+      "unit": "이정표 (화해 / 사용금지)",
+      "frequency": "비정기",
+      "thresholds": {
+        "watch": "심리 진행",
+        "warn": "1심 판결",
+        "critical": "사용·수출 금지 명령 (Bear) / 화해·로열티 합의 (Bull)"
+      },
+      "threshold_rationale": "E056 monitoring '메디톡스-대웅·휴젤 균주 분쟁 ITC·국내 법원 판결 시점·내용 (Bull: 화해·로열티 합의, Bear: 사용·수출 금지)'",
+      "data_sources": [
+        "DS_USITC_RULING",
+        "DS_KOREA_COURT_PUBLIC",
+        "DS_MFDS_DRUG_REG"
+      ],
+      "interpretation_direction": "both_tail",
+      "related_R4_cards": [
+        "E056"
+      ],
+      "related_R5_functions": [
+        "F42"
+      ],
+      "tier": "case_specific",
+      "applies_to_domain": [
+        "biotech",
+        "ip_litigation"
+      ],
+      "examples_specific": null,
+      "abstract_parent": "IND_ABS_IP_LITIGATION_RULING_DIRECTION"
+    }
+  ]
+}

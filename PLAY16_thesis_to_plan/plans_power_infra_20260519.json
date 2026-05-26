@@ -1,0 +1,100 @@
+[
+  {
+    "ticker": "034020",
+    "name": "두산에너빌",
+    "entry": 105200.0,
+    "direction": "long",
+    "confidence": 0.887,
+    "upside_pct": 44.34,
+    "atr_mult_suggested": 1.86,
+    "source_row": {
+      "종목": "두산에너빌(034020)",
+      "현재가": "105,200",
+      "컨센 상승여력": "**+44.34%**"
+    }
+  },
+  {
+    "ticker": "298040",
+    "name": "효성중",
+    "entry": 3555000.0,
+    "direction": "long",
+    "confidence": 0.601,
+    "upside_pct": 30.04,
+    "atr_mult_suggested": 1.52,
+    "source_row": {
+      "종목": "효성중(298040)",
+      "현재가": "3,555,000",
+      "컨센 상승여력": "+30.04%"
+    }
+  },
+  {
+    "ticker": "267260",
+    "name": "HD현대일렉",
+    "entry": 1078000.0,
+    "direction": "long",
+    "confidence": 0.738,
+    "upside_pct": 36.89,
+    "atr_mult_suggested": 1.69,
+    "source_row": {
+      "종목": "HD현대일렉(267260)",
+      "현재가": "1,078,000",
+      "컨센 상승여력": "+36.89%"
+    }
+  },
+  {
+    "ticker": "062040",
+    "name": "산일전기",
+    "entry": 248000.0,
+    "direction": "long",
+    "confidence": 0.392,
+    "upside_pct": 19.62,
+    "atr_mult_suggested": 1.27,
+    "source_row": {
+      "종목": "산일전기(062040)",
+      "현재가": "248,000",
+      "컨센 상승여력": "+19.62%"
+    }
+  },
+  {
+    "ticker": "052690",
+    "name": "한전기술",
+    "entry": 139700.0,
+    "direction": "long",
+    "confidence": 1.0,
+    "upside_pct": 52.17,
+    "atr_mult_suggested": 2.0,
+    "source_row": {
+      "종목": "한전기술(052690)",
+      "현재가": "139,700",
+      "컨센 상승여력": "+52.17%"
+    }
+  },
+  {
+    "ticker": "010120",
+    "name": "LS일렉",
+    "entry": 244000.0,
+    "direction": "short",
+    "confidence": 0.019,
+    "upside_pct": -0.95,
+    "atr_mult_suggested": 0.82,
+    "source_row": {
+      "종목": "LS일렉(010120)",
+      "현재가": "244,000",
+      "컨센 상승여력": "**-0.95%** (컨센 도달)"
+    }
+  },
+  {
+    "ticker": "001440",
+    "name": "대한전선",
+    "entry": 53800.0,
+    "direction": "short",
+    "confidence": 0.112,
+    "upside_pct": -5.58,
+    "atr_mult_suggested": 0.93,
+    "source_row": {
+      "종목": "대한전선(001440)",
+      "현재가": "53,800",
+      "컨센 상승여력": "**-5.58%** (컨센 도달)"
+    }
+  }
+]
