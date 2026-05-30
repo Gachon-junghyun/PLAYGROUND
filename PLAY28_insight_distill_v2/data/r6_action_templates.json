@@ -1,0 +1,428 @@
+{
+  "dataset_name": "r6_action_templates",
+  "version": "v1",
+  "created_at": "2026-05-18",
+  "total_actions": 22,
+  "principle": "분석 행동만 — 매수/매도/비중 권유 절대 금지 (R4/R5 핵심 원칙 계승). action은 추적·확인·재검증·cross-ref·State Report 갱신 같은 분석 행동까지만 자동화.",
+  "severity_levels": ["watch", "warn", "critical", "cross_ref", "backtest"],
+  "scope_note": "각 action은 임계 발동 시 자동 또는 사용자 개입으로 실행. mvp 모듈 (module_disclosure, module_valuation, module_embedding, module_scenario_scan)·LLM_search·LLM_CHART·daily_insight cron과 연동. R5 함수 활성화 또는 T2 카드의 monitoring_signals_24h 임계 트리거 시 발동.",
+  "actions": [
+    {
+      "action_id": "ACT_DART_ALERT_REGISTER",
+      "name": "DART 다음 분기 공시 알람 등록",
+      "severity": "watch",
+      "category": "monitoring_setup",
+      "trigger_condition_pattern": "KPI watch 임계 진입 또는 신규 R5 함수 활성화 시 (수주·자사주·자본·지분·실적 카테고리 추적 필요).",
+      "executable_steps": [
+        "1. 종목 코드 확인: sqlite3 corp_embeddings.db \"SELECT code FROM corp_descriptions WHERE name=?\"",
+        "2. python -m module_disclosure <ticker> --days 90 --out llm_outputs/<thesis>/disclosure_baseline.json (베이스라인 캐싱)",
+        "3. scripts/cron_register.py --task disclosure_<ticker> --interval 14d --cmd 'python -m module_disclosure <ticker> --days 14'",
+        "4. 분기말 +2주 후 자동 재실행 등록 (Windows Task Scheduler 또는 cron)"
+      ],
+      "expected_output": "다음 분기 공시 발생 시 disclosure_diff.json 자동 생성 + 텔레그램 daily_digest에 합산",
+      "tooling": ["module_disclosure", "scripts/cron_register.py", "Telegram bot daily_digest"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["F20", "F33", "F37"],
+      "applicable_to_severity": ["watch", "warn"],
+      "anti_pattern": "분기보고 의무 미달 회사 (소형주·비상장)는 DART 데이터 부재 — 적용 X. 외감 대상 외 종목 사전 체크 필요."
+    },
+    {
+      "action_id": "ACT_WATCHLIST_ADD",
+      "name": "watchlist.json에 신규 thesis 등록",
+      "severity": "watch",
+      "category": "monitoring_setup",
+      "trigger_condition_pattern": "신규 R5 함수가 24h 사건에서 처음 활성화되거나, 기존 watchlist에 없는 산업의 시나리오 significance>=0.7 도달 시.",
+      "executable_steps": [
+        "1. insight_corpus/daily/watchlist.json Read",
+        "2. 신규 thesis 객체 생성 (industry, thesis_name, seeds, core_companies 필드)",
+        "3. JSON 유효성 검증 (jq 또는 python json.load)",
+        "4. 다음 08:00 cron부터 daily_insight.py가 자동 처리"
+      ],
+      "expected_output": "다음날 daily_insight cron에서 해당 thesis의 24h 뉴스 자동 매칭 + T2 카드 합성 대상에 포함",
+      "tooling": ["insight_corpus/daily/watchlist.json", "scripts/daily_insight.py"],
+      "user_action_required": true,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["watch"],
+      "anti_pattern": "watchlist 5개 한도 초과 시 LLM 호출 비용 폭증 — global_run.max_topics_per_day로 가드."
+    },
+    {
+      "action_id": "ACT_MONITORING_SIGNAL_TIMESERIES",
+      "name": "monitoring_signals 시계열 추적 시작",
+      "severity": "watch",
+      "category": "monitoring_setup",
+      "trigger_condition_pattern": "R4 카드의 monitoring_signals 또는 T2 카드의 monitoring_signals_24h가 신규 등록 시.",
+      "executable_steps": [
+        "1. monitoring_signals 필드에서 *추적 가능한 정량 지표* 추출 (예: 분기 신축 비중, 권리금 시세, 외국인 객단가)",
+        "2. scripts/signal_collector.py --signal '<지표명>' --source <DART|naver|krx> --interval 30d 등록",
+        "3. 30일 간격 자동 수집 → llm_outputs/signals/<signal_name>.csv 누적",
+        "4. bull_trigger/bear_trigger 임계 도달 시 ACT_USER_DISPATCH 자동 호출"
+      ],
+      "expected_output": "지표별 시계열 CSV + 임계 돌파 시 자동 alert",
+      "tooling": ["scripts/signal_collector.py", "module_valuation", "DART API"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["watch", "warn"],
+      "anti_pattern": "정성 시그널 (예: '컨센서스 변화')은 시계열화 불가 — quote 인용만 누적."
+    },
+    {
+      "action_id": "ACT_PEER_BASELINE_SNAPSHOT",
+      "name": "peer 그룹 베이스라인 스냅샷 저장",
+      "severity": "watch",
+      "category": "monitoring_setup",
+      "trigger_condition_pattern": "신규 thesis 등록 직후 또는 watch 임계 진입 시 peer 비교 기준점 박제.",
+      "executable_steps": [
+        "1. python -m module_embedding peers <ticker> --top 10 (자동 peer 추천)",
+        "2. python -m module_valuation <ticker> --auto-peers 5 --out llm_outputs/<thesis>/valuation_baseline_<date>.json",
+        "3. 같은 명령을 30/90/180일 후 재실행 cron 등록",
+        "4. diff는 ACT_BACKTEST_LOG_ENTRY 자동 호출로 누적"
+      ],
+      "expected_output": "peer 멀티플·시총·외인 등 베이스라인 스냅샷 + 시계열 비교 가능",
+      "tooling": ["module_valuation", "module_embedding"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["F06", "F10", "F25", "F27"],
+      "applicable_to_severity": ["watch", "warn"],
+      "anti_pattern": "종합기업·지주·금융지주는 임베딩 peer 품질 낮음 (module_embedding audit broad 결과 자동 제외)."
+    },
+    {
+      "action_id": "ACT_T2_PROMOTION_FLAG",
+      "name": "T2 카드 promotion_candidate=true 마킹",
+      "severity": "warn",
+      "category": "escalation",
+      "trigger_condition_pattern": "T2 카드의 source_articles raw_quote >= 3건 + same thesis 7일 누적 카드 >= 3장 + auto_quality.score >= 6.",
+      "executable_steps": [
+        "1. insight_corpus/daily/LLM_create_<date>.json Read",
+        "2. 해당 카드의 promotion_candidate 필드를 true로 갱신",
+        "3. insight_corpus/daily/index.json의 promotion_candidates 배열에 card_id 추가",
+        "4. 분기 quarterly_promotion.py 실행 시 자동 검수 대상에 포함"
+      ],
+      "expected_output": "분기 promotion 검수 큐에 등록 + 사용자가 분기말 GUI에서 R4 격상 여부 결정",
+      "tooling": ["insight_corpus/daily/index.json", "scripts/quarterly_promotion.py"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn", "critical"],
+      "anti_pattern": "auto_template 위반 카드는 promotion 후보 X — skip_reasons에 사유 로깅."
+    },
+    {
+      "action_id": "ACT_WEBSEARCH_AUTO_QUERY",
+      "name": "WebSearch 자동 쿼리 등록 (단발 검증)",
+      "severity": "warn",
+      "category": "cross_reference",
+      "trigger_condition_pattern": "R5 함수 활성화 + 함수의 verification_questions 중 외부 데이터 확인 필요 시.",
+      "executable_steps": [
+        "1. 활성화 함수의 verification_questions 배열에서 외부 확인 가능 항목 추출",
+        "2. 자동 쿼리 문자열 생성 (예: 'F01 verification: 사인할 대표성·국가·신뢰 3개가 다 구성됐나?' → '<thesis> 협상 대표 명단 2026')",
+        "3. WebSearch 호출 → 결과 llm_outputs/<thesis>/websearch_<date>.txt 저장",
+        "4. 결과를 다음 daily_insight cron의 R4 cross-ref Stage B input으로 투입"
+      ],
+      "expected_output": "verification_questions별 외부 증거 텍스트 + 다음 카드 합성 시 인용",
+      "tooling": ["WebSearch", "scripts/daily_insight.py"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["F01", "F02", "F04", "F25"],
+      "applicable_to_severity": ["warn"],
+      "anti_pattern": "고빈도 함수 활성화 (F10·F33) 매일 호출 시 비용 초과 — 7일 쿨다운 필수."
+    },
+    {
+      "action_id": "ACT_SAME_FRAMEWORK_RECHECK",
+      "name": "동일 framework_used 카드 전수 재검증",
+      "severity": "warn",
+      "category": "cross_reference",
+      "trigger_condition_pattern": "특정 framework_used (예: regime_shift, decoupling)이 24h 사건과 충돌 신호를 보일 때.",
+      "executable_steps": [
+        "1. r4_all_cards.jsonl에서 framework_used == <target> 카드 ID 전체 추출 (grep으로 1차 필터)",
+        "2. 각 카드의 trigger_conditions 배열과 24h 뉴스 키워드 매칭",
+        "3. 매칭률 >= 30% 카드를 카드별 attention_hook + bull_case + bear_case 묶음 출력",
+        "4. 같은 framework 적용 가능 여부를 LLM (Gemini Flash)이 1줄 판정"
+      ],
+      "expected_output": "동일 framework 카드 N장의 attention_hook·reasoning_move·consensus_gap 요약 + 적용 가능 여부",
+      "tooling": ["Grep r4_all_cards.jsonl", "Gemini Flash"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn", "critical"],
+      "anti_pattern": "framework_used 분류가 broad한 카드 (예: regime_shift는 10장+) — 매칭률 임계를 50%로 상향."
+    },
+    {
+      "action_id": "ACT_TELEGRAM_ALERT_WARN",
+      "name": "텔레그램 warn 알림 송신",
+      "severity": "warn",
+      "category": "user_notification",
+      "trigger_condition_pattern": "R5 함수 활성화 + monitoring_signal 임계 진입 + auto_quality.score >= 6.",
+      "executable_steps": [
+        "1. T2 카드의 event_summary + activated_R5_functions + primary_thinking_function 추출",
+        "2. python scripts/daily_digest.py --card-id <L_id> --send-telegram",
+        "3. 메시지 포맷: '[WARN] <thesis> | F<id> 활성화 | <event_summary 1줄> | 추적 신호: <monitoring_signals_24h 1개>'",
+        "4. ADMIN_USER_ID에게만 송신 (방송 X)"
+      ],
+      "expected_output": "텔레그램 알림 1건 (분석 행동 명세만, 매수/매도 권유 X)",
+      "tooling": ["Telegram bot daily_digest", "scripts/daily_digest.py"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn", "critical"],
+      "anti_pattern": "auto_quality.score < 5 카드는 알림 X — 노이즈 가드."
+    },
+    {
+      "action_id": "ACT_NEWS_DEEP_FETCH",
+      "name": "관련 뉴스 본문 깊이 스크랩",
+      "severity": "warn",
+      "category": "monitoring_setup",
+      "trigger_condition_pattern": "warn 임계 진입 후 24h 뉴스 본문 ok 비율이 50% 미만일 때 (raw_quote 부족 위험).",
+      "executable_steps": [
+        "1. python article_scraper.py -k '<thesis seeds>' -n 200 -w 10 -d 0.2",
+        "2. 본문 ok 비율 재계산 → 80% 미만이면 추가 RSS 수집 트리거",
+        "3. python parser.py fast --no-scenarios 호출 (Gemini API 미사용, RSS만 추가)",
+        "4. 다음 daily_insight cron이 풍부한 본문으로 재합성"
+      ],
+      "expected_output": "본문 ok 비율 향상 + raw_quote 인용 강도 증가",
+      "tooling": ["article_scraper.py", "parser.py", "news_alert.db"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn"],
+      "anti_pattern": "Google News RSS URL은 본문 수집 불가 — short/error 상태로 남음, 재시도 X."
+    },
+    {
+      "action_id": "ACT_USER_DISPATCH",
+      "name": "사용자 디스패치 (분석 결정 필요 마킹)",
+      "severity": "critical",
+      "category": "escalation",
+      "trigger_condition_pattern": "bull_trigger 또는 bear_trigger의 임계 조건이 monitoring_signals 시계열에서 충족 + 24h 안에 R5 함수 2개 이상 동시 활성화.",
+      "executable_steps": [
+        "1. T2 카드의 attention_hook + implicit_question + bear/bull_trigger 추출",
+        "2. 텔레그램 메시지 작성: '[CRITICAL] <thesis> | <트리거 충족 내용> | *분석 결정 필요* | 참고 함수 F<ids>'",
+        "3. ADMIN_USER_ID에게 즉시 송신 (cron 사이클 대기 X)",
+        "4. insight_corpus/daily/dispatched.log에 dispatch 이벤트 기록"
+      ],
+      "expected_output": "사용자에게 *분석 행동 결정 요청* (매수/매도 권유 X, 다음 추적 단계만 제시)",
+      "tooling": ["Telegram bot", "scripts/daily_digest.py"],
+      "user_action_required": true,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["critical"],
+      "anti_pattern": "단일 함수 활성화·단일 신호 도달만으로 dispatch X — 노이즈 폭증 위험."
+    },
+    {
+      "action_id": "ACT_PHASE_D_WEBSEARCH_BATCH",
+      "name": "Phase D WebSearch 6~8건 통합 호출",
+      "severity": "critical",
+      "category": "cross_reference",
+      "trigger_condition_pattern": "critical 임계 발동 후 thesis의 R4 카드 cross-ref만으로 부족 + 외부 신규 데이터 필요.",
+      "executable_steps": [
+        "1. activated_R5_functions의 verification_questions 통합 추출 (중복 제거)",
+        "2. WebSearch 쿼리 6~8건 생성 (각 question당 1~2건)",
+        "3. WebSearch 병렬 호출 → 결과 llm_outputs/<thesis>/phase_d_<date>/ 디렉토리에 저장",
+        "4. 결과 통합 요약을 다음 LLM 합성 input에 투입 (Gemini Pro)"
+      ],
+      "expected_output": "외부 증거 6~8건 + thesis 재검증 자료 + 다음 T2 카드 합성에 인용",
+      "tooling": ["WebSearch", "Gemini Pro", "scripts/daily_insight.py"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["critical"],
+      "anti_pattern": "분기 1회 한도 — 매주 호출 시 API 비용 폭증. 한 thesis당 90일 쿨다운."
+    },
+    {
+      "action_id": "ACT_STATE_REPORT_URGENT_UPDATE",
+      "name": "State Report 긴급 갱신",
+      "severity": "critical",
+      "category": "escalation",
+      "trigger_condition_pattern": "critical 임계 발동 + 기존 State Report의 thesis 결론이 24h 신호와 정면 충돌 시.",
+      "executable_steps": [
+        "1. 기존 State Report (insight_corpus/state_reports/<thesis>_<date>.md) 마지막 버전 Read",
+        "2. 24h 카드의 attention_hook + bear/bull_trigger를 *충돌 신호* 섹션으로 추가",
+        "3. 같은 파일에 _v<n+1> suffix로 새 버전 저장 (이전 버전 보존)",
+        "4. Telegram에 'State Report 긴급 갱신 완료' 알림 송신"
+      ],
+      "expected_output": "버전 관리된 State Report + 사용자 확인용 diff",
+      "tooling": ["insight_corpus/state_reports/", "Telegram bot"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["critical"],
+      "anti_pattern": "State Report 부재 thesis는 갱신 대상 X — NEW_THESIS_RESEARCH 먼저 cold-start."
+    },
+    {
+      "action_id": "ACT_NEW_THESIS_RESEARCH_TRIGGER",
+      "name": "NEW_THESIS_RESEARCH cold-start 트리거",
+      "severity": "critical",
+      "category": "escalation",
+      "trigger_condition_pattern": "24h 사건이 기존 watchlist 외 산업이면서 R5 함수 3개+ 동시 활성화 + 시나리오 significance >= 0.8.",
+      "executable_steps": [
+        "1. 신규 thesis 후보 명세 생성 (industry, seeds, core_companies 자동 추출)",
+        "2. python scripts/new_thesis_research.py --thesis <name> --seeds <seeds> --cold-start",
+        "3. NEW_THESIS_RESEARCH_PROTOCOL.md의 cold-start 절차 자동 실행 (백본 데이터 수집)",
+        "4. 결과 검증 후 ACT_WATCHLIST_ADD로 watchlist 등록 candidate 제출"
+      ],
+      "expected_output": "신규 thesis의 백본 리서치 결과 + watchlist 등록 후보",
+      "tooling": ["scripts/new_thesis_research.py", "NEW_THESIS_RESEARCH_PROTOCOL.md"],
+      "user_action_required": true,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["critical"],
+      "anti_pattern": "단발 사건 (지정학·이벤트성)은 cold-start 부적합 — daily T2 카드로만 누적."
+    },
+    {
+      "action_id": "ACT_CROSS_REF_R4_CARDS",
+      "name": "관련 R4 카드 cross-ref 확인",
+      "severity": "cross_ref",
+      "category": "cross_reference",
+      "trigger_condition_pattern": "함수 활성화 또는 임계 발동 시 즉시 (모든 severity 공통 first-step).",
+      "executable_steps": [
+        "1. 함수의 source_cards 카드 ID 리스트 추출 (r5_thinking_functions.json)",
+        "2. 각 카드 ID로 r4_all_cards.jsonl Grep → 카드 본문 Read",
+        "3. 각 카드의 cross_reference_cards 필드도 펼침 (재귀 1단계)",
+        "4. 카드별 attention_hook + reasoning_move + consensus_gap 요약 출력"
+      ],
+      "expected_output": "관련 카드 N장의 요약 + 같은 사고 패턴 적용 가능 여부 보고",
+      "tooling": ["Read r4_all_cards.jsonl", "Grep"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["watch", "warn", "critical"]
+    },
+    {
+      "action_id": "ACT_FRAMEWORK_RESONANCE_SCAN",
+      "name": "동일 framework_resonance 함수 전수 점검",
+      "severity": "cross_ref",
+      "category": "cross_reference",
+      "trigger_condition_pattern": "특정 함수 활성화 시 동일 framework_resonance 태그를 가진 다른 함수도 활성화 가능성 점검.",
+      "executable_steps": [
+        "1. 활성화 함수의 framework_resonance 배열 추출 (예: ['geopolitical_risk_premium', 'decoupling'])",
+        "2. r5_thinking_functions.json에서 동일 resonance 가진 모든 함수 ID 추출",
+        "3. 각 함수의 trigger_when을 24h 사건과 LLM 매칭 (Gemini Flash 30 토큰/함수)",
+        "4. 매칭률 >= 50% 함수를 activated_R5_functions에 추가"
+      ],
+      "expected_output": "동일 resonance 그룹의 추가 활성화 함수 + 함수간 사고 패턴 그래프 확장",
+      "tooling": ["Read r5_thinking_functions.json", "Gemini Flash"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn", "critical"],
+      "anti_pattern": "resonance 태그가 broad한 함수 (macro·policy)는 매칭률 임계 70%로 상향."
+    },
+    {
+      "action_id": "ACT_RELATED_FUNCTIONS_GRAPH",
+      "name": "related_functions 그래프 펼침",
+      "severity": "cross_ref",
+      "category": "cross_reference",
+      "trigger_condition_pattern": "단일 함수 활성화 후 함수간 사고 패턴 chain 추적이 필요할 때.",
+      "executable_steps": [
+        "1. 활성화 함수의 related_functions 배열 (예: F01의 ['F02', 'F03', 'F25'])",
+        "2. 각 related 함수의 abstract_form + verification_questions 추출",
+        "3. 2단계 그래프 펼침 (F01 → F02 → F02의 related)",
+        "4. 그래프 시각화 또는 markdown 표 출력 (functions_graph_<date>.md)"
+      ],
+      "expected_output": "활성화 함수 중심 2-hop 그래프 + 추가 verification 항목",
+      "tooling": ["Read r5_thinking_functions.json"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn", "critical"],
+      "anti_pattern": "related_functions 배열 빈 함수는 graph 펼침 불가 — skip."
+    },
+    {
+      "action_id": "ACT_DOMAIN_FUNCTION_LOOKUP",
+      "name": "동일 applies_to_domain 함수 호출",
+      "severity": "cross_ref",
+      "category": "cross_reference",
+      "trigger_condition_pattern": "thesis의 industry 또는 applies_to_domain 태그가 명확할 때 도메인 특화 함수 보강.",
+      "executable_steps": [
+        "1. thesis industry → applies_to_domain 매핑 (예: '전력인프라' → 'energy', 'infra')",
+        "2. r5_thinking_functions.json에서 매칭 domain 함수 추출",
+        "3. 각 함수의 trigger_when 검사 → 24h 사건 매칭률 계산",
+        "4. 매칭률 >= 40% 함수를 activated_R5_functions에 보강 추가"
+      ],
+      "expected_output": "도메인 특화 함수 추가 활성화 + 누락된 사고 패턴 보완",
+      "tooling": ["Read r5_thinking_functions.json"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn", "critical"],
+      "anti_pattern": "applies_to_domain = ['macro']같은 광범위 함수는 매칭률 임계 60%로 상향."
+    },
+    {
+      "action_id": "ACT_T2_SAME_THESIS_CLUSTER",
+      "name": "동일 thesis의 7일 누적 T2 카드 클러스터 확인",
+      "severity": "cross_ref",
+      "category": "cross_reference",
+      "trigger_condition_pattern": "신규 T2 카드 합성 직후 같은 thesis_name의 최근 7일 카드 패턴 추적.",
+      "executable_steps": [
+        "1. insight_corpus/daily/LLM_create_*.json 최근 7개 파일 Read",
+        "2. thesis_name 매칭 카드 추출 → activated_R5_functions 빈도 집계",
+        "3. 빈도 top-3 함수 = thesis의 주력 사고 회로 → State Report에 기록",
+        "4. 같은 attention_hook 반복 시 clustering 후 promotion candidate 마킹"
+      ],
+      "expected_output": "thesis별 7일 함수 빈도 분포 + 반복 패턴 자동 식별",
+      "tooling": ["Read insight_corpus/daily/", "Glob LLM_create_*.json"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn"],
+      "anti_pattern": "7일 카드 수 < 3장 thesis는 cluster 의미 X — skip."
+    },
+    {
+      "action_id": "ACT_BACKTEST_LOG_ENTRY",
+      "name": "backtest_log entry 자동 추가",
+      "severity": "backtest",
+      "category": "backtest",
+      "trigger_condition_pattern": "T2 카드의 bull_trigger 또는 bear_trigger 명시 직후 즉시 등록.",
+      "executable_steps": [
+        "1. T2 카드의 card_id + bull_trigger + bear_trigger + monitoring_signals_24h 추출",
+        "2. insight_corpus/backtest_log.jsonl에 entry append (timestamp, card_id, triggers, check_dates: [+30d, +90d, +180d])",
+        "3. JSON Lines 형식 유효성 검사",
+        "4. ACT_BACKTEST_CRON_REGISTER 자동 호출"
+      ],
+      "expected_output": "backtest 시계열 entry 1건 + 30/90/180일 자동 점검 예약",
+      "tooling": ["insight_corpus/backtest_log.jsonl"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["warn", "critical"],
+      "anti_pattern": "bull/bear_trigger가 정성 서술뿐인 카드 (정량 임계 없음)는 backtest 불가 — skip."
+    },
+    {
+      "action_id": "ACT_BACKTEST_CRON_REGISTER",
+      "name": "30/90/180일 결과 추적 cron 등록",
+      "severity": "backtest",
+      "category": "backtest",
+      "trigger_condition_pattern": "ACT_BACKTEST_LOG_ENTRY 직후 자동 chain 호출.",
+      "executable_steps": [
+        "1. backtest_log.jsonl의 check_dates 추출 (+30d, +90d, +180d)",
+        "2. Windows Task Scheduler에 3건 등록: 'python scripts/backtest_check.py --card-id <L_id> --check-day <N>'",
+        "3. 각 시점에 monitoring_signals 시계열 값 추출 + trigger 충족 여부 판정",
+        "4. 결과를 backtest_results.jsonl에 append"
+      ],
+      "expected_output": "30/90/180일 후 자동 점검 + 적중·미적중 라벨 누적",
+      "tooling": ["Windows Task Scheduler", "scripts/backtest_check.py"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["backtest"],
+      "anti_pattern": "ACT_BACKTEST_LOG_ENTRY 없이는 호출 불가 — entry 부재 시 skip + 로그."
+    },
+    {
+      "action_id": "ACT_FUNCTION_HIT_RATE_CALC",
+      "name": "함수별 적중률 자동 산출",
+      "severity": "backtest",
+      "category": "backtest",
+      "trigger_condition_pattern": "분기 1회 또는 backtest_results.jsonl 누적 100건 도달 시.",
+      "executable_steps": [
+        "1. backtest_results.jsonl 전체 Read",
+        "2. 각 entry의 activated_R5_functions + result(적중·미적중) 매칭",
+        "3. 함수별 적중률 = 적중 카드 수 / 활성화 카드 수 (90일 기준)",
+        "4. 함수별 적중률 표를 insight_corpus/function_hit_rates_<quarter>.md에 저장"
+      ],
+      "expected_output": "함수별 적중률 분포 + 저성능 함수 식별 (적중률 < 30%)",
+      "tooling": ["Read backtest_results.jsonl"],
+      "user_action_required": false,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["backtest"],
+      "anti_pattern": "샘플 < 10건 함수는 통계 의미 X — '데이터 부족' 라벨링."
+    },
+    {
+      "action_id": "ACT_FUNCTION_REDESIGN_CANDIDATE",
+      "name": "함수 재설계 후보 마킹",
+      "severity": "backtest",
+      "category": "backtest",
+      "trigger_condition_pattern": "ACT_FUNCTION_HIT_RATE_CALC 결과 적중률 < 30% (샘플 >= 20) 또는 anti_signal 빈도 > 활성화 빈도.",
+      "executable_steps": [
+        "1. function_hit_rates_<quarter>.md에서 저성능 함수 ID 추출",
+        "2. r5_thinking_functions.json의 해당 함수에 'redesign_candidate: true' 메타 필드 추가 (frozen 원칙 위반 X — 메타만 추가)",
+        "3. R6 라운드 검수 큐에 등록 (분기 promotion 절차에 포함)",
+        "4. 검수 결과: (a) trigger_when 보완 (b) anti_signal 보강 (c) 함수 폐기 (d) 분할"
+      ],
+      "expected_output": "재설계 후보 함수 명단 + R6 라운드 검수 input",
+      "tooling": ["Read r5_thinking_functions.json", "scripts/quarterly_promotion.py"],
+      "user_action_required": true,
+      "applicable_R5_functions": ["all"],
+      "applicable_to_severity": ["backtest"],
+      "anti_pattern": "함수 frozen 원칙 위반 X — 메타 필드만 추가, 본문 변경은 R6 라운드 검수 후."
+    }
+  ]
+}

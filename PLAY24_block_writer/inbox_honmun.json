@@ -1,0 +1,610 @@
+{
+  "title": "혼문기행 제안서 (분해)",
+  "blocks": [
+    {
+      "id": "g1",
+      "type": "guideline",
+      "title": "1. 제안 배경",
+      "body": ""
+    },
+    {
+      "id": "g2",
+      "type": "guideline",
+      "title": "2. 제안 개요 — 혼문기행(魂門紀行)",
+      "body": ""
+    },
+    {
+      "id": "g3",
+      "type": "guideline",
+      "title": "3. 세부 일정 (STEP 1~7)",
+      "body": ""
+    },
+    {
+      "id": "g4",
+      "type": "guideline",
+      "title": "마케팅 전략 (3대 타깃)",
+      "body": ""
+    },
+    {
+      "id": "g5",
+      "type": "guideline",
+      "title": "4. 기대효과",
+      "body": ""
+    },
+    {
+      "id": "g6",
+      "type": "guideline",
+      "title": "5. 예상 한계점과 해결방안",
+      "body": ""
+    },
+    {
+      "id": "p1",
+      "type": "proposition",
+      "title": "오컬트 관광 트렌드 급증",
+      "body": "Tripadvisor '점성술·타로·보름달' 검색량이 2년간 500% 이상 급증(global agent, 2025). 하나카드 자료상 2025년 외국인 점술업 국내 소비 72% 증가.",
+      "parentId": "g1",
+      "role": "근거",
+      "source": "김예린, 한국경제TV, 2026.03.26 「\"사주 보러 한국 왔어요\"…카드사 해외카드 수익↑」"
+    },
+    {
+      "id": "p2",
+      "type": "proposition",
+      "title": "K-콘텐츠발 전통문화 수요 폭증",
+      "body": "'케이팝 데몬 헌터스' 글로벌 흥행 → 2025.7 국립중앙박물관 방문객 69만명(전년 대비 2배↑). 박물관 매장 매출·전통공예 체험 수요도 동반 증가.",
+      "parentId": "g1",
+      "role": "근거",
+      "source": "김지은, 매일경제, 2025.08.27 「'케데헌' 열풍은 계속된다…한국 전통문화 관광 수요 확대」"
+    },
+    {
+      "id": "p3",
+      "type": "proposition",
+      "title": "외국인 수요 패러다임 이동",
+      "body": "경복궁·명동식 여행은 성숙기를 지남. 2020년대 중반을 기점으로 외국인 수요의 무게중심이 '경험'과 '영적 몰입'으로 이동.",
+      "parentId": "g1",
+      "role": "주장"
+    },
+    {
+      "id": "p4",
+      "type": "proposition",
+      "title": "기존 무속 관광의 4대 구조적 한계",
+      "body": "①체계화된 몰입형 패키지 부재 ②본질 미전달·퍼포먼스 상업화 ③서울 단일도시에 갇힌 루트(원형지 연계 부재) ④통역·가이드 인프라 미비.",
+      "parentId": "g1",
+      "role": "반박"
+    },
+    {
+      "id": "p5",
+      "type": "proposition",
+      "title": "정책적 순풍",
+      "body": "한국방문의 해(2027~28)·Visit Korea, 문체부 K-콘텐츠 연계 관광 활성화, 공주시 야간관광 사업, 지방소멸 대응 지역상생 모델과 정합.",
+      "parentId": "g1",
+      "role": "함의"
+    },
+    {
+      "id": "p6",
+      "type": "proposition",
+      "title": "콘셉트: 경계와 통과",
+      "body": "무속의 핵심 키워드 '경계'와 '통과'를 기반으로 한 무속 몰입형 원데이 루트. 종교적 접근이 아닌 의례·음악·서사·공간예술이 결합된 복합문화 콘텐츠로 재해석.",
+      "parentId": "g2",
+      "role": "정의"
+    },
+    {
+      "id": "p7",
+      "type": "proposition",
+      "title": "여정 서사 구조",
+      "body": "서울→공주(계룡산) 이동. 이동 자체를 단순 교통이 아닌 '경계 건너기'로 설계. 종착지 계룡산에서 실제 굿·의례를 경험하고 관광객이 '통과자'로 여정을 마무리.",
+      "parentId": "g2",
+      "role": "정의"
+    },
+    {
+      "id": "p8",
+      "type": "proposition",
+      "title": "STEP1 인왕산 국사당 (08:00~09:30)",
+      "body": "국가민속문화유산, 조선 태조와 연결. 현재도 참배·기도·신당으로 기능. 국사당 역사·무당과 왕실 관계·무속 커뮤니티 실태 해설.",
+      "parentId": "g3",
+      "role": "사례",
+      "source": "국가유산포털"
+    },
+    {
+      "id": "p9",
+      "type": "proposition",
+      "title": "STEP2 을지로·퇴계로 점집 골목 (09:30~11:30)",
+      "body": "철학관·사주업소·부적 인쇄물 골목 탐방. 현직 역술인·무속 종사자와 짧은 대화로 궁금증 해소.",
+      "parentId": "g3",
+      "role": "사례"
+    },
+    {
+      "id": "p10",
+      "type": "proposition",
+      "title": "STEP3 서울 지정 한옥 (11:30~12:30)",
+      "body": "동행 무당의 내림굿 사연·모시는 신·일상 이야기를 통역사와 듣는 세션. 이름·생년월일 입력 AI 개인화 부적 신청 → 공주 도착 후 한지 실물본 지급.",
+      "parentId": "g3",
+      "role": "사례"
+    },
+    {
+      "id": "p11",
+      "type": "proposition",
+      "title": "STEP4~5 계룡산 사일런트 트래킹·고택 (14:30~18:30)",
+      "body": "지정 숲길에서 무선수신기로 가이드 설명을 들으며 걷는 사일런트 트래킹. 고택 도착 후 굿 준비 관람·한지 부적 수령.",
+      "parentId": "g3",
+      "role": "사례"
+    },
+    {
+      "id": "p12",
+      "type": "proposition",
+      "title": "STEP6 황혼의 굿 (18:30~20:30)",
+      "body": "고택 앞마당, 무속인 1+악사 2~3인. 전기·조명 없이 촛불·오방색 천·화로로 공간 구성. 청배·축원·소지 흐름. 소지 순간 본인 부적을 화로에 봉헌→잿가루가 밤하늘로.",
+      "parentId": "g3",
+      "role": "사례"
+    },
+    {
+      "id": "p13",
+      "type": "proposition",
+      "title": "STEP7 마무리 (20:30~23:00)",
+      "body": "다과·저녁식사, 기념품 수령, 여정 엽서 작성 후 일상 귀환.",
+      "parentId": "g3",
+      "role": "사례"
+    },
+    {
+      "id": "p14",
+      "type": "proposition",
+      "title": "타깃① 오컬트·점성술 마니아",
+      "body": "가장 확실한 수요층. '설득보다 발견'이 관건. Co-Star·The Pattern 등 점성술 앱, Reddit 오컬트·타로 커뮤니티 광고. '단순 퍼포먼스가 아닌 실제 굿' 차별점 제공.",
+      "parentId": "g4",
+      "role": "주장"
+    },
+    {
+      "id": "p15",
+      "type": "proposition",
+      "title": "타깃② K-콘텐츠 팬덤",
+      "body": "케데헌 흥행으로 일시 유입된 신규층. 최소한의 기회로 포착 필요. 공유·증폭 본능이 강해 SNS 바이럴 장치가 가장 크게 작동.",
+      "parentId": "g4",
+      "role": "주장"
+    },
+    {
+      "id": "p16",
+      "type": "proposition",
+      "title": "타깃③ 기존 영적 여행자",
+      "body": "갠지스 정화·마야 테마스칼 경험층. 20만원 가격 저항이 상대적으로 적음. OTA 개인화 추천 광고로 '여행 후 내가 달라지는 의식'으로 포지셔닝→객단가 방어.",
+      "parentId": "g4",
+      "role": "주장"
+    },
+    {
+      "id": "p17",
+      "type": "proposition",
+      "title": "관광 수요 창출 (가격 경쟁력)",
+      "body": "갠지스 정화 USD90, 마야 테마스칼 7시간 USD92~ 안정 예약율 유지. 본 루트 USD132~133 프리미엄 포지셔닝으로 경쟁력 있다고 판단.",
+      "parentId": "g5",
+      "role": "근거",
+      "source": "GetYourGuide / Trip.com"
+    },
+    {
+      "id": "p18",
+      "type": "proposition",
+      "title": "관광 콘텐츠 고도화",
+      "body": "경복궁·명동 클리셰 탈피. 발견되지 못한 서울+지방 오컬트를 외국인 상품으로 체계화. 무당 본질 체험으로 몰입 심화. 글로벌 OTA 즉시 유통 구조.",
+      "parentId": "g5",
+      "role": "주장"
+    },
+    {
+      "id": "p19",
+      "type": "proposition",
+      "title": "지방 상생 모델",
+      "body": "공주는 배경이 아닌 클라이맥스. 계룡산 무속인·공주 요리사·한과 장인·공방·시청·고택 임대주 등 지역 전체가 연결. 다회성 패키지로 안정적 지역 수익.",
+      "parentId": "g5",
+      "role": "주장"
+    },
+    {
+      "id": "p20",
+      "type": "proposition",
+      "title": "SNS 바이럴 설계",
+      "body": "소지의 잿가루가 밤하늘로 흩어지는 장면=릴스·숏츠 최적 콘텐츠. 촬영 허용 구간+공식 해시태그(#혼문기행·#HONMUN KIHAENG)+추첨→자발적 공유→2차 방한 수요.",
+      "parentId": "g5",
+      "role": "주장"
+    },
+    {
+      "id": "p21",
+      "type": "proposition",
+      "title": "한계① 강한 종교적 특색",
+      "body": "무속의 의례 특성상 '종교행위'로 오인되기 쉬움→외국인 거부감·정부/지자체 지원·홍보 연계 제한 가능. 헌법 20조 정교분리·종교 중립 입장으로 난항 우려.",
+      "parentId": "g6",
+      "role": "반박"
+    },
+    {
+      "id": "p22",
+      "type": "proposition",
+      "title": "해결 1.1 무형문화유산 프레임",
+      "body": "무속을 신앙이 아닌 '무형문화유산'으로 재정의. 제주 칠머리당 영등굿(1980 국가무형문화재 71호·2009 유네스코), 강릉단오제(1967 지정·2008 유네스코) 선례.",
+      "parentId": "g6",
+      "role": "주장",
+      "source": "국가유산포털"
+    },
+    {
+      "id": "p23",
+      "type": "proposition",
+      "title": "해결 1.2 국사당 공식 유산 지위 활용",
+      "body": "첫 방문지 인왕산 국사당=국가민속문화유산. 정부가 종교시설이 아닌 민속문화재로 관리→홍보에 지위 활용만으로 종교 오해 상당 부분 제거.",
+      "parentId": "g6",
+      "role": "주장"
+    },
+    {
+      "id": "p24",
+      "type": "proposition",
+      "title": "해결 1.3 일본 신토 신사 벤치마킹",
+      "body": "종교시설이나 일본인 생활반경 내 문화로 정착, 외국인도 신앙 무관하게 문화 체험으로 접근. TripAdvisor Japan 2014 외국인 리뷰 전체 1위 기록.",
+      "parentId": "g6",
+      "role": "사례"
+    },
+    {
+      "id": "p25",
+      "type": "proposition",
+      "title": "해결 1.4 '신앙 강요 없는 관광' 명시",
+      "body": "안내 자료·OTA 설명에 '특정 종교를 강요·권유하지 않으며 한국의 살아있는 역사를 관람·이해·체험하는 패키지'임을 명시→타종교·무교 거부감 완화.",
+      "parentId": "g6",
+      "role": "주장"
+    },
+    {
+      "id": "p26",
+      "type": "proposition",
+      "title": "한계② 낮은 접근성",
+      "body": "외국인에게 무속은 더욱 낯선 영역. 단어 난이도뿐 아니라 소통 자체가 어려움→의미·맥락을 못 잡고 정상적 관광이 곤란할 수 있음.",
+      "parentId": "g6",
+      "role": "반박"
+    },
+    {
+      "id": "p27",
+      "type": "proposition",
+      "title": "해결 2.1 전문 통역사 동행 가이드",
+      "body": "무속 역사·의례에 해박한 외국어 전문 통역사가 투어 가이드를 맡아 소통 오류·잘못된 지식을 바로잡음.",
+      "parentId": "g6",
+      "role": "주장"
+    },
+    {
+      "id": "p28",
+      "type": "proposition",
+      "title": "한계③ 단순 관람 그침",
+      "body": "기존 무속 상품(인왕산 도보·점집 방문)은 관람에 그침. 굿 의례 직접 참여 부재→기대와 다른 실망 가능성.",
+      "parentId": "g6",
+      "role": "반박"
+    },
+    {
+      "id": "p29",
+      "type": "proposition",
+      "title": "해결 3 참여형 전환 3종",
+      "body": "3.1 현직 무당 종사자와 쌍방향 Q&A / 3.2 AI 기반 한지 부적 발급 / 3.3 황혼의 굿에서 본인이 소지의 마지막 주체가 되도록 구성.",
+      "parentId": "g6",
+      "role": "주장"
+    },
+    {
+      "id": "p30",
+      "type": "proposition",
+      "title": "한계④ 무속 원형지 부재",
+      "body": "서울 도심도 무속 공간이나 현대화·도시화로 원형이 희석됨. 서울만 배경으로는 한국 무속의 깊이 전달이 어려움.",
+      "parentId": "g6",
+      "role": "반박"
+    },
+    {
+      "id": "p31",
+      "type": "proposition",
+      "title": "해결 4.1 공주 계룡산+인왕산 연계",
+      "body": "600년 '신이 내리는 산' 계룡산을 클라이맥스로 연결. 성소 숲길 사일런트 트래킹·굿 체험+인왕산 서울 흔적 답사로 무속의 본질·깊이를 전달.",
+      "parentId": "g6",
+      "role": "주장"
+    }
+  ],
+  "doc": [
+    {
+      "id": "sec_g1",
+      "kind": "section",
+      "text": "1. 제안 배경",
+      "blockId": "g1"
+    },
+    {
+      "id": "card_p1",
+      "kind": "card",
+      "title": "오컬트 관광 트렌드 급증",
+      "body": "Tripadvisor '점성술·타로·보름달' 검색량이 2년간 500% 이상 급증(global agent, 2025). 하나카드 자료상 2025년 외국인 점술업 국내 소비 72% 증가.",
+      "blockType": "proposition",
+      "blockId": "p1"
+    },
+    {
+      "id": "card_p2",
+      "kind": "card",
+      "title": "K-콘텐츠발 전통문화 수요 폭증",
+      "body": "'케이팝 데몬 헌터스' 글로벌 흥행 → 2025.7 국립중앙박물관 방문객 69만명(전년 대비 2배↑). 박물관 매장 매출·전통공예 체험 수요도 동반 증가.",
+      "blockType": "proposition",
+      "blockId": "p2"
+    },
+    {
+      "id": "card_p3",
+      "kind": "card",
+      "title": "외국인 수요 패러다임 이동",
+      "body": "경복궁·명동식 여행은 성숙기를 지남. 2020년대 중반을 기점으로 외국인 수요의 무게중심이 '경험'과 '영적 몰입'으로 이동.",
+      "blockType": "proposition",
+      "blockId": "p3"
+    },
+    {
+      "id": "card_p4",
+      "kind": "card",
+      "title": "기존 무속 관광의 4대 구조적 한계",
+      "body": "①체계화된 몰입형 패키지 부재 ②본질 미전달·퍼포먼스 상업화 ③서울 단일도시에 갇힌 루트(원형지 연계 부재) ④통역·가이드 인프라 미비.",
+      "blockType": "proposition",
+      "blockId": "p4"
+    },
+    {
+      "id": "card_p5",
+      "kind": "card",
+      "title": "정책적 순풍",
+      "body": "한국방문의 해(2027~28)·Visit Korea, 문체부 K-콘텐츠 연계 관광 활성화, 공주시 야간관광 사업, 지방소멸 대응 지역상생 모델과 정합.",
+      "blockType": "proposition",
+      "blockId": "p5"
+    },
+    {
+      "id": "para_g1",
+      "kind": "para",
+      "text": ""
+    },
+    {
+      "id": "sec_g2",
+      "kind": "section",
+      "text": "2. 제안 개요 — 혼문기행(魂門紀行)",
+      "blockId": "g2"
+    },
+    {
+      "id": "card_p6",
+      "kind": "card",
+      "title": "콘셉트: 경계와 통과",
+      "body": "무속의 핵심 키워드 '경계'와 '통과'를 기반으로 한 무속 몰입형 원데이 루트. 종교적 접근이 아닌 의례·음악·서사·공간예술이 결합된 복합문화 콘텐츠로 재해석.",
+      "blockType": "proposition",
+      "blockId": "p6"
+    },
+    {
+      "id": "card_p7",
+      "kind": "card",
+      "title": "여정 서사 구조",
+      "body": "서울→공주(계룡산) 이동. 이동 자체를 단순 교통이 아닌 '경계 건너기'로 설계. 종착지 계룡산에서 실제 굿·의례를 경험하고 관광객이 '통과자'로 여정을 마무리.",
+      "blockType": "proposition",
+      "blockId": "p7"
+    },
+    {
+      "id": "para_g2",
+      "kind": "para",
+      "text": ""
+    },
+    {
+      "id": "sec_g3",
+      "kind": "section",
+      "text": "3. 세부 일정 (STEP 1~7)",
+      "blockId": "g3"
+    },
+    {
+      "id": "card_p8",
+      "kind": "card",
+      "title": "STEP1 인왕산 국사당 (08:00~09:30)",
+      "body": "국가민속문화유산, 조선 태조와 연결. 현재도 참배·기도·신당으로 기능. 국사당 역사·무당과 왕실 관계·무속 커뮤니티 실태 해설.",
+      "blockType": "proposition",
+      "blockId": "p8"
+    },
+    {
+      "id": "card_p9",
+      "kind": "card",
+      "title": "STEP2 을지로·퇴계로 점집 골목 (09:30~11:30)",
+      "body": "철학관·사주업소·부적 인쇄물 골목 탐방. 현직 역술인·무속 종사자와 짧은 대화로 궁금증 해소.",
+      "blockType": "proposition",
+      "blockId": "p9"
+    },
+    {
+      "id": "card_p10",
+      "kind": "card",
+      "title": "STEP3 서울 지정 한옥 (11:30~12:30)",
+      "body": "동행 무당의 내림굿 사연·모시는 신·일상 이야기를 통역사와 듣는 세션. 이름·생년월일 입력 AI 개인화 부적 신청 → 공주 도착 후 한지 실물본 지급.",
+      "blockType": "proposition",
+      "blockId": "p10"
+    },
+    {
+      "id": "card_p11",
+      "kind": "card",
+      "title": "STEP4~5 계룡산 사일런트 트래킹·고택 (14:30~18:30)",
+      "body": "지정 숲길에서 무선수신기로 가이드 설명을 들으며 걷는 사일런트 트래킹. 고택 도착 후 굿 준비 관람·한지 부적 수령.",
+      "blockType": "proposition",
+      "blockId": "p11"
+    },
+    {
+      "id": "card_p12",
+      "kind": "card",
+      "title": "STEP6 황혼의 굿 (18:30~20:30)",
+      "body": "고택 앞마당, 무속인 1+악사 2~3인. 전기·조명 없이 촛불·오방색 천·화로로 공간 구성. 청배·축원·소지 흐름. 소지 순간 본인 부적을 화로에 봉헌→잿가루가 밤하늘로.",
+      "blockType": "proposition",
+      "blockId": "p12"
+    },
+    {
+      "id": "card_p13",
+      "kind": "card",
+      "title": "STEP7 마무리 (20:30~23:00)",
+      "body": "다과·저녁식사, 기념품 수령, 여정 엽서 작성 후 일상 귀환.",
+      "blockType": "proposition",
+      "blockId": "p13"
+    },
+    {
+      "id": "para_g3",
+      "kind": "para",
+      "text": ""
+    },
+    {
+      "id": "sec_g4",
+      "kind": "section",
+      "text": "마케팅 전략 (3대 타깃)",
+      "blockId": "g4"
+    },
+    {
+      "id": "card_p14",
+      "kind": "card",
+      "title": "타깃① 오컬트·점성술 마니아",
+      "body": "가장 확실한 수요층. '설득보다 발견'이 관건. Co-Star·The Pattern 등 점성술 앱, Reddit 오컬트·타로 커뮤니티 광고. '단순 퍼포먼스가 아닌 실제 굿' 차별점 제공.",
+      "blockType": "proposition",
+      "blockId": "p14"
+    },
+    {
+      "id": "card_p15",
+      "kind": "card",
+      "title": "타깃② K-콘텐츠 팬덤",
+      "body": "케데헌 흥행으로 일시 유입된 신규층. 최소한의 기회로 포착 필요. 공유·증폭 본능이 강해 SNS 바이럴 장치가 가장 크게 작동.",
+      "blockType": "proposition",
+      "blockId": "p15"
+    },
+    {
+      "id": "card_p16",
+      "kind": "card",
+      "title": "타깃③ 기존 영적 여행자",
+      "body": "갠지스 정화·마야 테마스칼 경험층. 20만원 가격 저항이 상대적으로 적음. OTA 개인화 추천 광고로 '여행 후 내가 달라지는 의식'으로 포지셔닝→객단가 방어.",
+      "blockType": "proposition",
+      "blockId": "p16"
+    },
+    {
+      "id": "para_g4",
+      "kind": "para",
+      "text": ""
+    },
+    {
+      "id": "sec_g5",
+      "kind": "section",
+      "text": "4. 기대효과",
+      "blockId": "g5"
+    },
+    {
+      "id": "card_p17",
+      "kind": "card",
+      "title": "관광 수요 창출 (가격 경쟁력)",
+      "body": "갠지스 정화 USD90, 마야 테마스칼 7시간 USD92~ 안정 예약율 유지. 본 루트 USD132~133 프리미엄 포지셔닝으로 경쟁력 있다고 판단.",
+      "blockType": "proposition",
+      "blockId": "p17"
+    },
+    {
+      "id": "card_p18",
+      "kind": "card",
+      "title": "관광 콘텐츠 고도화",
+      "body": "경복궁·명동 클리셰 탈피. 발견되지 못한 서울+지방 오컬트를 외국인 상품으로 체계화. 무당 본질 체험으로 몰입 심화. 글로벌 OTA 즉시 유통 구조.",
+      "blockType": "proposition",
+      "blockId": "p18"
+    },
+    {
+      "id": "card_p19",
+      "kind": "card",
+      "title": "지방 상생 모델",
+      "body": "공주는 배경이 아닌 클라이맥스. 계룡산 무속인·공주 요리사·한과 장인·공방·시청·고택 임대주 등 지역 전체가 연결. 다회성 패키지로 안정적 지역 수익.",
+      "blockType": "proposition",
+      "blockId": "p19"
+    },
+    {
+      "id": "card_p20",
+      "kind": "card",
+      "title": "SNS 바이럴 설계",
+      "body": "소지의 잿가루가 밤하늘로 흩어지는 장면=릴스·숏츠 최적 콘텐츠. 촬영 허용 구간+공식 해시태그(#혼문기행·#HONMUN KIHAENG)+추첨→자발적 공유→2차 방한 수요.",
+      "blockType": "proposition",
+      "blockId": "p20"
+    },
+    {
+      "id": "para_g5",
+      "kind": "para",
+      "text": ""
+    },
+    {
+      "id": "sec_g6",
+      "kind": "section",
+      "text": "5. 예상 한계점과 해결방안",
+      "blockId": "g6"
+    },
+    {
+      "id": "card_p21",
+      "kind": "card",
+      "title": "한계① 강한 종교적 특색",
+      "body": "무속의 의례 특성상 '종교행위'로 오인되기 쉬움→외국인 거부감·정부/지자체 지원·홍보 연계 제한 가능. 헌법 20조 정교분리·종교 중립 입장으로 난항 우려.",
+      "blockType": "proposition",
+      "blockId": "p21"
+    },
+    {
+      "id": "card_p22",
+      "kind": "card",
+      "title": "해결 1.1 무형문화유산 프레임",
+      "body": "무속을 신앙이 아닌 '무형문화유산'으로 재정의. 제주 칠머리당 영등굿(1980 국가무형문화재 71호·2009 유네스코), 강릉단오제(1967 지정·2008 유네스코) 선례.",
+      "blockType": "proposition",
+      "blockId": "p22"
+    },
+    {
+      "id": "card_p23",
+      "kind": "card",
+      "title": "해결 1.2 국사당 공식 유산 지위 활용",
+      "body": "첫 방문지 인왕산 국사당=국가민속문화유산. 정부가 종교시설이 아닌 민속문화재로 관리→홍보에 지위 활용만으로 종교 오해 상당 부분 제거.",
+      "blockType": "proposition",
+      "blockId": "p23"
+    },
+    {
+      "id": "card_p24",
+      "kind": "card",
+      "title": "해결 1.3 일본 신토 신사 벤치마킹",
+      "body": "종교시설이나 일본인 생활반경 내 문화로 정착, 외국인도 신앙 무관하게 문화 체험으로 접근. TripAdvisor Japan 2014 외국인 리뷰 전체 1위 기록.",
+      "blockType": "proposition",
+      "blockId": "p24"
+    },
+    {
+      "id": "card_p25",
+      "kind": "card",
+      "title": "해결 1.4 '신앙 강요 없는 관광' 명시",
+      "body": "안내 자료·OTA 설명에 '특정 종교를 강요·권유하지 않으며 한국의 살아있는 역사를 관람·이해·체험하는 패키지'임을 명시→타종교·무교 거부감 완화.",
+      "blockType": "proposition",
+      "blockId": "p25"
+    },
+    {
+      "id": "card_p26",
+      "kind": "card",
+      "title": "한계② 낮은 접근성",
+      "body": "외국인에게 무속은 더욱 낯선 영역. 단어 난이도뿐 아니라 소통 자체가 어려움→의미·맥락을 못 잡고 정상적 관광이 곤란할 수 있음.",
+      "blockType": "proposition",
+      "blockId": "p26"
+    },
+    {
+      "id": "card_p27",
+      "kind": "card",
+      "title": "해결 2.1 전문 통역사 동행 가이드",
+      "body": "무속 역사·의례에 해박한 외국어 전문 통역사가 투어 가이드를 맡아 소통 오류·잘못된 지식을 바로잡음.",
+      "blockType": "proposition",
+      "blockId": "p27"
+    },
+    {
+      "id": "card_p28",
+      "kind": "card",
+      "title": "한계③ 단순 관람 그침",
+      "body": "기존 무속 상품(인왕산 도보·점집 방문)은 관람에 그침. 굿 의례 직접 참여 부재→기대와 다른 실망 가능성.",
+      "blockType": "proposition",
+      "blockId": "p28"
+    },
+    {
+      "id": "card_p29",
+      "kind": "card",
+      "title": "해결 3 참여형 전환 3종",
+      "body": "3.1 현직 무당 종사자와 쌍방향 Q&A / 3.2 AI 기반 한지 부적 발급 / 3.3 황혼의 굿에서 본인이 소지의 마지막 주체가 되도록 구성.",
+      "blockType": "proposition",
+      "blockId": "p29"
+    },
+    {
+      "id": "card_p30",
+      "kind": "card",
+      "title": "한계④ 무속 원형지 부재",
+      "body": "서울 도심도 무속 공간이나 현대화·도시화로 원형이 희석됨. 서울만 배경으로는 한국 무속의 깊이 전달이 어려움.",
+      "blockType": "proposition",
+      "blockId": "p30"
+    },
+    {
+      "id": "card_p31",
+      "kind": "card",
+      "title": "해결 4.1 공주 계룡산+인왕산 연계",
+      "body": "600년 '신이 내리는 산' 계룡산을 클라이맥스로 연결. 성소 숲길 사일런트 트래킹·굿 체험+인왕산 서울 흔적 답사로 무속의 본질·깊이를 전달.",
+      "blockType": "proposition",
+      "blockId": "p31"
+    },
+    {
+      "id": "para_g6",
+      "kind": "para",
+      "text": ""
+    }
+  ]
+}

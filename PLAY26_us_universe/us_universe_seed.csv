@@ -1,0 +1,104 @@
+ticker,name,gics_sector,gics_industry,source
+AAPL,Apple Inc.,,,seed
+MSFT,Microsoft Corporation,,,seed
+NVDA,NVIDIA Corporation,,,seed
+GOOGL,Alphabet Inc.,,,seed
+GOOG,Alphabet Inc.,,,seed
+AMZN,Amazon.com Inc.,,,seed
+META,Meta Platforms Inc.,,,seed
+TSLA,Tesla Inc.,,,seed
+BRK-B,Berkshire Hathaway Inc.,,,seed
+JPM,JPMorgan Chase & Co.,,,seed
+V,Visa Inc.,,,seed
+UNH,UnitedHealth Group Inc.,,,seed
+JNJ,Johnson & Johnson,,,seed
+WMT,Walmart Inc.,,,seed
+XOM,Exxon Mobil Corporation,,,seed
+PG,Procter & Gamble Company,,,seed
+MA,Mastercard Inc.,,,seed
+HD,The Home Depot Inc.,,,seed
+CVX,Chevron Corporation,,,seed
+ABBV,AbbVie Inc.,,,seed
+PFE,Pfizer Inc.,,,seed
+KO,Coca-Cola Company,,,seed
+PEP,PepsiCo Inc.,,,seed
+AVGO,Broadcom Inc.,,,seed
+COST,Costco Wholesale Corporation,,,seed
+MRK,Merck & Co.,,,seed
+TMO,Thermo Fisher Scientific,,,seed
+DIS,The Walt Disney Company,,,seed
+ADBE,Adobe Inc.,,,seed
+CSCO,Cisco Systems Inc.,,,seed
+CRM,Salesforce Inc.,,,seed
+ABT,Abbott Laboratories,,,seed
+ACN,Accenture plc,,,seed
+NFLX,Netflix Inc.,,,seed
+AMD,Advanced Micro Devices Inc.,,,seed
+QCOM,Qualcomm Inc.,,,seed
+INTC,Intel Corporation,,,seed
+IBM,International Business Machines,,,seed
+ORCL,Oracle Corporation,,,seed
+TXN,Texas Instruments Inc.,,,seed
+HON,Honeywell International,,,seed
+UPS,United Parcel Service,,,seed
+CAT,Caterpillar Inc.,,,seed
+RTX,RTX Corporation,,,seed
+LMT,Lockheed Martin Corporation,,,seed
+BA,Boeing Company,,,seed
+GS,Goldman Sachs Group,,,seed
+MS,Morgan Stanley,,,seed
+BAC,Bank of America Corporation,,,seed
+WFC,Wells Fargo & Company,,,seed
+C,Citigroup Inc.,,,seed
+AXP,American Express Company,,,seed
+BLK,BlackRock Inc.,,,seed
+SCHW,Charles Schwab Corporation,,,seed
+PYPL,PayPal Holdings Inc.,,,seed
+SBUX,Starbucks Corporation,,,seed
+MDLZ,Mondelez International,,,seed
+NKE,Nike Inc.,,,seed
+MMM,3M Company,,,seed
+GE,GE Aerospace,,,seed
+F,Ford Motor Company,,,seed
+GM,General Motors Company,,,seed
+DAL,Delta Air Lines,,,seed
+UAL,United Airlines Holdings,,,seed
+AAL,American Airlines Group,,,seed
+CCL,Carnival Corporation,,,seed
+RCL,Royal Caribbean Cruises,,,seed
+NCLH,Norwegian Cruise Line Holdings,,,seed
+MAR,Marriott International,,,seed
+HLT,Hilton Worldwide,,,seed
+MGM,MGM Resorts International,,,seed
+WYNN,Wynn Resorts,,,seed
+TGT,Target Corporation,,,seed
+LOW,Lowe's Companies,,,seed
+TJX,TJX Companies,,,seed
+DG,Dollar General Corporation,,,seed
+DLTR,Dollar Tree Inc.,,,seed
+KR,Kroger Co.,,,seed
+GIS,General Mills Inc.,,,seed
+K,Kellanova,,,seed
+STZ,Constellation Brands,,,seed
+MO,Altria Group,,,seed
+PM,Philip Morris International,,,seed
+CL,Colgate-Palmolive Company,,,seed
+EL,Estée Lauder Companies,,,seed
+CHD,Church & Dwight,,,seed
+CLX,Clorox Company,,,seed
+MCD,McDonald's Corporation,,,seed
+YUM,Yum! Brands,,,seed
+CMG,Chipotle Mexican Grill,,,seed
+DPZ,Domino's Pizza,,,seed
+QSR,Restaurant Brands International,,,seed
+EBAY,eBay Inc.,,,seed
+ETSY,Etsy Inc.,,,seed
+SHOP,Shopify Inc.,,,seed
+SPOT,Spotify Technology,,,seed
+UBER,Uber Technologies,,,seed
+LYFT,Lyft Inc.,,,seed
+DASH,DoorDash Inc.,,,seed
+ABNB,Airbnb Inc.,,,seed
+COIN,Coinbase Global,,,seed
+HOOD,Robinhood Markets,,,seed
+SOFI,SoFi Technologies,,,seed

@@ -1,0 +1,958 @@
+{"id": "V5dXgp5Cxgg:0:-1", "labels": ["us_equity_market"]}
+{"id": "V5dXgp5Cxgg:0:1", "labels": ["us_equity_market"]}
+{"id": "V5dXgp5Cxgg:0:2", "labels": ["us_equity_market", "oil_geopolitics"]}
+{"id": "V5dXgp5Cxgg:0:3", "labels": ["oil_geopolitics", "market_sentiment"]}
+{"id": "V5dXgp5Cxgg:0:4", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "V5dXgp5Cxgg:0:5", "labels": ["oil_geopolitics"]}
+{"id": "V5dXgp5Cxgg:1:-1", "labels": ["oil_geopolitics", "china_macro"]}
+{"id": "V5dXgp5Cxgg:1:1", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "V5dXgp5Cxgg:1:2", "labels": ["oil_geopolitics", "us_equity_market"]}
+{"id": "V5dXgp5Cxgg:1:3", "labels": ["employment_data"]}
+{"id": "V5dXgp5Cxgg:1:4", "labels": ["us_equity_market", "single_stock_move"]}
+{"id": "V5dXgp5Cxgg:1:5", "labels": ["semiconductor_cycle", "single_stock_move"]}
+{"id": "V5dXgp5Cxgg:1:8", "labels": ["market_sentiment", "risk_factors"]}
+{"id": "V5dXgp5Cxgg:2:1", "labels": ["ai_tech", "single_stock_move"]}
+{"id": "V5dXgp5Cxgg:2:2", "labels": ["ai_tech", "corporate_earnings"]}
+{"id": "V5dXgp5Cxgg:2:4", "labels": ["ai_tech", "corporate_earnings"]}
+{"id": "V5dXgp5Cxgg:2:5", "labels": ["ai_tech", "corporate_earnings"]}
+{"id": "l1IFamaX_bg:0:-1", "labels": ["us_equity_market"]}
+{"id": "l1IFamaX_bg:0:1", "labels": ["us_equity_market"]}
+{"id": "l1IFamaX_bg:0:2", "labels": ["us_equity_market"]}
+{"id": "l1IFamaX_bg:0:5", "labels": ["us_equity_market", "single_stock_move"]}
+{"id": "l1IFamaX_bg:0:6", "labels": ["us_equity_market", "single_stock_move"]}
+{"id": "l1IFamaX_bg:0:8", "labels": ["us_equity_market"]}
+{"id": "l1IFamaX_bg:0:9", "labels": ["us_equity_market"]}
+{"id": "l1IFamaX_bg:0:13", "labels": ["korea_economy"]}
+{"id": "l1IFamaX_bg:0:14", "labels": ["korea_economy"]}
+{"id": "l1IFamaX_bg:0:15", "labels": ["korea_economy"]}
+{"id": "l1IFamaX_bg:0:16", "labels": ["korea_economy"]}
+{"id": "l1IFamaX_bg:1:7", "labels": ["risk_factors", "analyst_view"]}
+{"id": "l1IFamaX_bg:1:11", "labels": ["single_stock_move", "oil_geopolitics"]}
+{"id": "l1IFamaX_bg:1:15", "labels": ["inflation_data"]}
+{"id": "l1IFamaX_bg:1:16", "labels": ["inflation_data"]}
+{"id": "l1IFamaX_bg:2:3", "labels": ["oil_geopolitics", "market_sentiment"]}
+{"id": "l1IFamaX_bg:2:6", "labels": ["market_sentiment", "oil_geopolitics"]}
+{"id": "l1IFamaX_bg:2:9", "labels": ["oil_geopolitics", "risk_factors"]}
+{"id": "l1IFamaX_bg:2:24", "labels": ["geopolitics_general"]}
+{"id": "l1IFamaX_bg:2:26", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:4:4", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:4:15", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:4:22", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "l1IFamaX_bg:5:-1", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:5:1", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:5:2", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:5:3", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:5:7", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:5:14", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:5:16", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:5:18", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:6:-1", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:6:1", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:6:2", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:6:3", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:6:5", "labels": ["oil_geopolitics", "risk_factors"]}
+{"id": "l1IFamaX_bg:6:7", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:7:6", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:7:9", "labels": ["geopolitics_general", "analyst_view"]}
+{"id": "l1IFamaX_bg:7:13", "labels": ["risk_factors"]}
+{"id": "l1IFamaX_bg:7:20", "labels": ["inflation_data", "single_stock_move"]}
+{"id": "l1IFamaX_bg:7:23", "labels": ["inflation_data", "single_stock_move"]}
+{"id": "l1IFamaX_bg:7:25", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:8:-1", "labels": ["energy_commodities"]}
+{"id": "l1IFamaX_bg:8:1", "labels": ["energy_commodities"]}
+{"id": "l1IFamaX_bg:8:2", "labels": ["energy_commodities"]}
+{"id": "l1IFamaX_bg:8:3", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:8:5", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:8:8", "labels": ["inflation_data"]}
+{"id": "l1IFamaX_bg:8:10", "labels": ["inflation_data"]}
+{"id": "l1IFamaX_bg:8:12", "labels": ["energy_commodities"]}
+{"id": "l1IFamaX_bg:8:16", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:9:1", "labels": ["oil_geopolitics"]}
+{"id": "l1IFamaX_bg:9:4", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:9:7", "labels": ["ai_tech"]}
+{"id": "l1IFamaX_bg:9:9", "labels": ["ai_tech"]}
+{"id": "l1IFamaX_bg:9:10", "labels": ["ai_tech"]}
+{"id": "l1IFamaX_bg:9:14", "labels": ["ai_tech"]}
+{"id": "l1IFamaX_bg:10:-1", "labels": ["ai_tech"]}
+{"id": "l1IFamaX_bg:10:1", "labels": ["ai_tech"]}
+{"id": "l1IFamaX_bg:10:7", "labels": ["ai_tech", "brand_strategy"]}
+{"id": "l1IFamaX_bg:10:8", "labels": ["ai_tech"]}
+{"id": "l1IFamaX_bg:10:10", "labels": ["single_stock_move", "us_equity_market"]}
+{"id": "l1IFamaX_bg:10:12", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:10:24", "labels": ["single_stock_move"]}
+{"id": "l1IFamaX_bg:11:-1", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:11:1", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:11:2", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:11:3", "labels": ["investment_strategy"]}
+{"id": "l1IFamaX_bg:11:7", "labels": ["us_equity_market"]}
+{"id": "l1IFamaX_bg:11:9", "labels": ["market_sentiment"]}
+{"id": "l1IFamaX_bg:11:10", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:0:2", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:0:3", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:0:4", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:0:5", "labels": ["oil_geopolitics", "us_equity_market"]}
+{"id": "Qm3k_i7QZAg:0:6", "labels": ["us_equity_market"]}
+{"id": "Qm3k_i7QZAg:1:-1", "labels": ["us_equity_market", "market_sentiment"]}
+{"id": "Qm3k_i7QZAg:1:1", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:1:2", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:1:3", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:1:4", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "Qm3k_i7QZAg:1:8", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "Qm3k_i7QZAg:2:-1", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "Qm3k_i7QZAg:2:1", "labels": ["geopolitics_general"]}
+{"id": "Qm3k_i7QZAg:2:2", "labels": ["geopolitics_general"]}
+{"id": "Qm3k_i7QZAg:2:3", "labels": ["geopolitics_general"]}
+{"id": "Qm3k_i7QZAg:2:9", "labels": ["us_equity_market", "oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:3:-1", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:3:1", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:3:2", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:3:3", "labels": ["oil_geopolitics", "single_stock_move"]}
+{"id": "Qm3k_i7QZAg:3:5", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:4:-1", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:4:1", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:4:2", "labels": ["us_equity_market"]}
+{"id": "Qm3k_i7QZAg:4:6", "labels": ["ai_tech", "us_equity_market"]}
+{"id": "Qm3k_i7QZAg:4:7", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:4:9", "labels": ["corporate_earnings"]}
+{"id": "Qm3k_i7QZAg:4:12", "labels": ["corporate_earnings"]}
+{"id": "Qm3k_i7QZAg:4:14", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:4:16", "labels": ["risk_factors"]}
+{"id": "Qm3k_i7QZAg:4:17", "labels": ["risk_factors"]}
+{"id": "Qm3k_i7QZAg:5:-1", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:5:1", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:5:2", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:5:4", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:5:9", "labels": ["single_stock_move"]}
+{"id": "Qm3k_i7QZAg:5:12", "labels": ["single_stock_move"]}
+{"id": "Qm3k_i7QZAg:6:9", "labels": ["oil_geopolitics", "analyst_view"]}
+{"id": "Qm3k_i7QZAg:6:11", "labels": ["oil_geopolitics", "analyst_view"]}
+{"id": "Qm3k_i7QZAg:6:13", "labels": ["oil_geopolitics", "analyst_view"]}
+{"id": "Qm3k_i7QZAg:6:16", "labels": ["oil_geopolitics", "analyst_view"]}
+{"id": "Qm3k_i7QZAg:6:17", "labels": ["oil_geopolitics", "risk_factors"]}
+{"id": "Qm3k_i7QZAg:6:18", "labels": ["oil_geopolitics", "analyst_view"]}
+{"id": "Qm3k_i7QZAg:6:21", "labels": ["analyst_view"]}
+{"id": "Qm3k_i7QZAg:6:22", "labels": ["analyst_view"]}
+{"id": "Qm3k_i7QZAg:6:24", "labels": ["single_stock_move", "oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:6:26", "labels": ["analyst_view"]}
+{"id": "Qm3k_i7QZAg:7:-1", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:7:1", "labels": ["analyst_view"]}
+{"id": "Qm3k_i7QZAg:7:2", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:7:4", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:7:6", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:7:8", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:7:10", "labels": ["oil_geopolitics"]}
+{"id": "Qm3k_i7QZAg:7:11", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:7:17", "labels": ["big_tech_earnings"]}
+{"id": "Qm3k_i7QZAg:7:21", "labels": ["big_tech_earnings", "corporate_earnings"]}
+{"id": "Qm3k_i7QZAg:7:23", "labels": ["big_tech_earnings", "corporate_earnings"]}
+{"id": "Qm3k_i7QZAg:7:24", "labels": ["big_tech_earnings", "single_stock_move"]}
+{"id": "Qm3k_i7QZAg:8:3", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:8:5", "labels": ["semiconductor_cycle"]}
+{"id": "Qm3k_i7QZAg:8:8", "labels": ["semiconductor_cycle"]}
+{"id": "Qm3k_i7QZAg:8:15", "labels": ["semiconductor_cycle"]}
+{"id": "Qm3k_i7QZAg:9:2", "labels": ["semiconductor_cycle"]}
+{"id": "Qm3k_i7QZAg:9:3", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:9:4", "labels": ["market_sentiment"]}
+{"id": "Qm3k_i7QZAg:9:7", "labels": ["single_stock_move"]}
+{"id": "Qm3k_i7QZAg:9:15", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:9:16", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:9:17", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:9:20", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:9:21", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:9:22", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:10:1", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:10:2", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:10:3", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:10:4", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:10:5", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:10:7", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:10:8", "labels": ["ai_tech"]}
+{"id": "Qm3k_i7QZAg:10:9", "labels": ["ai_tech"]}
+{"id": "68REnmssFLg:0:1", "labels": ["us_equity_market"]}
+{"id": "68REnmssFLg:0:2", "labels": ["oil_geopolitics"]}
+{"id": "68REnmssFLg:0:3", "labels": ["ai_tech", "corporate_earnings"]}
+{"id": "68REnmssFLg:0:5", "labels": ["oil_geopolitics", "us_equity_market"]}
+{"id": "68REnmssFLg:0:6", "labels": ["us_equity_market", "oil_geopolitics"]}
+{"id": "68REnmssFLg:0:9", "labels": ["single_stock_move"]}
+{"id": "68REnmssFLg:2:-1", "labels": ["corporate_earnings", "analyst_view"]}
+{"id": "68REnmssFLg:2:1", "labels": ["risk_factors", "geopolitics_general"]}
+{"id": "68REnmssFLg:2:2", "labels": ["oil_geopolitics"]}
+{"id": "68REnmssFLg:2:3", "labels": ["oil_geopolitics"]}
+{"id": "68REnmssFLg:2:4", "labels": ["oil_geopolitics"]}
+{"id": "68REnmssFLg:2:5", "labels": ["oil_geopolitics"]}
+{"id": "gb7vt1Pv5oo:0:1", "labels": ["us_equity_market"]}
+{"id": "gb7vt1Pv5oo:0:2", "labels": ["oil_geopolitics", "us_equity_market"]}
+{"id": "gb7vt1Pv5oo:0:4", "labels": ["oil_geopolitics"]}
+{"id": "gb7vt1Pv5oo:1:-1", "labels": ["us_equity_market"]}
+{"id": "gb7vt1Pv5oo:1:1", "labels": ["us_equity_market", "single_stock_move"]}
+{"id": "gb7vt1Pv5oo:1:2", "labels": ["semiconductor_cycle", "us_equity_market"]}
+{"id": "gb7vt1Pv5oo:1:3", "labels": ["single_stock_move", "analyst_view"]}
+{"id": "gb7vt1Pv5oo:1:6", "labels": ["employment_data"]}
+{"id": "gb7vt1Pv5oo:1:7", "labels": ["employment_data"]}
+{"id": "gb7vt1Pv5oo:1:9", "labels": ["fed_policy", "employment_data"]}
+{"id": "gb7vt1Pv5oo:1:13", "labels": ["fed_policy", "energy_commodities"]}
+{"id": "gb7vt1Pv5oo:2:1", "labels": ["oil_geopolitics", "risk_factors"]}
+{"id": "gb7vt1Pv5oo:2:4", "labels": ["corporate_earnings", "risk_factors"]}
+{"id": "17RR5ksomMY:1:-1", "labels": ["fed_policy"]}
+{"id": "17RR5ksomMY:1:1", "labels": ["fed_policy"]}
+{"id": "17RR5ksomMY:1:2", "labels": ["fed_policy", "analyst_view"]}
+{"id": "17RR5ksomMY:1:3", "labels": ["single_stock_move"]}
+{"id": "17RR5ksomMY:1:4", "labels": ["semiconductor_cycle", "geopolitics_general"]}
+{"id": "17RR5ksomMY:1:8", "labels": ["semiconductor_cycle", "ai_tech"]}
+{"id": "17RR5ksomMY:2:-1", "labels": ["inflation_data"]}
+{"id": "17RR5ksomMY:2:1", "labels": ["fed_policy", "inflation_data"]}
+{"id": "17RR5ksomMY:2:4", "labels": ["inflation_data", "oil_geopolitics"]}
+{"id": "17RR5ksomMY:2:6", "labels": ["semiconductor_cycle", "single_stock_move"]}
+{"id": "17RR5ksomMY:2:8", "labels": ["ai_tech", "oil_geopolitics"]}
+{"id": "17RR5ksomMY:3:-1", "labels": ["oil_geopolitics", "energy_commodities"]}
+{"id": "17RR5ksomMY:3:1", "labels": ["fed_policy"]}
+{"id": "7EaYrsxSXNM:0:-1", "labels": ["us_equity_market"]}
+{"id": "7EaYrsxSXNM:0:1", "labels": ["us_equity_market"]}
+{"id": "7EaYrsxSXNM:0:2", "labels": ["oil_geopolitics", "us_equity_market"]}
+{"id": "7EaYrsxSXNM:0:3", "labels": ["us_equity_market"]}
+{"id": "7EaYrsxSXNM:0:4", "labels": ["corporate_earnings"]}
+{"id": "7EaYrsxSXNM:0:6", "labels": ["corporate_earnings", "big_tech_earnings"]}
+{"id": "7EaYrsxSXNM:0:8", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "7EaYrsxSXNM:0:11", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "7EaYrsxSXNM:0:13", "labels": ["oil_geopolitics"]}
+{"id": "7EaYrsxSXNM:1:1", "labels": ["oil_geopolitics"]}
+{"id": "7EaYrsxSXNM:1:2", "labels": ["oil_geopolitics"]}
+{"id": "7EaYrsxSXNM:1:3", "labels": ["risk_factors", "ai_tech"]}
+{"id": "7EaYrsxSXNM:1:6", "labels": ["us_equity_market", "analyst_view"]}
+{"id": "7EaYrsxSXNM:1:9", "labels": ["oil_geopolitics", "investment_strategy"]}
+{"id": "7EaYrsxSXNM:1:11", "labels": ["corporate_earnings", "analyst_view"]}
+{"id": "7EaYrsxSXNM:1:13", "labels": ["oil_geopolitics", "corporate_earnings"]}
+{"id": "7EaYrsxSXNM:2:1", "labels": ["market_sentiment"]}
+{"id": "7EaYrsxSXNM:2:2", "labels": ["market_sentiment"]}
+{"id": "7EaYrsxSXNM:2:6", "labels": ["us_equity_market"]}
+{"id": "7EaYrsxSXNM:2:10", "labels": ["employment_data", "energy_commodities"]}
+{"id": "R4tLo6er5a8:0:-1", "labels": ["us_equity_market"]}
+{"id": "R4tLo6er5a8:0:1", "labels": ["us_equity_market"]}
+{"id": "R4tLo6er5a8:0:2", "labels": ["oil_geopolitics", "single_stock_move"]}
+{"id": "R4tLo6er5a8:0:3", "labels": ["oil_geopolitics"]}
+{"id": "R4tLo6er5a8:0:4", "labels": ["semiconductor_cycle", "analyst_view"]}
+{"id": "R4tLo6er5a8:0:5", "labels": ["oil_geopolitics"]}
+{"id": "R4tLo6er5a8:0:6", "labels": ["oil_geopolitics"]}
+{"id": "R4tLo6er5a8:1:-1", "labels": ["us_equity_market", "single_stock_move"]}
+{"id": "R4tLo6er5a8:1:1", "labels": ["semiconductor_cycle", "single_stock_move"]}
+{"id": "R4tLo6er5a8:1:2", "labels": ["single_stock_move", "semiconductor_cycle"]}
+{"id": "R4tLo6er5a8:1:3", "labels": ["semiconductor_cycle", "big_tech_earnings"]}
+{"id": "R4tLo6er5a8:1:5", "labels": ["semiconductor_cycle", "big_tech_earnings"]}
+{"id": "R4tLo6er5a8:1:6", "labels": ["semiconductor_cycle", "corporate_earnings"]}
+{"id": "R4tLo6er5a8:1:7", "labels": ["single_stock_move", "corporate_earnings"]}
+{"id": "R4tLo6er5a8:1:9", "labels": ["corporate_earnings"]}
+{"id": "R4tLo6er5a8:1:10", "labels": ["us_equity_market"]}
+{"id": "R4tLo6er5a8:2:-1", "labels": ["us_equity_market"]}
+{"id": "R4tLo6er5a8:2:1", "labels": ["us_equity_market"]}
+{"id": "R4tLo6er5a8:2:4", "labels": ["oil_geopolitics", "market_sentiment"]}
+{"id": "R4tLo6er5a8:2:6", "labels": ["us_equity_market"]}
+{"id": "R4tLo6er5a8:2:10", "labels": ["corporate_earnings"]}
+{"id": "R4tLo6er5a8:3:-1", "labels": ["us_equity_market"]}
+{"id": "R4tLo6er5a8:3:1", "labels": ["fed_policy"]}
+{"id": "R4tLo6er5a8:3:2", "labels": ["oil_geopolitics"]}
+{"id": "R4tLo6er5a8:3:3", "labels": ["fed_policy"]}
+{"id": "Eam_5-AZqMQ:0:-1", "labels": ["us_equity_market"]}
+{"id": "Eam_5-AZqMQ:0:1", "labels": ["us_equity_market"]}
+{"id": "Eam_5-AZqMQ:0:2", "labels": ["oil_geopolitics"]}
+{"id": "Eam_5-AZqMQ:0:3", "labels": ["oil_geopolitics"]}
+{"id": "Eam_5-AZqMQ:0:4", "labels": ["us_equity_market", "semiconductor_cycle"]}
+{"id": "Eam_5-AZqMQ:0:5", "labels": ["oil_geopolitics"]}
+{"id": "Eam_5-AZqMQ:0:6", "labels": ["oil_geopolitics"]}
+{"id": "Eam_5-AZqMQ:0:7", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "Eam_5-AZqMQ:0:9", "labels": ["geopolitics_general", "personal_anecdote"]}
+{"id": "Eam_5-AZqMQ:1:1", "labels": ["geopolitics_general"]}
+{"id": "Eam_5-AZqMQ:1:2", "labels": ["geopolitics_general", "oil_geopolitics"]}
+{"id": "Eam_5-AZqMQ:1:3", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "Eam_5-AZqMQ:1:4", "labels": ["fed_policy", "analyst_view"]}
+{"id": "Eam_5-AZqMQ:1:5", "labels": ["fed_policy", "inflation_data"]}
+{"id": "Eam_5-AZqMQ:1:6", "labels": ["inflation_data", "brand_strategy"]}
+{"id": "Eam_5-AZqMQ:1:8", "labels": ["oil_geopolitics", "risk_factors"]}
+{"id": "Eam_5-AZqMQ:2:1", "labels": ["energy_commodities", "us_equity_market"]}
+{"id": "Eam_5-AZqMQ:2:4", "labels": ["inflation_data"]}
+{"id": "Eam_5-AZqMQ:2:6", "labels": ["corporate_earnings", "investment_strategy"]}
+{"id": "Eam_5-AZqMQ:2:7", "labels": ["oil_geopolitics", "brand_strategy"]}
+{"id": "Eam_5-AZqMQ:3:-1", "labels": ["us_equity_market"]}
+{"id": "4O4cLIAEbWM:1:25", "labels": ["us_equity_market", "emerging_markets"]}
+{"id": "4O4cLIAEbWM:1:27", "labels": ["us_equity_market"]}
+{"id": "4O4cLIAEbWM:3:7", "labels": ["emerging_markets", "personal_anecdote"]}
+{"id": "4O4cLIAEbWM:3:9", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:4:3", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:4:13", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:4:19", "labels": ["risk_factors", "personal_anecdote"]}
+{"id": "4O4cLIAEbWM:4:22", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:5:18", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:5:21", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:5:23", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:5:25", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:6:6", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:6:11", "labels": ["emerging_markets", "risk_factors"]}
+{"id": "4O4cLIAEbWM:6:21", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:6:22", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:7:10", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:7:11", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:7:17", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:8:7", "labels": ["emerging_markets", "investment_strategy"]}
+{"id": "4O4cLIAEbWM:8:8", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:8:11", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:8:12", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:8:20", "labels": ["emerging_markets", "personal_anecdote"]}
+{"id": "4O4cLIAEbWM:9:-1", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:9:1", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:10:5", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:10:6", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:10:17", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:10:19", "labels": ["emerging_markets", "personal_anecdote"]}
+{"id": "4O4cLIAEbWM:11:-1", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:11:5", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:11:8", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:11:13", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:11:15", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:11:20", "labels": ["big_tech_earnings"]}
+{"id": "4O4cLIAEbWM:12:1", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:12:4", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:12:6", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:12:9", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:12:11", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:12:12", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:12:14", "labels": ["emerging_markets", "personal_anecdote"]}
+{"id": "4O4cLIAEbWM:13:2", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:13:9", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:13:11", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:13:12", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:13:15", "labels": ["brand_strategy"]}
+{"id": "4O4cLIAEbWM:13:19", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:14:1", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:14:2", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:14:3", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:14:5", "labels": ["emerging_markets", "brand_strategy"]}
+{"id": "4O4cLIAEbWM:14:6", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:15:1", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:15:3", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:15:7", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:15:19", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:16:5", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:16:13", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:16:18", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:16:25", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:17:1", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:17:2", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:17:4", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:17:9", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:17:12", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:17:25", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:18:1", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:18:2", "labels": ["geopolitics_general"]}
+{"id": "4O4cLIAEbWM:18:4", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:18:9", "labels": ["semiconductor_cycle"]}
+{"id": "4O4cLIAEbWM:18:15", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:18:26", "labels": ["startup_business"]}
+{"id": "4O4cLIAEbWM:18:33", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:19:2", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:19:3", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:19:5", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:19:7", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:19:11", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:19:16", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:20:2", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:20:4", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:20:6", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:20:8", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:20:14", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:20:22", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:21:4", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:21:8", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:21:11", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:21:15", "labels": ["fed_policy", "emerging_markets"]}
+{"id": "4O4cLIAEbWM:21:17", "labels": ["risk_factors"]}
+{"id": "4O4cLIAEbWM:21:19", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:21:24", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:22:2", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:22:13", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:22:15", "labels": ["emerging_markets", "corporate_earnings"]}
+{"id": "4O4cLIAEbWM:22:16", "labels": ["corporate_earnings", "emerging_markets"]}
+{"id": "4O4cLIAEbWM:22:18", "labels": ["emerging_markets", "investment_strategy"]}
+{"id": "4O4cLIAEbWM:22:27", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:23:-1", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:23:1", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:23:2", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:24:3", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:24:4", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:24:6", "labels": ["startup_business"]}
+{"id": "4O4cLIAEbWM:24:7", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:24:13", "labels": ["emerging_markets"]}
+{"id": "4O4cLIAEbWM:25:5", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:25:7", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:25:9", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:26:2", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:26:4", "labels": ["personal_anecdote"]}
+{"id": "4O4cLIAEbWM:26:8", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:1:19", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:1:20", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:1:21", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:1:22", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:1:26", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:2:9", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:2:30", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:3:5", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:3:8", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:4:5", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:4:7", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:4:8", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:4:16", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:4:17", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:5:12", "labels": ["corporate_earnings"]}
+{"id": "55oKoHnEyHU:5:13", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:5:14", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:6:-1", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:6:1", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:6:2", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:6:4", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:6:5", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:7:3", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:7:5", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:7:7", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:7:9", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:7:11", "labels": ["risk_factors"]}
+{"id": "55oKoHnEyHU:7:23", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:7:27", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:8:3", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:8:7", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:9:8", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:9:10", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:9:13", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:9:27", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:9:28", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:10:2", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:10:4", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:10:6", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:10:8", "labels": ["startup_business", "semiconductor_cycle"]}
+{"id": "55oKoHnEyHU:10:11", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:11:-1", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:11:1", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:11:2", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:11:3", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:11:7", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:12:1", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:12:2", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:12:3", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:12:4", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:12:5", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:12:9", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:13:-1", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:14:5", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:14:7", "labels": ["consumer_electronics"]}
+{"id": "55oKoHnEyHU:14:9", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:14:12", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:15:4", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:15:5", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:15:6", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:15:8", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:15:14", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:15:15", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:16:4", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:16:6", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:16:7", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:16:9", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:16:14", "labels": ["corporate_earnings"]}
+{"id": "55oKoHnEyHU:16:19", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:17:3", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:17:4", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:17:5", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:17:6", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:17:7", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:17:9", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:17:19", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:18:2", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:18:4", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:18:10", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:18:11", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:19:5", "labels": ["brand_strategy"]}
+{"id": "55oKoHnEyHU:19:8", "labels": ["oil_geopolitics", "startup_business"]}
+{"id": "55oKoHnEyHU:19:12", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:19:13", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:19:14", "labels": ["startup_business", "brand_strategy"]}
+{"id": "55oKoHnEyHU:19:16", "labels": ["startup_business", "brand_strategy"]}
+{"id": "55oKoHnEyHU:20:3", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:20:9", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:21:3", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:21:5", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:21:7", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:22:-1", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:22:1", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:22:2", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:22:3", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:22:5", "labels": ["analyst_view"]}
+{"id": "55oKoHnEyHU:22:6", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:23:-1", "labels": ["geopolitics_general"]}
+{"id": "55oKoHnEyHU:23:4", "labels": ["geopolitics_general"]}
+{"id": "55oKoHnEyHU:23:5", "labels": ["geopolitics_general"]}
+{"id": "55oKoHnEyHU:23:7", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:23:26", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:24:3", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:24:6", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:24:9", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:24:10", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:25:-1", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:25:1", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:25:2", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:26:-1", "labels": ["brand_strategy"]}
+{"id": "55oKoHnEyHU:26:1", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:26:2", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:26:3", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:26:5", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:26:14", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:27:25", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:27:28", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:27:29", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:27:34", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:28:18", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:28:20", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:28:21", "labels": ["startup_business"]}
+{"id": "55oKoHnEyHU:28:31", "labels": ["personal_anecdote"]}
+{"id": "55oKoHnEyHU:29:6", "labels": ["personal_anecdote"]}
+{"id": "MVg_B5BK5cw:1:6", "labels": ["startup_business"]}
+{"id": "MVg_B5BK5cw:1:15", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:2:9", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:2:18", "labels": ["brand_strategy", "big_tech_earnings"]}
+{"id": "MVg_B5BK5cw:3:3", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:3:4", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:3:6", "labels": ["brand_strategy", "startup_business"]}
+{"id": "MVg_B5BK5cw:4:4", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:4:10", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:4:11", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:4:18", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:5:5", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:5:9", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:5:12", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:5:15", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:5:20", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:5:23", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:6:3", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:6:5", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:6:9", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:7:19", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:7:20", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:8:7", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:8:6", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:8:4", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:8:16", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:10:5", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:10:12", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:10:14", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:10:15", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:10:17", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:10:19", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:10:27", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:12:-1", "labels": ["consumer_electronics", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:12:2", "labels": ["consumer_electronics", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:12:4", "labels": ["consumer_electronics", "semiconductor_cycle"]}
+{"id": "MVg_B5BK5cw:12:6", "labels": ["consumer_electronics", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:12:8", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:12:9", "labels": ["corporate_earnings", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:12:10", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:12:11", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:12:14", "labels": ["consumer_electronics", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:12:16", "labels": ["market_sentiment", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:13:9", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:13:12", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:14:6", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:14:7", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:15:3", "labels": ["personal_anecdote"]}
+{"id": "MVg_B5BK5cw:15:5", "labels": ["personal_anecdote"]}
+{"id": "MVg_B5BK5cw:15:6", "labels": ["personal_anecdote"]}
+{"id": "MVg_B5BK5cw:15:7", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:16:5", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:16:6", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:16:7", "labels": ["consumer_electronics", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:16:8", "labels": ["consumer_electronics", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:16:9", "labels": ["consumer_electronics", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:16:10", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:17:-1", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:17:2", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:17:3", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:17:4", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:17:5", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:17:6", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:18:8", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:18:10", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:18:11", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:18:13", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:18:14", "labels": ["risk_factors"]}
+{"id": "MVg_B5BK5cw:18:15", "labels": ["risk_factors"]}
+{"id": "MVg_B5BK5cw:18:16", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:18:19", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:18:20", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:19:7", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:19:8", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:19:11", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:19:12", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:20:12", "labels": ["corporate_earnings", "consumer_electronics"]}
+{"id": "MVg_B5BK5cw:20:14", "labels": ["corporate_earnings", "consumer_electronics"]}
+{"id": "MVg_B5BK5cw:22:1", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:22:2", "labels": ["startup_business"]}
+{"id": "MVg_B5BK5cw:22:7", "labels": ["startup_business"]}
+{"id": "MVg_B5BK5cw:22:8", "labels": ["corporate_earnings"]}
+{"id": "MVg_B5BK5cw:22:9", "labels": ["corporate_earnings"]}
+{"id": "MVg_B5BK5cw:22:10", "labels": ["corporate_earnings"]}
+{"id": "MVg_B5BK5cw:22:11", "labels": ["corporate_earnings", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:22:12", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:22:14", "labels": ["startup_business"]}
+{"id": "MVg_B5BK5cw:22:18", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:22:19", "labels": ["consumer_electronics", "china_macro"]}
+{"id": "MVg_B5BK5cw:23:-1", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:23:1", "labels": ["us_equity_market"]}
+{"id": "MVg_B5BK5cw:23:3", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:23:4", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:23:6", "labels": ["china_macro"]}
+{"id": "MVg_B5BK5cw:23:7", "labels": ["consumer_electronics", "china_macro"]}
+{"id": "MVg_B5BK5cw:23:13", "labels": ["china_macro"]}
+{"id": "MVg_B5BK5cw:23:15", "labels": ["market_sentiment"]}
+{"id": "MVg_B5BK5cw:24:-1", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:24:2", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:24:5", "labels": ["china_macro"]}
+{"id": "MVg_B5BK5cw:24:8", "labels": ["china_macro"]}
+{"id": "MVg_B5BK5cw:24:9", "labels": ["china_macro"]}
+{"id": "MVg_B5BK5cw:24:11", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:24:12", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:25:-1", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:25:1", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:25:2", "labels": ["consumer_electronics"]}
+{"id": "MVg_B5BK5cw:25:4", "labels": ["brand_strategy", "consumer_electronics"]}
+{"id": "MVg_B5BK5cw:25:8", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:25:9", "labels": ["ai_tech", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:26:-1", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:26:1", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:26:2", "labels": ["ai_tech", "entertainment_content"]}
+{"id": "MVg_B5BK5cw:26:5", "labels": ["ai_tech", "entertainment_content"]}
+{"id": "MVg_B5BK5cw:26:10", "labels": ["brand_strategy", "entertainment_content"]}
+{"id": "MVg_B5BK5cw:26:12", "labels": ["entertainment_content", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:26:14", "labels": ["ai_tech", "market_sentiment"]}
+{"id": "MVg_B5BK5cw:26:17", "labels": ["ai_tech"]}
+{"id": "MVg_B5BK5cw:27:5", "labels": ["ai_tech"]}
+{"id": "MVg_B5BK5cw:27:7", "labels": ["ai_tech"]}
+{"id": "MVg_B5BK5cw:27:10", "labels": ["ai_tech", "brand_strategy"]}
+{"id": "MVg_B5BK5cw:27:15", "labels": ["ai_tech"]}
+{"id": "MVg_B5BK5cw:27:16", "labels": ["ai_tech"]}
+{"id": "MVg_B5BK5cw:28:12", "labels": ["analyst_view"]}
+{"id": "MVg_B5BK5cw:28:16", "labels": ["analyst_view"]}
+{"id": "MVg_B5BK5cw:28:17", "labels": ["analyst_view"]}
+{"id": "MVg_B5BK5cw:28:28", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:29:1", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:29:2", "labels": ["startup_business"]}
+{"id": "MVg_B5BK5cw:29:4", "labels": ["brand_strategy"]}
+{"id": "MVg_B5BK5cw:29:7", "labels": ["ai_tech"]}
+{"id": "MVg_B5BK5cw:29:14", "labels": ["ai_tech"]}
+{"id": "9vYK-f4tKH4:0:-1", "labels": ["us_equity_market"]}
+{"id": "9vYK-f4tKH4:0:1", "labels": ["us_equity_market"]}
+{"id": "9vYK-f4tKH4:0:2", "labels": ["us_equity_market"]}
+{"id": "9vYK-f4tKH4:0:4", "labels": ["fed_policy", "inflation_data"]}
+{"id": "9vYK-f4tKH4:0:6", "labels": ["market_sentiment"]}
+{"id": "9vYK-f4tKH4:0:10", "labels": ["energy_commodities", "risk_factors"]}
+{"id": "9vYK-f4tKH4:0:12", "labels": ["oil_geopolitics"]}
+{"id": "9vYK-f4tKH4:0:13", "labels": ["energy_commodities"]}
+{"id": "9vYK-f4tKH4:0:15", "labels": ["energy_commodities"]}
+{"id": "9vYK-f4tKH4:0:17", "labels": ["energy_commodities"]}
+{"id": "9vYK-f4tKH4:1:2", "labels": ["fed_policy", "inflation_data"]}
+{"id": "9vYK-f4tKH4:1:4", "labels": ["inflation_data"]}
+{"id": "9vYK-f4tKH4:1:18", "labels": ["fed_policy", "single_stock_move"]}
+{"id": "9vYK-f4tKH4:1:13", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:2:1", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:2:4", "labels": ["big_tech_earnings"]}
+{"id": "9vYK-f4tKH4:2:7", "labels": ["big_tech_earnings", "semiconductor_cycle"]}
+{"id": "9vYK-f4tKH4:2:8", "labels": ["big_tech_earnings", "semiconductor_cycle"]}
+{"id": "9vYK-f4tKH4:3:-1", "labels": ["single_stock_move", "brand_strategy"]}
+{"id": "9vYK-f4tKH4:3:1", "labels": ["us_equity_market"]}
+{"id": "9vYK-f4tKH4:3:3", "labels": ["market_sentiment"]}
+{"id": "9vYK-f4tKH4:3:11", "labels": ["single_stock_move", "brand_strategy"]}
+{"id": "9vYK-f4tKH4:4:2", "labels": ["fed_policy", "energy_commodities"]}
+{"id": "9vYK-f4tKH4:4:12", "labels": ["inflation_data"]}
+{"id": "9vYK-f4tKH4:4:16", "labels": ["inflation_data", "energy_commodities"]}
+{"id": "9vYK-f4tKH4:4:23", "labels": ["inflation_data"]}
+{"id": "9vYK-f4tKH4:4:31", "labels": ["inflation_data"]}
+{"id": "9vYK-f4tKH4:5:4", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:5:6", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:5:8", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:5:12", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:5:20", "labels": ["market_sentiment"]}
+{"id": "9vYK-f4tKH4:5:24", "labels": ["single_stock_move", "semiconductor_cycle"]}
+{"id": "9vYK-f4tKH4:5:26", "labels": ["single_stock_move", "semiconductor_cycle"]}
+{"id": "9vYK-f4tKH4:5:27", "labels": ["single_stock_move", "semiconductor_cycle"]}
+{"id": "9vYK-f4tKH4:5:28", "labels": ["single_stock_move"]}
+{"id": "9vYK-f4tKH4:6:-1", "labels": ["single_stock_move"]}
+{"id": "9vYK-f4tKH4:6:1", "labels": ["korea_economy"]}
+{"id": "9vYK-f4tKH4:6:3", "labels": ["single_stock_move"]}
+{"id": "9vYK-f4tKH4:6:5", "labels": ["korea_economy"]}
+{"id": "9vYK-f4tKH4:6:10", "labels": ["korea_economy", "single_stock_move"]}
+{"id": "9vYK-f4tKH4:6:14", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:6:20", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:6:27", "labels": ["inflation_data"]}
+{"id": "9vYK-f4tKH4:7:3", "labels": ["oil_geopolitics"]}
+{"id": "9vYK-f4tKH4:7:5", "labels": ["oil_geopolitics"]}
+{"id": "9vYK-f4tKH4:7:7", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "9vYK-f4tKH4:7:18", "labels": ["oil_geopolitics", "risk_factors"]}
+{"id": "9vYK-f4tKH4:7:22", "labels": ["inflation_data", "single_stock_move"]}
+{"id": "9vYK-f4tKH4:7:25", "labels": ["market_sentiment"]}
+{"id": "9vYK-f4tKH4:8:2", "labels": ["geopolitics_general"]}
+{"id": "9vYK-f4tKH4:8:3", "labels": ["oil_geopolitics"]}
+{"id": "9vYK-f4tKH4:8:5", "labels": ["oil_geopolitics"]}
+{"id": "9vYK-f4tKH4:8:7", "labels": ["oil_geopolitics", "energy_commodities"]}
+{"id": "9vYK-f4tKH4:8:16", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:8:19", "labels": ["inflation_data"]}
+{"id": "9vYK-f4tKH4:9:3", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:9:11", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:10:-1", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:10:2", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:10:4", "labels": ["fed_policy", "risk_factors"]}
+{"id": "9vYK-f4tKH4:10:5", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:10:7", "labels": ["fed_policy"]}
+{"id": "9vYK-f4tKH4:10:8", "labels": ["inflation_data"]}
+{"id": "9vYK-f4tKH4:10:9", "labels": ["inflation_data"]}
+{"id": "9vYK-f4tKH4:11:-1", "labels": ["big_tech_earnings"]}
+{"id": "9vYK-f4tKH4:11:1", "labels": ["big_tech_earnings"]}
+{"id": "9vYK-f4tKH4:11:3", "labels": ["market_sentiment"]}
+{"id": "9vYK-f4tKH4:11:4", "labels": ["ai_tech"]}
+{"id": "9vYK-f4tKH4:11:5", "labels": ["market_sentiment"]}
+{"id": "FBslQ99P4Fk:0:-1", "labels": ["us_equity_market"]}
+{"id": "FBslQ99P4Fk:0:1", "labels": ["us_equity_market"]}
+{"id": "FBslQ99P4Fk:0:2", "labels": ["oil_geopolitics", "single_stock_move"]}
+{"id": "FBslQ99P4Fk:0:3", "labels": ["fed_policy", "us_equity_market"]}
+{"id": "FBslQ99P4Fk:0:4", "labels": ["fed_policy", "analyst_view"]}
+{"id": "FBslQ99P4Fk:0:6", "labels": ["fed_policy", "investment_strategy"]}
+{"id": "FBslQ99P4Fk:1:-1", "labels": ["fed_policy"]}
+{"id": "FBslQ99P4Fk:1:1", "labels": ["fed_policy"]}
+{"id": "FBslQ99P4Fk:1:2", "labels": ["fed_policy"]}
+{"id": "FBslQ99P4Fk:1:3", "labels": ["inflation_data", "oil_geopolitics"]}
+{"id": "FBslQ99P4Fk:1:6", "labels": ["big_tech_earnings", "single_stock_move"]}
+{"id": "FBslQ99P4Fk:1:7", "labels": ["big_tech_earnings"]}
+{"id": "FBslQ99P4Fk:1:8", "labels": ["big_tech_earnings", "corporate_earnings"]}
+{"id": "FBslQ99P4Fk:1:9", "labels": ["fed_policy"]}
+{"id": "FBslQ99P4Fk:1:11", "labels": ["fed_policy", "inflation_data"]}
+{"id": "FBslQ99P4Fk:1:13", "labels": ["fed_policy", "inflation_data"]}
+{"id": "FBslQ99P4Fk:2:1", "labels": ["fed_policy", "analyst_view"]}
+{"id": "FBslQ99P4Fk:2:3", "labels": ["fed_policy"]}
+{"id": "Q10ZxhxlnT8:1:-1", "labels": ["oil_geopolitics"]}
+{"id": "Q10ZxhxlnT8:1:1", "labels": ["oil_geopolitics"]}
+{"id": "Q10ZxhxlnT8:1:2", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "Q10ZxhxlnT8:1:5", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "Q10ZxhxlnT8:1:6", "labels": ["geopolitics_general"]}
+{"id": "Q10ZxhxlnT8:1:9", "labels": ["risk_factors"]}
+{"id": "Q10ZxhxlnT8:1:11", "labels": ["us_equity_market", "single_stock_move"]}
+{"id": "Q10ZxhxlnT8:1:14", "labels": ["us_equity_market", "corporate_earnings"]}
+{"id": "Q10ZxhxlnT8:2:1", "labels": ["semiconductor_cycle", "corporate_earnings"]}
+{"id": "Q10ZxhxlnT8:2:2", "labels": ["us_equity_market"]}
+{"id": "Q10ZxhxlnT8:2:3", "labels": ["inflation_data", "single_stock_move"]}
+{"id": "Q10ZxhxlnT8:2:5", "labels": ["fed_policy"]}
+{"id": "Q10ZxhxlnT8:2:8", "labels": ["fed_policy", "analyst_view"]}
+{"id": "Q10ZxhxlnT8:2:12", "labels": ["fed_policy", "inflation_data"]}
+{"id": "Q10ZxhxlnT8:2:16", "labels": ["fed_policy", "corporate_earnings"]}
+{"id": "Q10ZxhxlnT8:3:-1", "labels": ["us_equity_market"]}
+{"id": "Q10ZxhxlnT8:3:1", "labels": ["corporate_earnings"]}
+{"id": "Q10ZxhxlnT8:3:3", "labels": ["corporate_earnings"]}
+{"id": "Q10ZxhxlnT8:3:4", "labels": ["us_equity_market"]}
+{"id": "Q10ZxhxlnT8:3:5", "labels": ["us_equity_market"]}
+{"id": "WGh7VSPfVNs:0:1", "labels": ["us_equity_market"]}
+{"id": "WGh7VSPfVNs:0:2", "labels": ["us_equity_market", "oil_geopolitics"]}
+{"id": "WGh7VSPfVNs:0:3", "labels": ["fed_policy", "us_equity_market"]}
+{"id": "WGh7VSPfVNs:0:4", "labels": ["fed_policy"]}
+{"id": "WGh7VSPfVNs:1:-1", "labels": ["corporate_earnings", "risk_factors"]}
+{"id": "WGh7VSPfVNs:1:1", "labels": ["us_equity_market"]}
+{"id": "WGh7VSPfVNs:1:2", "labels": ["semiconductor_cycle"]}
+{"id": "WGh7VSPfVNs:1:3", "labels": ["single_stock_move", "semiconductor_cycle"]}
+{"id": "WGh7VSPfVNs:1:4", "labels": ["semiconductor_cycle", "us_equity_market"]}
+{"id": "WGh7VSPfVNs:1:8", "labels": ["risk_factors", "oil_geopolitics"]}
+{"id": "WGh7VSPfVNs:2:1", "labels": ["semiconductor_cycle", "corporate_earnings"]}
+{"id": "WGh7VSPfVNs:2:2", "labels": ["semiconductor_cycle", "single_stock_move"]}
+{"id": "WGh7VSPfVNs:2:3", "labels": ["ai_tech"]}
+{"id": "6xnbpgpF95E:0:-1", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "6xnbpgpF95E:0:2", "labels": ["oil_geopolitics", "us_equity_market"]}
+{"id": "6xnbpgpF95E:0:3", "labels": ["korea_economy", "single_stock_move"]}
+{"id": "6xnbpgpF95E:0:4", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:0:5", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:0:6", "labels": ["geopolitics_general"]}
+{"id": "6xnbpgpF95E:0:7", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "6xnbpgpF95E:0:8", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:2:-1", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:2:1", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:2:3", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:2:5", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:2:7", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:2:9", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "6xnbpgpF95E:2:10", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:2:13", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:3:-1", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:3:18", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:4:1", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:4:3", "labels": ["oil_geopolitics", "risk_factors"]}
+{"id": "6xnbpgpF95E:4:4", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:4:5", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:4:6", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:4:7", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:4:8", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:4:10", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:5:2", "labels": ["oil_geopolitics", "analyst_view"]}
+{"id": "6xnbpgpF95E:5:13", "labels": ["oil_geopolitics", "risk_factors"]}
+{"id": "6xnbpgpF95E:6:-1", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:6:2", "labels": ["ai_tech"]}
+{"id": "6xnbpgpF95E:6:5", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:6:6", "labels": ["risk_factors"]}
+{"id": "6xnbpgpF95E:6:13", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:7:-1", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:7:3", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:7:4", "labels": ["oil_geopolitics", "geopolitics_general"]}
+{"id": "6xnbpgpF95E:7:8", "labels": ["oil_geopolitics"]}
+{"id": "6xnbpgpF95E:7:9", "labels": ["oil_geopolitics"]}
+{"id": "p7pZ0RmJ3b8:0:5", "labels": ["korea_economy"]}
+{"id": "p7pZ0RmJ3b8:0:7", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:0:12", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:1:7", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:1:8", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:1:17", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:1:18", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:2:3", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:2:6", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:2:12", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:2:13", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:2:15", "labels": ["personal_anecdote"]}
+{"id": "p7pZ0RmJ3b8:2:19", "labels": ["personal_anecdote"]}
+{"id": "p7pZ0RmJ3b8:3:2", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:3:4", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:3:6", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:4:4", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:4:5", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:4:6", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:4:16", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:4:23", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:4:25", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:5:10", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:5:14", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:5:21", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:7:-1", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:7:4", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:7:12", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:7:27", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:8:8", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:8:14", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:8:20", "labels": ["game_industry", "risk_factors"]}
+{"id": "p7pZ0RmJ3b8:8:24", "labels": ["game_industry", "entertainment_content"]}
+{"id": "p7pZ0RmJ3b8:9:1", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:9:6", "labels": ["game_industry", "personal_anecdote"]}
+{"id": "p7pZ0RmJ3b8:9:8", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:9:11", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:10:6", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:10:9", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:10:13", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:10:16", "labels": ["game_industry", "analyst_view"]}
+{"id": "p7pZ0RmJ3b8:10:17", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:11:-1", "labels": ["analyst_view"]}
+{"id": "p7pZ0RmJ3b8:11:1", "labels": ["analyst_view"]}
+{"id": "p7pZ0RmJ3b8:11:18", "labels": ["game_industry", "entertainment_content"]}
+{"id": "p7pZ0RmJ3b8:11:20", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:11:21", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:12:2", "labels": ["consumer_electronics"]}
+{"id": "p7pZ0RmJ3b8:12:3", "labels": ["consumer_electronics"]}
+{"id": "p7pZ0RmJ3b8:12:4", "labels": ["consumer_electronics", "analyst_view"]}
+{"id": "p7pZ0RmJ3b8:12:14", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:12:15", "labels": ["game_industry", "analyst_view"]}
+{"id": "p7pZ0RmJ3b8:13:7", "labels": ["game_industry", "oil_geopolitics"]}
+{"id": "p7pZ0RmJ3b8:13:10", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:13:11", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:13:15", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:13:17", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:13:19", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:13:20", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:13:22", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:13:23", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:14:7", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:14:9", "labels": ["game_industry", "corporate_earnings"]}
+{"id": "p7pZ0RmJ3b8:14:12", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:14:14", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:14:18", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:14:21", "labels": ["game_industry", "single_stock_move"]}
+{"id": "p7pZ0RmJ3b8:16:6", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:16:7", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:16:11", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:16:12", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:16:16", "labels": ["game_industry", "corporate_earnings"]}
+{"id": "p7pZ0RmJ3b8:17:15", "labels": ["game_industry", "startup_business"]}
+{"id": "p7pZ0RmJ3b8:17:24", "labels": ["corporate_earnings", "game_industry"]}
+{"id": "p7pZ0RmJ3b8:18:4", "labels": ["korea_economy"]}
+{"id": "p7pZ0RmJ3b8:18:8", "labels": ["game_industry", "korea_economy"]}
+{"id": "p7pZ0RmJ3b8:18:11", "labels": ["single_stock_move", "oil_geopolitics"]}
+{"id": "p7pZ0RmJ3b8:18:24", "labels": ["game_industry", "startup_business"]}
+{"id": "p7pZ0RmJ3b8:19:1", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:19:3", "labels": ["game_industry", "corporate_earnings"]}
+{"id": "p7pZ0RmJ3b8:19:4", "labels": ["game_industry", "corporate_earnings"]}
+{"id": "p7pZ0RmJ3b8:19:5", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:19:14", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:19:15", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:20:-1", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:20:1", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:20:3", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:20:4", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:20:6", "labels": ["startup_business"]}
+{"id": "p7pZ0RmJ3b8:20:7", "labels": ["game_industry", "market_sentiment"]}
+{"id": "p7pZ0RmJ3b8:20:8", "labels": ["game_industry", "market_sentiment"]}
+{"id": "p7pZ0RmJ3b8:20:9", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:20:10", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:21:-1", "labels": ["game_industry", "startup_business"]}
+{"id": "p7pZ0RmJ3b8:21:1", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:21:3", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:21:9", "labels": ["game_industry", "startup_business"]}
+{"id": "p7pZ0RmJ3b8:21:15", "labels": ["game_industry", "startup_business"]}
+{"id": "p7pZ0RmJ3b8:21:19", "labels": ["game_industry", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:22:2", "labels": ["entertainment_content", "brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:22:3", "labels": ["entertainment_content"]}
+{"id": "p7pZ0RmJ3b8:22:5", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:22:10", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:22:15", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:22:25", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:22:28", "labels": ["game_industry", "entertainment_content"]}
+{"id": "p7pZ0RmJ3b8:22:31", "labels": ["investment_strategy"]}
+{"id": "p7pZ0RmJ3b8:23:-1", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:23:2", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:23:10", "labels": ["entertainment_content"]}
+{"id": "p7pZ0RmJ3b8:23:12", "labels": ["entertainment_content"]}
+{"id": "p7pZ0RmJ3b8:23:24", "labels": ["entertainment_content"]}
+{"id": "p7pZ0RmJ3b8:24:46", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:25:3", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:25:36", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:25:41", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:25:44", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:26:2", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:26:4", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:26:6", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:26:17", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:26:23", "labels": ["personal_anecdote"]}
+{"id": "p7pZ0RmJ3b8:26:31", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:26:46", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:27:5", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:27:9", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:27:12", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:28:6", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:28:18", "labels": ["entertainment_content"]}
+{"id": "p7pZ0RmJ3b8:28:31", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:28:35", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:29:3", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:29:7", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:29:8", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:29:12", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:29:21", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:29:25", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:30:3", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:30:5", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:30:7", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:30:9", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:30:18", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:31:4", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:31:6", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:31:13", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:31:16", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:31:17", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:31:20", "labels": ["brand_strategy"]}
+{"id": "p7pZ0RmJ3b8:31:22", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:32:13", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:33:5", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:33:7", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:33:8", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:33:9", "labels": ["game_industry"]}
+{"id": "p7pZ0RmJ3b8:33:10", "labels": ["game_industry"]}

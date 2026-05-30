@@ -1,0 +1,520 @@
+{
+  "title": "하나증권 반도체·소부장 Weekly 2026-05-26 (구조 분해)",
+  "blocks": [
+    {
+      "id": "g_meta",
+      "type": "guideline",
+      "title": "0. 리포트 메타 정보",
+      "body": "헤더 식별자 + 본 리포트의 위클리 내 특수 위치 (하이브리드: 위클리에 분석 글이 끼어든 케이스)."
+    },
+    {
+      "id": "p_meta_1",
+      "type": "proposition",
+      "title": "발간일자 / 분야 / 제목",
+      "body": "2026-05-26 | 반도체 및 소부장 Weekly | 제목: '메모리 가격 상승을 견인하는 Nvidia' — 제목 자체가 인과 명제(Nvidia가 메모리 가격을 *견인한다*).",
+      "role": "definition",
+      "parentId": "g_meta"
+    },
+    {
+      "id": "p_meta_2",
+      "type": "proposition",
+      "title": "저자 / 소속",
+      "body": "Analyst 김록호 (roko.kim@hanafn.com), RA 김영규 — 하나증권 리서치센터.",
+      "role": "definition",
+      "parentId": "g_meta"
+    },
+
+    {
+      "id": "g_thesis",
+      "type": "guideline",
+      "title": "1. 핵심 명제 — Nvidia가 메모리 가격 상승의 견인차",
+      "body": "리포트 전체를 관통하는 단일 주장. 모든 데이터 리뷰와 전망이 이 명제를 강화하는 방향으로 정렬됨."
+    },
+    {
+      "id": "p_th_1",
+      "type": "proposition",
+      "title": "주장: Nvidia 단일 고객이 메모리 가격 상승을 '견인'한다",
+      "body": "단순 수요 증가가 아니라 *견인(견착)*. AI 서버/데이터센터향 + LPDDR + 네트워킹 + Vera CPU 4축에서 Nvidia가 메모리 수요의 결정 변수.",
+      "role": "claim",
+      "parentId": "g_thesis"
+    },
+    {
+      "id": "p_th_2",
+      "type": "proposition",
+      "title": "수정 명제: '2027년 LPDDR 최대 고객' → '2026년에 이미 달성'",
+      "body": "이전 보고서 '메기남 등장'에서 2027년 전망을 1년 앞당김. 자체 가설을 강화하는 방향의 self-revision. 분석가 글쓰기의 신뢰 구축 패턴.",
+      "role": "claim",
+      "source": "하나증권 '메기남 등장' 보고서 (이전 발간)",
+      "parentId": "g_thesis"
+    },
+    {
+      "id": "p_th_3",
+      "type": "proposition",
+      "title": "함의: '26년 하반기 DRAM 가격 상승폭이 예상치 상회 + 실적 전망치 상향 + 주가 우상향",
+      "body": "주장 → 실적 → 주가 3단 연결. 매수 추천(비중확대)의 근본 근거.",
+      "role": "implication",
+      "parentId": "g_thesis"
+    },
+
+    {
+      "id": "g_data_exp",
+      "type": "guideline",
+      "title": "2. 데이터 포인트 — 5/20 수출 잠정치 (근거 #1)",
+      "body": "핵심 명제를 지지하는 첫 번째 근거. '컨센서스 상회 가능성'을 정량 데이터로 입증."
+    },
+    {
+      "id": "p_de_1",
+      "type": "proposition",
+      "title": "5/20 일평균 메모리 수출 12.2억$, YoY +231%",
+      "body": "DRAM 6.2억$ YoY +456%, NAND 7,948만$ YoY +183%, MCP 4.1억$ +102%, SSD 1.9억$ +308%. 10일에 이어 20일 잠정치도 양호.",
+      "role": "evidence",
+      "source": "관세청 잠정치 (추정)",
+      "parentId": "g_data_exp"
+    },
+    {
+      "id": "p_de_2",
+      "type": "proposition",
+      "title": "DRAM +456%가 핵심 — 메모리 수출 가속의 '엔진'",
+      "body": "메모리 +231% 중 DRAM이 +456%로 가장 가파름. 가격 + 물량 동시 폭증. 이것이 Nvidia 견인 주장의 가장 강한 근거.",
+      "role": "evidence",
+      "parentId": "g_data_exp"
+    },
+    {
+      "id": "p_de_3",
+      "type": "proposition",
+      "title": "2Q 컨센서스 상회 가능성 농후 → 5월 온기 데이터도 긍정 기대",
+      "body": "분석가 추론 연결: 잠정치 → 분기 컨센 상회 → 다음 달 데이터 신호. 데이터 → 시점 연결의 모범.",
+      "role": "implication",
+      "parentId": "g_data_exp"
+    },
+
+    {
+      "id": "g_data_stock",
+      "type": "guideline",
+      "title": "3. 데이터 포인트 — 주간 주가/수급 (근거 #2)",
+      "body": "삼전 6주만에 SKH 상회 → 노사 합의 모멘텀 + 추가 상승 여지. 종목 단위 catalyst까지 짚는 디테일."
+    },
+    {
+      "id": "p_ds_1",
+      "type": "proposition",
+      "title": "코스피 +4.7%, 삼성전자 +8.1%, SK하이닉스 +6.7%",
+      "body": "1주 만에 지수 상승 전환. 메모리 양사 모두 지수 아웃퍼폼.",
+      "role": "evidence",
+      "parentId": "g_data_stock"
+    },
+    {
+      "id": "p_ds_2",
+      "type": "proposition",
+      "title": "삼전이 6주만에 SKH 상회 — catalyst는 노사 상여금 협상 타결",
+      "body": "잠정 합의안 + 노조 찬반 투표 진행중. 파업 우려 일단락이 단기 모멘텀.",
+      "role": "evidence",
+      "parentId": "g_data_stock"
+    },
+    {
+      "id": "p_ds_3",
+      "type": "proposition",
+      "title": "삼전 1M +33% vs SKH +59%, Micron +56%, Nanya +51% — 갭 메우기 기대",
+      "body": "삼전이 글로벌 메모리 peers 대비 33%로 *저조*. 최종 합의안 도출 시 'peers 수준으로 catch-up' 여지. 매수 논리.",
+      "role": "implication",
+      "parentId": "g_data_stock"
+    },
+
+    {
+      "id": "g_data_kosdaq",
+      "type": "guideline",
+      "title": "4. 데이터 포인트 — 씨엠티엑스 예외 케이스 (반박 흡수)",
+      "body": "지수 -2.8% 상승, 커버리지 대부분 상승 중 *유일하게* 약세인 종목을 별도로 다룸. 약세를 *두 가지 원인*으로 분리해 해석한 뒤 무력화."
+    },
+    {
+      "id": "p_dk_1",
+      "type": "proposition",
+      "title": "씨엠티엑스 약 3% 하락, 지수 대비 언더퍼폼",
+      "body": "관찰: 다른 커버리지 종목들이 상승할 때 혼자 빠짐.",
+      "role": "counter",
+      "parentId": "g_data_kosdaq"
+    },
+    {
+      "id": "p_dk_2",
+      "type": "proposition",
+      "title": "원인 분해 1: CAPA 증설 위한 선제 인력 채용 → 1Q 컨센 9% 하회",
+      "body": "비용 선행 발생. 매출 follow-up 전 단계.",
+      "role": "evidence",
+      "parentId": "g_data_kosdaq"
+    },
+    {
+      "id": "p_dk_3",
+      "type": "proposition",
+      "title": "원인 분해 2: 5/20 보호예수 해제 30만주(유통 3%) 출회 가능성",
+      "body": "공모가 60,500원, 현 122,600원으로 차익실현 매물 출회 추정. 수급 측 단기 변수.",
+      "role": "evidence",
+      "parentId": "g_data_kosdaq"
+    },
+    {
+      "id": "p_dk_4",
+      "type": "proposition",
+      "title": "재반박: 다만 업황·실적 눈높이는 컨센 상회 가능성 높음",
+      "body": "두 가지 약세 원인을 인정하면서도 '단기 노이즈'로 격리. 매수 의견 유지. 주장-반박-재반박 미니 구조의 완결.",
+      "role": "claim",
+      "parentId": "g_data_kosdaq"
+    },
+
+    {
+      "id": "g_outlook",
+      "type": "guideline",
+      "title": "5. 전망 및 전략 — 메인 논증 (Vera CPU + 비중확대)",
+      "body": "데이터 리뷰 3개를 받아 결론으로 묶는 단계. 각 문단이 [주장 → 근거 → 자체 인용 → 함의] 구조."
+    },
+    {
+      "id": "p_ol_1",
+      "type": "proposition",
+      "title": "매크로 이슈에 의한 주가 하락 = 매수 기회 (패턴 학습)",
+      "body": "美·이란 갈등 완화 → 메모리 주가 반등. '업황 견고 + 대외 이슈 하락'은 매수 기회라는 *반복 검증된* 패턴으로 격상.",
+      "role": "claim",
+      "parentId": "g_outlook"
+    },
+    {
+      "id": "p_ol_2",
+      "type": "proposition",
+      "title": "Nvidia 실적 발표: Vera CPU 별도 판매 매출 200억$ — '서프라이즈 수준'",
+      "body": "AI 서버/데이터센터향 강한 수요 + 컨센 상회 가이던스 + 네트워킹 매출 +199% YoY. 특히 Vera CPU 별도 판매가 새로운 매출 축.",
+      "role": "evidence",
+      "source": "Nvidia 실적 발표",
+      "parentId": "g_outlook"
+    },
+    {
+      "id": "p_ol_3",
+      "type": "proposition",
+      "title": "자체 인용으로 주장 강화: '메기남 등장' 보고서의 2027년 전망을 2026년으로 앞당김",
+      "body": "이전 보고서 self-cite는 (1) 신뢰 트랙 레코드 과시 (2) 가설 *강화* 방향의 수정으로 분석가 신뢰도 구축. 글쓰기 모범 패턴.",
+      "role": "quote",
+      "parentId": "g_outlook"
+    },
+    {
+      "id": "p_ol_4",
+      "type": "proposition",
+      "title": "장비 업체들도 컨센 크게 상회 + 글로벌 메모리 Capex 예상 상회",
+      "body": "수요(완성품)뿐 아니라 공급망(장비)에서도 같은 시그널. 두 축에서 같은 결론이 나오면 confirmation 강해짐.",
+      "role": "evidence",
+      "parentId": "g_outlook"
+    },
+    {
+      "id": "p_ol_5",
+      "type": "proposition",
+      "title": "결론: 메모리 + 소부장 비중확대 지속 추천",
+      "body": "투자 액션. 데이터 리뷰 3개 + 매크로 + Nvidia + Capex = 비중확대. 모든 라인이 하나로 수렴.",
+      "role": "claim",
+      "parentId": "g_outlook"
+    },
+
+    {
+      "id": "g_us_tw",
+      "type": "guideline",
+      "title": "6. 미국·대만 기업 코멘트 (Cross-check)",
+      "body": "동일 주(週) 동안 글로벌 반도체 기업들의 움직임으로 핵심 명제를 cross-check. ARM/ASIC/장비 3축 모두 강세 = 주장 confirmation."
+    },
+    {
+      "id": "p_ut_1",
+      "type": "proposition",
+      "title": "ARM +47%, Qualcomm +18% — ARM 기반 서버용 CPU 점유율 확대 기대",
+      "body": "Vera CPU(ARM 기반) 별도 판매 200억$ 발표로 ARM 생태계 재평가. Qualcomm도 ARM 기반 서버 CPU 개발 추정.",
+      "role": "evidence",
+      "parentId": "g_us_tw"
+    },
+    {
+      "id": "p_ut_2",
+      "type": "proposition",
+      "title": "AMD/Intel 약 10% — ARM 점유율 우려 부분 상쇄 (AI CPU 수요 자체 확대)",
+      "body": "구조적으로는 negative(ARM 점유율↑)이지만 절대 수요 확대로 부분 흡수. 그래도 ARM/Qualcomm 대비 상승폭 제한.",
+      "role": "evidence",
+      "parentId": "g_us_tw"
+    },
+    {
+      "id": "p_ut_3",
+      "type": "proposition",
+      "title": "Astera Labs +32%, Credo +27% — 네트워킹 +199% 수혜",
+      "body": "AI 데이터센터 내 통신 수요 증가. Nvidia 견인 주장의 또 다른 증거.",
+      "role": "evidence",
+      "parentId": "g_us_tw"
+    },
+    {
+      "id": "p_ut_4",
+      "type": "proposition",
+      "title": "대만 Mediatek +18% — Google·블랙스톤 250억$ TPU 클라우드 + 갤탭 디멘시티 탑재",
+      "body": "ASIC 외부판매 기대 + 한국 OEM 채택 확대 동반 catalyst. ASIC 진영 강세 패턴.",
+      "role": "evidence",
+      "parentId": "g_us_tw"
+    },
+    {
+      "id": "p_ut_5",
+      "type": "proposition",
+      "title": "예외: Winbond/MXIC(NAND) 약세 — 씨게이트 'CAPA 대신 기술 전환' 발언",
+      "body": "DRAM 강세 vs NAND 차별화. 명제의 한계(NAND는 모멘텀 약함)도 솔직히 노출.",
+      "role": "counter",
+      "parentId": "g_us_tw"
+    },
+
+    {
+      "id": "g_val",
+      "type": "guideline",
+      "title": "7. Valuation Snapshot (테이블 11개)",
+      "body": "국내 반도체 / 미국 필라델피아 / 대만 / 국내 장비 / 글로벌 장비 / 국내 소재 / 글로벌 소재 / OSAT·팹리스 / 서버 / 모바일 / PC — 카테고리별 P/E·PBR·ROE 정렬."
+    },
+    {
+      "id": "p_vl_1",
+      "type": "proposition",
+      "title": "삼성전자 26F P/E 6.8x, SK하이닉스 6.6x — 메모리 양사 7x 미만",
+      "body": "1W +8.1%/+6.7%, 1M +34.5%/+58.7%, YTD +144%/+198%. 멀티플 여전히 한 자리수 = 저평가 매력 유지.",
+      "role": "evidence",
+      "parentId": "g_val"
+    },
+    {
+      "id": "p_vl_2",
+      "type": "proposition",
+      "title": "주성엔지니어링 1W +59.8%, YTD +708.7% — 위클리 최대 상승",
+      "body": "26F P/E 161x로 고밸류이지만 27F 77x로 정상화 예상. 디스플레이 매출 회복 + 반도체 장비 비중 확대.",
+      "role": "evidence",
+      "parentId": "g_val"
+    },
+    {
+      "id": "p_vl_3",
+      "type": "proposition",
+      "title": "Nvidia 26F P/E 24.4x — TSMC 25.8x보다 *낮음*",
+      "body": "시총 5.2조$. EPS Growth 26F +80%로 TSMC(+635%, base 효과) 제외 시 글로벌 최상위. 멀티플 정당화 충분.",
+      "role": "evidence",
+      "parentId": "g_val"
+    },
+    {
+      "id": "p_vl_4",
+      "type": "proposition",
+      "title": "ARM 26F P/E 141x — Vera CPU 모멘텀이 만든 극단 고밸류",
+      "body": "1W +46.5%, YTD +180%. EPS Growth 156.7%로도 멀티플 못 따라가는 수준. 단기 과열.",
+      "role": "counter",
+      "parentId": "g_val"
+    },
+
+    {
+      "id": "g_price",
+      "type": "guideline",
+      "title": "8. 메모리 가격 + CAPEX/CAPA (도표 1-18)",
+      "body": "DDR4/DDR5 현물·고정가, TLC/QLC 현물, ASP 추이 + 글로벌·삼전·SKH CAPEX/CAPA 12개 도표. 가격 폭등 + 공급 능력 한계의 시각화."
+    },
+    {
+      "id": "p_pr_1",
+      "type": "proposition",
+      "title": "DDR4 8Gb / DDR5 16Gb 현물가 2025년 말부터 수직 상승",
+      "body": "DDR5 16Gb는 $48 근처까지 도달. 프리미엄(현물/고정 갭) 200%+ 구간 진입.",
+      "role": "evidence",
+      "source": "DRAMeXchange",
+      "parentId": "g_price"
+    },
+    {
+      "id": "p_pr_2",
+      "type": "proposition",
+      "title": "TLC 512Gb / QLC 1Tb 현물도 24Q4 이후 수직 상승",
+      "body": "$2~3 → $20~25 구간으로 10배. NAND도 함께 가는 신호.",
+      "role": "evidence",
+      "parentId": "g_price"
+    },
+    {
+      "id": "p_pr_3",
+      "type": "proposition",
+      "title": "26F 글로벌 DRAM CAPEX 8.5조$ — 사상 최대",
+      "body": "삼전 + SKH가 압도적 비중. Micron 가세. Capex 폭증 자체가 수요 견고함의 reverse signal.",
+      "role": "evidence",
+      "source": "Trend Force",
+      "parentId": "g_price"
+    },
+    {
+      "id": "p_pr_4",
+      "type": "proposition",
+      "title": "삼전 DRAM CAPA 740K장/월 (3Q26F) — 지속 증가 vs NAND 310K장으로 감소",
+      "body": "DRAM 우선, NAND 의도적 축소. 자원 배분 명확. SKH도 동일 패턴(DRAM 610K↑, NAND 135K↓).",
+      "role": "evidence",
+      "parentId": "g_price"
+    },
+    {
+      "id": "p_pr_5",
+      "type": "proposition",
+      "title": "DRAM ASP 1Q26 vs 4Q25: 삼전 $0.63→$1.20 (+93%), SKH 유사",
+      "body": "한 분기에 ASP 두 배. 메모리 사이클 중 가장 가파른 상승 구간 진입.",
+      "role": "evidence",
+      "parentId": "g_price"
+    },
+
+    {
+      "id": "g_exim",
+      "type": "guideline",
+      "title": "9. 수출/수입 데이터 (도표 19-78)",
+      "body": "KITA 기준 메모리/DRAM/NAND/SSD/MCP/시스템 반도체 + 장비 수출입. 절대 금액 + YoY + 국가별 + 지역별 비중. 60개 도표."
+    },
+    {
+      "id": "p_ex_1",
+      "type": "proposition",
+      "title": "반도체 수출 YoY +150% 근접 — 2020년 이후 최대",
+      "body": "절대 금액 30B$ 돌파. 중량은 +30~40%로 ASP 폭등이 금액 견인 확인.",
+      "role": "evidence",
+      "source": "KITA",
+      "parentId": "g_exim"
+    },
+    {
+      "id": "p_ex_2",
+      "type": "proposition",
+      "title": "DRAM 수출 ASP $15/unit 도달 — 사상 최고",
+      "body": "2024년 $3 수준에서 5배. 가격이 수요를 압도하는 국면.",
+      "role": "evidence",
+      "parentId": "g_exim"
+    },
+    {
+      "id": "p_ex_3",
+      "type": "proposition",
+      "title": "DRAM 평택 비중 60%대 — 삼전 P3 본격 가동",
+      "body": "지역별 수출 비중에서 평택 단일 집중. CAPA 신증설의 실물 시그널.",
+      "role": "evidence",
+      "parentId": "g_exim"
+    },
+    {
+      "id": "p_ex_4",
+      "type": "proposition",
+      "title": "장비 수입: 네덜란드(ASML) + 일본 + 미국 합산 80% — 의존도 변함 없음",
+      "body": "리소그래프는 100% 네덜란드. EUV 의존 구조 그대로.",
+      "role": "evidence",
+      "parentId": "g_exim"
+    },
+
+    {
+      "id": "g_front",
+      "type": "guideline",
+      "title": "10. 전방산업 — 서버/스마트폰/PC (도표 79-93)",
+      "body": "서버 출하 + DRAM 수급 + 대만 서버 OEM 매출 + 글로벌·중국·미국·유럽·인도 스마트폰 + Mediatek + PC 출하 + 마더보드 + ODM."
+    },
+    {
+      "id": "p_fr_1",
+      "type": "proposition",
+      "title": "서버 출하 YoY +10%대로 회복, 서버용 DRAM 수요·공급 균형 임박",
+      "body": "공급과잉률 -5%대로 축소. 1Q24 -20%에서 빠른 정상화. AI 서버가 그 빈자리를 메움.",
+      "role": "evidence",
+      "source": "TrendForce",
+      "parentId": "g_front"
+    },
+    {
+      "id": "p_fr_2",
+      "type": "proposition",
+      "title": "글로벌 스마트폰 ~280M대로 정체, 중국 +20% 회복",
+      "body": "중국이 유일하게 모멘텀 회복. 미국·유럽·인도는 마이너스 또는 박스권.",
+      "role": "evidence",
+      "source": "CounterPoint",
+      "parentId": "g_front"
+    },
+    {
+      "id": "p_fr_3",
+      "type": "proposition",
+      "title": "PC 출하 둔화 지속, 노트북/데스크탑 모두 마이너스",
+      "body": "AI PC 모멘텀 아직 출하량에 반영 안 됨. 메모리 수요 회복은 서버 단일 의존 구조 강화.",
+      "role": "implication",
+      "parentId": "g_front"
+    },
+
+    {
+      "id": "g_models",
+      "type": "guideline",
+      "title": "11. 커버리지 실적 추정 모델링 (p.23-28)",
+      "body": "10개사 사업부문별 분기 매출/영업이익/영업이익률 + 주요 가정(Bit Growth, ASP). 분석가의 'how I think' 노출. 모델링 투명성이 신뢰의 핵심."
+    },
+    {
+      "id": "p_md_1",
+      "type": "proposition",
+      "title": "삼성전자 26F 영업이익 393.4조원 (vs 2025 43.7조)",
+      "body": "반도체 단독 384조. 메모리 영업이익률 80% 가정. Total 영업이익률 54%. 1Q26 42% → 4Q26F 59%로 분기 상승 곡선.",
+      "role": "evidence",
+      "parentId": "g_models"
+    },
+    {
+      "id": "p_md_2",
+      "type": "proposition",
+      "title": "삼전 DRAM ASP 가정: 2025 $0.47 → 2026F $1.72 (+266%)",
+      "body": "Bit Growth는 +24%로 보통이지만 ASP가 2.66배. *가격 견인* 명제와 100% 일치.",
+      "role": "evidence",
+      "parentId": "g_models"
+    },
+    {
+      "id": "p_md_3",
+      "type": "proposition",
+      "title": "SK하이닉스 26F 영업이익 271.5조원 — 영업이익률 77%",
+      "body": "DRAM 매출 258조 / 영업이익 210조(OPM 81%). NAND OPM 67%. 27F 영업이익 368조로 또 +36%.",
+      "role": "evidence",
+      "parentId": "g_models"
+    },
+    {
+      "id": "p_md_4",
+      "type": "proposition",
+      "title": "장비 8개사 26F 매출 평균 +30~135%, 영업이익률 17~37%",
+      "body": "테스 +31%, 주성 +27%, 브이엠 +135%(폭증), 피에스케이 +30%, PSKH +20%, 파크 +21%, 씨엠티엑스 +30%, 원익머트 +15%. Capex 사이클 수혜.",
+      "role": "evidence",
+      "parentId": "g_models"
+    },
+    {
+      "id": "p_md_5",
+      "type": "proposition",
+      "title": "목표주가 트랙 — 삼전 4.3M, SKH 27.5M (2026.5.15 상향)",
+      "body": "p.29-31 투자의견 변동 내역에 시계열 박혀 있음. 25년 9월 9.5만/35만에서 1년만에 약 4배. 목표주가 자체가 명제의 누적 강화 트랙.",
+      "role": "evidence",
+      "parentId": "g_models"
+    },
+
+    {
+      "id": "g_meta_struct",
+      "type": "guideline",
+      "title": "12. 리포트 구조 메타분석 (참고용 — 하이브리드 골격)",
+      "body": "이 리포트가 위클리 + 분석 글의 하이브리드인 이유 + 본인이 차용할 만한 패턴."
+    },
+    {
+      "id": "p_ms_1",
+      "type": "proposition",
+      "title": "제목 = 인과 명제. '~의 영향', '~ 동향'이 아니라 '~를 견인하는 ~'",
+      "body": "위클리 제목 대부분은 중립 명사구. 이 리포트는 인과 동사 '견인하다' 사용 → 분석가가 결론을 제목에서 선언. 강한 글의 첫 신호.",
+      "role": "claim",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_2",
+      "type": "proposition",
+      "title": "1쪽 구조: [데이터 리뷰 3개 → 전망/전략 3개] — 2 stage 미니 논증",
+      "body": "서론-본론-결론은 아니지만 [근거 수집 → 결론 도출]이 명확히 분리. 8개 문단으로 완결된 분석 글. 통상 위클리 1쪽(코멘트 3줄)과 격차 큼.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_3",
+      "type": "proposition",
+      "title": "Self-citation으로 가설을 *강화* 방향으로 수정",
+      "body": "'메기남 보고서에서 2027년이라 했는데 2026년에 이미'. 이전 발언 부정이 아니라 *앞당김*. 분석가 신뢰 트랙 빌딩의 정석. 위클리에 이런 누적이 들어오는 게 흔치 않음.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_4",
+      "type": "proposition",
+      "title": "약세 종목을 *별도 문단*으로 분리해 두 가지 원인 분해 후 무력화",
+      "body": "씨엠티엑스 케이스. 약점을 숨기지 않고 정면으로 다루면서 '단기 노이즈'로 격리 → 매수 의견 유지. 주장-반박-재반박 미니 완결.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_5",
+      "type": "proposition",
+      "title": "p.23-28 실적 추정은 [가정 → 산출] 분리 — 모델링 투명성",
+      "body": "Bit Growth / ASP / 환율 같은 *가정*을 별도 행으로 노출하고, 그것으로 매출/영업이익을 *산출*. 독자가 가정 하나만 바꿔 자기 모델 만들 수 있게. 신뢰의 인프라.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_6",
+      "type": "proposition",
+      "title": "목표주가 시계열 노출 (p.29-31) — 명제의 누적 트랙",
+      "body": "삼전 TP가 24년 4월 10.6만 → 26년 5월 43만으로 4배 상승의 step function. 각 step이 '내 명제가 옳았다'의 증빙. 위클리에서 보기 드문 메타 요소.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    }
+  ],
+  "doc": []
+}

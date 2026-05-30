@@ -1,0 +1,369 @@
+{
+  "title": "교보증권 자동차 Weekly 2026-05-26 (구조 분해)",
+  "blocks": [
+    {
+      "id": "g_meta",
+      "type": "guideline",
+      "title": "0. 리포트 메타 정보",
+      "body": "헤더에 박힌 식별 정보. 책임 소재 + 신선도를 즉시 확인."
+    },
+    {
+      "id": "p_meta_1",
+      "type": "proposition",
+      "title": "발간일자 / 분야 / 형식",
+      "body": "2026-05-26 | [자동차] | 주간(Weekly) 리포트",
+      "role": "definition",
+      "parentId": "g_meta"
+    },
+    {
+      "id": "p_meta_2",
+      "type": "proposition",
+      "title": "저자 / 소속",
+      "body": "김광식 책임연구원 (Quant/Macro), 3771-6669, 20250021@iprovest.com — 교보증권 리서치센터",
+      "role": "definition",
+      "parentId": "g_meta"
+    },
+
+    {
+      "id": "g_headline",
+      "type": "guideline",
+      "title": "1. 헤드라인 코멘트 (Top-of-mind 3줄)",
+      "body": "1쪽 상단의 코멘트 3개. 시간 없는 독자가 여기만 보고 닫을 수 있게 설계된 압축 결론."
+    },
+    {
+      "id": "p_hl_1",
+      "type": "proposition",
+      "title": "스텔란티스 'FASTLane 2030' 5개년 전략 공개",
+      "body": "총 €600억 투자 중 60%를 북미에. 신규 모델 11개 출시. 잃어버린 북미 M/S 회복이 코어.",
+      "role": "claim",
+      "source": "스텔란티스 공식 발표",
+      "parentId": "g_headline"
+    },
+    {
+      "id": "p_hl_2",
+      "type": "proposition",
+      "title": "미국 엔진오일 수급 불안정 → 중장기 EV 수요 증분",
+      "body": "Group III 베이스오일 6월 소진 임박, '27년까지 공급 부족 추정. ICE 차량 유지비 상승이 EV 전환 압력으로 작동.",
+      "role": "implication",
+      "parentId": "g_headline"
+    },
+    {
+      "id": "p_hl_3",
+      "type": "proposition",
+      "title": "S&P, 글로벌 생산 '26/'27 추가 하향 — 2H26 둔화 본격화",
+      "body": "이란 전쟁 기인. 1H가 아닌 2H26부터 둔화 본격화로 시점 명시 — 단기 모멘텀과 하반기 리스크 사이 비대칭.",
+      "role": "counter",
+      "source": "S&P Global Mobility",
+      "parentId": "g_headline"
+    },
+
+    {
+      "id": "g_returns",
+      "type": "guideline",
+      "title": "2. 주간 수익률 4분면 (도표 1-4)",
+      "body": "[글로벌 자동차 / 국내 자동차 / 글로벌 이차전지 / 국내 이차전지] 2x2 매트릭스. 종목별 % 막대로 1주일간 자금 흐름을 한 화면에."
+    },
+    {
+      "id": "p_ret_1",
+      "type": "proposition",
+      "title": "글로벌 자동차: FORD +11.4% / LI AUTO -18.3%",
+      "body": "FORD 미국 OEM 중 두드러진 강세. 중국 LI AUTO 큰 폭 약세. DENSO -5.6%, SAIC -3.6%로 부품·중국 동반 부진.",
+      "role": "evidence",
+      "source": "Bloomberg (도표 1)",
+      "parentId": "g_returns"
+    },
+    {
+      "id": "p_ret_2",
+      "type": "proposition",
+      "title": "국내 자동차: 에스엘 +5.4% / 현대차 -6.4%",
+      "body": "현대차·한국타이어·SNT다이내믹스 약세. 부품주(에스엘·HL만도·한온시스템) 상대 강세 — 완성차 → 부품 로테이션 시그널.",
+      "role": "evidence",
+      "source": "Dataguide (도표 2)",
+      "parentId": "g_returns"
+    },
+    {
+      "id": "p_ret_3",
+      "type": "proposition",
+      "title": "글로벌 이차전지: TOYOTA +6.5% / ALBEMARLE -4.9%",
+      "body": "전고체 기대 TOYOTA 견조. 리튬(ALBEMARLE/GANFENG) 약세 — 원자재 가격 부담. CATL/BYD -2~3%로 중국 셀 메이커도 부진.",
+      "role": "evidence",
+      "source": "Bloomberg (도표 3)",
+      "parentId": "g_returns"
+    },
+    {
+      "id": "p_ret_4",
+      "type": "proposition",
+      "title": "국내 이차전지: 에코프로·에코프로비엠 +13.4% 동반 급등",
+      "body": "에코프로 양극재 트리오(에코프로 +13.4, 에코프로비엠 +13.4, 에코프로머티 +6.2) 동반 강세. LG에너지솔루션 -4.4%로 셀-소재 차별화.",
+      "role": "evidence",
+      "source": "Dataguide (도표 4)",
+      "parentId": "g_returns"
+    },
+
+    {
+      "id": "g_news",
+      "type": "guideline",
+      "title": "3. 자동차 News (큐레이션)",
+      "body": "이번 주 헤드라인 3건. 큐레이션 자체가 분석가의 attention map — 무엇을 골랐는지가 무엇을 안 골랐는지만큼 의미."
+    },
+    {
+      "id": "p_news_1",
+      "type": "proposition",
+      "title": "신흥국 EV 전쟁 격화 — 현대차/기아 소형 EV 현지화로 반격",
+      "body": "중국 OEM의 신흥국 침투에 대응한 현대차그룹 전략 노출.",
+      "role": "quote",
+      "source": "이데일리 2026-05-25",
+      "parentId": "g_news"
+    },
+    {
+      "id": "p_news_2",
+      "type": "proposition",
+      "title": "현대차그룹, 아틀라스 생산 투입 본격화 + SW 공장/로봇 부품 조직 신설",
+      "body": "휴머노이드·SDV 라인업 확장. 완성차 기업의 'Beyond car' 모멘텀.",
+      "role": "quote",
+      "source": "한국경제 2026-05-25",
+      "parentId": "g_news"
+    },
+    {
+      "id": "p_news_3",
+      "type": "proposition",
+      "title": "테슬라 FSD, 중국 문턱 넘다 — 머스크 방중 1주일 만",
+      "body": "FSD 중국 진입 = 글로벌 자율주행 데이터 풀 + 매출 동력 확보.",
+      "role": "quote",
+      "source": "동아일보 2026-05-22",
+      "parentId": "g_news"
+    },
+
+    {
+      "id": "g_kor_val",
+      "type": "guideline",
+      "title": "4. 국내 자동차 Valuation Table (도표 5)",
+      "body": "OEM·부품·타이어 23개 종목 × {시총, 종가, 1W/6M 수익률, P/E, P/B, EV/EBITDA × '25/'26E}. 절대 + 상대 멀티플 한 페이지."
+    },
+    {
+      "id": "p_kv_1",
+      "type": "proposition",
+      "title": "현대차 6M +152.4%, 26E P/E 16.5x — 멀티플 재평가 반영",
+      "body": "시총 134조, 종가 65.5만원. 6개월 누적 152% 급등 후 1주 -6.4% 조정. P/B 1.4x, EV/EBITDA 16.1x.",
+      "role": "evidence",
+      "parentId": "g_kor_val"
+    },
+    {
+      "id": "p_kv_2",
+      "type": "proposition",
+      "title": "기아 26E P/E 7.7x — 현대차 절반 수준 저밸류 지속",
+      "body": "시총 64조, 종가 16.5만원. 6M +44.6%로 현대차 대비 부진. 멀티플은 7.7x로 저평가 매력 유효.",
+      "role": "evidence",
+      "parentId": "g_kor_val"
+    },
+    {
+      "id": "p_kv_3",
+      "type": "proposition",
+      "title": "부품주 P/E 9~22x 분포 — 한온시스템 22.2x 최고",
+      "body": "현대모비스 14.1x, HL만도 15.1x, 에스엘 9.2x, 현대위아 15.5x. 한온시스템 22.2x — 부품 내에서도 EV/SDV 노출도가 멀티플 차이 만듦.",
+      "role": "evidence",
+      "parentId": "g_kor_val"
+    },
+    {
+      "id": "p_kv_4",
+      "type": "proposition",
+      "title": "타이어 3사 P/E 4~6x 저평가, 6M 수익률은 갈림",
+      "body": "한국타이어 5.9x(+9.3%), 금호 4.7x(+43.9%), 넥센 4.4x(-7.1%). 같은 멀티플 밴드여도 모멘텀은 디커플.",
+      "role": "evidence",
+      "parentId": "g_kor_val"
+    },
+
+    {
+      "id": "g_glo_val",
+      "type": "guideline",
+      "title": "5. 글로벌 자동차 주가/Valuation (도표 6-8)",
+      "body": "미국 3사 / 유럽 / 일본 / 중국 16개 OEM의 절대 주가 추이 + 멀티플 비교. 글로벌 상대 위치 파악."
+    },
+    {
+      "id": "p_gv_1",
+      "type": "proposition",
+      "title": "FORD MoM +16.0% vs GM -3.1% — 미국 빅3 디커플링",
+      "body": "최근 한 달 FORD 강세, GM 약세. TSLA P/E 216.8x로 여전히 극단 고밸류 유지.",
+      "role": "evidence",
+      "source": "Bloomberg (도표 6)",
+      "parentId": "g_glo_val"
+    },
+    {
+      "id": "p_gv_2",
+      "type": "proposition",
+      "title": "TOYOTA 26E P/E 9.5x — 글로벌 OEM '표준' 멀티플",
+      "body": "시총 2,967억$. P/B 0.9x, EV/EBITDA 5.4x. 비교 기준점 역할.",
+      "role": "definition",
+      "parentId": "g_glo_val"
+    },
+    {
+      "id": "p_gv_3",
+      "type": "proposition",
+      "title": "유럽 OEM 5사 모두 P/B 0.5x 이하 + 6M 일제히 마이너스",
+      "body": "VW 0.2x, MERCEDES 0.5x, BMW 0.5x, RENAULT 0.3x, STELLANTIS 0.3x. 6M 수익률 -5%~-22.9% — 유럽 OEM 전방위 디스카운트.",
+      "role": "evidence",
+      "parentId": "g_glo_val"
+    },
+    {
+      "id": "p_gv_4",
+      "type": "proposition",
+      "title": "BYD P/E 20.1x, LI AUTO 41.6x — 중국 EV 프리미엄",
+      "body": "BYD P/B 3.1x로 글로벌 OEM 중 최상단. LI AUTO 6M -10%로 멀티플 비싸지만 모멘텀 약화.",
+      "role": "evidence",
+      "parentId": "g_glo_val"
+    },
+    {
+      "id": "p_gv_5",
+      "type": "proposition",
+      "title": "현대차 P/E 16.5x — 글로벌 OEM 평균 대비 프리미엄",
+      "body": "TOYOTA 9.5x, GM 6.3x, FORD 8.9x 대비 현대차 16.5x. 6M +152% 급등이 만든 멀티플 갭. 추가 상방엔 펀더 확인 필요.",
+      "role": "implication",
+      "parentId": "g_glo_val"
+    },
+
+    {
+      "id": "g_foreign",
+      "type": "guideline",
+      "title": "6. 외국인 지분율 & 컨센서스 (도표 9-14)",
+      "body": "현대차/기아 외국인 수급 + 대차잔고 + 컨센서스 모멘텀. 펀더멘털 + 수급 한 화면."
+    },
+    {
+      "id": "p_fr_1",
+      "type": "proposition",
+      "title": "현대차 외국인 지분율 26.4% (6M -9.3%p)",
+      "body": "1W -0.6%p, 1M -1.3%p, 6M -9.3%p. 주가 급등에도 외국인은 지속 매도 — 차익실현형 분배.",
+      "role": "counter",
+      "parentId": "g_foreign"
+    },
+    {
+      "id": "p_fr_2",
+      "type": "proposition",
+      "title": "기아 외국인 지분율 38.1% (6M -1.5%p)",
+      "body": "현대차 대비 안정. 6M 하락 폭이 -1.5%p로 미미.",
+      "role": "evidence",
+      "parentId": "g_foreign"
+    },
+    {
+      "id": "p_fr_3",
+      "type": "proposition",
+      "title": "현대차 대차잔고 5.1조원 급증 vs 기아 0.9조원",
+      "body": "대차잔고 급증 = 외국인 숏 베팅 확대. 외국인 지분율 하락 + 대차 증가 동시 발생 — 명확한 약세 포지셔닝.",
+      "role": "counter",
+      "parentId": "g_foreign"
+    },
+    {
+      "id": "p_fr_4",
+      "type": "proposition",
+      "title": "현대차 '26E 컨센서스: 매출 194.4조 / 영업이익 12.1조",
+      "body": "매출은 우상향이지만 영업이익은 우하향. Top-line 성장 vs 마진 압박 동반 — Mix 악화 또는 비용 증가 신호.",
+      "role": "evidence",
+      "parentId": "g_foreign"
+    },
+    {
+      "id": "p_fr_5",
+      "type": "proposition",
+      "title": "기아 '26E 컨센서스: 매출 122.8조 / 영업이익 10.1조",
+      "body": "매출·영업이익 동반 우상향. 현대차 대비 컨센서스 모멘텀 우호.",
+      "role": "evidence",
+      "parentId": "g_foreign"
+    },
+
+    {
+      "id": "g_ev_sales",
+      "type": "guideline",
+      "title": "7. EV 판매량 & 가격 데이터 (도표 15-20)",
+      "body": "글로벌/미국/중국/유럽 EV 월별 판매 + ATP 인센티브율 + OEM별 ATP. 수요·가격 양 측면 동시 모니터링."
+    },
+    {
+      "id": "p_ev_1",
+      "type": "proposition",
+      "title": "글로벌 EV(BEV+PHEV) 월 2.4M대, YoY 박스권",
+      "body": "23년 폭발 성장 → 25~26년 0~20% 박스권 정상화. '성장은 끝났다'는 아니지만 '구조적 둔화' 진입.",
+      "role": "evidence",
+      "source": "Marklines (도표 15)",
+      "parentId": "g_ev_sales"
+    },
+    {
+      "id": "p_ev_2",
+      "type": "proposition",
+      "title": "중국 EV 1.5M대 — 글로벌의 60% 비중",
+      "body": "여전히 세계 EV 시장 절대 비중. YoY 0~40% 박스권으로 안정화 단계.",
+      "role": "evidence",
+      "parentId": "g_ev_sales"
+    },
+    {
+      "id": "p_ev_3",
+      "type": "proposition",
+      "title": "유럽 EV 600K대 신고치 — YoY +60% 회복",
+      "body": "CO2 규제 + 보조금 재개 영향 추정. 유럽이 다시 EV 성장 엔진으로.",
+      "role": "evidence",
+      "parentId": "g_ev_sales"
+    },
+    {
+      "id": "p_ev_4",
+      "type": "proposition",
+      "title": "북미 ATP 대비 인센티브율 10% 근접 — 마진 압박",
+      "body": "ATP 50K$ 정체, 인센티브율은 '21년 4% → '25년 9~10%로 두 배 이상 상승. OEM 수익성 핵심 리스크.",
+      "role": "implication",
+      "source": "산업자료 (도표 19)",
+      "parentId": "g_ev_sales"
+    },
+    {
+      "id": "p_ev_5",
+      "type": "proposition",
+      "title": "OEM별 북미 ATP: GM 55K$ > HKMC 50K$ > Industry 45K$ > Toyota 35K$",
+      "body": "HKMC(현대차그룹)는 Industry 평균보다 위, 미국 빅2(Ford·GM)보다 아래 — 프리미엄 전략 중간 단계.",
+      "role": "evidence",
+      "source": "산업자료 (도표 20)",
+      "parentId": "g_ev_sales"
+    },
+
+    {
+      "id": "g_meta_struct",
+      "type": "guideline",
+      "title": "8. 리포트 구조 메타분석 (참고용 — 위클리 골격)",
+      "body": "이 리포트가 어떤 글쓰기 패턴을 따르는지. 본인 위클리 작성 시 차용 가능한 모범 골격."
+    },
+    {
+      "id": "p_ms_1",
+      "type": "proposition",
+      "title": "Top-down 흐름: [코멘트 3줄 → 시각 요약 → 뉴스 → Valuation → 수급 → 수요 데이터]",
+      "body": "1쪽에서 결론 압축, 2~5쪽에서 점진 디테일. 독자가 어디서 끊어도 정보 손실 최소화되는 피라미드 구조.",
+      "role": "claim",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_2",
+      "type": "proposition",
+      "title": "텍스트는 1쪽 코멘트 3줄이 사실상 전부, 나머지는 도표 20개",
+      "body": "텍스트 분량으로 신뢰도를 가장하지 않는 '데이터 중심' 위클리 포맷. 분석가의 해석은 1쪽에 압축.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_3",
+      "type": "proposition",
+      "title": "도표는 항상 '비교' 단위로 짝지어 배치",
+      "body": "글로벌-국내, 자동차-이차전지, 미국-유럽-중국. 2x2 또는 4분면으로 묶어 상대 위치 파악을 강제.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_4",
+      "type": "proposition",
+      "title": "헤드라인 3축 = 산업 이벤트 / 원자재 수급 / 거시 충격",
+      "body": "스텔란티스(산업) + 엔진오일(원자재) + 이란전쟁→S&P 하향(거시). 세 축으로 산업 변동성의 원천을 균형 커버.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    },
+    {
+      "id": "p_ms_5",
+      "type": "proposition",
+      "title": "Valuation Table은 '국내 → 글로벌' 순으로 두 번",
+      "body": "도표 5(국내) → 도표 8(글로벌). 국내 독자의 anchoring(국내 종목 기준) 후 글로벌과 cross-check 유도.",
+      "role": "implication",
+      "parentId": "g_meta_struct"
+    }
+  ],
+  "doc": []
+}

@@ -1,0 +1,2296 @@
+{
+  "A": [
+    "A",
+    "Agilent Technologies"
+  ],
+  "AAPL": [
+    "AAPL",
+    "Apple Inc.",
+    "Apple",
+    "Apple Inc",
+    "애플"
+  ],
+  "ABBV": [
+    "ABBV",
+    "AbbVie",
+    "애브비"
+  ],
+  "ABNB": [
+    "ABNB",
+    "Airbnb",
+    "에어비앤비"
+  ],
+  "ABT": [
+    "ABT",
+    "Abbott Laboratories"
+  ],
+  "ACGL": [
+    "ACGL",
+    "Arch Capital Group",
+    "Arch Capital"
+  ],
+  "ACN": [
+    "ACN",
+    "Accenture"
+  ],
+  "ADBE": [
+    "ADBE",
+    "Adobe Inc.",
+    "Adobe",
+    "Adobe Inc",
+    "어도비"
+  ],
+  "ADI": [
+    "ADI",
+    "Analog Devices"
+  ],
+  "ADM": [
+    "ADM",
+    "Archer Daniels Midland"
+  ],
+  "ADP": [
+    "ADP",
+    "Automatic Data Processing"
+  ],
+  "ADSK": [
+    "ADSK",
+    "Autodesk"
+  ],
+  "AEE": [
+    "AEE",
+    "Ameren"
+  ],
+  "AEP": [
+    "AEP",
+    "American Electric Power"
+  ],
+  "AES": [
+    "AES",
+    "AES Corporation"
+  ],
+  "AFL": [
+    "AFL",
+    "Aflac"
+  ],
+  "AIG": [
+    "AIG",
+    "American International Group",
+    "American International"
+  ],
+  "AIZ": [
+    "AIZ",
+    "Assurant"
+  ],
+  "AJG": [
+    "AJG",
+    "Arthur J. Gallagher & Co.",
+    "Arthur J. Gallagher &",
+    "Arthur J Gallagher & Co"
+  ],
+  "AKAM": [
+    "AKAM",
+    "Akamai Technologies"
+  ],
+  "ALB": [
+    "ALB",
+    "Albemarle Corporation",
+    "Albemarle"
+  ],
+  "ALGN": [
+    "ALGN",
+    "Align Technology"
+  ],
+  "ALL": [
+    "ALL",
+    "Allstate"
+  ],
+  "ALLE": [
+    "ALLE",
+    "Allegion"
+  ],
+  "ALNY": [
+    "ALNY",
+    "Alnylam Pharmaceuticals",
+    "ARM"
+  ],
+  "AMAT": [
+    "AMAT",
+    "Applied Materials"
+  ],
+  "AMCR": [
+    "AMCR",
+    "Amcor"
+  ],
+  "AMD": [
+    "AMD",
+    "Advanced Micro Devices"
+  ],
+  "AME": [
+    "AME",
+    "Ametek"
+  ],
+  "AMGN": [
+    "AMGN",
+    "Amgen"
+  ],
+  "AMP": [
+    "AMP",
+    "Ameriprise Financial"
+  ],
+  "AMT": [
+    "AMT",
+    "American Tower"
+  ],
+  "AMZN": [
+    "AMZN",
+    "Amazon",
+    "아마존"
+  ],
+  "ANET": [
+    "ANET",
+    "Arista Networks"
+  ],
+  "AON": [
+    "AON",
+    "Aon plc"
+  ],
+  "AOS": [
+    "AOS",
+    "A. O. Smith",
+    "A O Smith"
+  ],
+  "APA": [
+    "APA",
+    "APA Corporation"
+  ],
+  "APD": [
+    "APD",
+    "Air Products"
+  ],
+  "APH": [
+    "APH",
+    "Amphenol"
+  ],
+  "APO": [
+    "APO",
+    "Apollo Global Management"
+  ],
+  "APP": [
+    "APP",
+    "AppLovin"
+  ],
+  "APTV": [
+    "APTV",
+    "Aptiv"
+  ],
+  "ARE": [
+    "ARE",
+    "Alexandria Real Estate Equities"
+  ],
+  "ARES": [
+    "ARES",
+    "Ares Management"
+  ],
+  "ARM": [
+    "ARM",
+    "Arm Holdings"
+  ],
+  "ASML": [
+    "ASML",
+    "ASML Holding"
+  ],
+  "ATO": [
+    "ATO",
+    "Atmos Energy"
+  ],
+  "AVB": [
+    "AVB",
+    "AvalonBay Communities"
+  ],
+  "AVGO": [
+    "AVGO",
+    "Broadcom",
+    "브로드컴"
+  ],
+  "AVY": [
+    "AVY",
+    "Avery Dennison"
+  ],
+  "AWK": [
+    "AWK",
+    "American Water Works"
+  ],
+  "AXON": [
+    "AXON",
+    "Axon Enterprise"
+  ],
+  "AXP": [
+    "AXP",
+    "American Express",
+    "AmEx"
+  ],
+  "AZO": [
+    "AZO",
+    "AutoZone"
+  ],
+  "BA": [
+    "BA",
+    "Boeing",
+    "보잉"
+  ],
+  "BAC": [
+    "BAC",
+    "Bank of America",
+    "BofA",
+    "뱅크오브아메리카"
+  ],
+  "BALL": [
+    "BALL",
+    "Ball Corporation"
+  ],
+  "BAX": [
+    "BAX",
+    "Baxter International"
+  ],
+  "BBY": [
+    "BBY",
+    "Best Buy"
+  ],
+  "BDX": [
+    "BDX",
+    "Becton Dickinson"
+  ],
+  "BEN": [
+    "BEN",
+    "Franklin Resources"
+  ],
+  "BF-B": [
+    "BF-B",
+    "BF.B",
+    "Brown–Forman"
+  ],
+  "BG": [
+    "BG",
+    "Bunge Global"
+  ],
+  "BIIB": [
+    "BIIB",
+    "Biogen"
+  ],
+  "BKNG": [
+    "BKNG",
+    "Booking Holdings",
+    "Booking"
+  ],
+  "BKR": [
+    "BKR",
+    "Baker Hughes"
+  ],
+  "BLDR": [
+    "BLDR",
+    "Builders FirstSource"
+  ],
+  "BLK": [
+    "BLK",
+    "BlackRock"
+  ],
+  "BMY": [
+    "BMY",
+    "Bristol Myers Squibb"
+  ],
+  "BNY": [
+    "BNY",
+    "BNY Mellon"
+  ],
+  "BR": [
+    "BR",
+    "Broadridge Financial Solutions"
+  ],
+  "BRK-B": [
+    "BRK-B",
+    "BRK.B",
+    "Berkshire Hathaway",
+    "Berkshire",
+    "버크셔"
+  ],
+  "BRO": [
+    "BRO",
+    "Brown & Brown"
+  ],
+  "BSX": [
+    "BSX",
+    "Boston Scientific"
+  ],
+  "BX": [
+    "BX",
+    "Blackstone Inc.",
+    "Blackstone",
+    "Blackstone Inc"
+  ],
+  "BXP": [
+    "BXP",
+    "BXP, Inc.",
+    "BXP, Inc"
+  ],
+  "C": [
+    "C",
+    "Citigroup",
+    "Citi"
+  ],
+  "CAG": [
+    "CAG",
+    "Conagra Brands"
+  ],
+  "CAH": [
+    "CAH",
+    "Cardinal Health"
+  ],
+  "CARR": [
+    "CARR",
+    "Carrier Global"
+  ],
+  "CASY": [
+    "CASY",
+    "Casey's"
+  ],
+  "CAT": [
+    "CAT",
+    "Caterpillar Inc.",
+    "Caterpillar",
+    "Caterpillar Inc",
+    "캐터필러"
+  ],
+  "CB": [
+    "CB",
+    "Chubb Limited",
+    "Chubb"
+  ],
+  "CBOE": [
+    "CBOE",
+    "Cboe Global Markets"
+  ],
+  "CBRE": [
+    "CBRE",
+    "CBRE Group"
+  ],
+  "CCEP": [
+    "CCEP",
+    "Coca-Cola Europacific Partners",
+    "Coca-Cola",
+    "Coke"
+  ],
+  "CCI": [
+    "CCI",
+    "Crown Castle"
+  ],
+  "CCL": [
+    "CCL",
+    "Carnival Corporation",
+    "Carnival"
+  ],
+  "CDNS": [
+    "CDNS",
+    "Cadence Design Systems"
+  ],
+  "CDW": [
+    "CDW",
+    "CDW Corporation"
+  ],
+  "CEG": [
+    "CEG",
+    "Constellation Energy"
+  ],
+  "CF": [
+    "CF",
+    "CF Industries"
+  ],
+  "CFG": [
+    "CFG",
+    "Citizens Financial Group",
+    "Citizens Financial"
+  ],
+  "CHD": [
+    "CHD",
+    "Church & Dwight",
+    "Church Dwight"
+  ],
+  "CHRW": [
+    "CHRW",
+    "C.H. Robinson",
+    "CH Robinson"
+  ],
+  "CHTR": [
+    "CHTR",
+    "Charter Communications"
+  ],
+  "CI": [
+    "CI",
+    "Cigna"
+  ],
+  "CIEN": [
+    "CIEN",
+    "Ciena"
+  ],
+  "CINF": [
+    "CINF",
+    "Cincinnati Financial"
+  ],
+  "CL": [
+    "CL",
+    "Colgate-Palmolive",
+    "Colgate"
+  ],
+  "CLX": [
+    "CLX",
+    "Clorox"
+  ],
+  "CMCSA": [
+    "CMCSA",
+    "Comcast"
+  ],
+  "CME": [
+    "CME",
+    "CME Group"
+  ],
+  "CMG": [
+    "CMG",
+    "Chipotle Mexican Grill",
+    "Chipotle"
+  ],
+  "CMI": [
+    "CMI",
+    "Cummins"
+  ],
+  "CMS": [
+    "CMS",
+    "CMS Energy"
+  ],
+  "CNC": [
+    "CNC",
+    "Centene Corporation",
+    "Centene"
+  ],
+  "CNP": [
+    "CNP",
+    "CenterPoint Energy"
+  ],
+  "COF": [
+    "COF",
+    "Capital One"
+  ],
+  "COHR": [
+    "COHR",
+    "Coherent Corp.",
+    "Coherent",
+    "Coherent Corp"
+  ],
+  "COIN": [
+    "COIN",
+    "Coinbase",
+    "코인베이스"
+  ],
+  "COO": [
+    "COO",
+    "Cooper Companies (The)"
+  ],
+  "COP": [
+    "COP",
+    "ConocoPhillips"
+  ],
+  "COR": [
+    "COR",
+    "Cencora"
+  ],
+  "COST": [
+    "COST",
+    "Costco",
+    "코스트코"
+  ],
+  "CPAY": [
+    "CPAY",
+    "Corpay"
+  ],
+  "CPB": [
+    "CPB",
+    "Campbell's Company (The)"
+  ],
+  "CPRT": [
+    "CPRT",
+    "Copart"
+  ],
+  "CPT": [
+    "CPT",
+    "Camden Property Trust",
+    "AMD"
+  ],
+  "CRH": [
+    "CRH",
+    "CRH plc"
+  ],
+  "CRL": [
+    "CRL",
+    "Charles River Laboratories"
+  ],
+  "CRM": [
+    "CRM",
+    "Salesforce",
+    "세일즈포스"
+  ],
+  "CRWD": [
+    "CRWD",
+    "CrowdStrike"
+  ],
+  "CSCO": [
+    "CSCO",
+    "Cisco",
+    "시스코"
+  ],
+  "CSGP": [
+    "CSGP",
+    "CoStar Group",
+    "CoStar"
+  ],
+  "CSX": [
+    "CSX",
+    "CSX Corporation"
+  ],
+  "CTAS": [
+    "CTAS",
+    "Cintas"
+  ],
+  "CTSH": [
+    "CTSH",
+    "Cognizant"
+  ],
+  "CTVA": [
+    "CTVA",
+    "Corteva"
+  ],
+  "CVNA": [
+    "CVNA",
+    "Carvana"
+  ],
+  "CVS": [
+    "CVS",
+    "CVS Health"
+  ],
+  "CVX": [
+    "CVX",
+    "Chevron Corporation",
+    "Chevron",
+    "셰브론"
+  ],
+  "D": [
+    "D",
+    "Dominion Energy"
+  ],
+  "DAL": [
+    "DAL",
+    "Delta Air Lines",
+    "Delta"
+  ],
+  "DASH": [
+    "DASH",
+    "DoorDash"
+  ],
+  "DD": [
+    "DD",
+    "DuPont"
+  ],
+  "DDOG": [
+    "DDOG",
+    "Datadog"
+  ],
+  "DE": [
+    "DE",
+    "Deere & Company",
+    "Deere &"
+  ],
+  "DECK": [
+    "DECK",
+    "Deckers Brands"
+  ],
+  "DELL": [
+    "DELL",
+    "Dell Technologies"
+  ],
+  "DG": [
+    "DG",
+    "Dollar General"
+  ],
+  "DGX": [
+    "DGX",
+    "Quest Diagnostics"
+  ],
+  "DHI": [
+    "DHI",
+    "D. R. Horton",
+    "D R Horton"
+  ],
+  "DHR": [
+    "DHR",
+    "Danaher Corporation",
+    "Danaher"
+  ],
+  "DIS": [
+    "DIS",
+    "Walt Disney Company (The)",
+    "Disney",
+    "디즈니"
+  ],
+  "DLR": [
+    "DLR",
+    "Digital Realty"
+  ],
+  "DLTR": [
+    "DLTR",
+    "Dollar Tree"
+  ],
+  "DOC": [
+    "DOC",
+    "Healthpeak Properties"
+  ],
+  "DOV": [
+    "DOV",
+    "Dover Corporation",
+    "Dover"
+  ],
+  "DOW": [
+    "DOW",
+    "Dow Inc.",
+    "Dow Inc"
+  ],
+  "DPZ": [
+    "DPZ",
+    "Domino's"
+  ],
+  "DRI": [
+    "DRI",
+    "Darden Restaurants"
+  ],
+  "DTE": [
+    "DTE",
+    "DTE Energy"
+  ],
+  "DUK": [
+    "DUK",
+    "Duke Energy"
+  ],
+  "DVA": [
+    "DVA",
+    "DaVita"
+  ],
+  "DVN": [
+    "DVN",
+    "Devon Energy"
+  ],
+  "DXCM": [
+    "DXCM",
+    "Dexcom"
+  ],
+  "EA": [
+    "EA",
+    "Electronic Arts"
+  ],
+  "EBAY": [
+    "EBAY",
+    "eBay Inc.",
+    "eBay Inc"
+  ],
+  "ECL": [
+    "ECL",
+    "Ecolab"
+  ],
+  "ED": [
+    "ED",
+    "Consolidated Edison"
+  ],
+  "EFX": [
+    "EFX",
+    "Equifax"
+  ],
+  "EG": [
+    "EG",
+    "Everest Group",
+    "Everest"
+  ],
+  "EIX": [
+    "EIX",
+    "Edison International"
+  ],
+  "EL": [
+    "EL",
+    "Estée Lauder Companies (The)",
+    "Estee Lauder",
+    "Estée Lauder"
+  ],
+  "ELV": [
+    "ELV",
+    "Elevance Health"
+  ],
+  "EME": [
+    "EME",
+    "Emcor"
+  ],
+  "EMR": [
+    "EMR",
+    "Emerson Electric"
+  ],
+  "EOG": [
+    "EOG",
+    "EOG Resources"
+  ],
+  "EPAM": [
+    "EPAM",
+    "EPAM Systems"
+  ],
+  "EQIX": [
+    "EQIX",
+    "Equinix"
+  ],
+  "EQR": [
+    "EQR",
+    "Equity Residential"
+  ],
+  "EQT": [
+    "EQT",
+    "EQT Corporation"
+  ],
+  "ERIE": [
+    "ERIE",
+    "Erie Indemnity"
+  ],
+  "ES": [
+    "ES",
+    "Eversource Energy"
+  ],
+  "ESS": [
+    "ESS",
+    "Essex Property Trust"
+  ],
+  "ETN": [
+    "ETN",
+    "Eaton Corporation",
+    "Eaton"
+  ],
+  "ETR": [
+    "ETR",
+    "Entergy"
+  ],
+  "EVRG": [
+    "EVRG",
+    "Evergy"
+  ],
+  "EW": [
+    "EW",
+    "Edwards Lifesciences"
+  ],
+  "EXC": [
+    "EXC",
+    "Exelon"
+  ],
+  "EXE": [
+    "EXE",
+    "Expand Energy"
+  ],
+  "EXPD": [
+    "EXPD",
+    "Expeditors International"
+  ],
+  "EXPE": [
+    "EXPE",
+    "Expedia Group",
+    "Expedia"
+  ],
+  "EXR": [
+    "EXR",
+    "Extra Space Storage"
+  ],
+  "F": [
+    "F",
+    "Ford Motor Company",
+    "Ford Motor",
+    "Ford"
+  ],
+  "FANG": [
+    "FANG",
+    "Diamondback Energy"
+  ],
+  "FAST": [
+    "FAST",
+    "Fastenal"
+  ],
+  "FCX": [
+    "FCX",
+    "Freeport-McMoRan"
+  ],
+  "FDS": [
+    "FDS",
+    "FactSet"
+  ],
+  "FDX": [
+    "FDX",
+    "FedEx"
+  ],
+  "FE": [
+    "FE",
+    "FirstEnergy"
+  ],
+  "FER": [
+    "FER",
+    "Ferrovial"
+  ],
+  "FFIV": [
+    "FFIV",
+    "F5, Inc.",
+    "F5",
+    "F5, Inc"
+  ],
+  "FICO": [
+    "FICO",
+    "Fair Isaac"
+  ],
+  "FIS": [
+    "FIS",
+    "Fidelity National Information Services"
+  ],
+  "FISV": [
+    "FISV",
+    "Fiserv"
+  ],
+  "FITB": [
+    "FITB",
+    "Fifth Third Bancorp"
+  ],
+  "FIX": [
+    "FIX",
+    "Comfort Systems USA"
+  ],
+  "FOX": [
+    "FOX",
+    "Fox Corporation"
+  ],
+  "FOXA": [
+    "FOXA",
+    "Fox Corporation",
+    "Fox"
+  ],
+  "FRT": [
+    "FRT",
+    "Federal Realty Investment Trust"
+  ],
+  "FSLR": [
+    "FSLR",
+    "First Solar"
+  ],
+  "FTNT": [
+    "FTNT",
+    "Fortinet"
+  ],
+  "FTV": [
+    "FTV",
+    "Fortive"
+  ],
+  "GD": [
+    "GD",
+    "General Dynamics"
+  ],
+  "GDDY": [
+    "GDDY",
+    "GoDaddy"
+  ],
+  "GE": [
+    "GE",
+    "GE Aerospace"
+  ],
+  "GEHC": [
+    "GEHC",
+    "GE HealthCare"
+  ],
+  "GEN": [
+    "GEN",
+    "Gen Digital"
+  ],
+  "GEV": [
+    "GEV",
+    "GE Vernova"
+  ],
+  "GILD": [
+    "GILD",
+    "Gilead Sciences"
+  ],
+  "GIS": [
+    "GIS",
+    "General Mills"
+  ],
+  "GL": [
+    "GL",
+    "Globe Life"
+  ],
+  "GLW": [
+    "GLW",
+    "Corning Inc.",
+    "Corning",
+    "Corning Inc"
+  ],
+  "GM": [
+    "GM",
+    "General Motors"
+  ],
+  "GNRC": [
+    "GNRC",
+    "Generac"
+  ],
+  "GOOG": [
+    "GOOG",
+    "Alphabet Inc.",
+    "Alphabet",
+    "Alphabet Inc",
+    "Google",
+    "구글"
+  ],
+  "GOOGL": [
+    "GOOGL",
+    "Alphabet Inc.",
+    "Alphabet",
+    "Alphabet Inc",
+    "Google",
+    "구글"
+  ],
+  "GPC": [
+    "GPC",
+    "Genuine Parts Company",
+    "Genuine Parts"
+  ],
+  "GPN": [
+    "GPN",
+    "Global Payments"
+  ],
+  "GRMN": [
+    "GRMN",
+    "Garmin",
+    "ARM"
+  ],
+  "GS": [
+    "GS",
+    "Goldman Sachs",
+    "Goldman",
+    "골드만삭스"
+  ],
+  "GWW": [
+    "GWW",
+    "W. W. Grainger",
+    "W W Grainger"
+  ],
+  "HAL": [
+    "HAL",
+    "Halliburton"
+  ],
+  "HAS": [
+    "HAS",
+    "Hasbro"
+  ],
+  "HBAN": [
+    "HBAN",
+    "Huntington Bancshares"
+  ],
+  "HCA": [
+    "HCA",
+    "HCA Healthcare"
+  ],
+  "HD": [
+    "HD",
+    "Home Depot (The)",
+    "Home Depot",
+    "홈디포"
+  ],
+  "HIG": [
+    "HIG",
+    "Hartford (The)"
+  ],
+  "HII": [
+    "HII",
+    "Huntington Ingalls Industries"
+  ],
+  "HLT": [
+    "HLT",
+    "Hilton Worldwide",
+    "Hilton"
+  ],
+  "HON": [
+    "HON",
+    "Honeywell",
+    "허니웰"
+  ],
+  "HOOD": [
+    "HOOD",
+    "Robinhood Markets",
+    "Robinhood"
+  ],
+  "HPE": [
+    "HPE",
+    "Hewlett Packard Enterprise"
+  ],
+  "HPQ": [
+    "HPQ",
+    "HP Inc.",
+    "HP",
+    "HP Inc"
+  ],
+  "HRL": [
+    "HRL",
+    "Hormel Foods"
+  ],
+  "HSIC": [
+    "HSIC",
+    "Henry Schein"
+  ],
+  "HST": [
+    "HST",
+    "Host Hotels & Resorts"
+  ],
+  "HSY": [
+    "HSY",
+    "Hershey Company (The)"
+  ],
+  "HUBB": [
+    "HUBB",
+    "Hubbell Incorporated",
+    "Hubbell"
+  ],
+  "HUM": [
+    "HUM",
+    "Humana"
+  ],
+  "HWM": [
+    "HWM",
+    "Howmet Aerospace"
+  ],
+  "IBKR": [
+    "IBKR",
+    "Interactive Brokers"
+  ],
+  "IBM": [
+    "IBM",
+    "International Business Machines"
+  ],
+  "ICE": [
+    "ICE",
+    "Intercontinental Exchange"
+  ],
+  "IDXX": [
+    "IDXX",
+    "Idexx Laboratories"
+  ],
+  "IEX": [
+    "IEX",
+    "IDEX Corporation",
+    "IDEX"
+  ],
+  "IFF": [
+    "IFF",
+    "International Flavors & Fragrances"
+  ],
+  "INCY": [
+    "INCY",
+    "Incyte"
+  ],
+  "INSM": [
+    "INSM",
+    "Insmed Incorporated",
+    "Insmed"
+  ],
+  "INTC": [
+    "INTC",
+    "Intel",
+    "인텔"
+  ],
+  "INTU": [
+    "INTU",
+    "Intuit"
+  ],
+  "INVH": [
+    "INVH",
+    "Invitation Homes"
+  ],
+  "IP": [
+    "IP",
+    "International Paper"
+  ],
+  "IQV": [
+    "IQV",
+    "IQVIA"
+  ],
+  "IR": [
+    "IR",
+    "Ingersoll Rand"
+  ],
+  "IRM": [
+    "IRM",
+    "Iron Mountain"
+  ],
+  "ISRG": [
+    "ISRG",
+    "Intuitive Surgical",
+    "Intuit"
+  ],
+  "IT": [
+    "IT",
+    "Gartner"
+  ],
+  "ITW": [
+    "ITW",
+    "Illinois Tool Works"
+  ],
+  "IVZ": [
+    "IVZ",
+    "Invesco"
+  ],
+  "J": [
+    "J",
+    "Jacobs Solutions"
+  ],
+  "JBHT": [
+    "JBHT",
+    "J.B. Hunt",
+    "JB Hunt"
+  ],
+  "JBL": [
+    "JBL",
+    "Jabil"
+  ],
+  "JCI": [
+    "JCI",
+    "Johnson Controls"
+  ],
+  "JKHY": [
+    "JKHY",
+    "Jack Henry & Associates"
+  ],
+  "JNJ": [
+    "JNJ",
+    "Johnson & Johnson",
+    "Johnson Johnson",
+    "J&J",
+    "존슨앤드존슨"
+  ],
+  "JPM": [
+    "JPM",
+    "JPMorgan Chase",
+    "JPMorgan",
+    "JP Morgan",
+    "JP모건"
+  ],
+  "KDP": [
+    "KDP",
+    "Keurig Dr Pepper"
+  ],
+  "KEY": [
+    "KEY",
+    "KeyCorp"
+  ],
+  "KEYS": [
+    "KEYS",
+    "Keysight Technologies"
+  ],
+  "KHC": [
+    "KHC",
+    "Kraft Heinz"
+  ],
+  "KIM": [
+    "KIM",
+    "Kimco Realty"
+  ],
+  "KKR": [
+    "KKR",
+    "KKR & Co.",
+    "KKR &",
+    "KKR & Co"
+  ],
+  "KLAC": [
+    "KLAC",
+    "KLA Corporation",
+    "KLA"
+  ],
+  "KMB": [
+    "KMB",
+    "Kimberly-Clark"
+  ],
+  "KMI": [
+    "KMI",
+    "Kinder Morgan"
+  ],
+  "KO": [
+    "KO",
+    "Coca-Cola Company (The)",
+    "Coca-Cola",
+    "Coke",
+    "코카콜라"
+  ],
+  "KR": [
+    "KR",
+    "Kroger"
+  ],
+  "KVUE": [
+    "KVUE",
+    "Kenvue"
+  ],
+  "L": [
+    "L",
+    "Loews Corporation",
+    "Loews"
+  ],
+  "LDOS": [
+    "LDOS",
+    "Leidos"
+  ],
+  "LEN": [
+    "LEN",
+    "Lennar"
+  ],
+  "LH": [
+    "LH",
+    "Labcorp"
+  ],
+  "LHX": [
+    "LHX",
+    "L3Harris"
+  ],
+  "LII": [
+    "LII",
+    "Lennox International"
+  ],
+  "LIN": [
+    "LIN",
+    "Linde plc",
+    "Linde"
+  ],
+  "LITE": [
+    "LITE",
+    "Lumentum"
+  ],
+  "LLY": [
+    "LLY",
+    "Lilly (Eli)"
+  ],
+  "LMT": [
+    "LMT",
+    "Lockheed Martin",
+    "Lockheed"
+  ],
+  "LNT": [
+    "LNT",
+    "Alliant Energy"
+  ],
+  "LOW": [
+    "LOW",
+    "Lowe's",
+    "Lowes"
+  ],
+  "LRCX": [
+    "LRCX",
+    "Lam Research"
+  ],
+  "LULU": [
+    "LULU",
+    "Lululemon Athletica"
+  ],
+  "LUV": [
+    "LUV",
+    "Southwest Airlines"
+  ],
+  "LVS": [
+    "LVS",
+    "Las Vegas Sands"
+  ],
+  "LYB": [
+    "LYB",
+    "LyondellBasell"
+  ],
+  "LYV": [
+    "LYV",
+    "Live Nation Entertainment"
+  ],
+  "MA": [
+    "MA",
+    "Mastercard",
+    "마스터카드"
+  ],
+  "MAA": [
+    "MAA",
+    "Mid-America Apartment Communities"
+  ],
+  "MAR": [
+    "MAR",
+    "Marriott International",
+    "Marriott"
+  ],
+  "MAS": [
+    "MAS",
+    "Masco"
+  ],
+  "MCD": [
+    "MCD",
+    "McDonald's",
+    "McDonalds",
+    "맥도날드"
+  ],
+  "MCHP": [
+    "MCHP",
+    "Microchip Technology"
+  ],
+  "MCK": [
+    "MCK",
+    "McKesson Corporation",
+    "McKesson"
+  ],
+  "MCO": [
+    "MCO",
+    "Moody's Corporation",
+    "Moody's"
+  ],
+  "MDLZ": [
+    "MDLZ",
+    "Mondelez International"
+  ],
+  "MDT": [
+    "MDT",
+    "Medtronic"
+  ],
+  "MELI": [
+    "MELI",
+    "Mercado Libre"
+  ],
+  "MET": [
+    "MET",
+    "MetLife"
+  ],
+  "META": [
+    "META",
+    "Meta Platforms",
+    "Facebook",
+    "메타"
+  ],
+  "MGM": [
+    "MGM",
+    "MGM Resorts"
+  ],
+  "MKC": [
+    "MKC",
+    "McCormick & Company",
+    "McCormick &"
+  ],
+  "MLM": [
+    "MLM",
+    "Martin Marietta Materials"
+  ],
+  "MMM": [
+    "MMM",
+    "3M"
+  ],
+  "MNST": [
+    "MNST",
+    "Monster Beverage"
+  ],
+  "MO": [
+    "MO",
+    "Altria"
+  ],
+  "MOS": [
+    "MOS",
+    "Mosaic Company (The)"
+  ],
+  "MPC": [
+    "MPC",
+    "Marathon Petroleum"
+  ],
+  "MPWR": [
+    "MPWR",
+    "Monolithic Power Systems"
+  ],
+  "MRK": [
+    "MRK",
+    "Merck & Co.",
+    "Merck &",
+    "Merck & Co",
+    "Merck",
+    "머크"
+  ],
+  "MRNA": [
+    "MRNA",
+    "Moderna"
+  ],
+  "MRSH": [
+    "MRSH",
+    "Marsh McLennan"
+  ],
+  "MRVL": [
+    "MRVL",
+    "Marvell Technology"
+  ],
+  "MS": [
+    "MS",
+    "Morgan Stanley",
+    "모건스탠리"
+  ],
+  "MSCI": [
+    "MSCI",
+    "MSCI Inc.",
+    "MSCI Inc"
+  ],
+  "MSFT": [
+    "MSFT",
+    "Microsoft",
+    "마이크로소프트"
+  ],
+  "MSI": [
+    "MSI",
+    "Motorola Solutions"
+  ],
+  "MSTR": [
+    "MSTR",
+    "MicroStrategy"
+  ],
+  "MTB": [
+    "MTB",
+    "M&T Bank"
+  ],
+  "MTD": [
+    "MTD",
+    "Mettler Toledo"
+  ],
+  "MU": [
+    "MU",
+    "Micron Technology",
+    "Micron",
+    "마이크론"
+  ],
+  "NCLH": [
+    "NCLH",
+    "Norwegian Cruise Line Holdings",
+    "Norwegian Cruise Line",
+    "Norwegian Cruise"
+  ],
+  "NDAQ": [
+    "NDAQ",
+    "Nasdaq, Inc.",
+    "Nasdaq",
+    "Nasdaq, Inc"
+  ],
+  "NDSN": [
+    "NDSN",
+    "Nordson Corporation",
+    "Nordson"
+  ],
+  "NEE": [
+    "NEE",
+    "NextEra Energy"
+  ],
+  "NEM": [
+    "NEM",
+    "Newmont"
+  ],
+  "NFLX": [
+    "NFLX",
+    "Netflix",
+    "넷플릭스"
+  ],
+  "NI": [
+    "NI",
+    "NiSource"
+  ],
+  "NKE": [
+    "NKE",
+    "Nike, Inc.",
+    "Nike",
+    "Nike, Inc",
+    "나이키"
+  ],
+  "NOC": [
+    "NOC",
+    "Northrop Grumman"
+  ],
+  "NOW": [
+    "NOW",
+    "ServiceNow"
+  ],
+  "NRG": [
+    "NRG",
+    "NRG Energy"
+  ],
+  "NSC": [
+    "NSC",
+    "Norfolk Southern"
+  ],
+  "NTAP": [
+    "NTAP",
+    "NetApp"
+  ],
+  "NTRS": [
+    "NTRS",
+    "Northern Trust"
+  ],
+  "NUE": [
+    "NUE",
+    "Nucor"
+  ],
+  "NVDA": [
+    "NVDA",
+    "Nvidia",
+    "엔비디아"
+  ],
+  "NVR": [
+    "NVR",
+    "NVR, Inc.",
+    "NVR, Inc"
+  ],
+  "NWS": [
+    "NWS",
+    "News Corp",
+    "News"
+  ],
+  "NWSA": [
+    "NWSA",
+    "News Corp",
+    "News"
+  ],
+  "NXPI": [
+    "NXPI",
+    "NXP Semiconductors"
+  ],
+  "O": [
+    "O",
+    "Realty Income"
+  ],
+  "ODFL": [
+    "ODFL",
+    "Old Dominion"
+  ],
+  "OKE": [
+    "OKE",
+    "Oneok"
+  ],
+  "OMC": [
+    "OMC",
+    "Omnicom Group",
+    "Omnicom"
+  ],
+  "ON": [
+    "ON",
+    "ON Semiconductor"
+  ],
+  "ORCL": [
+    "ORCL",
+    "Oracle Corporation",
+    "Oracle",
+    "오라클"
+  ],
+  "ORLY": [
+    "ORLY",
+    "O’Reilly Automotive"
+  ],
+  "OTIS": [
+    "OTIS",
+    "Otis Worldwide"
+  ],
+  "OXY": [
+    "OXY",
+    "Occidental Petroleum"
+  ],
+  "PANW": [
+    "PANW",
+    "Palo Alto Networks"
+  ],
+  "PAYX": [
+    "PAYX",
+    "Paychex"
+  ],
+  "PCAR": [
+    "PCAR",
+    "Paccar"
+  ],
+  "PCG": [
+    "PCG",
+    "PG&E Corporation",
+    "PG&E"
+  ],
+  "PDD": [
+    "PDD",
+    "PDD Holdings"
+  ],
+  "PEG": [
+    "PEG",
+    "Public Service Enterprise Group",
+    "Public Service Enterprise"
+  ],
+  "PEP": [
+    "PEP",
+    "PepsiCo",
+    "Pepsi",
+    "펩시코"
+  ],
+  "PFE": [
+    "PFE",
+    "Pfizer",
+    "화이자"
+  ],
+  "PFG": [
+    "PFG",
+    "Principal Financial Group",
+    "Principal Financial"
+  ],
+  "PG": [
+    "PG",
+    "Procter & Gamble",
+    "P&G",
+    "Procter Gamble"
+  ],
+  "PGR": [
+    "PGR",
+    "Progressive Corporation",
+    "Progressive"
+  ],
+  "PH": [
+    "PH",
+    "Parker Hannifin"
+  ],
+  "PHM": [
+    "PHM",
+    "PulteGroup"
+  ],
+  "PKG": [
+    "PKG",
+    "Packaging Corporation of America"
+  ],
+  "PLD": [
+    "PLD",
+    "Prologis"
+  ],
+  "PLTR": [
+    "PLTR",
+    "Palantir Technologies",
+    "Palantir",
+    "팔란티어"
+  ],
+  "PM": [
+    "PM",
+    "Philip Morris International",
+    "Philip Morris"
+  ],
+  "PNC": [
+    "PNC",
+    "PNC Financial Services"
+  ],
+  "PNR": [
+    "PNR",
+    "Pentair"
+  ],
+  "PNW": [
+    "PNW",
+    "Pinnacle West Capital"
+  ],
+  "PODD": [
+    "PODD",
+    "Insulet Corporation",
+    "Insulet"
+  ],
+  "POOL": [
+    "POOL",
+    "Pool Corporation"
+  ],
+  "PPG": [
+    "PPG",
+    "PPG Industries"
+  ],
+  "PPL": [
+    "PPL",
+    "PPL Corporation"
+  ],
+  "PRU": [
+    "PRU",
+    "Prudential Financial"
+  ],
+  "PSA": [
+    "PSA",
+    "Public Storage"
+  ],
+  "PSKY": [
+    "PSKY",
+    "Paramount Skydance Corporation",
+    "Paramount Skydance"
+  ],
+  "PSX": [
+    "PSX",
+    "Phillips 66"
+  ],
+  "PTC": [
+    "PTC",
+    "PTC Inc.",
+    "PTC Inc"
+  ],
+  "PWR": [
+    "PWR",
+    "Quanta Services"
+  ],
+  "PYPL": [
+    "PYPL",
+    "PayPal",
+    "페이팔"
+  ],
+  "Q": [
+    "Q",
+    "Qnity Electronics"
+  ],
+  "QCOM": [
+    "QCOM",
+    "Qualcomm",
+    "퀄컴"
+  ],
+  "RCL": [
+    "RCL",
+    "Royal Caribbean Group",
+    "Royal Caribbean"
+  ],
+  "REG": [
+    "REG",
+    "Regency Centers"
+  ],
+  "REGN": [
+    "REGN",
+    "Regeneron Pharmaceuticals",
+    "ARM"
+  ],
+  "RF": [
+    "RF",
+    "Regions Financial Corporation",
+    "Regions Financial"
+  ],
+  "RJF": [
+    "RJF",
+    "Raymond James Financial"
+  ],
+  "RL": [
+    "RL",
+    "Ralph Lauren Corporation",
+    "Ralph Lauren"
+  ],
+  "RMD": [
+    "RMD",
+    "ResMed"
+  ],
+  "ROK": [
+    "ROK",
+    "Rockwell Automation"
+  ],
+  "ROL": [
+    "ROL",
+    "Rollins, Inc.",
+    "Rollins",
+    "Rollins, Inc"
+  ],
+  "ROP": [
+    "ROP",
+    "Roper Technologies"
+  ],
+  "ROST": [
+    "ROST",
+    "Ross Stores"
+  ],
+  "RSG": [
+    "RSG",
+    "Republic Services"
+  ],
+  "RTX": [
+    "RTX",
+    "RTX Corporation",
+    "Raytheon"
+  ],
+  "RVTY": [
+    "RVTY",
+    "Revvity"
+  ],
+  "SATS": [
+    "SATS",
+    "EchoStar"
+  ],
+  "SBAC": [
+    "SBAC",
+    "SBA Communications"
+  ],
+  "SBUX": [
+    "SBUX",
+    "Starbucks",
+    "스타벅스"
+  ],
+  "SCHW": [
+    "SCHW",
+    "Charles Schwab Corporation",
+    "Charles Schwab",
+    "Schwab"
+  ],
+  "SHOP": [
+    "SHOP",
+    "Shopify",
+    "쇼피파이"
+  ],
+  "SHW": [
+    "SHW",
+    "Sherwin-Williams"
+  ],
+  "SJM": [
+    "SJM",
+    "J.M. Smucker Company (The)",
+    "JM Smucker Company (The)"
+  ],
+  "SLB": [
+    "SLB",
+    "Schlumberger"
+  ],
+  "SMCI": [
+    "SMCI",
+    "Supermicro",
+    "슈퍼마이크로"
+  ],
+  "SNA": [
+    "SNA",
+    "Snap-on"
+  ],
+  "SNDK": [
+    "SNDK",
+    "Sandisk"
+  ],
+  "SNPS": [
+    "SNPS",
+    "Synopsys"
+  ],
+  "SO": [
+    "SO",
+    "Southern Company",
+    "Southern"
+  ],
+  "SOLV": [
+    "SOLV",
+    "Solventum"
+  ],
+  "SPG": [
+    "SPG",
+    "Simon Property Group",
+    "Simon Property"
+  ],
+  "SPGI": [
+    "SPGI",
+    "S&P Global"
+  ],
+  "SRE": [
+    "SRE",
+    "Sempra"
+  ],
+  "STE": [
+    "STE",
+    "Steris"
+  ],
+  "STLD": [
+    "STLD",
+    "Steel Dynamics"
+  ],
+  "STT": [
+    "STT",
+    "State Street Corporation",
+    "State Street"
+  ],
+  "STX": [
+    "STX",
+    "Seagate Technology"
+  ],
+  "STZ": [
+    "STZ",
+    "Constellation Brands",
+    "Constellation"
+  ],
+  "SW": [
+    "SW",
+    "Smurfit Westrock"
+  ],
+  "SWK": [
+    "SWK",
+    "Stanley Black & Decker"
+  ],
+  "SWKS": [
+    "SWKS",
+    "Skyworks Solutions"
+  ],
+  "SYF": [
+    "SYF",
+    "Synchrony Financial"
+  ],
+  "SYK": [
+    "SYK",
+    "Stryker Corporation",
+    "Stryker"
+  ],
+  "SYY": [
+    "SYY",
+    "Sysco"
+  ],
+  "T": [
+    "T",
+    "AT&T"
+  ],
+  "TAP": [
+    "TAP",
+    "Molson Coors Beverage Company",
+    "Molson Coors Beverage"
+  ],
+  "TDG": [
+    "TDG",
+    "TransDigm Group",
+    "TransDigm"
+  ],
+  "TDY": [
+    "TDY",
+    "Teledyne Technologies"
+  ],
+  "TECH": [
+    "TECH",
+    "Bio-Techne"
+  ],
+  "TEL": [
+    "TEL",
+    "TE Connectivity"
+  ],
+  "TER": [
+    "TER",
+    "Teradyne"
+  ],
+  "TFC": [
+    "TFC",
+    "Truist Financial"
+  ],
+  "TGT": [
+    "TGT",
+    "Target Corporation",
+    "Target"
+  ],
+  "TJX": [
+    "TJX",
+    "TJX Companies"
+  ],
+  "TKO": [
+    "TKO",
+    "TKO Group Holdings"
+  ],
+  "TMO": [
+    "TMO",
+    "Thermo Fisher Scientific"
+  ],
+  "TMUS": [
+    "TMUS",
+    "T-Mobile US"
+  ],
+  "TPL": [
+    "TPL",
+    "Texas Pacific Land Corporation",
+    "Texas Pacific Land"
+  ],
+  "TPR": [
+    "TPR",
+    "Tapestry, Inc.",
+    "Tapestry",
+    "Tapestry, Inc"
+  ],
+  "TRGP": [
+    "TRGP",
+    "Targa Resources"
+  ],
+  "TRI": [
+    "TRI",
+    "Thomson Reuters"
+  ],
+  "TRMB": [
+    "TRMB",
+    "Trimble Inc.",
+    "Trimble",
+    "Trimble Inc"
+  ],
+  "TROW": [
+    "TROW",
+    "T. Rowe Price",
+    "T Rowe Price"
+  ],
+  "TRV": [
+    "TRV",
+    "Travelers Companies (The)"
+  ],
+  "TSCO": [
+    "TSCO",
+    "Tractor Supply"
+  ],
+  "TSLA": [
+    "TSLA",
+    "Tesla, Inc.",
+    "Tesla",
+    "Tesla, Inc",
+    "테슬라"
+  ],
+  "TSN": [
+    "TSN",
+    "Tyson Foods"
+  ],
+  "TT": [
+    "TT",
+    "Trane Technologies"
+  ],
+  "TTD": [
+    "TTD",
+    "Trade Desk (The)"
+  ],
+  "TTWO": [
+    "TTWO",
+    "Take-Two Interactive"
+  ],
+  "TXN": [
+    "TXN",
+    "Texas Instruments",
+    "텍사스인스트루먼트"
+  ],
+  "TXT": [
+    "TXT",
+    "Textron"
+  ],
+  "TYL": [
+    "TYL",
+    "Tyler Technologies"
+  ],
+  "UAL": [
+    "UAL",
+    "United Airlines Holdings",
+    "United Airlines"
+  ],
+  "UBER": [
+    "UBER",
+    "우버"
+  ],
+  "UDR": [
+    "UDR",
+    "UDR, Inc.",
+    "UDR, Inc"
+  ],
+  "UHS": [
+    "UHS",
+    "Universal Health Services"
+  ],
+  "ULTA": [
+    "ULTA",
+    "Ulta Beauty"
+  ],
+  "UNH": [
+    "UNH",
+    "UnitedHealth Group",
+    "UnitedHealth",
+    "유나이티드헬스"
+  ],
+  "UNP": [
+    "UNP",
+    "Union Pacific Corporation",
+    "Union Pacific"
+  ],
+  "UPS": [
+    "UPS",
+    "United Parcel Service"
+  ],
+  "URI": [
+    "URI",
+    "United Rentals"
+  ],
+  "USB": [
+    "USB",
+    "U.S. Bancorp",
+    "US Bancorp"
+  ],
+  "V": [
+    "V",
+    "Visa Inc.",
+    "Visa",
+    "Visa Inc",
+    "비자"
+  ],
+  "VEEV": [
+    "VEEV",
+    "Veeva Systems"
+  ],
+  "VICI": [
+    "VICI",
+    "Vici Properties"
+  ],
+  "VLO": [
+    "VLO",
+    "Valero Energy"
+  ],
+  "VLTO": [
+    "VLTO",
+    "Veralto"
+  ],
+  "VMC": [
+    "VMC",
+    "Vulcan Materials Company",
+    "Vulcan Materials"
+  ],
+  "VRSK": [
+    "VRSK",
+    "Verisk Analytics"
+  ],
+  "VRSN": [
+    "VRSN",
+    "Verisign"
+  ],
+  "VRT": [
+    "VRT",
+    "Vertiv"
+  ],
+  "VRTX": [
+    "VRTX",
+    "Vertex Pharmaceuticals",
+    "ARM"
+  ],
+  "VST": [
+    "VST",
+    "Vistra Corp.",
+    "Vistra",
+    "Vistra Corp"
+  ],
+  "VTR": [
+    "VTR",
+    "Ventas"
+  ],
+  "VTRS": [
+    "VTRS",
+    "Viatris"
+  ],
+  "VZ": [
+    "VZ",
+    "Verizon"
+  ],
+  "WAB": [
+    "WAB",
+    "Wabtec"
+  ],
+  "WAT": [
+    "WAT",
+    "Waters Corporation",
+    "Waters"
+  ],
+  "WBD": [
+    "WBD",
+    "Warner Bros. Discovery",
+    "Warner Bros Discovery"
+  ],
+  "WDAY": [
+    "WDAY",
+    "Workday, Inc.",
+    "Workday",
+    "Workday, Inc"
+  ],
+  "WDC": [
+    "WDC",
+    "Western Digital"
+  ],
+  "WEC": [
+    "WEC",
+    "WEC Energy Group",
+    "WEC Energy"
+  ],
+  "WELL": [
+    "WELL",
+    "Welltower"
+  ],
+  "WFC": [
+    "WFC",
+    "Wells Fargo",
+    "웰스파고"
+  ],
+  "WM": [
+    "WM",
+    "Waste Management"
+  ],
+  "WMB": [
+    "WMB",
+    "Williams Companies",
+    "Williams"
+  ],
+  "WMT": [
+    "WMT",
+    "Walmart",
+    "월마트"
+  ],
+  "WRB": [
+    "WRB",
+    "W. R. Berkley Corporation",
+    "W. R. Berkley",
+    "W R Berkley Corporation"
+  ],
+  "WSM": [
+    "WSM",
+    "Williams-Sonoma, Inc.",
+    "Williams-Sonoma",
+    "Williams-Sonoma, Inc"
+  ],
+  "WST": [
+    "WST",
+    "West Pharmaceutical Services",
+    "ARM"
+  ],
+  "WTW": [
+    "WTW",
+    "Willis Towers Watson"
+  ],
+  "WY": [
+    "WY",
+    "Weyerhaeuser"
+  ],
+  "WYNN": [
+    "WYNN",
+    "Wynn Resorts"
+  ],
+  "XEL": [
+    "XEL",
+    "Xcel Energy"
+  ],
+  "XOM": [
+    "XOM",
+    "ExxonMobil",
+    "Exxon",
+    "엑슨모빌"
+  ],
+  "XYL": [
+    "XYL",
+    "Xylem Inc.",
+    "Xylem",
+    "Xylem Inc"
+  ],
+  "XYZ": [
+    "XYZ",
+    "Block, Inc.",
+    "Block",
+    "Block, Inc"
+  ],
+  "YUM": [
+    "YUM",
+    "Yum! Brands"
+  ],
+  "ZBH": [
+    "ZBH",
+    "Zimmer Biomet"
+  ],
+  "ZBRA": [
+    "ZBRA",
+    "Zebra Technologies"
+  ],
+  "ZS": [
+    "ZS",
+    "Zscaler"
+  ],
+  "ZTS": [
+    "ZTS",
+    "Zoetis"
+  ]
+}
