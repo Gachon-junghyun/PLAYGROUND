@@ -1,0 +1,76 @@
+{
+  "lab": "OpenAI",
+  "scanned_at": "2026-06-03",
+  "official_accounts": [
+    {"platform": "X", "handle": "@OpenAI", "url": "https://x.com/OpenAI", "verified": true}
+  ],
+  "people": [
+    {
+      "name": "Sam Altman",
+      "role": "CEO / Co-founder",
+      "accounts": [{"platform": "X", "handle": "@sama", "url": "https://x.com/sama", "verified": true}],
+      "recent_themes": ["GPT-5.5 release", "path to AGI", "compute scaling", "AI labor/economy impact", "new senior hires"],
+      "notable_posts": [
+        {"summary": "Welcomed Dylan Scandinaro as OpenAI's Head of Preparedness, warning that 'things are about to move quite fast' with extremely powerful models requiring commensurate safeguards.", "approx_date": "2026", "source_url": "https://x.com/sama/status/2018813527780463027"},
+        {"summary": "Announced Peter Steinberger joining OpenAI to drive 'the next generation of personal agents,' framing smart interacting agents as soon-to-be core to OpenAI's products.", "approx_date": "2026", "source_url": "https://x.com/sama/status/2023150230905159801"}
+      ]
+    },
+    {
+      "name": "Greg Brockman",
+      "role": "President / Co-founder",
+      "accounts": [{"platform": "X", "handle": "@gdb", "url": "https://x.com/gdb", "verified": true}],
+      "recent_themes": ["GPT-5.5 as agentic computing", "compute-powered economy", "compute scarcity", "AI self-improvement", "superapp bet"],
+      "notable_posts": [
+        {"summary": "Around the GPT-5.5 launch, described the model as 'a big step towards more agentic and intuitive computing' and a 'new class of intelligence,' and argued 'there's not going to be enough compute in the world to meet demand,' framing a coming 'compute-powered economy.' (statements via press briefing/podcast coverage; not independently verified as a direct X post)", "approx_date": "2026-04", "source_url": "https://www.bigtechnology.com/p/openai-president-greg-brockman-on"}
+      ]
+    },
+    {
+      "name": "Mark Chen",
+      "role": "Chief Research Officer",
+      "accounts": [{"platform": "X", "handle": "@markchen90", "url": "https://x.com/markchen90", "verified": true}],
+      "recent_themes": ["leading OpenAI research", "AI for mathematics", "vibecoding / future of coding", "scientific & technical research gains"],
+      "notable_posts": [
+        {"summary": "Celebrated that an OpenAI model disproved Erdős's longstanding unit distance conjecture with an 'elegant and intricate proof' bringing algebraic number theory to bear on geometry, noting mathematics has been the field most amenable to AI progress.", "approx_date": "2026", "source_url": "https://x.com/markchen90/status/2057517045575774598"},
+        {"summary": "On taking over research leadership, said he's 'incredibly excited and honored to lead research at OpenAI alongside @merettm' and that it's never wise to bet against OpenAI.", "approx_date": "2024-09", "source_url": "https://x.com/markchen90/status/1839147190486446277"}
+      ]
+    },
+    {
+      "name": "Jakub Pachocki",
+      "role": "Chief Scientist",
+      "accounts": [{"platform": "X", "handle": "@merettm", "url": "https://x.com/merettm", "verified": true}],
+      "recent_themes": ["chain-of-thought faithfulness & interpretability", "reasoning models", "long-horizon research compute", "pace of model improvement"],
+      "notable_posts": [
+        {"summary": "Said he is 'extremely excited about the potential of chain-of-thought faithfulness & interpretability,' noting it significantly influenced the design of OpenAI's reasoning models starting with o1-preview as systems spend more compute on long-term problems.", "approx_date": "2025-07", "source_url": "https://x.com/merettm/status/1945157403315724547"}
+      ]
+    },
+    {
+      "name": "Noam Brown",
+      "role": "Research Scientist (reasoning / self-play)",
+      "accounts": [{"platform": "X", "handle": "@polynoamial", "url": "https://x.com/polynoamial", "verified": true}],
+      "recent_themes": ["general reasoning models", "AI math breakthroughs", "scaling test-time compute", "pace of progress"],
+      "notable_posts": [
+        {"summary": "Announced a general-purpose internal OpenAI model achieved a breakthrough on a well-known combinatorial geometry problem (the planar unit distance / Erdős problem), noting frontier models were only at IMO gold level less than a year earlier and that he expects the pace to continue.", "approx_date": "2026", "source_url": "https://x.com/polynoamial/status/2057177432717656539"}
+      ]
+    }
+  ],
+  "notes": "X has a login wall, so handles and posts were collected from public search results, news, and aggregator coverage rather than direct authenticated scraping. All five handles (@sama, @gdb, @markchen90, @merettm, @polynoamial) and @OpenAI are confirmed in multiple public sources. Greg Brockman's GPT-5.5/compute quotes come from press-briefing and podcast coverage (bigtechnology.com, TechCrunch), not a verified individual X post, so they are flagged as secondhand. Approximate dates are derived from tweet status IDs and article timestamps and may be off by days. Note: @merettm was reportedly briefly compromised by crypto scammers in mid-2024 (per a third-party report), but the account remains his.",
+  "sources": [
+    "https://x.com/sama",
+    "https://x.com/OpenAI",
+    "https://x.com/sama/status/2018813527780463027",
+    "https://x.com/sama/status/2023150230905159801",
+    "https://pasqualepillitteri.it/en/news/3633/ai-x-twitter-accounts-to-follow-2026",
+    "https://en.wikipedia.org/wiki/OpenAI",
+    "https://www.technologyreview.com/2025/07/31/1120885/the-two-people-shaping-the-future-of-openais-research/",
+    "https://techcrunch.com/2026/04/23/openai-chatgpt-gpt-5-5-ai-model-superapp/",
+    "https://www.bigtechnology.com/p/openai-president-greg-brockman-on",
+    "https://taekim.substack.com/p/an-interview-with-openai-president",
+    "https://x.com/markchen90",
+    "https://x.com/markchen90/status/2057517045575774598",
+    "https://x.com/markchen90/status/1839147190486446277",
+    "https://x.com/merettm",
+    "https://x.com/merettm/status/1945157403315724547",
+    "https://x.com/polynoamial",
+    "https://x.com/polynoamial/status/2057177432717656539"
+  ]
+}

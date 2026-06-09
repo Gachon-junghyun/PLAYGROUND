@@ -1,0 +1,9 @@
+{
+  "name": "play38-maturity-docs",
+  "private": true,
+  "version": "1.0.0",
+  "description": "어른스러움 플레이북 .docx 빌더 (PLAY38 자급 node_modules)",
+  "dependencies": {
+    "docx": "^9.5.1"
+  }
+}

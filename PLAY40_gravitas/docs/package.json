@@ -1,0 +1,9 @@
+{
+  "name": "play40-gravitas-docs",
+  "private": true,
+  "version": "1.0.0",
+  "description": "위엄·무게감 플레이북 .docx 빌더 (PLAY40 자급 node_modules)",
+  "dependencies": {
+    "docx": "^9.5.1"
+  }
+}

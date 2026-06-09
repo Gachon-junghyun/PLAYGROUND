@@ -1,0 +1,19 @@
+Twitter : @palenath
+Github : https://github.com/megadose/holehe
+For BTC Donations : 1FHDM49QfZX6pJmhjLE5tB2K6CaTLMZpXZ
+  0%|          | 0/121 [00:00<?, ?it/s]  5%|4         | 6/121 [00:00<00:02, 41.07it/s] 11%|#         | 13/121 [00:00<00:02, 49.94it/s]Some characters could not be decoded, and were replaced with REPLACEMENT CHARACTER.
+ 16%|#5        | 19/121 [00:00<00:01, 52.52it/s] 21%|##        | 25/121 [00:00<00:01, 53.64it/s] 31%|###1      | 38/121 [00:00<00:01, 70.28it/s] 38%|###8      | 46/121 [00:00<00:01, 72.99it/s] 48%|####7     | 58/121 [00:00<00:00, 86.40it/s] 63%|######2   | 76/121 [00:00<00:00, 108.18it/s] 72%|#######1  | 87/121 [00:01<00:00, 85.27it/s]  80%|########  | 97/121 [00:01<00:00, 65.59it/s] 87%|########6 | 105/121 [00:01<00:00, 61.11it/s] 93%|#########2| 112/121 [00:01<00:00, 46.08it/s]Some characters could not be decoded, and were replaced with REPLACEMENT CHARACTER.
+ 98%|#########7| 118/121 [00:01<00:00, 44.25it/s]100%|##########| 121/121 [00:10<00:00, 11.32it/s]
+[H[J
+*****************************
+   fivepeople201@gmail.com
+*****************************
+[+] firefox.com
+[+] office365.com
+[+] twitter.com
+
+[+] Email used, [-] Email not used, [x] Rate limit
+121 websites checked in 10.7 seconds
+Twitter : @palenath
+Github : https://github.com/megadose/holehe
+For BTC Donations : 1FHDM49QfZX6pJmhjLE5tB2K6CaTLMZpXZ

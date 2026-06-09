@@ -1,0 +1,83 @@
+{
+  "lab": "Anthropic",
+  "scanned_at": "2026-06-03",
+  "official_accounts": [
+    {"platform": "X", "handle": "@AnthropicAI", "url": "https://x.com/AnthropicAI", "verified": true},
+    {"platform": "X", "handle": "@claudeai", "url": "https://x.com/claudeai", "verified": true}
+  ],
+  "people": [
+    {
+      "name": "Dario Amodei",
+      "role": "CEO / Co-founder",
+      "accounts": [{"platform": "X", "handle": "@DarioAmodei", "url": "https://x.com/DarioAmodei", "verified": true}],
+      "recent_themes": ["AI 안전과 국가안보", "수출통제·중국 정책", "해석가능성(interpretability)", "AI 거버넌스/권력집중 우려"],
+      "notable_posts": [
+        {"summary": "중국, 수출통제, 그리고 두 가지 가능한 미래에 대한 자신의 생각을 담은 글을 공유했다.", "approx_date": "2025-01", "source_url": "https://x.com/DarioAmodei/status/1884636410839535967"},
+        {"summary": "AI와 미래에 관한 긴 에세이를 공개하며, 민주적 가치와 권리를 국내에서 보존하는 것의 중요성을 강조했다.", "approx_date": "2025", "source_url": "https://x.com/DarioAmodei/status/2015833051205414955"},
+        {"summary": "Anthropic 공식계정을 통해 파리 AI Action Summit에 대한 Dario Amodei의 성명이 게시되었다.", "approx_date": "2025-02", "source_url": "https://x.com/AnthropicAI/status/1889296580936683846?lang=en"}
+      ]
+    },
+    {
+      "name": "Jared Kaplan",
+      "role": "Co-founder / Chief Science Officer",
+      "accounts": [],
+      "recent_themes": ["스케일링과 인간 수준 AI로 가는 길", "사전학습·강화학습 등 학습 단계", "AI 제품화/도입 준비"],
+      "notable_posts": [
+        {"summary": "Y Combinator AI Startup School 강연에서 스케일링과 인간 수준 AI로 가는 길, 학습 단계(사전학습·RL)를 설명했다(본인 X 계정 미확인, 제3자 게시).", "approx_date": "2025", "source_url": "https://x.com/ycombinator/status/1950195148002120092"}
+      ]
+    },
+    {
+      "name": "Chris Olah",
+      "role": "Co-founder / Head of Interpretability",
+      "accounts": [{"platform": "X", "handle": "@ch402", "url": "https://x.com/ch402", "verified": true}],
+      "recent_themes": ["기계적 해석가능성(mechanistic interpretability)", "중첩(superposition)", "회로 분석(circuit tracing)"],
+      "notable_posts": [
+        {"summary": "중첩(superposition)이 한때 해석가능성이 막다른 길에 부딪힐 가장 큰 우려였지만, 이제는 근본적 위험이라기보다 (어렵지만) 주로 공학적 문제라고 본다며 낙관론을 밝혔다.", "approx_date": "2023-10", "source_url": "https://x.com/ch402/status/1709998674087227859"}
+      ]
+    },
+    {
+      "name": "Jan Leike",
+      "role": "Alignment Research Lead",
+      "accounts": [{"platform": "X", "handle": "@janleike", "url": "https://x.com/janleike", "verified": true}],
+      "recent_themes": ["AI 정렬(alignment)", "확장 가능한 감독(scalable oversight)", "자동화된 정렬 연구"],
+      "notable_posts": [
+        {"summary": "Anthropic에서 새로운 연구 프로젝트를 시작한다는 개인 소식을 알리며, AGI가 잘 굴러가려면 여러 가지가 필요하고 정렬은 그중 하나일 뿐이라고 언급했다.", "approx_date": "2025", "source_url": "https://x.com/janleike/status/2052807760291733505"}
+      ]
+    },
+    {
+      "name": "Sam Bowman",
+      "role": "Alignment Research (Member of Technical Staff)",
+      "accounts": [{"platform": "X", "handle": "@sleepinyourhat", "url": "https://x.com/sleepinyourhat", "verified": true}],
+      "recent_themes": ["AI 정렬", "Anthropic alignment 블로그 에세이"],
+      "notable_posts": [
+        {"summary": "Anthropic alignment 블로그에 게재한 새 에세이를 X에서 공유하며 링크를 안내했다.", "approx_date": "2025-04", "source_url": "https://x.com/sleepinyourhat/status/1915072175486500871"}
+      ]
+    },
+    {
+      "name": "Catherine Olsson",
+      "role": "Member of Technical Staff (interpretability/research)",
+      "accounts": [{"platform": "X", "handle": "@catherineols", "url": "https://x.com/catherineols", "verified": true}],
+      "recent_themes": ["해석가능성 연구", "Project Vend(Claude가 매점 운영) 등 실험"],
+      "notable_posts": []
+    }
+  ],
+  "notes": "X는 로그인 월 때문에 직접 스크랩 불가 — 핸들과 발언은 공개 검색 결과·뉴스·집계 인용에서 확인했고 일부는 secondhand다. Jared Kaplan은 본인 명의의 활성 X 계정을 신뢰성 있게 특정하지 못했다(@JaredKaplan는 동명의 다른 계정으로 보여 accounts를 빈 배열로 둠). approx_date 일부는 인용 트윗의 정확한 날짜를 알 수 없어 연도 수준으로만 표기했다. LinkedIn/Threads/Mastodon 공식 계정은 이번 검색 범위에서 확정하지 못했다.",
+  "sources": [
+    "https://x.com/AnthropicAI",
+    "https://x.com/claudeai",
+    "https://x.com/DarioAmodei",
+    "https://x.com/DarioAmodei/status/1884636410839535967",
+    "https://x.com/DarioAmodei/status/2015833051205414955",
+    "https://x.com/AnthropicAI/status/1889296580936683846?lang=en",
+    "https://x.com/ch402",
+    "https://x.com/ch402/status/1709998674087227859",
+    "https://x.com/janleike",
+    "https://x.com/janleike/status/2052807760291733505",
+    "https://x.com/sleepinyourhat",
+    "https://x.com/sleepinyourhat/status/1915072175486500871",
+    "https://x.com/catherineols",
+    "https://x.com/ycombinator/status/1950195148002120092",
+    "https://en.wikipedia.org/wiki/Anthropic",
+    "https://en.wikipedia.org/wiki/Chris_Olah"
+  ]
+}

@@ -1,0 +1,23 @@
+[+] Using sites database: C:\Users\fivep/.maigret\data.json (3159 sites)
+[-] Starting a search on top 509 sites from the Maigret database...
+[!] You can run search by full list of sites with flag `-a`
+[*] Checking username fivepeople201 on:
+[+] Instagram: https://www.instagram.com/fivepeople201/
+ └─username: fivepeople201
+[?] Google Scholar: https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=fivepeople201&btnG=
+[+] HuggingFace: https://huggingface.co/fivepeople201
+[+] TradingView: https://www.tradingview.com/u/fivepeople201
+[+] Velog: https://velog.io/@fivepeople201/posts
+[+] OnlyFans: https://onlyfans.com/fivepeople201
+[-] Restarting checks for 8 sites... (1 attempts left)
+[!] Too many errors of type "Access denied" (13.0%)
+[-] You can see detailed site check errors with a flag `--print-errors`
+[-] Extracted IDs: {'fivepeople201': 'username'}
+[-] JSON simple report for fivepeople201 saved in C:\Users\fivep\OneDrive\Desktop\PLAYGROUND\PLAY40_osint_self_check\results\report_fivepeople201_simple.json
+[-] Generating report info...
+[-] HTML report on all usernames saved in C:\Users\fivep\OneDrive\Desktop\PLAYGROUND\PLAY40_osint_self_check\results\report_fivepeople201_plain.html
+[*] Short text report:
+Search by username fivepeople201 returned 5 accounts.
+Extended info extracted from 1 accounts.
+Countries: kr
+Interests (tags): coding, photo, social, llm, tech, trading, blog, porn

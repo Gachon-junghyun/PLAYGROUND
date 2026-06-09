@@ -1,0 +1,38 @@
+[
+  {
+    "lab": "Anthropic",
+    "slug": "anthropic",
+    "official_hint": ["@AnthropicAI", "@claudeai"],
+    "roles": ["CEO / 공동창업자", "리서치 리드", "주목할 엔지니어/연구자"]
+  },
+  {
+    "lab": "OpenAI",
+    "slug": "openai",
+    "official_hint": ["@OpenAI", "@sama"],
+    "roles": ["CEO / 공동창업자", "리서치 리드", "주목할 엔지니어/연구자"]
+  },
+  {
+    "lab": "xAI (Grok)",
+    "slug": "xai",
+    "official_hint": ["@xai", "@grok"],
+    "roles": ["창업자/대표", "리서치/엔지니어링 리드", "주목할 엔지니어"]
+  },
+  {
+    "lab": "Google DeepMind (Gemini)",
+    "slug": "google_deepmind",
+    "official_hint": ["@GoogleDeepMind", "@GeminiApp"],
+    "roles": ["CEO/리더", "리서치 리드", "DevRel/주목할 엔지니어"]
+  },
+  {
+    "lab": "Meta AI (Llama)",
+    "slug": "meta_ai",
+    "official_hint": ["@AIatMeta"],
+    "roles": ["치프 사이언티스트/리더", "리서치 리드", "주목할 엔지니어"]
+  },
+  {
+    "lab": "Mistral AI",
+    "slug": "mistral",
+    "official_hint": ["@MistralAI"],
+    "roles": ["CEO/공동창업자", "리서치/엔지니어링 리드"]
+  }
+]

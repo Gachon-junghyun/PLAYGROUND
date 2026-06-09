@@ -113,3 +113,15 @@ PLAY12_concept_corpus/data/
 
 # unidic dict bundle (PLAY11) — downloaded by setup_env.py
 PLAY11_melotts/_shims/
+
+# ===== Node =====
+node_modules/
+**/node_modules/
+
+# ===== Personal / non-PLAY (not for public repo) =====
+대화/
+칭찬리포트.md
+칭찬리포트_인간.md
+
+# personal conversation export (NFD unicode form)
+대화/

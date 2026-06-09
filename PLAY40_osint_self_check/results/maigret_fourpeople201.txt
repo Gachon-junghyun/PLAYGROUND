@@ -1,0 +1,24 @@
+[+] Using sites database: C:\Users\fivep/.maigret\data.json (3159 sites)
+[-] Starting a search on top 509 sites from the Maigret database...
+[!] You can run search by full list of sites with flag `-a`
+[*] Checking username fourpeople201 on:
+[+] Instagram: https://www.instagram.com/fourpeople201/
+ └─username: fourpeople201
+[+] Threads: https://www.threads.net/@fourpeople201
+ ├─fullname: 한정현
+ ├─username: fourpeople201
+ ├─follower_count: 11
+ └─posts_count: 0
+[+] HuggingFace: https://huggingface.co/fourpeople201
+[+] OnlyFans: https://onlyfans.com/fourpeople201
+[-] Restarting checks for 9 sites... (1 attempts left)
+[!] Too many errors of type "Access denied" (13.0%)
+[-] You can see detailed site check errors with a flag `--print-errors`
+[-] Extracted IDs: {'fourpeople201': 'username'}
+[-] JSON simple report for fourpeople201 saved in C:\Users\fivep\OneDrive\Desktop\PLAYGROUND\PLAY40_osint_self_check\results\report_fourpeople201_simple.json
+[-] Generating report info...
+[-] HTML report on all usernames saved in C:\Users\fivep\OneDrive\Desktop\PLAYGROUND\PLAY40_osint_self_check\results\report_fourpeople201_plain.html
+[*] Short text report:
+Search by username fourpeople201 returned 4 accounts.
+Extended info extracted from 2 accounts.
+Interests (tags): social, photo, coding, llm, tech, porn
