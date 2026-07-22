@@ -1,0 +1,243 @@
+# REPORT c0b4715dabdffd62a817f5e55aa69815
+source: seekingalpha
+title: Small Caps Are Back!
+broker: Seeking Alpha
+date: 2026-06-12
+url: https://seekingalpha.com/article/4914385-small-caps-are-back?source=feed_all_articles
+
+---
+
+FeelPic/iStock via Getty Images
+Listen here or on the go via
+Apple Podcasts
+and
+Spotify
+For small cap investors, it's taken a lot of Courage and Conviction to see through recent drawdowns (0:35) BuzzFeed update (10:40) Arq update (19:15) Why Cineverse is
+Courage and Conviction Investing
+'s favorite stock right now (22:00) Leslie's an example of pure alpha (31:50) Position sizing (41:00)
+Transcript
+Rena Sherbill:
+Courage and Conviction Investing
+, our favorite person to talk small caps and the market with, welcome back to the show.
+Courage and Conviction Investing:
+Hey Rena, it's great to be back. It's been a while. I think it was
+last September
+, and thanks for reaching out. I'm thrilled to be back.
+Rena Sherbill:
+It's great to have you back. And like last time, we have had fervent fan requests for you to come back. Some of them have made some very nice returns on some of the stocks that you have highlighted in the past.
+We just had
+David Keller
+on who said he knew you on yesterday's episode, and he was talking about how small caps have done extraordinarily well this year.
+Where do you think is a good place to start us off from last episode when you were sharing some of the ways of withstanding some of the drawdowns in the small cap world? A different story today, I think. But where is a good place to start?
+Courage and Conviction Investing:
+When we talked last time, I simply said that if you were downstream of the 550 billion capex cycle for the hyperscalers, that was the easiest place to be. And that there had already been a big leg up, and that that's not at all what I do.
+But it turned out that if you simply took that advice and just at the highest level and said, okay, the
+hyperscalers
+are spending 550 billion, that's accelerating, they're using all their free cash flow, plus they're taking on debt and the tens of billions, because there's this arms race as to who's gonna get there faster, who's gonna have the leg up.
+That would have worked exceptionally well if you simply just bought a basket of all right, who's downstream? I want to say Sandisk (
+SNDK
+) was like $80 then. Unfortunately I didn't do that because I didn't take my own good advice because that's not what I do.
+I want it to be hard, I want it to be difficult, and instead I entered a really tricky period starting in November of last year. So I had three of my biggest positions I don't want to say blow up on me, but they went sideways.
+I tell my kids this, I have a daughter, eight, son ten and twelve, another son and in life, you're going to face adversity. I don't care who you are, how healthy you are, how wealthy you are, who you know, who your favorite Mickey Mouse character is, it's gonna happen. You're gonna face adversity, and that I got a nice dose of adversity starting in November.
+So I had my largest position, which is BuzzFeed (
+BZFD
+). They missed earnings badly. Q3 took down guidance. Stock got cut in half. So I maybe owned it at 180. Stock was 160. Front of earnings got cut in half. 80 cents.
+(
+ARQ
+), which is a big investment that I've owned for five years. Own it in the family offices as we do BuzzFeed. They had commissioning issues with their granular activated carbon. A flip from a huge profit, we're talking millions in profits on the family office side to a huge loss.
+And then I forget if it was Q4 or it was Q1, there was an additional leg down an ARQ. So it it dropped, say, from say we owned it in the threes or fours, it hit six and a half, got down to the threes, and they say, we just haven't figured they didn't figure out the commissioning issues, stock got into the ones. Okay.
+And then my second biggest position, which is Cineverse (
+CNVS
+), which I want to talk a lot about today, because that's my favorite idea by far right now. Also had issues, and that was a huge profit. We owned like 4.9% of the fund through my largest investor.
+I got the permission to mention him, is Dan Kaufman. He's a absolutely brilliant guy. We had a four point nine percent stake. Things were going great. They had a couple soft quarters, and that got hammered. So within the span of a month, I literally had the three biggest positions go sideways.
+And it's so difficult emotionally, psychologically, when that happens. If there's one, okay, no big deal. Especially I run a concentrated portfolio. but this was literally being stuck in the wilderness by yourself and so there was a lot to kind of work through that, but throughout that period, I maintained my courage, I maintained my conviction.
+And certainly in the case of BuzzFeed, it's turned out to to to be a great
+turnaround
+. And it's it's recovered. But just to kind of frame this for you, this is just directly in my parents and my family directly managed family money. We had 1.3% of the equity in BuzzFeed.
+So this is prior to the transformative Byron Allen deal. And we owned it at say $1.40. And in March of this year, the stock traded to the 50 cents, like 54 cents. So on half a million shares marked to market, we were down like three or four hundred thousand dollars. And so people can talk about courage and conviction, but try telling your parents when you have 20% of their net worth in a micro cap that just filed a going concern label that no, my conviction's there.
+I've talked to management, I've done the work. This is very undervalued. There are a lot of ways that this thing still works. Let's stick with it. And then fortunately, Byron Allen made an investment in in May. He put up to 120 million dollars into the company for 52% stake. He took over as CEO and chairman, which Jonah, the CEO, had super voting shares. So market wasn't expecting that.
+And the thing rebounded from that night, it was 73 cents ahead of earnings to into the twos. And so I was able to right size the position, reset the position that night in the twos. There's thirteen million shares traded and then we've since bought back a lot of those shares in the 120s, 130s but so that was a huge recovery, but again I don't know that there's anyone probably on this show or anywhere that has ever had twenty percent of their parents' net worth on a microcap that's just had a going concern label.
+And so I'm very thankful that it worked out.
+But ultimately that the research paid off. And I'm actually really, really excited about BuzzFeed going forward. I think it's a very different company going forward with Byron. We can talk about that more later.
+In terms of ARQ with with Dan Kaufman, when the stock was between a dollar sixty and a dollar seventy-five, we doubled up, he filed the five percent stake. We're still in touch with ARQ. It's rebounded, we think it's worth more but those are the big swings, right?
+It's literally everything that we've ever talked about. We've had three or four other interviews and it's everything I said I do in those interviews.
+You take the drawdowns, you talk to management, you do the work, you check your work, and then you try to maintain sanity and logic and reason in the face of relentless selling, negativity, the company's gonna go bankrupt, this is gonna happen, and you have to separate those emotions and say, no, no, what's this thing really worth? What am I paying for it? Is there an opportunity adding a lot in these drawdown periods?
+And then we can talk a lot more about Cineverse, but anyway, that's my super long-winded answer. But it was literally going from the valley, and then we're starting to climb back up. And I wrote a piece to my group that weekend. We're so back. And that's how it felt.
+It was just such this relief of having this nuclear winner, everything go against you for six months, and you kind of persevere and you push through it, and ultimately the things start to look up and are starting are starting to play out.
+Rena Sherbill:
+Last time we talked, you were talking about Billy Joel at the beginning. I had said that it was my first concert. You write under Courage and Conviction Investing, but your investing group is called
+Second Wind Capital
+.
+And after last episode, I emailed you saying that I was kicking myself for not remembering the Billy Joel line. And if you'll allow me, I'm gonna quote it right now before I ask you to get more into BuzzFeed. And for everybody out there, it's good advice.
+You better believe there will be times in your life when you'll be feeling like a stumbling fool, take it from me, you'll learn more from your accidents than anything you could ever learn at school. Don't forget your second wind.
+With that in mind, properly girded against the machinations of the market, what would you say are the top reasons that you're bullish about let's start with Arq and BuzzFeed and what has you concerned?
+Courage and Conviction Investing:
+Well, I my favorite idea right now is actually Cineverse, but just just just we'll get there.
+Rena Sherbill:
+We'll get there, we'll get there. Just like two minutes on these names first.
+Courage and Conviction Investing:
+So let's so BuzzFeed. All right, this was absolutely insane. So I've had so many calls with Jonah, with Matt, Omer, the CFO. I've been in this thing since Q1 of 2024.
+Owned it at two and a half. The stock got to the to mid fives of Thanksgiving 2024, they sold Hot Ones to Soros Group for 82 and a half million, but they kind of gave weak Q4 guidance. We had a massive profit, sold some, but not certainly not enough. And then we took this big drawdown. But if I take a step back, I say, okay, what do they own? Okay, they own the BuzzFeed brand.
+They own Huff Post, which is arguably very valuable in this political environment, regardless of where you sit, because they have a great demographic. It leans more to higher educated women, but a lot of people go to Huff Post to get their news in the morning. I think they're doing a great job with lesser resources than some of the the bigger media outlets.
+They own Tasty and they own the studio, which they have a micro series drama and they also are in feature films. They have a film coming out on the 18th called Girls Like Girls, which is I believe based on a very popular best selling book. And so at 54 cents at 37 and a half million shares, the equity was like 23 million or four million. They did have 45 million of debt with Soundpoint. And there were two covenants.
+So there was a five million dollar tranche that had to be paid and that kept getting extended. And then they had a $15 million tranche that was due at the end of August. But if you looked at the balance sheet, if you talked to management, they said, well, listen, we have a New York City studio lease expires end of May and once that expires the LC will get released within a few days. We'll take that $15 million and we'll pay that tranche.
+And so yes, they had a going concern label, but they had restricted cash. And the other debt is all movie debt, which is tied to tracks, credits, and it's not really debt, if you really understand it. It's on the balance sheet, but it's like a special purpose debt. It's not truly debt like secure debt is.
+So if you took a step back, I'm saying, all right, is Jonah, who is a founder of this company, his sister is is married to Jordan Peele, one of the biggest directors in Hollywood. This guy knows tons of people in in Hollywood. They have had all these incredible interviews. I said, is this guy really gonna default and lose his company over five million dollars? And if last year they made eight million dollars in EBITDA, so it's like not like this company was ever hemorrhaging money.
+There's definitely seasonality in the business, they make more Q3, you can make some money and Q4, you make money. And they actually had a really good Q4. But the market gave them no credit for that. They just jumped on the going concern label. There were multiple reports in the media. Jonah is gonna fail. Bang, take out the drums and let's do our death march. And it's just like I talked to management.
+If you read the
+call
+, if you synthesized the call, it was totally different. They were so much more upbeat than what it was portrayed.
+But that was the conventional wisdom. I'm like, there's no way Jonah is gonna default over five million dollars. And they would again very high level saying we're working on partnerships. He's been saying that since November when the stock got cut in half, everyone cut and ran and ran. And I said, no, this does not make sense.
+And by the way, the BuzzFeed Island, which I have which is their AI app, because he's becoming the head of AI app studio is is actually fantastic. I don't really like the Conjure app. I got bored with it. I did, my daughter and I were doing it for a while, but the BuzzFeed at Island app, I think, is actually really, really cool. So you put all those things together, and the market thought it was a foregone conclusion that they were going to file, hence why the equity was priced so low.
+And then sure enough, Jonah saves the company. And I guess there are multiple parties involved. He couldn't get into all the details. And we got Byron Allen, a billionaire media guy that literally, he just took over the Stephen Colbert spot for CBS and on the day that he got interviewed so many years ago by Johnny Carson. That's where we got to start. It's huge.
+And the market's not giving any credit. They're saying, we only put up 20 million in cash up front, and then there's a hundred million dollar promissory no, and he's gonna flake on it. It's like, what the hell are you talking about?
+Why is this guy gonna flake on it? He's a billionaire. Okay. Number one, it's just sound financing. He's putting up some money up front and then he pays the rest. And if you look at the board, he brought his whole team over. He's a CEO and chairman. He wants this to be successful. But if you listen to the Nilay Patel Decoder's interview, it's 67 minutes where Jonah goes on the interview. And then if you listen to a lot of the PR circuit that Byron's gone on, he's gone on Bloomberg and Guardian, a lot of different places. He lays this all up. So this is a media guy, this is an ad guy that has huge connections.
+And as Jonah talked about in the Decoder interview, he said I was great at the technology piece, but I was not a great CEO. I made some mistakes, I made some misses, and I'm not a great public company CEO. His words, right? I'm not. Obviously I believed in Jonah because I stuck with it the whole time whereas Byron and his team, these are deal guys and in this environment's about going and getting direct ad deals. That's what drives this business.
+So if you look, they have a programmatic piece, they have the direct side, but the rec side's really been weak. They have the affiliate business and they have the studio and the content side. If Byron can land, say, five million a quarter in new ad deals, now you go from a digital meeting publishing company to now a growing company.
+And because Byron sees the value of the assets, how much reach they have in the viewership, if he connects them with the right audiences and his synergies with all his other own media properties, this business is still selling even a dollar forty, depending on how you want to value it, how you want to value the promissory note.
+By the way, Will Jiang on SA wrote a
+fantastic piece
+that actually incidentally was published today on SA's free site. Has a really nice thesis, really well thought out. I've talked to Will, really sharp guy, young guy from NYU, super sharp. And it's just like I can't believe this thing's trading at a dollar thirty or dollar forty, given Byron Allen's reach, given one transformative deal or a couple of direct ad deals.
+Maybe they do something with BuzzFeed Island. Maybe they, as Will said, maybe they do something with the studio with T or with Tasty. There's so much optionality. The balance sheet risk is gone. And everyone's looking backwards or they're piling on saying that Q1 wasn't that good. Well, Q1's always seasonally the weakest quarter, and they were spending probably all their time.
+With SoundPoint trying to get an debt extension on the tranche debt. And again, everyone's looking backwards. I think it's an incredible opportunity. It's actually it's a much better opportunity today at a dollar forty than it was back then because there's so much uncertainty that's been resolved. So that's again long winded, but that's why it's actually like I said, probably a better time now to get involved than it was then.
+Rena Sherbill:
+You want to get into Cineverse? Cause I don't want to make you be long-winded about ARQ. You can get into your favorite pick if you want.
+Courage and Conviction Investing:
+Yeah, I mean quickly on ARC. Stock's stupid cheap. Green directly carbon's an oligopoly structure. The assets at Red River are probably worth three or four hundred million dollars against the market cap of 260 a share times 42, 110 million.
+But because it had those commissioning issues, their core pack business, powder activated carbon, which is you used different applications for coal and other remediation soil to a little different. So that business is doing 20 to 15 to 18 million EBITDA, but because there's uncertainty as to what happens to fix the factory on the GAC side, no one just wants to get involved.
+And we had an hour call with Eric Robinson, who's their chief operating officer. Eric was phenomenal, incredibly talented guy. Came out of retirement to help the chief technical officer Joe Long. He walked us through. He's ran 18 plants globally in a 30, 40 year career in chemicals. So he's seen everything, done everything. I said out of one to 10, 10 being putting a man on the moon, how difficult is this to fix? He said it's probably like a four or five. This and he takes a very data-driven approach. You line up the pins, you knock it down, you take the data, you do it again, you do it again, you do it again, you iterate. And so it's just the market has to get comfortable with, okay, what's it gonna cost to fix it?
+How are they going to finance it? Everyone thought they were going to raise equity. Management owns twenty something percent of the company. They're not going to do a dumb equity deal. It doesn't benefit them. There's optionality and they could win the lawsuit against the engineering firm that allegedly made a lot of mistakes.
+I don't wanna comment about that too much. They obviously couldn't comment about that too much. And there's also optionality they could sell their Corbin facility so that's again, just market doesn't care, giving it away. With Dan we doubled up between one sixty and one seventy-five. We're five percent holders. We think the value's there, but we're gonna be patient.
+That's fine. We're happy to be patient and and wait. And if management can deliver, then there should be considerable upside here. But again, in this market, what have you done for me lately? And no one wants to sit in positions for periods of time.
+So should I flip to Cineverse?
+Rena Sherbill:
+Flip to Cineverse (
+CNVS
+).
+Courage and Conviction Investing:
+Cineverse, so I spent most of January and the first two weeks of February with Dan working in concert with Cineverse. I can't say too much because I signed an NDA, although the deal's already announced. I can say high level.
+We spent a lot of time because they had two transformative deals and he was the largest shareholder. So they came to us and said, hey, we have these two deals, you guys want to sign an NDA and look under the hood. And we said, yeah, we've been in it since the twos and the stock hits seven and we didn't sell any. So we wanna do it. So basically they bought this company called Giant World Wide, which has all the Hollywood media badges, they work with the streamers, it does a lot of the back office stuff, the behind the scenes technology stuff. I don't want to get too down the into the weeds there. They paid only two million dollars for that business.
+And that business should do 15 to 17 million in revenue this year. Their fiscal year starts April 1st and could do three to four million in EBITDA. But if you synthesize what they say in the conference call, it sounds like this thing could maybe do 20, maybe 25 million in revenue and maybe five, six million in EBITDA, because they use their their existing matchpoint technology and their software, AI software, to plug and play. The giant already had all the Hollywood badges in the contracts.
+Now they're applying their AI-based technology to solve those needs and Giant was turning away business and now from what it sounds like it's going swimmingly well.
+Secondly they had this really interesting ad tech business called IndieQ and they structured a really clever deal, it's gone from I don't know a couple million in revenue to they should do 40 million in revenue this year. So growing rapidly over a couple of years and it should do eight or nine million in EBIT though because of their own and operated property.
+So Cineverse has 16 fast channels, they own bloody and disgusting because they're big in the horror side and they have other properties. When they layer in the ad tech piece of it, it creates the full solution that these big companies need. That was the one piece in our art folder arsenal, so to speak, that they needed.
+And so you're gonna get huge synergies because when you plug it into their existing owned and operated assets. And then it also is a huge cost save because they made the mistake of ramping up the direct sold side because they're so excited about their match point suite of technology.
+But it's such a long lead cycle. It was six months, it was 12 months, it was 18 months to try to get to the key decision makers. And then it's not like it's the most important thing for these companies, especially with the M&A going on in the space. And so with a company that wasn't once a a hit-driven movie company, and they did have a huge hit with Terrifier 3, made a lot of money and stock did really well. Their subsequent films didn't do as well.
+Although they were underwritten well and they still made money on them with factoring streaming revenue and whatnot. But long story short, they needed 16 million dollars to finance this deal. So my largest investor, Dan Kaufman, we spent seven months on this. We diligenced the hell out of this. We had management calls because he was out of Denver. My daughter would knock on my door saying, Dad, it's like 10 o'clock, you're supposed to tuck me in.
+Sorry, sorry. And she slipped me a note under the door. And I write back. Sorry, I'll tuck you in in a five minutes. She's eight. But because of what Kaufman does, he was the perfect guy because he doesn't have any investment committee, he's just a really wealthy guy that's been incredibly successful in real estate, was a great entrepreneur, did really well there, but he's an incredible investor, and so we did 12 million out of the 13 million convertible deal. And so at attractive terms, no warrants. He's a long-only investor.
+He doesn't short like these structured guys and destroy companies. And we invested alongside management. That's why management spent so much time with him because they knew who Kaufman is. They knew what he's done. They know how successful he's been. If you look at his F form 13 filings with Harrow filed in the 20s, a stock hit 60. He bought eight figures in I-80 gold at 50 cents. The stock hit 220, plus he got warrants on the deal. He just participated in the deal. So that's a 4X and on size. He's had many, many home runs, and he puts his capital and he's a long-term investor. And again, he doesn't short companies, he doesn't do structured stuff.
+And there are literally so many structured companies that destroy businesses. Companies do these deals with the devil, they're horribly structured. And they get warrants and they short against the stock every time it does well. And unless the company does exceptionally well and knocks it out of the park, most times shareholder value gets destroyed.
+So because of that capital, and my other investor put some equity in the deal, we were able to lead the deal, help them raise the 16 million dollars. Because there's a cash component, there's a stock component, and there's earnouts. But this is a business that could do 15 or more. Or 20 million. They got, I think, 10 to 20 million EBITDA for this fiscal year starts April 1st.
+And so even if you count for all the dilution on the convert and whatnot, I can't believe the stock's trading at two and a half dollars. Given the inflection point this is going to have in terms of revenue doubles and revenue ramps significantly, but this huge runaway in terms of what match point can do as they get more embedded with the studios, as they prove it with the studios, which they're already doing through the Giant acquisition, but there could be a lot of growth on the ad tech side and also with the midterm elections, given the properties they own, the fast channels with has nice reach with genre. That's a nice tailwind.
+An old name I owned years ago, (
+EVC
+), they had a an ad tech business did exceptionally well. Stock has gone from three to ten. There's another AP APPS. Again, I'm not saying it's exactly the same. Same thing. Ad tech business has done well. They're firing on the right cylinders. The stocks have had massive legs up.
+So you got this little tiny microcap company, two and a half dollars a share, with Dan Kaufman leads the deal. No one's paying attention. Stock traded up from like two to three forty and then guys don't want to be in it because they can't hold a stock for more than 30 seconds. And it hasn't showed up in the numbers.
+It doesn't exist into the algos yet because the numbers aren't disseminated there's so much quantitative money that gets run in small caps and micro caps. So as far as the algos are considered and the quant strategies, they don't even know this company exists because everyone's looking backwards.
+And they're saying, well, they made some money, then they lost some money, they get a little bit of debt. This looks like a terrible company, but stocks are about the future. And we're just patient.
+We're just gonna wait maybe the June quarter, because there's only gonna be a month in the queue, it won't be as good, but it should show some signs of progress. And then I'm really excited about the quarter entering in June, which we should should deliver it in August.
+Again, no one's paying attention to the stock. No one sees it coming, but it's transformed this technology company related to AI that's inflecting and no one cares. And that's fine. That and that we're happy on the investment side to do that stuff and just be patient. And that's because he has duration, because he doesn't have an investment committee, he can be very patient.
+And if the thesis plays out, it could be a a multi bagger and that's kind of our expectations. But again, they have to do it and they have to prove it. And if they do, then the stock will will take care of itself.
+Rena Sherbill:
+I was gonna ask if you wanted to do an update on Carvana (
+CVNA
+), which was a stock that we've talked about in past
+episodes
+.
+Courage and Conviction Investing:
+It's a name where again, I love to be contrarian, it would have been so much easier to have bought Sandisk (
+SNDK
+) and bought Micron (
+MU
+) to all the AI related stuff but that's not what I do. I did a lot of work on it when it was 20s a couple years ago, they threaded the needle, they did a great debt exchange they bought Adesa which was a great acquisition. They just offered the customer a much better experience.
+They really saw that niche that no one liked to experience with the dealership, especially on the user side. They ate CarMax's (
+KMX
+) lunch and they've just done a great job. But I'm not really tight on the name and haven't kept up with it. So I can't really speak to it well, but I do have a name that we recently had some success with and it gives us a good flavor of what we're trying to do and what we're trying to accomplish.
+And this I think is pure alpha. Leslie's (
+LESL
+), the pool company, the pool supply company. So this is a company that in May had 18 million market cap against 850 million in debt. The debt's termed out to 2028. Supposed to do 65 to 70 million dollars eBay. The top line could be 1.1 billion to 2 billion.
+And so, given where the equity stub was, people say this thing's going bankrupt. The bank debt trades at 38 cents. Well, they announced a really good quarter in May, and this was non-seasonally for the pool, because they've completely revamped the go-to-market strategy.
+And what happened was they were getting dinged because they were uncompetitive on the key chemicals and the key staples that everyone can shop and price.
+And so we talked to the CFO on May 28th, and he said there'd be a bucket of 35 pound chemicals and we'd be priced at a dollar, $179, whereas everyone else, Home Depot (
+HD
+), Lowe's (
+LOW
+), Amazon (
+AMZN
+), all these companies were in maybe $135, $140. And so we lost the customer.
+If we looked at our key net promoter score, we had great relationships. We had all these value added services. We had this long tail of selection if you needed equipment and hard to carry things but we completely lost the customer because we kept our prices way too high a few years post covid when the market was really tight and the lost supply came out of the market and they completely revamped the business because the debt has very low covenants.
+These are all CLO people that are in the debt. There's a real path to potentially doing something creative. But what everyone I think potentially missed was because the top line is so high in absolute dollars, a billion one, a billion two, if you can get an additional 20 million or 30 million in in in EBITDA dollars from 65 million to say to 85, 90, 100 million that makes a huge difference in what kind of free cash flow you can generate.
+And with that free cash flow, you can turn around and buy back debt at a discount. And there are other creative things that you can do.
+This was always a great business, but they completely took their eye off the ball. And because they made fundamental transformative changes, and again, we'll see how they do, and they have to execute and they have to prove it.
+But we bought the equity at two bucks the day of earnings, the stock ripped 475. then it came all the way back to 230, but then it in collaboration with a couple friends, including Judd Arnold. We talked to management and we just really liked the CFO and we understood that the covenants are to keep it high level or are very covenant light.
+So there are a lot of things that could potentially happen. There's a new five percent holder and I think it's like eight bucks today. In full transparency, I did sell the vast majority of it at seven because two to seven is a nice return. I want to see what happens. but I know Judd and others think it's worth a lot more. Again, I'd rather prefer to see it. But that doesn't always work in this distress stuff, but that's an example of pure alpha.
+Left for dead, it's gonna go bankrupt. Everyone hates it, everyone's looking backwards. Well, stocks are about the future. And when the future changes, when a business transforms, when you fix the balance sheet, we were in Beasley broadcasting and I screwed this one up. They had four hundred million dollars in debt. They paid off a lot of the senior debt and they were able to get the second lien debt to do a fifty percent haircut paid in again, it was a stub equity. I was like, I don't know, I was buying at five and a half and there's like a million eight shares and the family owns it. The equity was like, the day they announced that, I said, wait a second, the equity's gone from five million to seven million and they're gonna reduce 200 million in debt if they can get the they can get everyone to agree to it.
+I said, what the hell this doesn't even make any sense. And they had other assets to sell because they own all these different radio stations and they had sold other assets and the management and the company wanted to keep control, yada yada yada. And I didn't play this one while I was in it, and I get my stupidity because I had other stuff going on.
+This was before the Buzzfeed Recovery and some other really great recoveries. I didn't fully capture the move from five and a half to twenty five, but there's so much alpha and there's so much opportunity because no one plays in these names. Everyone's playing AI, what's hot, what's sexy.
+We had this huge melt up in all these huge companies from April to before the recent correction where (
+AMD
+) goes up 150%. There were dozens of these companies. But that's not my game because I don't have any edge. The whole point of investing is to have an edge. If you don't have an edge, what's the point? You're just kind of guessing, or you're just kind of going with the flow with it.
+And again, if you're on the right side of it, if you're on the right side of 550 billion, 600 million of CapEx spending and you just bought a basket and you get in early, you did great. But that doesn't happen that often. And I just don't know how I can add value doing that. It's been very successful for people, and you know, that's great, but it doesn't happen that often that hyperscalers spend that kind of money for that period of time because AI is so unique.
+So in other market cycles, you're not going to have that easy layup. Whereas in micro caps and small caps, if you do real work, if the balance sheet is a little bit questionable, there's no one covering these companies. If you do real work, you talk to management and you have a basket of these different companies, it's so much fun, and that's where you can create a lot of alpha.
+That said, if you can get a couple of these a year, that's great. And you're gonna miss, you're gonna make mistakes, things aren't gonna work. The sizing is still something that I struggle with. How to size it, when to add to it, when to take some off, when to know when you're wrong.
+But like I said, we're so back, and I'm just having so much fun collaborating with my group, with some really good friends, some really seasoned, really smart people. And then we trade ideas and it's an adventure every day. What's what's gonna happen today? What company are we gonna learn about?
+And then again, the hard part is where do you spend your bandwidth? Where do you spend your time? Because your time and bandwidth are incredibly valuable and you need to to deploy them as effectively as you can. But you're always learning, you're making mistakes, and that's how you get better.
+I love it and it it feels so good to be back. People are like, wow, you got your stride and your step back. And I said, listen, thank God it worked, but I never lost a step. All these people thought I lost a step. I never lost a step. I mean, I'm kind of joking with you,
+Rena Sherbill:
+The courage and conviction were latent if not evident.
+Courage and Conviction Investing:
+Yeah, it's just so much fun. No one's playing in this right. It's like playing poker or playing cards, do you want to play against the best minds in the world, all trading AI? I have zero edge on what NVIDIA (
+NVDA
+) is worth or what Oracle's (
+ORCL
+) worth or Broadcom (
+AVGO
+) or Palantir (
+PLTR
+). I don't have a clue. I don't even know what they do, right?
+Whereas these small companies that have pretty simple businesses to understand, Leslie took me three or four hours that night to get up to speed, read the conference call, synthesized, and say, wait, this is this is probably mispriced.
+And turns out it's worked out. And again, they have to prove it. If they don't prove it, the equity's not gonna stay up here. But when it works, you can generate some good returns.
+Rena Sherbill:
+Any further notes that you've learned or that you'd care to share about sizing, any salient lessons lately?
+Courage and Conviction Investing:
+I really, really struggle with sizing. it's kind of been my Achilles heel.
+I did get too big in BuzzFeed. Not that it wasn't good risk. There was a huge opportunity cost because I had so much capital in it. And it did turn out to be very profitable to really aggressively add after the March quarter. But prior to that, I oversized it.
+Now I've made this mistake a number of times. It's been a kind of a weak spot where it is probably good to to maybe have some some rules, some hard and fast rules. You say, okay, my highest conviction name. And again, this varies for everyone. I'm not saying this is what anyone should do. This is just what I suggest.
+I'm just suggesting maybe in the highest conviction name you have, maybe you go to 15%. Some people would say two percent, some people would say three percent, but I run a concentrated portfolio because that's how I try to generate returns. I probably should cap things at the 10, 12, 15. Stuff that I really like, maybe seven, eight.
+And then I do a lot of while we're waiting on the core long book theses to play out. I do a lot of tactical earnings trading, catalyst trading, right? Because a lot of the book is just invested and it's set it and monitor it. But there are a lot of good trading opportunities too because I'm up early and Seeking Alpha has great tools for tracking the press releases and I follow different companies.
+So every morning I'm checking every 10 minutes are there any new press releases? I'm trying to synthesize them faster than the market. And you can definitely generate some good money there as well. That's much more labor intensive and you have to look at it like a batting average too and sometimes you get them wrong. You have to take the loss and sometimes it's difficult. You have to kind of say all right that one didn't work. I misread it or it wasn't what I thought or just didn't play out. And it's important to kind of set some stop losses and have some discipline there because those can really get away from you as well.
+But I do find that can be a very good source of of incremental alpha. But you have to be really engaged and want to really do it. It's not like here's a list of ten stocks, buy them on January first and see what happens at the end of the year. There's a lot of rolling up your sleeves here.
+There's a lot of volatility, stuff gets whipped around by the algos, but again, it's so much fun, just intellectually. What's gonna happen today? What am I gonna learn? And it's kind of fun getting yourself in trouble sometimes and then that forces you to really dig in and say, did I do the work right? Did I go back and synthesize the conference calls? Did I miss something here? And sometimes you do and say, okay, I got it wrong. I have to just kind of move on from this. Or other times say, no, no, this is this is great. The market's given us this gift, given us this opportunity because the algos whipsawing people or people got trapped 'cause they have such a short time horizon, that can create great opportunities.
+But again, you do really have to think about the sizing, work on the sizing, 'cause it's a blessing and a curse. When you're concentrated and it works and the pieces play out, you generate tremendous returns.
+But on the flip side you can also get in yourself in trouble pretty easily as well.
+Rena Sherbill:
+As we close out this conversation, somebody left a comment on one of your previous episodes asking if you were following the stock Conduet (
+CNDT
+). Are you?
+Courage and Conviction Investing:
+I have my own process and if a good friend mentioned something to me, I'll take a look. But I like to try to find these things organically.
+That way I'm not biased or trying to incorporate not hurting someone's feelings or maybe it just doesn't jump out at you. It can be kind of tricky, say, it just didn't fit me.
+I'm looking for inflection points. I'm looking for stuff that no one's paying attention to, that they're missing an angle. I'm starting to do a lot more work on this Xcel Brands (
+XELB
+). It's tiny. I'll give a little preview. I am in it, but I need to talk to management and reach out to them today. It's tiny, market cap's 12 million. They have 10 million debt.
+I can quickly walk you through it, just to to show you something real time as opposed to okay, I bought this and it did this. How does that help me? So, again, high risk, tiny market cap. This is a licensing royalty brand, business, sequential brands, which actually went bankrupt and authentic brands. And basically, the company had all these really terrible or fourth tier, I should say, apparel and jewelry licensing deals.
+And they were on QVC at home shopping network and the business really never worked and they lost money and the cost structure was too high and they had debt and they raised capital. Well they flipped the business model to a more of an influencer business now. And they've gone from they have eight different personalities so to speak and they flipped away, they've moved away from apparel and stuff that has high tariffs to US made stuff, can consumer facing stuff.
+Because of the lag between when the revenue shows up, they go out and strike a deal. Their best relationship is Caesar Milan, the dog whisperer. He has 21 million followers. Think about how much money people spend on pets and and people love their pets. He has a huge, reach, huge following. They have that relationship, they cultivate it over a year, and they're gonna be in multiple channels, brick and mortar, the shopping networks, Amazon, etc.
+And the revenue starts to hit Q2 because of the lag. There's a 12 month lag between when they sign these people up and then when they have all the design and behind the scenes 'cause they're out working to win to drum up business to get this product to figure out what are we going to sell, how are we going to present it, how are we going to market it? And then how are we going to get it into these various channels?
+So we can maximize the revenue and do right by the these celebrities that they're working with. But because of the revenue lag, everyone's looking backwards. And so you have three key relationships. Revenue starts to show up Q2 of this year, okay? And then really ramp second half. And so the cost structure is eight million dollars.
+And they do have about 10 million of debt because they sold one of their brands. And the equity is a little stub equity. It's 11 million, right? The same looking backwards. They lost two and a half million at EBITDA. They have debt. This company's terrible, blah, blah, blah. And I'm looking, I'm saying, no, not really. Maybe not, because now you have these three different influencers, their product is in the market.
+They're generating revenue, they're generating licensing fees. That's gonna ramp. So the revenue should ramp from say five million to whatever number. I haven't modeled it that closely yet. And the business should inflect from losing money to and hopefully crossing the rubicon to making profits. But if you synthesize the recent conference calls, they said, well, we're trying to do 18 million in 2027 royalty.
+So on an 8 million revenue base with some interest expense, that's 10 million, and then you haircut that, that could be 5 million of free cash flow. They have to do it, they have to prove it. But if they do, the equity is not going to be $11 million. The enterprise value is not going to be $21 million. And because royalties are valued at royalty businesses are valued about six times revenue.
+If they do hit those figures to do the math, six times eighteen, again, they have to prove it, and the market doesn't believe them. That's over a hundred million dollars, 108 million dollars. The debt would get paid, would get paid off via free cash flow. That's a huge delta between where the equity is and where this thing could go.
+No one pays any attention to this company. It traded a lot of shares this week, which put it back on my radar, did a bunch of work, need to talk to management. But again, I'm looking forward, everyone's looking backwards, and I do see a path.
+They have to prove it that this could be a really, really interesting setup because of the low starting base valuation, because of the debt, because of the perception. But now I have some tangible evidence that the revenue is going to start to ramp up and no one, I don't think, is pricing that into the stock currently.
+But again, super high risk. So don't start putting orphan and widow money into this thing.
+Rena Sherbill:
+Caveat Emptor. Thank you so much, Courage and Conviction Investing. Always appreciate catching up and and hearing your thoughts on small caps, which many are happy are back. Again, your investing group is called
+Second Wind Capital
+. Seeking Alpha is having a 20% off sale right now. So take advantage. Now is a good time. Any final words before I let you go?
+Courage and Conviction Investing:
+It's great to reconnect. I appreciate the slot, getting slotted back in. I would just say like I try to tell my kids like I said earlier, life is gonna throw adversity at you. And when you push through it and you get to the other side of it, you grow a lot as a person. You learn a lot that way, and that's that's where the growth happens.
+So it can actually be a blessing in disguise. And you can apply that to multiple aspects of life, not just investing, you could apply that to relationships, jobs, family, what have you. If you just have to stay up and kind of push through it and try to do the right things and things can turn around and maybe life will take you in a different and better direction than you imagine.
+But you have to keep that optimism, you have to keep that hope, and then you have to match that with some some good thoughts and action. So anyway, it's a blessing to be here and there's a lot to be thankful for and I really appreciate your time and reconnecting with you.
+Editor's Note: This article covers one or more microcap stocks. Please be aware of the risks associated with these stocks.

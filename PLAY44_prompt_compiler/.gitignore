@@ -1,0 +1,9 @@
+# 빌드 산출물 (재생성 가능)
+compiler/store.db
+compiler/logs/*.json
+__pycache__/
+*.pyc
+knowledge/_inspect.txt
+
+# records.jsonl 은 재생성 가능하지만, 키 없이도 코퍼스를 읽을 수 있게 커밋해 둔다.
+# smoke_report.md 는 검증 증거라 커밋한다.

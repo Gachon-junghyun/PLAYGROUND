@@ -1,0 +1,843 @@
+{
+  "generated_at": "2026-06-12 14:55:10",
+  "summary": {
+    "official_functions": 88,
+    "candidates": 5,
+    "v4_base": 87,
+    "bootstrap_reports": 26,
+    "live_reports": 32
+  },
+  "eras": [
+    {
+      "id": "origin",
+      "label": "① 기원 — 한국 금융 유튜브 5채널 → E시리즈 44함수",
+      "note": "PLAY13: 자막 1,060명제 → R4 64카드 → 사고함수 F01~F44",
+      "items": [
+        {
+          "date": "2026-05-18",
+          "source_type": "youtube_kr",
+          "actor": "오선의 미국증시 라이프",
+          "title": "미국증시·매크로",
+          "n_cards": null,
+          "tags": [
+            "E시리즈"
+          ]
+        },
+        {
+          "date": "2026-05-18",
+          "source_type": "youtube_kr",
+          "actor": "머니그라피",
+          "title": "비즈니스·부동산",
+          "n_cards": null,
+          "tags": [
+            "E시리즈"
+          ]
+        },
+        {
+          "date": "2026-05-18",
+          "source_type": "youtube_kr",
+          "actor": "머니코믹스",
+          "title": "금융 해설·토론",
+          "n_cards": null,
+          "tags": [
+            "E시리즈"
+          ]
+        },
+        {
+          "date": "2026-05-18",
+          "source_type": "youtube_kr",
+          "actor": "지식부장관",
+          "title": "지정학·정책",
+          "n_cards": null,
+          "tags": [
+            "E시리즈"
+          ]
+        },
+        {
+          "date": "2026-05-18",
+          "source_type": "youtube_kr",
+          "actor": "김단테 월가아재",
+          "title": "주식 분석",
+          "n_cards": null,
+          "tags": [
+            "E시리즈"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bootstrap",
+      "label": "② 부트스트랩 — 한국 증권 리포트 26건 → B시리즈 43함수",
+      "note": "PLAY31: 2026-05, 전부 국내 증권사. 결론 아닌 사고 경로 역추출.",
+      "items": [
+        {
+          "date": "2026-05",
+          "source_type": "broker_kr",
+          "actor": "?",
+          "title": "",
+          "n_cards": 66,
+          "tags": [
+            "B시리즈"
+          ]
+        },
+        {
+          "date": "2026-05-13",
+          "source_type": "broker_kr",
+          "actor": "현대차증권",
+          "title": "반도체 장비 (업종) · thematic",
+          "n_cards": 7,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-19",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "통신서비스/장비 (SKT, KMW, HFR) · thematic",
+          "n_cards": 1,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-22",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "인터넷/게임 업종 (NAVER·카카오·크래프톤·NC) · thematic",
+          "n_cards": 3,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-23",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "하이브 (352820) · thematic",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-23",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "유틸리티 (SGC에너지, SK가스, 한국가스공사) · thematic",
+          "n_cards": 1,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "건설 (Overweight) · thematic",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "n/a"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "해외 부동산/REITs / 프로로지스 (PLD.US) · thematic",
+          "n_cards": 1,
+          "tags": [
+            "B시리즈",
+            "n/a"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "알멕 (354320) · thematic",
+          "n_cards": 1,
+          "tags": [
+            "B시리즈",
+            "n/a"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "유진투자증권",
+          "title": "정유화학/에너지 · weekly",
+          "n_cards": 1,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "정유 (SK이노베이션·S-Oil 등) · weekly",
+          "n_cards": 9,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "정유/화학 K-Energy (섹터) · deep_dive",
+          "n_cards": 6,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "iM증권",
+          "title": "중국 자동차 산업 · deep_dive",
+          "n_cards": 6,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "교보증권",
+          "title": "현대차 / 기아 · update",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "inline"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "반도체 메모리/소부장 · thematic",
+          "n_cards": 5,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "전기전자/IT부품 · thematic",
+          "n_cards": 5,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "2차전지 셀메이커 (LG에너지솔루션, 삼성SDI) · weekly",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "은행 (업종) · thematic",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "철강금속 (업종) · thematic",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "유진투자증권",
+          "title": "로봇 부품(감속기) 섹터 / HDS · thematic",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "iM증권",
+          "title": "조선(핵추진잠수함) / 한화오션·HD현대중공업 · flash",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "방산 4사(한화에어로·현대로템·LIG D&A·KAI) · earnings_update",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "현대차·기아·현대모비스 · thematic",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "대상 · flash",
+          "n_cards": 1,
+          "tags": [
+            "B시리즈",
+            "n/a"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "2차전지/ESS (LG에너지솔루션, 삼성SDI) · thematic",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        },
+        {
+          "date": "2026-05-26",
+          "source_type": "broker_kr",
+          "actor": "하나증권",
+          "title": "운송 (팬오션, 대한항공) · thematic",
+          "n_cards": 2,
+          "tags": [
+            "B시리즈",
+            "above"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "live",
+      "label": "③ 라이브 — PLAY43 신규 수집 32건",
+      "note": "계속 최신만 가져옴(증분). 카드화→스트레스→통과 시 v5 라이브러리 진화.",
+      "items": [
+        {
+          "date": "2026-06-10",
+          "source_type": "broker_foreign",
+          "actor": "seekingalpha",
+          "title": "Inside The New Quant Growth & Income Portfolio: The #1 Energy Giant Built For Volatility",
+          "n_cards": null,
+          "n_new": 4,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "외국·SeekingAlpha"
+          ]
+        },
+        {
+          "date": "2026-06-12",
+          "source_type": "broker_foreign",
+          "actor": "seekingalpha",
+          "title": "Quince Therapeutics, Inc. (QNCX) Shareholder/Analyst Call Prepared Remarks Transcript",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "외국·SeekingAlpha",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "2026-06-12",
+          "source_type": "broker_foreign",
+          "actor": "seekingalpha",
+          "title": "EnerSys (ENS) Analyst/Investor Day Transcript",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "외국·SeekingAlpha",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "2026-06-12",
+          "source_type": "broker_foreign",
+          "actor": "seekingalpha",
+          "title": "Worldline SA (WRDLY) Shareholder/Analyst Call Transcript",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "외국·SeekingAlpha",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "2026-06-12",
+          "source_type": "broker_foreign",
+          "actor": "seekingalpha",
+          "title": "Matador Resources Company (MTDR) Shareholder/Analyst Call Prepared Remarks Transcript",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "외국·SeekingAlpha",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "2026-06-12",
+          "source_type": "broker_foreign",
+          "actor": "seekingalpha",
+          "title": "Small Caps Are Back!",
+          "n_cards": null,
+          "n_new": 5,
+          "n_matched": 1,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "외국·SeekingAlpha"
+          ]
+        },
+        {
+          "date": "2026-06-12",
+          "source_type": "broker_foreign",
+          "actor": "seekingalpha",
+          "title": "DHI Group, Inc. (DHX) Shareholder/Analyst Call Transcript",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "외국·SeekingAlpha",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.10",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "CHPS 규제 변화. 국내 연료전지 시장 축소",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.10",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "Non-China 공급망의 가치, 매수 기회",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.10",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "이 가격은 못 참겠다",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "2H26 OUTLOOK - 호르무즈 해협 봉쇄 이후 유..",
+          "n_cards": null,
+          "n_new": 5,
+          "n_matched": 3,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "Weekly Retail-Cos. Letter- 2016년과 2026년..",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "한화그룹 사업 재편 기사 관련 “가능성” 담..",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "7월, 코스닥에도 훈풍이~",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "[하반기 전망] 전력기기, 조정은 끝이 아니라..",
+          "n_cards": null,
+          "n_new": 6,
+          "n_matched": 2,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "[엔터 - 2H26 밴드 하단에서 기회를 잡자]",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "광통신 조정, 무엇을 봐야 하나",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "[왜 이 기업일까 6월] 확산되는 AI 병목 속 ..",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "안녕하세요 데일리에요(로봇/방산/조선)",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "상승의 관성",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "밀려드는 선박 발주: 본업은 배신하지 않는다",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "[IBKS Daily] 인터넷/게임",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.11",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "끝없는 날개짓 하늘로: 미국 데이터센터 시장..",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "유럽 6세대 전투기 개발 교착: 높아지는 KF-2..",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "AI RAN 관련주에 집중할 시점",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "호르무즈 해협 재봉쇄",
+          "n_cards": null,
+          "n_new": 2,
+          "n_matched": 2,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "SCV-기대하는 7월 대미투자",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "산업재 커버리지 리뷰",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "안녕하세요 데일리에요(로봇/방산/조선)",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "꿈과 현실이 맞닿는 곳에",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "5월 여수신: 은행 수익성 개선에 유리한 흐름",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        },
+        {
+          "date": "26.06.12",
+          "source_type": "broker_kr",
+          "actor": "naver",
+          "title": "[IBKS Daily] 인터넷/게임",
+          "n_cards": null,
+          "n_new": 0,
+          "n_matched": 0,
+          "stress_survived": 4,
+          "candidate": 3,
+          "tags": [
+            "국내·네이버",
+            "미카드화"
+          ]
+        }
+      ]
+    }
+  ]
+}

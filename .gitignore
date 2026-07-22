@@ -12,6 +12,16 @@
 # PLAY1 google-drive OAuth
 PLAY1_sync/credentials.json
 PLAY1_sync/token.json
+# PLAY50 NVIDIA NIM key — local only, never commit
+PLAY50_nvidia_model_arena/nvapi_key.local.txt
+# PLAY51 calendar prep bot secrets — local only, never commit
+PLAY51_calendar_prep_bot/nvapi_key.local.txt
+PLAY51_calendar_prep_bot/tg_bot_token.local.txt
+PLAY51_calendar_prep_bot/tg_chat_id.local.txt
+PLAY51_calendar_prep_bot/icloud_id.local.txt
+PLAY51_calendar_prep_bot/icloud_app_password.local.txt
+# PLAY52 Cloudflare Workers AI token — local only, never commit
+PLAY52_cf_workers_ai_imagegen/env
 
 # ===== Python =====
 __pycache__/

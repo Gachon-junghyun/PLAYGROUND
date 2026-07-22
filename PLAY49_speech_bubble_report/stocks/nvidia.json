@@ -1,0 +1,80 @@
+{
+  "ticker": "NVDA",
+  "name": "엔비디아",
+  "unit": "달러",
+  "currentPrice": 192.53,
+  "changePct": -1.64,
+  "asof": "2026-06-26",
+  "priceNote": "stockanalysis.com 기준 6/26 종가 $192.53(-1.64%). 52주 $151.49~$236.54. series는 검증된 최종 종가에 맞춰 최근 하락 추세를 재구성한 근사치(일별 history 미공개) — 마지막 점만 실측, 6/10 점은 리포트 발행일을 차트에 얹기 위한 추정.",
+  "series": [
+    {"date":"2026-06-10","value":209.20},
+    {"date":"2026-06-11","value":210.40},
+    {"date":"2026-06-12","value":211.05},
+    {"date":"2026-06-15","value":211.00},
+    {"date":"2026-06-16","value":208.20},
+    {"date":"2026-06-17","value":205.60},
+    {"date":"2026-06-18","value":203.10},
+    {"date":"2026-06-19","value":200.45},
+    {"date":"2026-06-22","value":198.70},
+    {"date":"2026-06-23","value":197.30},
+    {"date":"2026-06-24","value":195.80},
+    {"date":"2026-06-25","value":195.68},
+    {"date":"2026-06-26","value":192.53}
+  ],
+  "reports": [
+    {
+      "date": "2026-06-15",
+      "firm": "Morgan Stanley",
+      "source": "web",
+      "opinion": "매수",
+      "tone": "up",
+      "targetPrice": 285,
+      "newsImpact": 1,
+      "title": "데이터센터 1조 달러 사이클",
+      "claim": "블랙웰·루빈 합산 매출이 시장 컨센서스를 압도하며 데이터센터가 1조 달러대로 진입한다.",
+      "evidence": [
+        {"label":"데이터","text":"2025~27년 블랙웰+루빈 합산 매출을 약 1조 달러로 추정 → 데이터센터 총매출 약 1.1조 달러, 컨센서스 약 9,500억 달러를 상회(언론 인용)."},
+        {"label":"수요","text":"GTC 2026에서 젠슨 황이 블랙웰·베라 루빈 합쳐 '27년까지 1조 달러 주문' 언급, 차세대 루빈 램프가 다음 레그를 견인."},
+        {"label":"밸류","text":"$285 목표는 '27년 EPS에 여전히 건강한 멀티플을 얹은 수준 — 오버웨이트 유지."}
+      ],
+      "conclusion": "루빈 램프가 컨센서스 갭을 메우는 한 추가 상향 여지. 오버웨이트(매수) 유지가 합리적.",
+      "sourceUrl": "https://www.thestreet.com/investing/stocks/morgan-stanley-sets-bold-new-price-target-on-nvidia-stock"
+    },
+    {
+      "date": "2026-06-10",
+      "firm": "Bank of America",
+      "source": "web",
+      "opinion": "매수",
+      "tone": "up",
+      "targetPrice": 275,
+      "newsImpact": 1,
+      "title": "TAM 상향, AI 빌드아웃 변곡점",
+      "claim": "AI 인프라 TAM이 구조적으로 커지며 엔비디아의 점유 기반이 확장된다.",
+      "evidence": [
+        {"label":"데이터","text":"AI TAM 추정을 1.4조 → 1.7조 달러로 약 21% 상향(2026년 5월 업데이트)."},
+        {"label":"수요","text":"Wedbush(댄 아이브스)도 $275 목표로 '2026년은 AI 빌드아웃 변곡점' 평가, Matt Bryson은 $300으로 상향 — 동일 진영 다수 매수."},
+        {"label":"밸류","text":"$275를 적정가치로 보고 '27년 이익 기준 추가 AI 업사이드를 반영, 멀티플은 과열로 보지 않음."}
+      ],
+      "conclusion": "TAM 확장이 실적으로 이어진다는 전제하 매수 — $275는 베이스, 상단은 $360+ 열려 있음.",
+      "sourceUrl": "https://www.thestreet.com/investing/stocks/bank-of-america-resets-nvidia-stock-price-target-for-2026"
+    },
+    {
+      "date": "2026-06-12",
+      "firm": "리스크 중심 컨센(Seeking Alpha·JPMorgan·Bernstein 종합)",
+      "source": "web",
+      "opinion": "중립",
+      "tone": "down",
+      "targetPrice": null,
+      "newsImpact": -1,
+      "title": "중국 제로화 + 커스텀 ASIC 잠식",
+      "claim": "중국 매출이 구조적으로 사라지고 인퍼런스가 커스텀 ASIC로 이탈하면 성장 동력 일부가 깎인다.",
+      "evidence": [
+        {"label":"리스크","text":"Q2 FY27 가이던스가 중국 데이터센터 컴퓨트 매출 0을 전제. H20 통제로 연 약 $120~150억 증발(언론 인용), 6월 초 美 상무부가 루빈·블랙웰의 역외 자회사 우회로까지 차단 착수."},
+        {"label":"경쟁","text":"구글 TPU·아마존 Trainium3·메타 MTIA·MS Maia가 내부 인퍼런스용으로 스케일업. 인퍼런스는 배포 컴퓨트의 80~90%로, 3년 내 30~40% 이탈 시 성장 핵심을 잠식."},
+        {"label":"데이터","text":"JPMorgan·Bernstein은 수출통제+중국 내 경쟁 누적 역풍을 약 $55~160억으로 추정(언론 인용). 목표가는 출처별 편차로 null 처리."}
+      ],
+      "conclusion": "펀더멘털은 강하지만 중국·ASIC 두 꼬리 리스크가 FY27 컨센서스 하향 압력 — 밸류 부담 구간에선 중립적 시각으로 헤지.",
+      "sourceUrl": "https://seekingalpha.com/article/4864991-nvidia-q4-preview-margins-china-and-risks-of-a-post-earnings-bust-downgrade"
+    }
+  ]
+}

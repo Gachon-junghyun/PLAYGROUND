@@ -9,6 +9,7 @@
     python scripts/03_pipeline.py                       # data/queue.jsonl 전체
     python scripts/03_pipeline.py --model medium --device cpu --compute-type int8
     python scripts/03_pipeline.py --url "https://youtu.be/xxxx"   # 단건 테스트
+    python scripts/03_pipeline.py --url "..." --language "" --timestamps  # 영화/장편 따라보기
 """
 from __future__ import annotations
 
@@ -23,6 +24,12 @@ from _common import (DATA_DIR, TRANSCRIPT_DIR, mark_seen, read_jsonl,
 
 DOWNLOAD_DIR = DATA_DIR / "downloads"
 MANIFEST_PATH = DATA_DIR / "manifest.jsonl"
+
+
+def _fmt_ts(t: float) -> str:
+    """초 → [H:MM:SS] (영화/장편 따라보기용 타임스탬프)."""
+    t = int(t)
+    return f"{t // 3600}:{(t % 3600) // 60:02d}:{t % 60:02d}"
 
 
 def _download_audio(url: str) -> Path:
@@ -54,6 +61,8 @@ def main() -> None:
     p.add_argument("--device", default="cuda", help="cuda / cpu / auto (기본 cuda)")
     p.add_argument("--compute-type", default="float16",
                    help="float16 / int8_float16 / int8 / float32 (기본 float16)")
+    p.add_argument("--timestamps", action="store_true",
+                   help="각 줄 앞에 [H:MM:SS] 시작시각 표기 (영화/장편 따라보기용, 기본 off)")
     args = p.parse_args()
 
     if args.url:
@@ -98,7 +107,10 @@ def main() -> None:
             txt_path = TRANSCRIPT_DIR / f"{vid}.txt"
             with txt_path.open("w", encoding="utf-8") as f:
                 for seg in segments:
-                    f.write(seg.text.strip() + "\n")
+                    line = seg.text.strip()
+                    if args.timestamps:
+                        line = f"[{_fmt_ts(seg.start)}] {line}"
+                    f.write(line + "\n")
             rec = {"video_id": vid, "channel": it.get("channel", "?"),
                    "title": it.get("title", "?"), "url": url,
                    "txt_path": str(txt_path.relative_to(DATA_DIR.parent)),

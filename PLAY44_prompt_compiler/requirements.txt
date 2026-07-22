@@ -1,0 +1,14 @@
+# Part B (컴파일 파이프라인) 의존성. Part A(build_records.py)는 stdlib만 쓰므로 불필요.
+# 설계 메모: dense 검색·BM25·RRF·토큰예산은 stdlib(sqlite3 + 내장 BM25/cosine)로 구현해
+#   stub 백엔드면 외부 패키지/키 없이도 전체 파이프라인이 돈다(오프라인 검증용).
+#   아래는 "실제 임베딩/실행"을 켤 때만 필요. 무거운 설치는 실행 경로에 두지 말 것.
+
+anthropic>=0.40.0          # transform(Haiku) + run 실행
+
+# 임베딩 백엔드 — EMBED_BACKEND 로 택1 (기본: gemini)
+google-genai>=0.3.0        # gemini-embedding-001  (EMBED_BACKEND=gemini, 기본) · GEMINI_API_KEY
+# openai>=1.40.0           # text-embedding-3-small (EMBED_BACKEND=openai)        · OPENAI_API_KEY
+# sentence-transformers>=3.0.0  # bge-m3 로컬 (EMBED_BACKEND=bge) · ~2GB 다운로드, 사전 준비 필요
+
+# 선택(가속): 설치돼 있으면 dense 검색에 sqlite-vec KNN 사용, 없으면 순수 파이썬 cosine fallback.
+# sqlite-vec==0.1.6

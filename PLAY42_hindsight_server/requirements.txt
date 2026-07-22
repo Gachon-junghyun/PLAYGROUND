@@ -1,0 +1,5 @@
+# 서버는 표준 라이브러리 + FastAPI 만으로 동작한다(임베딩/LLM/벡터DB 없음).
+fastapi>=0.110
+uvicorn[standard]>=0.27
+# send_dummy.py(검증 헬퍼)만 requests 를 쓴다 — 서버 구동엔 불필요.
+requests>=2.31

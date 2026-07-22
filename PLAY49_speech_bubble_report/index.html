@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>말풍선 리포트 — 애널리스트가 내 차트 옆에서 말해준다</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<!-- AI 에이전트 웹 리서치 → build_stocks.py 가 생성. 실시간 API 미사용. -->
+<script src="data.js"></script>
+<style>
+  body{font-family:"Pretendard","Segoe UI",system-ui,sans-serif;background:#dbe3ec}
+  .navy{color:#0b2e57}.bg-navy{background:#0b2e57}
+  .feed::-webkit-scrollbar{width:6px}.feed::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:3px}
+</style>
+</head>
+<body>
+<div id="root" class="min-h-screen flex items-start justify-center py-6 px-4"></div>
+
+<script type="text/babel">
+const { useState, useMemo, useRef } = React;
+const RAW = window.DEMO_DATA;
+// 단일 subject 스키마 하위호환 → stocks 래핑
+const DATA = RAW.stocks ? RAW : { stocks:[{...RAW.subject, series:RAW.series, reports:RAW.reports}], meta:RAW.meta };
+
+const TONE = {
+  up:   { color:"#e11d48", arrow:"▲", chip:"bg-rose-50 text-rose-600 border-rose-200" },
+  down: { color:"#2563eb", arrow:"▼", chip:"bg-blue-50 text-blue-600 border-blue-200" },
+  flat: { color:"#64748b", arrow:"■", chip:"bg-slate-100 text-slate-600 border-slate-200" },
+};
+const isUSD = (u)=> u==="달러"||u==="USD"||u==="$";
+const fmtPrice = (v,u)=> u==="원" ? Math.round(v).toLocaleString()+"원"
+  : isUSD(u) ? "$"+v.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2})
+  : v+" "+u;
+const fmtY = (v,u)=> u==="원" ? (v/1000).toFixed(0)+"k" : isUSD(u) ? "$"+v.toFixed(0) : v.toFixed(0);
+
+function ImpactBadge({ n }) {
+  const pos = n >= 0;
+  return (
+    <span className={`inline-flex items-center gap-0.5 rounded-full text-white font-bold
+      text-[10px] px-1.5 py-0.5 ${pos?"bg-rose-500":"bg-blue-500"}`}>
+      {pos ? "🔴" : "🟢"}{pos?"+":""}{n}
+    </span>);
+}
+
+function Chart({ stock, onJump, active }) {
+  const series = stock.series, unit = stock.unit;
+  const W=720,H=210, padL=46,padR=18,padT=52,padB=24;
+  const plotW=W-padL-padR, plotH=H-padT-padB;
+  const vals=series.map(p=>p.value);
+  const span=(Math.max(...vals)-Math.min(...vals))||1;
+  const lo=Math.min(...vals)-span*0.15, hi=Math.max(...vals)+span*0.15;
+  const n=series.length;
+  const x=i=> padL + (n<=1?0:plotW*i/(n-1));
+  const y=v=> padT + plotH*(1-(v-lo)/(hi-lo));
+  const idx={}; series.forEach((p,i)=>idx[p.date]=i);
+  const line=series.map((p,i)=>`${i?"L":"M"}${x(i).toFixed(1)} ${y(p.value).toFixed(1)}`).join(" ");
+  const area=`${line} L${x(n-1).toFixed(1)} ${y(lo)} L${x(0)} ${y(lo)} Z`;
+  const marks=stock.reports.map((r,k)=>({r,num:k+1,d:r.pinDate||r.date}))
+                           .filter(m=> m.d in idx).map(m=>({...m,i:idx[m.d]}));
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} className="w-full select-none">
+      <defs><linearGradient id="fill" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%" stopColor="#13427d" stopOpacity="0.16"/>
+        <stop offset="100%" stopColor="#13427d" stopOpacity="0"/></linearGradient></defs>
+      {[0,0.5,1].map((t,i)=>{const yy=padT+plotH*t;return(
+        <g key={i}><line x1={padL} x2={W-padR} y1={yy} y2={yy} stroke="#e2e8f0"/>
+          <text x={padL-6} y={yy+4} textAnchor="end" fontSize="9" fill="#94a3b8">{fmtY(hi-(hi-lo)*t,unit)}</text></g>);})}
+      {series.map((p,i)=> i%Math.ceil(n/6)===0||i===n-1 ?(
+        <text key={i} x={x(i)} y={H-7} textAnchor="middle" fontSize="9" fill="#94a3b8">{p.date.slice(5)}</text>):null)}
+      <path d={area} fill="url(#fill)"/>
+      <path d={line} fill="none" stroke="#13427d" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round"/>
+      {marks.map(({r,i,num})=>{
+        const px=x(i),py=y(series[i].value),by=Math.max(py-40,14),on=active===r.id;
+        return(
+          <g key={r.id} onClick={()=>onJump(r.id)} style={{cursor:"pointer"}}>
+            <line x1={px} y1={by+9} x2={px} y2={py} stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="3 3"/>
+            <circle cx={px} cy={py} r={on?6:4.5} fill="#fff" stroke="#13427d" strokeWidth="2.5"/>
+            <g transform={`translate(${px-12},${by-13})`}>
+              <rect width="24" height="22" rx="7" fill={on?"#0b2e57":"#13427d"} stroke="#0b2e57" strokeWidth="1"/>
+              <text x="12" y="16" textAnchor="middle" fontSize="11" fontWeight="700" fill="#fff">{num}</text></g>
+            <g transform={`translate(${px+13},${by-13})`}>
+              <rect width="24" height="15" rx="7" fill={r.newsImpact>=0?"#ef4444":"#3b82f6"}/>
+              <text x="12" y="11" textAnchor="middle" fontSize="9" fontWeight="700" fill="#fff">
+                {r.newsImpact>=0?"+":""}{r.newsImpact}</text></g>
+          </g>);})}
+    </svg>);
+}
+
+function Section({ tag, tagCls, children, last }) {
+  return (
+    <div className={`flex gap-2 ${last?"":"mb-2"}`}>
+      <span className={`shrink-0 h-fit text-[10px] font-bold px-1.5 py-0.5 rounded ${tagCls}`}>{tag}</span>
+      <div className="text-[13px] leading-snug flex-1">{children}</div>
+    </div>);
+}
+
+function Bubble({ r, num, active, refCb, unit }) {
+  const t = TONE[r.tone]||TONE.flat;
+  return (
+    <div ref={refCb} className="flex gap-2.5 px-4 py-3">
+      <div className="shrink-0 w-9 h-9 rounded-full bg-navy text-white flex items-center justify-center text-sm font-bold">증</div>
+      <div className={`flex-1 rounded-2xl rounded-tl-sm border bg-white px-4 py-3 transition
+        ${active?"border-navy ring-2 ring-blue-200":"border-slate-200"}`}>
+        <div className="flex items-center flex-wrap gap-x-2 gap-y-1">
+          <span className="text-[9px] font-bold text-slate-300">{num}</span>
+          <span className="text-sm font-bold navy">{r.firm}</span>
+          <span className="text-[11px] text-slate-400">{r.date.replaceAll("-",".")} · {r.source}</span>
+          <span className={`text-[11px] font-bold px-1.5 py-0.5 rounded border ${t.chip}`}>
+            {r.opinion} <span style={{color:t.color}}>{t.arrow}</span></span>
+          <ImpactBadge n={r.newsImpact}/>
+          {r.targetPrice ? <span className="text-[11px] font-bold px-1.5 py-0.5 rounded bg-slate-100 navy ml-auto">목표가 {fmtPrice(r.targetPrice,unit)}</span> : null}
+        </div>
+        <div className="text-[11px] text-slate-400 mt-1 mb-2.5">{r.title}</div>
+        <Section tag="주장" tagCls="bg-navy text-white">
+          <span className="font-semibold text-slate-800">{r.claim}</span></Section>
+        <Section tag="근거" tagCls="bg-blue-100 text-blue-700">
+          <ul className="space-y-1">
+            {(r.evidence||[]).map((e,i)=>(
+              <li key={i} className="flex gap-1.5">
+                <span className="text-[10px] font-bold text-slate-400 shrink-0 mt-0.5 w-7">{e.label}</span>
+                <span className="text-slate-600">{e.text}</span></li>))}
+          </ul></Section>
+        <Section tag="결론" tagCls="bg-rose-100 text-rose-700" last>
+          <span className="font-semibold navy">▸ {r.conclusion}</span></Section>
+        <div className="text-[10px] text-slate-300 mt-2 text-right">
+          🤖 {r.curated!==false ? "AI 에이전트가 정리" : "자동추출 초안"} · 출처 {r.source}</div>
+      </div>
+    </div>);
+}
+
+function App() {
+  const [si,setSi]=useState(0);
+  const [active,setActive]=useState(null);
+  const refs=useRef({});
+  const stock=DATA.stocks[si];
+  const up=stock.change>=0;
+  const jump=(id)=>{ setActive(id);
+    const el=refs.current[id]; if(el) el.scrollIntoView({behavior:"smooth",block:"center"});
+    setTimeout(()=>setActive(a=>a===id?null:a),1600); };
+  return (
+    <div className="w-full max-w-md bg-slate-100 rounded-[28px] shadow-2xl border border-slate-300 overflow-hidden flex flex-col" style={{height:"90vh"}}>
+      {/* 헤더 + 종목 탭 */}
+      <div className="bg-navy px-5 pt-3 pb-2 text-white shrink-0">
+        <div className="text-[15px] font-extrabold">❝ 말풍선 리포트</div>
+        <div className="text-[11px] text-slate-300">애널리스트가 차트 옆에서 말해준다 · AI 에이전트가 정리</div>
+        <div className="flex gap-2 mt-2">
+          {DATA.stocks.map((s,i)=>(
+            <button key={s.ticker} onClick={()=>{setSi(i);setActive(null);}}
+              className={`text-sm font-bold px-3 py-1 rounded-lg transition ${i===si?"bg-white navy":"bg-white/10 text-slate-300"}`}>{s.name}</button>))}
+        </div>
+      </div>
+      {/* 가격 헤더 */}
+      <div className="bg-white px-5 py-2.5 flex items-end justify-between border-b border-slate-100 shrink-0">
+        <div>
+          <div className="text-base font-extrabold navy">{stock.name}</div>
+          <div className="text-[10px] text-slate-400">{stock.ticker} · {stock.note}</div>
+        </div>
+        <div className="text-right">
+          <div className="text-xl font-extrabold navy">{fmtPrice(stock.price,stock.unit)}</div>
+          <div className={`text-xs font-bold ${up?"text-rose-500":"text-blue-500"}`}>{up?"▲":"▼"} {up?"+":""}{stock.change}%</div>
+        </div>
+      </div>
+      {/* 스크롤 피드 */}
+      <div className="feed flex-1 overflow-y-auto">
+        <div className="bg-white m-3 rounded-2xl border border-slate-200 px-2 pt-2 pb-1 shadow-sm">
+          <div className="px-2 pt-1 text-[11px] font-bold text-slate-400">번호 핀 = 리포트 발행일 (탭하면 해당 글로 이동)</div>
+          <Chart stock={stock} onJump={jump} active={active}/>
+        </div>
+        <div className="text-center text-[11px] text-slate-400 pb-1">— 발행순 애널리스트 메시지 {stock.reports.length}건 —</div>
+        {stock.reports.map((r,i)=>(
+          <Bubble key={r.id} r={r} num={i+1} active={active===r.id} unit={stock.unit} refCb={el=>refs.current[r.id]=el}/>
+        ))}
+        <div className="m-3 mt-1 rounded-2xl bg-navy px-4 py-3 text-[11px] text-slate-300 leading-relaxed">
+          <span className="text-white font-bold">🤖 AI 에이전트</span> — 리포트는 클로드 코드 루틴이 웹에서
+          수집·증류해 주장/근거/결론으로 정리한다. <span className="text-slate-400">실시간 LLM API 호출 없음.</span>
+          <br/>로드맵: 손절가 도달 시 관련 리포트 자동 푸시.
+          <div className="text-slate-500 mt-1">{DATA.meta.generated_at} 생성 · 출처 {DATA.meta.source}</div>
+        </div>
+      </div>
+    </div>);
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>

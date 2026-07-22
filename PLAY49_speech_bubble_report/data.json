@@ -1,0 +1,666 @@
+{
+  "stocks": [
+    {
+      "ticker": "005930",
+      "name": "삼성전자",
+      "unit": "원",
+      "asof": "2026-06-26",
+      "priceNote": "TradingView KRX:005930 기준 최근 종가 약 324,500원(전일 대비 약 -5.3%). 6/19 장중 고점 374,500원에서 약 13% 조정. series는 고점→조정 흐름을 반영해 일부 보간한 추정 종가로, 정확한 일별 종가는 아님.",
+      "series": [
+        {
+          "date": "2026-06-11",
+          "value": 352000
+        },
+        {
+          "date": "2026-06-12",
+          "value": 358000
+        },
+        {
+          "date": "2026-06-13",
+          "value": 363000
+        },
+        {
+          "date": "2026-06-16",
+          "value": 369000
+        },
+        {
+          "date": "2026-06-17",
+          "value": 371000
+        },
+        {
+          "date": "2026-06-18",
+          "value": 372500
+        },
+        {
+          "date": "2026-06-19",
+          "value": 374500
+        },
+        {
+          "date": "2026-06-20",
+          "value": 362000
+        },
+        {
+          "date": "2026-06-23",
+          "value": 351000
+        },
+        {
+          "date": "2026-06-24",
+          "value": 343000
+        },
+        {
+          "date": "2026-06-25",
+          "value": 342500
+        },
+        {
+          "date": "2026-06-26",
+          "value": 324500
+        }
+      ],
+      "reports": [
+        {
+          "date": "2026-05-15",
+          "firm": "Nomura(노무라)",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 590000,
+          "newsImpact": 1,
+          "title": "추론(Inference) 전환이 만든 KV캐시 수요 — 구조적 공급부족",
+          "claim": "AI가 학습에서 추론으로 넘어가며 KV캐시 메모리 수요가 폭발, 수요는 5년간 수천 배인데 공급은 5~6배에 그쳐 과거식 공급과잉 사이클과 질적으로 다르다.",
+          "evidence": [
+            {
+              "label": "수요",
+              "text": "추론 확산으로 KV캐시 메모리 수요 급증, 장기계약(다년·선수금 조건)이 협상 기반을 넘어선 이익 안정성을 제공."
+            },
+            {
+              "label": "데이터",
+              "text": "목표주가를 340,000원에서 590,000원으로 대폭 상향(업사이드 118%+), 매수 유지."
+            },
+            {
+              "label": "리스크",
+              "text": "파운드리 개선 폭 제한, 美 팹 원가 한국 대비 ~50% 높음, 노조 파업 리스크, 2026년 매출의 30%+ 보너스 지급 가능성, 엔비디아 실적·구글 I/O 등 단기 이벤트 변동성."
+            }
+          ],
+          "conclusion": "장기 구조적 강세는 확고하나 파운드리·노무비·노조라는 비메모리 변수와 단기 이벤트 변동성을 안고 가는 '조건부 강력 매수'.",
+          "sourceUrl": "https://finance.biggo.com/news/kY_tL54BoicNoOgC62VV",
+          "id": "005930_1",
+          "curated": true
+        },
+        {
+          "date": "2026-06-01",
+          "firm": "Goldman Sachs",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 480000,
+          "newsImpact": 2,
+          "title": "메모리, '예측가능한 AI 인프라'로 구조 전환 — 사상 최강 업사이클",
+          "claim": "메모리가 변동성 큰 범용 부품에서 'AI 인프라'라는 예측가능한 자산으로 재정의되며, 이번 업사이클은 역사상 가장 강한 축에 속한다.",
+          "evidence": [
+            {
+              "label": "논리",
+              "text": "AI 인프라 투자 급증 + 메모리 업체들의 의도적 증설 자제로 DRAM·NAND 가격이 가파르고 지속적인 랠리에 진입, 단기 완화 신호 없음."
+            },
+            {
+              "label": "데이터",
+              "text": "삼성·SK하이닉스 합산 영업이익이 2028년 1,000조원을 넘어설 것으로 전망(3월 목표 260,000원 → 6월 480,000원으로 연속 상향)."
+            },
+            {
+              "label": "리스크",
+              "text": "밸류에이션이 빠르게 올라온 만큼, 가격 상승의 양면성(세트·빅테크 원가 부담)이 후행 리스크로 잠재."
+            }
+          ],
+          "conclusion": "사이클을 구조적 성장으로 재해석하며 목표가 480,000원으로 상향, 메모리 듀오 동반 매수 관점 유지.",
+          "sourceUrl": "https://www.investing.com/news/stock-market-news/goldman-raises-targets-on-samsung-sk-hynix-on-stronger-memory-pricing-4555076",
+          "id": "005930_2",
+          "curated": true
+        },
+        {
+          "date": "2026-06-12",
+          "firm": "국내 증권가 종합(밸류에이션 경계론)",
+          "source": "web",
+          "opinion": "중립",
+          "tone": "flat",
+          "targetPrice": null,
+          "newsImpact": -1,
+          "title": "사이클은 '2회말'이나 수급 쏠림·메모리 고가의 양면성 경계",
+          "claim": "반도체 사이클 자체는 초반(2회말)이지만, 최근 조정은 펀더멘털 훼손이 아니라 수급 쏠림·레버리지 ETF발 과열이 식는 정상 과정이며 메모리 고가의 부메랑을 경계해야 한다.",
+          "evidence": [
+            {
+              "label": "논리",
+              "text": "고점 대비 약 15% 하락은 사이클 훼손이 아닌 과열 해소 — 분할 매수 구간이라는 시각."
+            },
+            {
+              "label": "리스크",
+              "text": "메모리 가격이 오를수록 세트업체 원가 부담·빅테크 감가상각 증가·중국 메모리 개발 가속·2027년 수급 조정 가능성 등 잠재 위험 동반 확대."
+            },
+            {
+              "label": "데이터",
+              "text": "마이크론·샌디스크가 목표가를 넘어선 점은 AI 관련주 전반의 밸류에이션 부담과 단기 차익실현 압력을 시사."
+            }
+          ],
+          "conclusion": "장기 방향엔 동의하되 단기 과열·밸류 부담을 인정 — 추격매수보다 조정 시 분할 접근이 합리적이라는 균형 시각.",
+          "sourceUrl": "https://v.daum.net/v/20260612152903458",
+          "id": "005930_3",
+          "curated": true,
+          "pinDate": "2026-06-12"
+        },
+        {
+          "date": "2026-06-25",
+          "firm": "KB증권",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 550000,
+          "newsImpact": 2,
+          "title": "메모리 공급 부족 심화 + 美 ADR·주주환원으로 리레이팅",
+          "claim": "메모리 풀필먼트율 50%의 구조적 공급부족에 ADR 상장·주주환원·파운드리 흑자전환이 겹쳐 삼성전자 멀티플 재평가가 정당화된다.",
+          "evidence": [
+            {
+              "label": "데이터",
+              "text": "2분기 DRAM·NAND 가격 상승률을 각각 60%로 상향, 2026년 영업이익 375조원(+761% YoY)·2분기 영업이익률 50% 추정(목표주가는 12M Fwd P/E 10x 적용)."
+            },
+            {
+              "label": "수요",
+              "text": "AI 데이터센터가 메모리 출하의 70%를 흡수해 공급 확대가 사실상 어려운 타이트한 수급."
+            },
+            {
+              "label": "논리",
+              "text": "美 ADR 상장으로 글로벌 투자자 접근성 확대, 자사주 매입·특별배당 기대, 구글·아마존·메타향 파운드리 수주로 수익성 개선이라는 비메모리 레버리지."
+            }
+          ],
+          "conclusion": "공급부족·주주환원·파운드리 회복의 삼박자로 매수 유지, 목표가 550,000원(단, 이익 추정치가 시장 컨센서스 대비 매우 공격적이라는 점은 감안 필요).",
+          "sourceUrl": "https://kbthink.com/securities-view.html?docId=20260624164533150K",
+          "id": "005930_4",
+          "curated": true,
+          "pinDate": "2026-06-25"
+        }
+      ],
+      "price": 324500,
+      "change": -5.3,
+      "note": "추정 가격선(실제 일별종가 아님) · 리포트·목표가는 실제(웹 리서치)"
+    },
+    {
+      "ticker": "000660",
+      "name": "SK하이닉스",
+      "unit": "원",
+      "asof": "2026-06-29",
+      "priceNote": "현재가/일변동률은 stockanalysis.com 000660 (2026-06-29, ₩2,562,000, -4.15%) 기준. series는 best-effort 재구성 — 6/23 코스피 폭락일 하이닉스 -12.47% 급락(언론 다수 확인)과 6/29 종가를 앵커로 잡고 그 사이를 보간한 추세이며 일별 종가 원자료는 아님.",
+      "series": [
+        {
+          "date": "2026-06-12",
+          "value": 2880000
+        },
+        {
+          "date": "2026-06-13",
+          "value": 2910000
+        },
+        {
+          "date": "2026-06-16",
+          "value": 2935000
+        },
+        {
+          "date": "2026-06-17",
+          "value": 2900000
+        },
+        {
+          "date": "2026-06-18",
+          "value": 2870000
+        },
+        {
+          "date": "2026-06-19",
+          "value": 2920000
+        },
+        {
+          "date": "2026-06-20",
+          "value": 2905000
+        },
+        {
+          "date": "2026-06-23",
+          "value": 2542000
+        },
+        {
+          "date": "2026-06-24",
+          "value": 2620000
+        },
+        {
+          "date": "2026-06-25",
+          "value": 2650000
+        },
+        {
+          "date": "2026-06-26",
+          "value": 2673000
+        },
+        {
+          "date": "2026-06-29",
+          "value": 2562000
+        }
+      ],
+      "reports": [
+        {
+          "date": "2026-06-22",
+          "firm": "한화투자증권",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 4300000,
+          "newsImpact": 2,
+          "title": "근거없는 저평가는 끝났다 — 국내 최고 목표가 430만원",
+          "claim": "LTA와 HBM으로 실적 변동성이 낮아진 만큼 SK하이닉스를 더 이상 사이클 디스카운트로 볼 이유가 없다.",
+          "evidence": [
+            {
+              "label": "논리",
+              "text": "장기공급계약(LTA)이 HBM 매출의 가시성을 높여 과거 메모리주 특유의 이익 변동성을 구조적으로 축소."
+            },
+            {
+              "label": "밸류",
+              "text": "글로벌 테크의 기본 배수인 PER 10배를 EPS에 적용 — 메모리주가 아니라 AI 인프라주로 리레이팅."
+            },
+            {
+              "label": "데이터",
+              "text": "목표 163만원→430만원으로 대폭 상향, 국내 증권사 제시 목표가 중 최고치."
+            }
+          ],
+          "conclusion": "사이클 디스카운트 해소 베팅. PER 10배 리레이팅이 성립하면 추가 상단 여지, 매수 유지.",
+          "sourceUrl": "https://www.fnnews.com/news/202606221057140610",
+          "id": "000660_1",
+          "curated": true,
+          "pinDate": "2026-06-23"
+        },
+        {
+          "date": "2026-06-24",
+          "firm": "KB증권",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 3800000,
+          "newsImpact": 1,
+          "title": "급락은 심리, 업황은 더 좋아진다 — 비중확대 기회",
+          "claim": "6/23 폭락은 펀더멘털이 아니라 매크로 투심 충격일 뿐, 메모리 공급부족은 2027년까지 이어진다.",
+          "evidence": [
+            {
+              "label": "수급",
+              "text": "고객 수요충족률이 50% 수준에 불과하고 신증설 캐파가 HBM에 집중돼 범용 메모리 부족이 최소 2027년까지 지속."
+            },
+            {
+              "label": "데이터",
+              "text": "2Q 영업이익 약 6.9조원(전년비 ~8배) 전망, DRAM·NAND 가격 각각 +50% 이상. 2027년 HBM 가격 전년비 +100% 이상 예상."
+            },
+            {
+              "label": "논리",
+              "text": "엔비디아 베라 루빈에서 메모리 원가 비중이 블랙웰 대비 5배 이상 확대 — 차세대 사이클 수혜가 구조적."
+            }
+          ],
+          "conclusion": "급락 구간은 비중확대 기회. 목표주가 380만원·매수 유지, 하반기 추정치 추가 상향 여지.",
+          "sourceUrl": "https://kbthink.com/securities-view.html?docId=20260623190056390K",
+          "id": "000660_2",
+          "curated": true,
+          "pinDate": "2026-06-24"
+        },
+        {
+          "date": "2026-06-28",
+          "firm": "노무라증권",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 5000000,
+          "newsImpact": 2,
+          "title": "글로벌 하우스 최고 눈높이 — 목표가 500만원",
+          "claim": "AI 메모리 업사이클의 최대 수혜주로서 SK하이닉스의 적정가치는 시장 컨센서스를 크게 상회한다.",
+          "evidence": [
+            {
+              "label": "수요",
+              "text": "엔비디아 차세대 HBM4 물량의 약 70%를 SK하이닉스가 담당, 2026년 HBM 물량은 이미 완판."
+            },
+            {
+              "label": "논리",
+              "text": "목표가를 400만원→500만원으로 상향 — 외국계 하우스 중 최상단 눈높이로 업사이클 지속을 베팅."
+            },
+            {
+              "label": "리스크",
+              "text": "국내 언론(머니투데이·파이낸셜뉴스) 인용 수치로 노무라 원문 세부 가정은 미확인 — 단일 보도 의존이라는 점은 감안 필요."
+            }
+          ],
+          "conclusion": "현재가 대비 큰 상방을 제시하는 최강 불 시나리오. 단 보도 인용 목표가이므로 원문 확인 전까진 참고치로 취급.",
+          "sourceUrl": "https://www.mt.co.kr/stock/2026/06/28/2026062813595756688",
+          "id": "000660_3",
+          "curated": true,
+          "pinDate": "2026-06-29"
+        }
+      ],
+      "price": 2562000,
+      "change": -4.15,
+      "note": "추정 가격선(실제 일별종가 아님) · 리포트·목표가는 실제(웹 리서치)"
+    },
+    {
+      "ticker": "PLTR",
+      "name": "팔란티어",
+      "unit": "달러",
+      "asof": "2026-06-26",
+      "priceNote": "stockanalysis.com 6/26 종가 $112.93 (+5.28%), 7거래일 연속 하락 끊고 반등. series는 직전 종가 $107.30·최신 $112.93 두 실제 점을 앵커로 한 추정 트렌드(정확한 일별 종가 아님), 6/05~6/10 구간은 리포트 발행일을 차트에 얹기 위한 추정 lead-in.",
+      "series": [
+        {
+          "date": "2026-06-05",
+          "value": 135.0
+        },
+        {
+          "date": "2026-06-08",
+          "value": 132.0
+        },
+        {
+          "date": "2026-06-09",
+          "value": 130.2
+        },
+        {
+          "date": "2026-06-10",
+          "value": 129.1
+        },
+        {
+          "date": "2026-06-11",
+          "value": 128.4
+        },
+        {
+          "date": "2026-06-12",
+          "value": 126.1
+        },
+        {
+          "date": "2026-06-13",
+          "value": 124.85
+        },
+        {
+          "date": "2026-06-16",
+          "value": 122.3
+        },
+        {
+          "date": "2026-06-17",
+          "value": 120.05
+        },
+        {
+          "date": "2026-06-18",
+          "value": 117.6
+        },
+        {
+          "date": "2026-06-19",
+          "value": 115.2
+        },
+        {
+          "date": "2026-06-20",
+          "value": 113.4
+        },
+        {
+          "date": "2026-06-23",
+          "value": 110.95
+        },
+        {
+          "date": "2026-06-24",
+          "value": 108.8
+        },
+        {
+          "date": "2026-06-25",
+          "value": 107.3
+        },
+        {
+          "date": "2026-06-26",
+          "value": 112.93
+        }
+      ],
+      "reports": [
+        {
+          "date": "2026-06-05",
+          "firm": "Wedbush (Dan Ives)",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 230,
+          "newsImpact": 2,
+          "title": "Mag7 밖 최선호 AI 베팅",
+          "claim": "올해 40% 빠진 건 사업이 아니라 멀티플 탓이며, AIP가 기업 AI 지출의 1순위 수혜주라는 구조는 그대로다.",
+          "evidence": [
+            {
+              "label": "수요",
+              "text": "Q1 2026 매출 +85%, FY 가이던스 약 $7.66B로 상향 — 미국 상업 부문 AIP 채택이 가속 국면."
+            },
+            {
+              "label": "논리",
+              "text": "정부 백로그 + 본딩된 데이터 온톨로지가 경쟁사가 못 복제하는 해자. Ives는 '프라임 포지션'이라 표현."
+            },
+            {
+              "label": "리스크",
+              "text": "강세론의 전제는 성장 지속 — 한 분기라도 둔화 신호가 나오면 멀티플이 먼저 무너진다는 점은 인정."
+            }
+          ],
+          "conclusion": "조정을 매수 기회로 본다. $230(현재가 대비 ~2배 업사이드)은 Street 최상단부 공격적 타깃.",
+          "sourceUrl": "https://www.theglobeandmail.com/investing/markets/stocks/PLTR/pressreleases/32008282/wedbushs-dan-ives-says-palantir-stock-is-in-prime-position-should-you-buy-shares-here/",
+          "id": "PLTR_1",
+          "curated": true,
+          "pinDate": "2026-06-05"
+        },
+        {
+          "date": "2026-06-10",
+          "firm": "Jefferies (Brent Thill)",
+          "source": "web",
+          "opinion": "매도",
+          "tone": "down",
+          "targetPrice": 70,
+          "newsImpact": -2,
+          "title": "소프트웨어 최고가, 지속 불가",
+          "claim": "성장은 뛰어나지만 2027 EV/Revenue 약 31배는 소프트웨어 업종에서 정당화 불가능한 수준이다.",
+          "evidence": [
+            {
+              "label": "밸류",
+              "text": "Street 최저 $70 타깃. 31x 추정 2027 EV/Rev로 '소프트웨어에서 가장 비싼 이름'이라 규정."
+            },
+            {
+              "label": "리스크",
+              "text": "멀티클래스 주식 구조 + 창업자 지배력이 소수주주에 불리. 성장 둔화 시 디레이팅 폭이 큼."
+            },
+            {
+              "label": "데이터",
+              "text": "역DCF 기준 현재가에 내포된 매출 성장 가정이 비현실적이라는 게 약세론 핵심."
+            }
+          ],
+          "conclusion": "밸류에이션 리셋 리스크가 비대칭적으로 크다 — 현재가에서도 추가 하방 여지를 본다.",
+          "sourceUrl": "https://public.com/stocks/pltr/forecast-price-target",
+          "id": "PLTR_2",
+          "curated": true,
+          "pinDate": "2026-06-10"
+        },
+        {
+          "date": "2026-06-15",
+          "firm": "Morgan Stanley",
+          "source": "web",
+          "opinion": "중립",
+          "tone": "flat",
+          "targetPrice": 205,
+          "newsImpact": 0,
+          "title": "사업은 인정, 멀티플은 못 산다",
+          "claim": "팔란티어는 '너무 커서 무시 못 할' AI 플랫폼이지만, 현재 밸류는 완벽한 실행을 이미 가격에 박아둔 상태다.",
+          "evidence": [
+            {
+              "label": "논리",
+              "text": "Q4 2025 실적 후 Equal-weight 유지 — 펀더멘털 품질과 주가 사이 괴리를 좁힐 촉매를 못 찾음."
+            },
+            {
+              "label": "밸류",
+              "text": "$205 타깃은 현재가 대비 의미 있는 업사이드지만, 등급은 중립에 묶어 '품질 좋은데 비싸다'는 입장을 명시."
+            },
+            {
+              "label": "리스크",
+              "text": "성장이 한 번이라도 어긋나면 P/S 60배대 멀티플은 하방 변동성을 증폭시킴."
+            }
+          ],
+          "conclusion": "보유는 정당화되나 신규 비중 확대는 보류 — 멀티플 정상화 또는 추가 어닝 서프라이즈를 기다리는 자리.",
+          "sourceUrl": "https://www.thestreet.com/investing/stocks/morgan-stanley-resets-palantir-stock-forecast",
+          "id": "PLTR_3",
+          "curated": true,
+          "pinDate": "2026-06-16"
+        }
+      ],
+      "price": 112.93,
+      "change": 5.28,
+      "note": "추정 가격선(실제 일별종가 아님) · 리포트·목표가는 실제(웹 리서치)"
+    },
+    {
+      "ticker": "NVDA",
+      "name": "엔비디아",
+      "unit": "달러",
+      "asof": "2026-06-26",
+      "priceNote": "stockanalysis.com 기준 6/26 종가 $192.53(-1.64%). 52주 $151.49~$236.54. series는 검증된 최종 종가에 맞춰 최근 하락 추세를 재구성한 근사치(일별 history 미공개) — 마지막 점만 실측, 6/10 점은 리포트 발행일을 차트에 얹기 위한 추정.",
+      "series": [
+        {
+          "date": "2026-06-10",
+          "value": 209.2
+        },
+        {
+          "date": "2026-06-11",
+          "value": 210.4
+        },
+        {
+          "date": "2026-06-12",
+          "value": 211.05
+        },
+        {
+          "date": "2026-06-15",
+          "value": 211.0
+        },
+        {
+          "date": "2026-06-16",
+          "value": 208.2
+        },
+        {
+          "date": "2026-06-17",
+          "value": 205.6
+        },
+        {
+          "date": "2026-06-18",
+          "value": 203.1
+        },
+        {
+          "date": "2026-06-19",
+          "value": 200.45
+        },
+        {
+          "date": "2026-06-22",
+          "value": 198.7
+        },
+        {
+          "date": "2026-06-23",
+          "value": 197.3
+        },
+        {
+          "date": "2026-06-24",
+          "value": 195.8
+        },
+        {
+          "date": "2026-06-25",
+          "value": 195.68
+        },
+        {
+          "date": "2026-06-26",
+          "value": 192.53
+        }
+      ],
+      "reports": [
+        {
+          "date": "2026-06-10",
+          "firm": "Bank of America",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 275,
+          "newsImpact": 1,
+          "title": "TAM 상향, AI 빌드아웃 변곡점",
+          "claim": "AI 인프라 TAM이 구조적으로 커지며 엔비디아의 점유 기반이 확장된다.",
+          "evidence": [
+            {
+              "label": "데이터",
+              "text": "AI TAM 추정을 1.4조 → 1.7조 달러로 약 21% 상향(2026년 5월 업데이트)."
+            },
+            {
+              "label": "수요",
+              "text": "Wedbush(댄 아이브스)도 $275 목표로 '2026년은 AI 빌드아웃 변곡점' 평가, Matt Bryson은 $300으로 상향 — 동일 진영 다수 매수."
+            },
+            {
+              "label": "밸류",
+              "text": "$275를 적정가치로 보고 '27년 이익 기준 추가 AI 업사이드를 반영, 멀티플은 과열로 보지 않음."
+            }
+          ],
+          "conclusion": "TAM 확장이 실적으로 이어진다는 전제하 매수 — $275는 베이스, 상단은 $360+ 열려 있음.",
+          "sourceUrl": "https://www.thestreet.com/investing/stocks/bank-of-america-resets-nvidia-stock-price-target-for-2026",
+          "id": "NVDA_1",
+          "curated": true,
+          "pinDate": "2026-06-10"
+        },
+        {
+          "date": "2026-06-12",
+          "firm": "리스크 중심 컨센(Seeking Alpha·JPMorgan·Bernstein 종합)",
+          "source": "web",
+          "opinion": "중립",
+          "tone": "down",
+          "targetPrice": null,
+          "newsImpact": -1,
+          "title": "중국 제로화 + 커스텀 ASIC 잠식",
+          "claim": "중국 매출이 구조적으로 사라지고 인퍼런스가 커스텀 ASIC로 이탈하면 성장 동력 일부가 깎인다.",
+          "evidence": [
+            {
+              "label": "리스크",
+              "text": "Q2 FY27 가이던스가 중국 데이터센터 컴퓨트 매출 0을 전제. H20 통제로 연 약 $120~150억 증발(언론 인용), 6월 초 美 상무부가 루빈·블랙웰의 역외 자회사 우회로까지 차단 착수."
+            },
+            {
+              "label": "경쟁",
+              "text": "구글 TPU·아마존 Trainium3·메타 MTIA·MS Maia가 내부 인퍼런스용으로 스케일업. 인퍼런스는 배포 컴퓨트의 80~90%로, 3년 내 30~40% 이탈 시 성장 핵심을 잠식."
+            },
+            {
+              "label": "데이터",
+              "text": "JPMorgan·Bernstein은 수출통제+중국 내 경쟁 누적 역풍을 약 $55~160억으로 추정(언론 인용). 목표가는 출처별 편차로 null 처리."
+            }
+          ],
+          "conclusion": "펀더멘털은 강하지만 중국·ASIC 두 꼬리 리스크가 FY27 컨센서스 하향 압력 — 밸류 부담 구간에선 중립적 시각으로 헤지.",
+          "sourceUrl": "https://seekingalpha.com/article/4864991-nvidia-q4-preview-margins-china-and-risks-of-a-post-earnings-bust-downgrade",
+          "id": "NVDA_2",
+          "curated": true,
+          "pinDate": "2026-06-12"
+        },
+        {
+          "date": "2026-06-15",
+          "firm": "Morgan Stanley",
+          "source": "web",
+          "opinion": "매수",
+          "tone": "up",
+          "targetPrice": 285,
+          "newsImpact": 1,
+          "title": "데이터센터 1조 달러 사이클",
+          "claim": "블랙웰·루빈 합산 매출이 시장 컨센서스를 압도하며 데이터센터가 1조 달러대로 진입한다.",
+          "evidence": [
+            {
+              "label": "데이터",
+              "text": "2025~27년 블랙웰+루빈 합산 매출을 약 1조 달러로 추정 → 데이터센터 총매출 약 1.1조 달러, 컨센서스 약 9,500억 달러를 상회(언론 인용)."
+            },
+            {
+              "label": "수요",
+              "text": "GTC 2026에서 젠슨 황이 블랙웰·베라 루빈 합쳐 '27년까지 1조 달러 주문' 언급, 차세대 루빈 램프가 다음 레그를 견인."
+            },
+            {
+              "label": "밸류",
+              "text": "$285 목표는 '27년 EPS에 여전히 건강한 멀티플을 얹은 수준 — 오버웨이트 유지."
+            }
+          ],
+          "conclusion": "루빈 램프가 컨센서스 갭을 메우는 한 추가 상향 여지. 오버웨이트(매수) 유지가 합리적.",
+          "sourceUrl": "https://www.thestreet.com/investing/stocks/morgan-stanley-sets-bold-new-price-target-on-nvidia-stock",
+          "id": "NVDA_3",
+          "curated": true,
+          "pinDate": "2026-06-15"
+        }
+      ],
+      "price": 192.53,
+      "change": -1.64,
+      "note": "추정 가격선(실제 일별종가 아님) · 리포트·목표가는 실제(웹 리서치)"
+    }
+  ],
+  "meta": {
+    "generated_at": "2026-06-29 13:36",
+    "source": "AI 에이전트 웹 리서치 (KB·한화·Goldman·Nomura 등)",
+    "n_stocks": 4,
+    "no_live_api": true
+  }
+}

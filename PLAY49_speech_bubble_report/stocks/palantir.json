@@ -1,0 +1,83 @@
+{
+  "ticker": "PLTR",
+  "name": "팔란티어",
+  "unit": "달러",
+  "currentPrice": 112.93,
+  "changePct": 5.28,
+  "asof": "2026-06-26",
+  "priceNote": "stockanalysis.com 6/26 종가 $112.93 (+5.28%), 7거래일 연속 하락 끊고 반등. series는 직전 종가 $107.30·최신 $112.93 두 실제 점을 앵커로 한 추정 트렌드(정확한 일별 종가 아님), 6/05~6/10 구간은 리포트 발행일을 차트에 얹기 위한 추정 lead-in.",
+  "series": [
+    {"date":"2026-06-05","value":135.00},
+    {"date":"2026-06-08","value":132.00},
+    {"date":"2026-06-09","value":130.20},
+    {"date":"2026-06-10","value":129.10},
+    {"date":"2026-06-11","value":128.40},
+    {"date":"2026-06-12","value":126.10},
+    {"date":"2026-06-13","value":124.85},
+    {"date":"2026-06-16","value":122.30},
+    {"date":"2026-06-17","value":120.05},
+    {"date":"2026-06-18","value":117.60},
+    {"date":"2026-06-19","value":115.20},
+    {"date":"2026-06-20","value":113.40},
+    {"date":"2026-06-23","value":110.95},
+    {"date":"2026-06-24","value":108.80},
+    {"date":"2026-06-25","value":107.30},
+    {"date":"2026-06-26","value":112.93}
+  ],
+  "reports": [
+    {
+      "date": "2026-06-05",
+      "firm": "Wedbush (Dan Ives)",
+      "source": "web",
+      "opinion": "매수",
+      "tone": "up",
+      "targetPrice": 230,
+      "newsImpact": 2,
+      "title": "Mag7 밖 최선호 AI 베팅",
+      "claim": "올해 40% 빠진 건 사업이 아니라 멀티플 탓이며, AIP가 기업 AI 지출의 1순위 수혜주라는 구조는 그대로다.",
+      "evidence": [
+        {"label":"수요","text":"Q1 2026 매출 +85%, FY 가이던스 약 $7.66B로 상향 — 미국 상업 부문 AIP 채택이 가속 국면."},
+        {"label":"논리","text":"정부 백로그 + 본딩된 데이터 온톨로지가 경쟁사가 못 복제하는 해자. Ives는 '프라임 포지션'이라 표현."},
+        {"label":"리스크","text":"강세론의 전제는 성장 지속 — 한 분기라도 둔화 신호가 나오면 멀티플이 먼저 무너진다는 점은 인정."}
+      ],
+      "conclusion": "조정을 매수 기회로 본다. $230(현재가 대비 ~2배 업사이드)은 Street 최상단부 공격적 타깃.",
+      "sourceUrl": "https://www.theglobeandmail.com/investing/markets/stocks/PLTR/pressreleases/32008282/wedbushs-dan-ives-says-palantir-stock-is-in-prime-position-should-you-buy-shares-here/"
+    },
+    {
+      "date": "2026-06-15",
+      "firm": "Morgan Stanley",
+      "source": "web",
+      "opinion": "중립",
+      "tone": "flat",
+      "targetPrice": 205,
+      "newsImpact": 0,
+      "title": "사업은 인정, 멀티플은 못 산다",
+      "claim": "팔란티어는 '너무 커서 무시 못 할' AI 플랫폼이지만, 현재 밸류는 완벽한 실행을 이미 가격에 박아둔 상태다.",
+      "evidence": [
+        {"label":"논리","text":"Q4 2025 실적 후 Equal-weight 유지 — 펀더멘털 품질과 주가 사이 괴리를 좁힐 촉매를 못 찾음."},
+        {"label":"밸류","text":"$205 타깃은 현재가 대비 의미 있는 업사이드지만, 등급은 중립에 묶어 '품질 좋은데 비싸다'는 입장을 명시."},
+        {"label":"리스크","text":"성장이 한 번이라도 어긋나면 P/S 60배대 멀티플은 하방 변동성을 증폭시킴."}
+      ],
+      "conclusion": "보유는 정당화되나 신규 비중 확대는 보류 — 멀티플 정상화 또는 추가 어닝 서프라이즈를 기다리는 자리.",
+      "sourceUrl": "https://www.thestreet.com/investing/stocks/morgan-stanley-resets-palantir-stock-forecast"
+    },
+    {
+      "date": "2026-06-10",
+      "firm": "Jefferies (Brent Thill)",
+      "source": "web",
+      "opinion": "매도",
+      "tone": "down",
+      "targetPrice": 70,
+      "newsImpact": -2,
+      "title": "소프트웨어 최고가, 지속 불가",
+      "claim": "성장은 뛰어나지만 2027 EV/Revenue 약 31배는 소프트웨어 업종에서 정당화 불가능한 수준이다.",
+      "evidence": [
+        {"label":"밸류","text":"Street 최저 $70 타깃. 31x 추정 2027 EV/Rev로 '소프트웨어에서 가장 비싼 이름'이라 규정."},
+        {"label":"리스크","text":"멀티클래스 주식 구조 + 창업자 지배력이 소수주주에 불리. 성장 둔화 시 디레이팅 폭이 큼."},
+        {"label":"데이터","text":"역DCF 기준 현재가에 내포된 매출 성장 가정이 비현실적이라는 게 약세론 핵심."}
+      ],
+      "conclusion": "밸류에이션 리셋 리스크가 비대칭적으로 크다 — 현재가에서도 추가 하방 여지를 본다.",
+      "sourceUrl": "https://public.com/stocks/pltr/forecast-price-target"
+    }
+  ]
+}

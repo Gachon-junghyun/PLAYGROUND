@@ -10,8 +10,9 @@
 
 - `N`은 순차 번호. 새 PLAY를 시작할 때는 루트에서 `PLAY*` 디렉토리를 훑어보고 가장 큰 N에 +1.
 - 이름은 영문 snake_case. 한국어/공백 금지. 예: `PLAY1_csv_dedupe`, `PLAY2_chart_renderer`.
-- **PLAY 간 의존 금지.** PLAY는 독립된 실험이다. 다른 PLAY의 코드를 import 하지 마라. 공통 로직이 정말 필요하면 사용자에게 먼저 물어봐라.
+- **PLAY 간 의존 금지.** PLAY는 독립된 실험이다. 다른 PLAY의 코드를 import 하지 마라. 공통 로직이 정말 필요하면 사용자에게 먼저 물어봐라. **유일한 예외는 `core/`** (아래 §9) — 검증된 인프라만 모아둔 곳이라 PLAY가 import해도 된다.
 - 기존에 있는 `module_text_chart/`는 레거시라서 명명 규칙에서 제외. 건드리라는 지시가 없으면 그대로 둔다.
+- `core/`도 명명 규칙(PLAY{N}_) 제외 — PLAY가 아니라 PLAY들이 딛는 공용 인프라 패키지다. §9 참고.
 
 PLAY 안 내부 구조는 PLAY 성격에 맞게 자유. 단, 루트에 **`README.md`는 필수**.
 
@@ -99,3 +100,34 @@ PLAY 안 내부 구조는 PLAY 성격에 맞게 자유. 단, 루트에 **`README
 - README 없이 작업 종료.
 - "TODO" 주석만 잔뜩 남기고 끝내기. TODO는 README에 모은다.
 - 사용자에게 진행 상황 보고하면서 README는 그대로 두기 — 보고와 README가 어긋나면 README가 진실이 되어야 한다.
+
+---
+
+## 9. core — 공용 인프라 (PLAY 의존 금지의 유일한 예외)
+
+루트의 `core/` 패키지는 실험이 아니라 **실험들이 딛고 서는 바닥**이다. 여러 PLAY가 복붙해 쓰던 인프라를 한 곳으로 승격해둔 곳. 자세한 계약은 `core/README.md`.
+
+**언제 core를 쓰나 (소비):** PLAY가 YouTube 다운로드/전사나 OHLCV 페치가 필요하면 새로 짜지 말고 `core`를 import. 무설치 path shim 2줄(`core/README.md`에 스니펫):
+```python
+import sys, pathlib
+for _p in pathlib.Path(__file__).resolve().parents:
+    if (_p / "core" / "__init__.py").exists():
+        sys.path.insert(0, str(_p)); break
+from core.media import download, run_batch       # YouTube + Whisper
+from core.market import fetch, write_csv         # OHLCV
+```
+
+**언제 core에 *올리나* (승격) — 게이트, 셋 다 만족해야 함:**
+1. **3개+ PLAY가 실제로 쓴다.**
+2. **지루하고 안정적** — 자주 안 바뀜.
+3. **인터페이스가 깔끔** — `fetch(ticker) -> rows` 수준.
+   애매하면 PLAY 안에 인라인으로 두고, 3번째 PLAY가 또 쓰면 그때 승격. **잡동사니 서랍 만들지 마라.** 새로 뭔가 core에 올릴 땐 사용자에게 먼저 확인.
+
+**절대 규칙:**
+- **의존 방향은 `PLAY → core` 한 방향.** core는 어떤 PLAY도 import하지 않는다. (core가 PLAY를 알면 죽은 실험이 core를 깨뜨린다.)
+- **무거운 의존성은 함수 안에서 lazy import.** `import core`만으로 torch/whisper가 안 끌려와야 함. 설치(`pip install faster-whisper` 등)는 사전 준비 — 45초 Bash 실행 경로에 두지 마라.
+- **출력 경로는 인자로.** core 함수는 자기 폴더에 안 쓴다. 소비자가 경로를 넘긴다.
+
+**현재 등재:** `core.media`(YouTube 발견/다운로드/Whisper 전사 — PLAY5/6/7·PLAY33 통합), `core.market`(OHLCV, yfinance→KRX→dummy — PLAY15 승격).
+
+**마이그레이션은 점진적.** 기존 PLAY들은 아직 자기 복사본을 들고 있다. core로 갈아끼우는 건 PLAY별로 따로, 지시받을 때.
